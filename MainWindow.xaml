@@ -1,0 +1,83 @@
+﻿<Window x:Class="Prosperity.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prosperity"
+        mc:Ignorable="d"
+        Title="Администрирование" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Viewbox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
+            <TextBlock Text="Процветание" Style="{StaticResource CaptionSections}" />
+        </Viewbox>
+
+        <Viewbox Grid.Column="15" Grid.Row="1" Grid.ColumnSpan="4">
+            <TextBlock Text="Дисциплины" Style="{StaticResource CaptionSections}" />
+        </Viewbox>
+
+        <Viewbox Grid.Column="15" Grid.Row="3" Grid.ColumnSpan="4">
+            <TextBlock Text="Специальности" Style="{StaticResource CaptionSections}" />
+        </Viewbox>
+
+        <Viewbox Grid.Column="15" Grid.Row="5" Grid.ColumnSpan="4">
+            <TextBlock Text="Общие" Style="{StaticResource CaptionSections}" />
+        </Viewbox>
+
+        <Viewbox Grid.Column="15" Grid.Row="7" Grid.ColumnSpan="4">
+            <TextBlock Text="Профессиональные" Style="{StaticResource CaptionSections}" />
+        </Viewbox>
+
+    </Grid>
+</Window>

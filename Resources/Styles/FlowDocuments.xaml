@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="RegularCells">
+        <Setter Property="TableCell.BorderBrush" Value="Black"/>
+        <Setter Property="TableCell.BorderThickness" Value="0.5"/>
+    </Style>
+    <Style x:Key="RegularTable">
+        <Setter Property="Table.BorderBrush" Value="Black"/>
+        <Setter Property="Table.BorderThickness" Value="0.5"/>
+        <Setter Property="Table.Margin" Value="0"/>
+        <Setter Property="Table.Padding" Value="0"/>
+        <Setter Property="Table.CellSpacing" Value="0"/>
+    </Style>
+    <Style x:Key="RegularParagraph">
+        <Setter Property="Paragraph.FontSize" Value="14pt"/>
+        <Setter Property="Paragraph.FontFamily" Value="Times New Roman"/>
+    </Style>
+</ResourceDictionary>
