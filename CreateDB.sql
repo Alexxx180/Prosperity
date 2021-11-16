@@ -1,0 +1,1 @@
+CREATE DATABASE `Prosperity` /*!40100 COLLATE 'utf8mb4_unicode_ci' */;
