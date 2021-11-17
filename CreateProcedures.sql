@@ -524,47 +524,280 @@ BEGIN
 END
 
 
--- table: specialities
+-- table: disciplines
 
-CREATE PROCEDURE add_speciality(
+CREATE PROCEDURE add_discipline(
 	code MEDIUMINT,
-	name VARCHAR(250)
+	discipline_hours MEDIUMINT,
+	name VARCHAR(250),
+	relation VARCHAR(500),
+	distance_course VARCHAR(500),
+	prepare_way VARCHAR(500)
 	)
 BEGIN
-	INSERT INTO specialities(
+	INSERT INTO disciplines(
 	`Code`,
-	`Name`
+	`Hours`,
+	`Name`,
+	`Relation`,
+	`DistanceCourse`,
+	`PrepareWay`
 	)
 	VALUES (
+	code,
+	discipline_hours,
 	name,
-	code
+	relation,
+	distance_course,
+	prepare_way
 	);
 END
 
-CREATE PROCEDURE get_speciality(id MEDIUMINT)
+CREATE PROCEDURE get_discipline(id MEDIUMINT)
 BEGIN
-	SELECT * FROM specialities WHERE `ID` = id;
+	SELECT * FROM disciplines WHERE `ID` = id;
 END
 
-CREATE PROCEDURE set_speciality(
+CREATE PROCEDURE set_discipline(
 	id MEDIUMINT,
 	code MEDIUMINT,
-	name VARCHAR(250)
+	discipline_hours MEDIUMINT,
+	name VARCHAR(250),
+	relation VARCHAR(500),
+	distance_course VARCHAR(500),
+	prepare_way VARCHAR(500)
 	)
 BEGIN
-	UPDATE specialities
+	UPDATE disciplines
 	SET
 	`Code` = code,
-	`Name` = name
+	`Hours` = discipline_hours,
+	`Name` = name,
+	`Relation` = relation,
+	`DistanceCourse` = distance_course,
+	`PrepareWay` = prepare_way
 	WHERE `ID` = id;
 END
 
-CREATE PROCEDURE drop_speciality(id MEDIUMINT)
+CREATE PROCEDURE drop_discipline(id MEDIUMINT)
 BEGIN
-	DELETE FROM specialities WHERE `ID` = id;
+	DELETE FROM disciplines WHERE `ID` = id;
 END
 
-CREATE PROCEDURE drop_all_specialities()
+CREATE PROCEDURE drop_all_disciplines()
 BEGIN
-	DELETE FROM specialities;
+	DELETE FROM disciplines;
+END
+
+
+-- table: theme_plan
+
+CREATE PROCEDURE add_section(
+	discipline MEDIUMINT,
+	section_no MEDIUMINT,
+	name VARCHAR(500),
+	section_hours MEDIUMINT
+	)
+BEGIN
+	INSERT INTO theme_plan(
+	`Discipline`,
+	`No`,
+	`Name`,
+	`Hours`
+	)
+	VALUES (
+	discipline,
+	section_no,
+	name,
+	section_hours
+	);
+END
+
+CREATE PROCEDURE get_section(id MEDIUMINT)
+BEGIN
+	SELECT * FROM theme_plan WHERE `ID` = id;
+END
+
+CREATE PROCEDURE set_section(
+	id MEDIUMINT,
+	discipline MEDIUMINT,
+	section_no MEDIUMINT,
+	name VARCHAR(500),
+	section_hours MEDIUMINT
+	)
+BEGIN
+	UPDATE theme_plan
+	SET
+	`Discipline` = discipline,
+	`No` = section_no,
+	`Name` = name,
+	`Hours` = section_hours
+	WHERE `ID` = id;
+END
+
+CREATE PROCEDURE drop_section(id MEDIUMINT)
+BEGIN
+	DELETE FROM theme_plan WHERE `ID` = id;
+END
+
+CREATE PROCEDURE drop_all_theme_plan()
+BEGIN
+	DELETE FROM theme_plan;
+END
+
+
+-- table: themes
+
+CREATE PROCEDURE add_theme(
+	topic MEDIUMINT,
+	mastering_level MEDIUMINT,
+	theme_no MEDIUMINT,
+	name VARCHAR(500),
+	theme_hours MEDIUMINT
+	)
+BEGIN
+	INSERT INTO themes(
+	`Topic`,
+	`Level`,
+	`No`,
+	`Name`,
+	`Hours`
+	)
+	VALUES (
+	topic,
+	mastering_level,
+	theme_no,
+	name,
+	theme_hours
+	);
+END
+
+CREATE PROCEDURE get_theme(id MEDIUMINT)
+BEGIN
+	SELECT * FROM themes WHERE `ID` = id;
+END
+
+CREATE PROCEDURE set_theme(
+	id MEDIUMINT,
+	topic MEDIUMINT,
+	mastering_level MEDIUMINT,
+	theme_no MEDIUMINT,
+	name VARCHAR(500),
+	theme_hours MEDIUMINT
+	)
+BEGIN
+	UPDATE themes
+	SET
+	`Topic` = topic,
+	`Level` = mastering_level,
+	`No` = theme_no,
+	`Name` = name,
+	`Hours` = theme_hours
+	WHERE `ID` = id;
+END
+
+CREATE PROCEDURE drop_theme(id MEDIUMINT)
+BEGIN
+	DELETE FROM themes WHERE `ID` = id;
+END
+
+CREATE PROCEDURE drop_all_themes()
+BEGIN
+	DELETE FROM themes;
+END
+
+
+-- table: works
+
+CREATE PROCEDURE add_work(
+	theme MEDIUMINT,
+	work_type MEDIUMINT
+	)
+BEGIN
+	INSERT INTO works(
+	`Theme`,
+	`Type`
+	)
+	VALUES (
+	theme,
+	work_type
+	);
+END
+
+CREATE PROCEDURE get_work(id MEDIUMINT)
+BEGIN
+	SELECT * FROM works WHERE `ID` = id;
+END
+
+CREATE PROCEDURE set_work(
+	id MEDIUMINT,
+	theme MEDIUMINT,
+	work_type MEDIUMINT
+	)
+BEGIN
+	UPDATE works
+	SET
+	`Theme` = theme,
+	`Type` = work_type
+	WHERE `ID` = id;
+END
+
+CREATE PROCEDURE drop_work(id MEDIUMINT)
+BEGIN
+	DELETE FROM works WHERE `ID` = id;
+END
+
+CREATE PROCEDURE drop_all_works()
+BEGIN
+	DELETE FROM works;
+END
+
+
+-- table: tasks
+
+CREATE PROCEDURE add_task(
+	work_id MEDIUMINT,
+	name VARCHAR(500),
+	task_hours MEDIUMINT
+	)
+BEGIN
+	INSERT INTO tasks(
+	`Work`,
+	`Name`,
+	`Hours`
+	)
+	VALUES (
+	work_id,
+	name,
+	task_hours
+	);
+END
+
+CREATE PROCEDURE get_task(id MEDIUMINT)
+BEGIN
+	SELECT * FROM tasks WHERE `ID` = id;
+END
+
+CREATE PROCEDURE set_task(
+	work_id MEDIUMINT,
+	name VARCHAR(500),
+	task_hours MEDIUMINT
+	)
+BEGIN
+	UPDATE tasks
+	SET
+	`Work` = work_id,
+	`Name` = name,
+	`Hours` = task_hours
+	WHERE `ID` = id;
+END
+
+CREATE PROCEDURE drop_task(id MEDIUMINT)
+BEGIN
+	DELETE FROM tasks WHERE `ID` = id;
+END
+
+CREATE PROCEDURE drop_all_tasks()
+BEGIN
+	DELETE FROM tasks;
 END
