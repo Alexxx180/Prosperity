@@ -68,3 +68,18 @@ BEGIN
 		AND `Work_type` = type_id
 	);
 END;
+
+
+CREATE FUNCTION get_theme_by_task_id(IN task_id MEDIUMINT)
+RETURNS MEDIUMINT
+BEGIN
+	RETURN (
+		SELECT `Theme`
+		FROM works
+		WHERE `ID` = (
+			SELECT `Work`
+			FROM tasks
+			WHERE `ID` = task_id		
+		)
+	);
+END;
