@@ -45,19 +45,16 @@ END;
 
 -- table: hours
 
+delimiter \;
+
 CREATE PROCEDURE add_hour(
-	course MEDIUMINT,
-	control MEDIUMINT,
-	lections MEDIUMINT,
-	practice MEDIUMINT,
-	lab_works MEDIUMINT,
-	prepare_works MEDIUMINT
+	discipline_id MEDIUMINT,
+	work_type_id MEDIUMINT,
+	hours_count MEDIUMINT
 	)
 BEGIN
-	INSERT INTO hours(`Course`, `Control`,
-	`Lections`, `Practice`, `LabWorks`, `Prepare`)
-	VALUES (course, control, lections,
-	practice, lab_works, prepare_works);
+	INSERT INTO hours(`Discipline`, `WorkType`,`Count`)
+	VALUES (discipline_id, discipline_id, hours_count);
 END;
 
 CREATE PROCEDURE get_hour(id MEDIUMINT)
@@ -65,24 +62,20 @@ BEGIN
 	SELECT * FROM hours WHERE `ID` = id;
 END;
 
+delimiter \;
+
 CREATE PROCEDURE set_hour(
 		id MEDIUMINT,
-		course MEDIUMINT,
-		control MEDIUMINT,
-		lections MEDIUMINT,
-		practice MEDIUMINT,
-		lab_works MEDIUMINT,
-		prepare_works MEDIUMINT
+		discipline_id MEDIUMINT,
+		work_type_id MEDIUMINT,
+		hours_count MEDIUMINT
 		)
 BEGIN
 	UPDATE hours
 	SET
-	`Course` = course,
-	`Control` = control,
-	`Lections` = lections,
-	`Practice` = practice,
-	`LabWorks` = lab_works,
-	`Prepare` = prepare_works
+	`Discipline` = discipline_id,
+	`WorkType` = work_type_id,
+	`Count` = hours_count
 	WHERE `ID` = id;
 END;
 
@@ -133,9 +126,11 @@ END;
 
 -- table: speciality_codes
 
+delimiter \;
+
 CREATE PROCEDURE add_speciality_code(name VARCHAR(50))
 BEGIN
-	INSERT INTO speciality_codes(`Name`)
+	INSERT INTO speciality_codes(`Code`)
 	VALUES (name);
 END;
 
@@ -144,13 +139,15 @@ BEGIN
 	SELECT * FROM speciality_codes WHERE `ID` = id;
 END;
 
+delimiter \;
+
 CREATE PROCEDURE set_speciality_code(
 		id MEDIUMINT,
 		name VARCHAR(50)
 		)
 BEGIN
 	UPDATE speciality_codes
-	SET `Name` = name
+	SET `Code` = name
 	WHERE `ID` = id;
 END;
 
@@ -283,6 +280,8 @@ END;
 
 -- table: specialities
 
+delimiter \;
+
 CREATE PROCEDURE add_speciality(
 	code MEDIUMINT,
 	name VARCHAR(250)
@@ -293,8 +292,8 @@ BEGIN
 	`Name`
 	)
 	VALUES (
-	name,
-	code
+	code,
+	name
 	);
 END;
 
@@ -302,6 +301,8 @@ CREATE PROCEDURE get_speciality(id MEDIUMINT)
 BEGIN
 	SELECT * FROM specialities WHERE `ID` = id;
 END;
+
+delimiter \;
 
 CREATE PROCEDURE set_speciality(
 	id MEDIUMINT,
@@ -329,8 +330,9 @@ END;
 
 -- table: general_competetions
 
+delimiter \;
+
 CREATE PROCEDURE add_general_competetion(
-	code MEDIUMINT,
 	speciality MEDIUMINT,
 	comp_no MEDIUMINT,
 	name VARCHAR(250),
@@ -339,7 +341,6 @@ CREATE PROCEDURE add_general_competetion(
 	)
 BEGIN
 	INSERT INTO general_competetions(
-	`Code`,
 	`Speciality`,
 	`No`,
 	`Name`,
@@ -347,7 +348,6 @@ BEGIN
 	`Skills`
 	)
 	VALUES (
-	code,
 	speciality,
 	comp_no,
 	name,
@@ -361,9 +361,10 @@ BEGIN
 	SELECT * FROM general_competetions WHERE `ID` = id;
 END;
 
+delimiter \;
+
 CREATE PROCEDURE set_general_competetion(
 	id MEDIUMINT,
-	code MEDIUMINT,
 	speciality MEDIUMINT,
 	comp_no MEDIUMINT,
 	name VARCHAR(250),
@@ -373,7 +374,6 @@ CREATE PROCEDURE set_general_competetion(
 BEGIN
 	UPDATE general_competetions
 	SET
-	`Code` = code,
 	`Speciality` = speciality,
 	`No` = comp_no,
 	`Name` = name,
@@ -395,8 +395,9 @@ END;
 
 -- table: professional_competetions
 
+delimiter \;
+
 CREATE PROCEDURE add_professional_competetion(
-	code MEDIUMINT,
 	speciality MEDIUMINT,
 	comp_no1 MEDIUMINT,
 	comp_no2 MEDIUMINT,
@@ -407,7 +408,6 @@ CREATE PROCEDURE add_professional_competetion(
 	)
 BEGIN
 	INSERT INTO professional_competetions(
-	`Code`,
 	`Speciality`,
 	`No1`,
 	`No2`,
@@ -417,7 +417,6 @@ BEGIN
 	`Experience`
 	)
 	VALUES (
-	code,
 	speciality,
 	comp_no1,
 	comp_no2,
@@ -433,9 +432,10 @@ BEGIN
 	SELECT * FROM professional_competetions WHERE `ID` = id;
 END;
 
+delimiter \;
+
 CREATE PROCEDURE set_professional_competetion(
 	id MEDIUMINT,
-	code MEDIUMINT,
 	speciality MEDIUMINT,
 	comp_no1 MEDIUMINT,
 	comp_no2 MEDIUMINT,
@@ -447,7 +447,6 @@ CREATE PROCEDURE set_professional_competetion(
 BEGIN
 	UPDATE professional_competetions
 	SET
-	`Code` = code,
 	`Speciality` = speciality,
 	`No1` = comp_no1,
 	`No2` = comp_no2,

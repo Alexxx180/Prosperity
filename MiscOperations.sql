@@ -22,3 +22,6 @@ ADD FOREIGN KEY Hours_Disciplines (`Discipline`)
   	 ALTER TABLE Hours
 ADD FOREIGN KEY Hours_Work_Types (`WorkType`)
 	  REFERENCES Work_types (ID);
+	  
+DELETE FROM speciality_codes WHERE `ID` >= 4;
+UPDATE speciality_codes SET `Code` = "15.02.14" WHERE `ID` = 2;
