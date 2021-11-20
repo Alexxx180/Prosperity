@@ -70,6 +70,8 @@ BEGIN
 END;
 
 
+-- get ID's
+
 CREATE FUNCTION get_theme_by_task_id(IN task_id MEDIUMINT)
 RETURNS MEDIUMINT
 BEGIN
@@ -81,5 +83,15 @@ BEGIN
 			FROM tasks
 			WHERE `ID` = task_id		
 		)
+	);
+END;
+
+CREATE FUNCTION get_topic_by_theme_id(IN theme_id MEDIUMINT)
+RETURNS MEDIUMINT
+BEGIN
+	RETURN (
+		SELECT `Topic`
+		FROM Themes
+		WHERE `ID` = theme_id
 	);
 END;

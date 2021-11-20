@@ -64,9 +64,13 @@ ADD FOREIGN KEY Sources_Source_Types (`Type`)
 ADD FOREIGN KEY Disciplines_Discipline_Codes (`Code`)
 	  REFERENCES Discipline_Codes (ID);
 	  
-  	 ALTER TABLE Disciplines
-ADD FOREIGN KEY Disciplines_Hours (`Hours`)
-	  REFERENCES Hours (ID);
+  	 ALTER TABLE Hours
+ADD FOREIGN KEY Hours_Disciplines (`Discipline`)
+	  REFERENCES Disciplines (ID);
+	  
+  	 ALTER TABLE Hours
+ADD FOREIGN KEY Hours_Work_Types (`WorkType`)
+	  REFERENCES Work_types (ID);
 	  
   	 ALTER TABLE Conformity
 ADD FOREIGN KEY Conformity_Discipline (`Discipline`)
