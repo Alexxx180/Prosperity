@@ -802,8 +802,3 @@ CREATE PROCEDURE drop_all_tasks()
 BEGIN
 	DELETE FROM tasks;
 END;
-
-
--- Custom procedures
-
-
