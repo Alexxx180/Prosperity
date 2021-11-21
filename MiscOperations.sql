@@ -25,3 +25,12 @@ ADD FOREIGN KEY Hours_Work_Types (`WorkType`)
 	  
 DELETE FROM speciality_codes WHERE `ID` >= 4;
 UPDATE speciality_codes SET `Code` = "15.02.14" WHERE `ID` = 2;
+
+ALTER TABLE Competetions_mastering DROP FOREIGN KEY Competetions_Mastering_Themes;
+ALTER TABLE Competetions_mastering CHANGE COLUMN `Theme` `Discipline` MEDIUMINT NOT NULL;
+
+	 ALTER TABLE Competetions_Mastering
+ADD FOREIGN KEY Competetions_Mastering_Disciplines (`Discipline`)
+	  REFERENCES Disciplines (ID);
+	  
+	  

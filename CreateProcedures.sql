@@ -164,6 +164,14 @@ END;
 
 -- table: work_types
 
+delimiter \;
+
+CREATE PROCEDURE add_work_type_ignore_increment(type_id MEDIUMINT, name VARCHAR(50))
+BEGIN
+	INSERT INTO work_types(`ID`, `Name`)
+	VALUES (type_id, name);
+END;
+
 CREATE PROCEDURE add_work_type(name VARCHAR(50))
 BEGIN
 	INSERT INTO work_types(`Name`)
@@ -231,6 +239,59 @@ END;
 
 -- Tables with relations
 -- to other smaller tables
+
+-- table: source
+
+delimiter \;
+
+CREATE PROCEDURE add_source(
+	discipline MEDIUMINT,
+	type_id MEDIUMINT,
+	name VARCHAR(50)
+)
+BEGIN
+	INSERT INTO sources(
+		`Discipline`,
+		`Type`,
+		`Name`
+	)
+	VALUES (
+		discipline,
+		type_id,
+		name
+	);
+END;
+
+CREATE PROCEDURE get_source(id MEDIUMINT)
+BEGIN
+	SELECT * FROM sources WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE set_source(
+		id MEDIUMINT,
+		discipline MEDIUMINT,
+		type_id MEDIUMINT,
+		name VARCHAR(50)
+		)
+BEGIN
+	UPDATE sources
+	SET 
+	`Discipline` = discipline,
+	`Type` = type_id,
+	`Name` = name
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_source(id MEDIUMINT)
+BEGIN
+	DELETE FROM sources WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_all_sources()
+BEGIN
+	DELETE FROM sources;
+END;
+
 
 -- table: conformity
 
@@ -467,68 +528,218 @@ BEGIN
 	DELETE FROM professional_competetions;
 END;
 
+delimiter \;
 
--- table: competetions_mastering
+-- table: general_mastering
 
-CREATE PROCEDURE add_competetion_mastering(
+CREATE PROCEDURE add_general_mastering(
 	code MEDIUMINT,
 	theme MEDIUMINT,
-	general MEDIUMINT,
-	professional MEDIUMINT
+	mastering MEDIUMINT
 	)
 BEGIN
-	INSERT INTO competetions_mastering(
+	INSERT INTO general_mastering(
 	`Code`,
 	`Theme`,
-	`General`,
-	`Professional`
+	`Mastering`
 	)
 	VALUES (
 	code,
 	theme,
-	general,
-	professional
+	mastering
 	);
 END;
 
-CREATE PROCEDURE get_competetion_mastering(id MEDIUMINT)
+CREATE PROCEDURE get_general_mastering(id MEDIUMINT)
 BEGIN
-	SELECT * FROM competetions_mastering WHERE `ID` = id;
+	SELECT * FROM general_mastering WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE set_competetion_mastering(
+CREATE PROCEDURE set_general_mastering(
 	id MEDIUMINT,
 	code MEDIUMINT,
 	theme MEDIUMINT,
-	general MEDIUMINT,
-	professional MEDIUMINT
+	mastering MEDIUMINT
 	)
 BEGIN
-	UPDATE competetions_mastering
+	UPDATE general_mastering
 	SET
 	`Code` = code,
 	`Theme` = Theme,
-	`General` = general,
-	`Professional` = professional
+	`Mastering` = mastering
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_competetion_mastering(id MEDIUMINT)
+CREATE PROCEDURE drop_general_mastering(id MEDIUMINT)
 BEGIN
-	DELETE FROM competetions_mastering WHERE `ID` = id;
+	DELETE FROM general_mastering WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_all_competetions_mastering()
+CREATE PROCEDURE drop_all_general_mastering()
 BEGIN
-	DELETE FROM competetions_mastering;
+	DELETE FROM general_mastering;
+END;
+
+
+-- table: professional_mastering
+
+CREATE PROCEDURE add_professional_mastering(
+	code MEDIUMINT,
+	theme MEDIUMINT,
+	mastering MEDIUMINT
+	)
+BEGIN
+	INSERT INTO professional_mastering(
+	`Code`,
+	`Theme`,
+	`Mastering`
+	)
+	VALUES (
+	code,
+	theme,
+	mastering
+	);
+END;
+
+CREATE PROCEDURE get_professional_mastering(id MEDIUMINT)
+BEGIN
+	SELECT * FROM professional_mastering WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE set_professional_mastering(
+	id MEDIUMINT,
+	code MEDIUMINT,
+	theme MEDIUMINT,
+	mastering MEDIUMINT
+	)
+BEGIN
+	UPDATE professional_mastering
+	SET
+	`Code` = code,
+	`Theme` = Theme,
+	`Mastering` = mastering
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_professional_mastering(id MEDIUMINT)
+BEGIN
+	DELETE FROM professional_mastering WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_all_professional_mastering()
+BEGIN
+	DELETE FROM professional_mastering;
+END;
+
+
+-- table: general_selection
+
+CREATE PROCEDURE add_general_selection(
+	code MEDIUMINT,
+	theme MEDIUMINT,
+	mastering MEDIUMINT
+	)
+BEGIN
+	INSERT INTO general_selection(
+	`Code`,
+	`Theme`,
+	`Mastering`
+	)
+	VALUES (
+	code,
+	theme,
+	mastering
+	);
+END;
+
+CREATE PROCEDURE get_general_selection(id MEDIUMINT)
+BEGIN
+	SELECT * FROM general_selection WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE set_general_selection(
+	id MEDIUMINT,
+	code MEDIUMINT,
+	theme MEDIUMINT,
+	mastering MEDIUMINT
+	)
+BEGIN
+	UPDATE general_selection
+	SET
+	`Code` = code,
+	`Theme` = Theme,
+	`Mastering` = mastering
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_general_selection(id MEDIUMINT)
+BEGIN
+	DELETE FROM general_selection WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_all_general_selection()
+BEGIN
+	DELETE FROM general_selection;
+END;
+
+
+-- table: professional_selection
+
+CREATE PROCEDURE add_professional_selection(
+	code MEDIUMINT,
+	theme MEDIUMINT,
+	mastering MEDIUMINT
+	)
+BEGIN
+	INSERT INTO professional_selection(
+	`Code`,
+	`Theme`,
+	`Mastering`
+	)
+	VALUES (
+	code,
+	theme,
+	mastering
+	);
+END;
+
+CREATE PROCEDURE get_professional_selection(id MEDIUMINT)
+BEGIN
+	SELECT * FROM professional_selection WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE set_professional_selection(
+	id MEDIUMINT,
+	code MEDIUMINT,
+	theme MEDIUMINT,
+	mastering MEDIUMINT
+	)
+BEGIN
+	UPDATE professional_selection
+	SET
+	`Code` = code,
+	`Theme` = Theme,
+	`Mastering` = mastering
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_professional_selection(id MEDIUMINT)
+BEGIN
+	DELETE FROM professional_selection WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_all_professional_selection()
+BEGIN
+	DELETE FROM professional_selection;
 END;
 
 
 -- table: disciplines
 
+delimiter \;
+
 CREATE PROCEDURE add_discipline(
 	code MEDIUMINT,
-	discipline_hours MEDIUMINT,
 	name VARCHAR(250),
 	relation VARCHAR(500),
 	distance_course VARCHAR(500),
@@ -537,7 +748,6 @@ CREATE PROCEDURE add_discipline(
 BEGIN
 	INSERT INTO disciplines(
 	`Code`,
-	`Hours`,
 	`Name`,
 	`Relation`,
 	`DistanceCourse`,
@@ -545,7 +755,6 @@ BEGIN
 	)
 	VALUES (
 	code,
-	discipline_hours,
 	name,
 	relation,
 	distance_course,
@@ -558,10 +767,11 @@ BEGIN
 	SELECT * FROM disciplines WHERE `ID` = id;
 END;
 
+delimiter \;
+
 CREATE PROCEDURE set_discipline(
 	id MEDIUMINT,
 	code MEDIUMINT,
-	discipline_hours MEDIUMINT,
 	name VARCHAR(250),
 	relation VARCHAR(500),
 	distance_course VARCHAR(500),
@@ -571,7 +781,6 @@ BEGIN
 	UPDATE disciplines
 	SET
 	`Code` = code,
-	`Hours` = discipline_hours,
 	`Name` = name,
 	`Relation` = relation,
 	`DistanceCourse` = distance_course,

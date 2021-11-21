@@ -20,17 +20,39 @@ ADD FOREIGN KEY Themes_Levels (`Level`)
 ADD FOREIGN KEY Themes_Theme_Plan (`Topic`)
 	  REFERENCES Theme_Plan (ID);
 	  
-	 ALTER TABLE Competetions_Mastering
-ADD FOREIGN KEY Competetions_Mastering_Themes (`Theme`)
-	  REFERENCES Themes (ID);
 	  
-	 ALTER TABLE Competetions_Mastering
-ADD FOREIGN KEY Competetions_Mastering_General_Competetions (`General`)
+	 ALTER TABLE General_Mastering
+ADD FOREIGN KEY General_Mastering_Disciplines (`Discipline`)
+	  REFERENCES Disciplines (ID);
+	  
+	 ALTER TABLE General_Mastering
+ADD FOREIGN KEY General_Mastering_General_Competetions (`Mastering`)
 	  REFERENCES General_Competetions (ID);
 	  
-	 ALTER TABLE Competetions_Mastering
-ADD FOREIGN KEY Competetions_Mastering_Professional_Competetions (`Professional`)
+  	 ALTER TABLE General_Selection
+ADD FOREIGN KEY General_Selection_General_Mastering (`Mastering`)
+	  REFERENCES General_Mastering (ID);
+	  
+	 ALTER TABLE General_Selection
+ADD FOREIGN KEY General_Selection_Themes (`Theme`)
+	  REFERENCES Themes (ID);
+
+	 ALTER TABLE Professional_Mastering
+ADD FOREIGN KEY Professional_Mastering_Disciplines (`Discipline`)
+	  REFERENCES Disciplines (ID);
+	  
+	 ALTER TABLE Professional_Mastering
+ADD FOREIGN KEY Competetions_Mastering_Professional_Competetions (`Mastering`)
 	  REFERENCES Professional_Competetions (ID);
+	  
+  	 ALTER TABLE Professional_Selection
+ADD FOREIGN KEY Professional_Selection_Professional_Mastering (`Mastering`)
+	  REFERENCES Professional_Mastering (ID);
+	  
+	 ALTER TABLE Professional_Selection
+ADD FOREIGN KEY Professional_Selection_Themes (`Theme`)
+	  REFERENCES Themes (ID);
+	  
 	  
 	 ALTER TABLE General_Competetions
 ADD FOREIGN KEY General_Competetions_Specialities (`Speciality`)
