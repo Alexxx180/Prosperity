@@ -14,13 +14,13 @@ BEGIN
 	VALUES (name, description);
 END;
 
-CREATE PROCEDURE get_level(id MEDIUMINT)
+CREATE PROCEDURE get_level(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM levels	WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_level(
-	id MEDIUMINT,
+	id INT UNSIGNED,
 	name VARCHAR(50), 
 	description VARCHAR(500)
 	)
@@ -32,7 +32,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_level(id MEDIUMINT)
+CREATE PROCEDURE drop_level(id INT UNSIGNED)
 BEGIN
 	DELETE FROM levels WHERE `ID` = id;
 END;
@@ -45,30 +45,30 @@ END;
 
 -- table: hours
 
-delimiter \;
+
 
 CREATE PROCEDURE add_hour(
-	discipline_id MEDIUMINT,
-	work_type_id MEDIUMINT,
-	hours_count MEDIUMINT
+	discipline_id INT UNSIGNED,
+	work_type_id INT UNSIGNED,
+	hours_count INT UNSIGNED
 	)
 BEGIN
 	INSERT INTO hours(`Discipline`, `WorkType`,`Count`)
 	VALUES (discipline_id, discipline_id, hours_count);
 END;
 
-CREATE PROCEDURE get_hour(id MEDIUMINT)
+CREATE PROCEDURE get_hour(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM hours WHERE `ID` = id;
 END;
 
-delimiter \;
+
 
 CREATE PROCEDURE set_hour(
-		id MEDIUMINT,
-		discipline_id MEDIUMINT,
-		work_type_id MEDIUMINT,
-		hours_count MEDIUMINT
+		id INT UNSIGNED,
+		discipline_id INT UNSIGNED,
+		work_type_id INT UNSIGNED,
+		hours_count INT UNSIGNED
 		)
 BEGIN
 	UPDATE hours
@@ -79,7 +79,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_hour(id MEDIUMINT)
+CREATE PROCEDURE drop_hour(id INT UNSIGNED)
 BEGIN
 	DELETE FROM hours WHERE `ID` = id;
 END;
@@ -98,13 +98,13 @@ BEGIN
 	VALUES (name);
 END;
 
-CREATE PROCEDURE get_discipline_code(id MEDIUMINT)
+CREATE PROCEDURE get_discipline_code(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM discipline_codes WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_discipline_code(
-		id MEDIUMINT,
+		id INT UNSIGNED,
 		name VARCHAR(50)
 		)
 BEGIN
@@ -113,7 +113,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_discipline_code(id MEDIUMINT)
+CREATE PROCEDURE drop_discipline_code(id INT UNSIGNED)
 BEGIN
 	DELETE FROM discipline_codes WHERE `ID` = id;
 END;
@@ -126,7 +126,7 @@ END;
 
 -- table: speciality_codes
 
-delimiter \;
+
 
 CREATE PROCEDURE add_speciality_code(name VARCHAR(50))
 BEGIN
@@ -134,15 +134,15 @@ BEGIN
 	VALUES (name);
 END;
 
-CREATE PROCEDURE get_speciality_code(id MEDIUMINT)
+CREATE PROCEDURE get_speciality_code(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM speciality_codes WHERE `ID` = id;
 END;
 
-delimiter \;
+
 
 CREATE PROCEDURE set_speciality_code(
-		id MEDIUMINT,
+		id INT UNSIGNED,
 		name VARCHAR(50)
 		)
 BEGIN
@@ -151,7 +151,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_speciality_code(id MEDIUMINT)
+CREATE PROCEDURE drop_speciality_code(id INT UNSIGNED)
 BEGIN
 	DELETE FROM speciality_codes WHERE `ID` = id;
 END;
@@ -164,9 +164,9 @@ END;
 
 -- table: work_types
 
-delimiter \;
 
-CREATE PROCEDURE add_work_type_ignore_increment(type_id MEDIUMINT, name VARCHAR(50))
+
+CREATE PROCEDURE add_work_type_ignore_increment(type_id INT UNSIGNED, name VARCHAR(50))
 BEGIN
 	INSERT INTO work_types(`ID`, `Name`)
 	VALUES (type_id, name);
@@ -178,13 +178,13 @@ BEGIN
 	VALUES (name);
 END;
 
-CREATE PROCEDURE get_work_type(id MEDIUMINT)
+CREATE PROCEDURE get_work_type(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM work_types WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_work_type(
-		id MEDIUMINT,
+		id INT UNSIGNED,
 		name VARCHAR(50)
 		)
 BEGIN
@@ -193,7 +193,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_work_type(id MEDIUMINT)
+CREATE PROCEDURE drop_work_type(id INT UNSIGNED)
 BEGIN
 	DELETE FROM work_types WHERE `ID` = id;
 END;
@@ -212,13 +212,13 @@ BEGIN
 	VALUES (name);
 END;
 
-CREATE PROCEDURE get_source_type(id MEDIUMINT)
+CREATE PROCEDURE get_source_type(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM source_types WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_source_type(
-		id MEDIUMINT,
+		id INT UNSIGNED,
 		name VARCHAR(50)
 		)
 BEGIN
@@ -227,7 +227,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_source_type(id MEDIUMINT)
+CREATE PROCEDURE drop_source_type(id INT UNSIGNED)
 BEGIN
 	DELETE FROM source_types WHERE `ID` = id;
 END;
@@ -240,7 +240,7 @@ END;
 
 -- table: meta types
 
-delimiter \;
+
 
 CREATE PROCEDURE add_meta_types(name VARCHAR(250))
 BEGIN
@@ -248,13 +248,13 @@ BEGIN
 	VALUES (name);
 END;
 
-CREATE PROCEDURE get_meta_type(id MEDIUMINT)
+CREATE PROCEDURE get_meta_type(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM meta_types WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_meta_type(
-		id MEDIUMINT,
+		id INT UNSIGNED,
 		name VARCHAR(250)
 		)
 BEGIN
@@ -263,7 +263,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_meta_type(id MEDIUMINT)
+CREATE PROCEDURE drop_meta_type(id INT UNSIGNED)
 BEGIN
 	DELETE FROM meta_types WHERE `ID` = id;
 END;
@@ -279,11 +279,11 @@ END;
 
 -- table: source
 
-delimiter \;
+
 
 CREATE PROCEDURE add_source(
-	discipline MEDIUMINT,
-	type_id MEDIUMINT,
+	discipline INT UNSIGNED,
+	type_id INT UNSIGNED,
 	name VARCHAR(50)
 )
 BEGIN
@@ -299,15 +299,15 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_source(id MEDIUMINT)
+CREATE PROCEDURE get_source(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM sources WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_source(
-		id MEDIUMINT,
-		discipline MEDIUMINT,
-		type_id MEDIUMINT,
+		id INT UNSIGNED,
+		discipline INT UNSIGNED,
+		type_id INT UNSIGNED,
 		name VARCHAR(50)
 		)
 BEGIN
@@ -319,7 +319,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_source(id MEDIUMINT)
+CREATE PROCEDURE drop_source(id INT UNSIGNED)
 BEGIN
 	DELETE FROM sources WHERE `ID` = id;
 END;
@@ -333,8 +333,8 @@ END;
 -- table: conformity
 
 CREATE PROCEDURE add_conformity(
-	discipline MEDIUMINT,
-	speciality MEDIUMINT
+	discipline INT UNSIGNED,
+	speciality INT UNSIGNED
 	)
 BEGIN
 	INSERT INTO conformity(
@@ -347,15 +347,15 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_conformity(id MEDIUMINT)
+CREATE PROCEDURE get_conformity(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM conformity WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_conformity(
-	id MEDIUMINT,
-	discipline MEDIUMINT,
-	speciality MEDIUMINT
+	id INT UNSIGNED,
+	discipline INT UNSIGNED,
+	speciality INT UNSIGNED
 	)
 BEGIN
 	UPDATE conformity
@@ -365,7 +365,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_conformity(id MEDIUMINT)
+CREATE PROCEDURE drop_conformity(id INT UNSIGNED)
 BEGIN
 	DELETE FROM conformity WHERE `ID` = id;
 END;
@@ -378,10 +378,10 @@ END;
 
 -- table: specialities
 
-delimiter \;
+
 
 CREATE PROCEDURE add_speciality(
-	code MEDIUMINT,
+	code INT UNSIGNED,
 	name VARCHAR(250)
 	)
 BEGIN
@@ -395,16 +395,16 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_speciality(id MEDIUMINT)
+CREATE PROCEDURE get_speciality(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM specialities WHERE `ID` = id;
 END;
 
-delimiter \;
+
 
 CREATE PROCEDURE set_speciality(
-	id MEDIUMINT,
-	code MEDIUMINT,
+	id INT UNSIGNED,
+	code INT UNSIGNED,
 	name VARCHAR(250)
 	)
 BEGIN
@@ -415,7 +415,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_speciality(id MEDIUMINT)
+CREATE PROCEDURE drop_speciality(id INT UNSIGNED)
 BEGIN
 	DELETE FROM specialities WHERE `ID` = id;
 END;
@@ -428,11 +428,11 @@ END;
 
 -- table: general_competetions
 
-delimiter \;
+
 
 CREATE PROCEDURE add_general_competetion(
-	speciality MEDIUMINT,
-	comp_no MEDIUMINT,
+	speciality INT UNSIGNED,
+	comp_no INT UNSIGNED,
 	name VARCHAR(250),
 	knowledge VARCHAR(1000),
 	skills VARCHAR(1000)
@@ -454,17 +454,17 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_general_competetion(id MEDIUMINT)
+CREATE PROCEDURE get_general_competetion(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM general_competetions WHERE `ID` = id;
 END;
 
-delimiter \;
+
 
 CREATE PROCEDURE set_general_competetion(
-	id MEDIUMINT,
-	speciality MEDIUMINT,
-	comp_no MEDIUMINT,
+	id INT UNSIGNED,
+	speciality INT UNSIGNED,
+	comp_no INT UNSIGNED,
 	name VARCHAR(250),
 	knowledge VARCHAR(1000),
 	skills VARCHAR(1000)
@@ -480,7 +480,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_general_competetion(id MEDIUMINT)
+CREATE PROCEDURE drop_general_competetion(id INT UNSIGNED)
 BEGIN
 	DELETE FROM general_competetions WHERE `ID` = id;
 END;
@@ -493,12 +493,12 @@ END;
 
 -- table: professional_competetions
 
-delimiter \;
+
 
 CREATE PROCEDURE add_professional_competetion(
-	speciality MEDIUMINT,
-	comp_no1 MEDIUMINT,
-	comp_no2 MEDIUMINT,
+	speciality INT UNSIGNED,
+	comp_no1 INT UNSIGNED,
+	comp_no2 INT UNSIGNED,
 	name VARCHAR(250),
 	knowledge VARCHAR(1000),
 	skills VARCHAR(1000),
@@ -525,18 +525,18 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_professional_competetion(id MEDIUMINT)
+CREATE PROCEDURE get_professional_competetion(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM professional_competetions WHERE `ID` = id;
 END;
 
-delimiter \;
+
 
 CREATE PROCEDURE set_professional_competetion(
-	id MEDIUMINT,
-	speciality MEDIUMINT,
-	comp_no1 MEDIUMINT,
-	comp_no2 MEDIUMINT,
+	id INT UNSIGNED,
+	speciality INT UNSIGNED,
+	comp_no1 INT UNSIGNED,
+	comp_no2 INT UNSIGNED,
 	name VARCHAR(250),
 	knowledge VARCHAR(1000),
 	skills VARCHAR(1000),
@@ -555,7 +555,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_professional_competetion(id MEDIUMINT)
+CREATE PROCEDURE drop_professional_competetion(id INT UNSIGNED)
 BEGIN
 	DELETE FROM professional_competetions WHERE `ID` = id;
 END;
@@ -565,14 +565,14 @@ BEGIN
 	DELETE FROM professional_competetions;
 END;
 
-delimiter \;
+
 
 -- table: general_mastering
 
 CREATE PROCEDURE add_general_mastering(
-	code MEDIUMINT,
-	theme MEDIUMINT,
-	mastering MEDIUMINT
+	code INT UNSIGNED,
+	theme INT UNSIGNED,
+	mastering INT UNSIGNED
 	)
 BEGIN
 	INSERT INTO general_mastering(
@@ -587,16 +587,16 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_general_mastering(id MEDIUMINT)
+CREATE PROCEDURE get_general_mastering(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM general_mastering WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_general_mastering(
-	id MEDIUMINT,
-	code MEDIUMINT,
-	theme MEDIUMINT,
-	mastering MEDIUMINT
+	id INT UNSIGNED,
+	code INT UNSIGNED,
+	theme INT UNSIGNED,
+	mastering INT UNSIGNED
 	)
 BEGIN
 	UPDATE general_mastering
@@ -607,7 +607,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_general_mastering(id MEDIUMINT)
+CREATE PROCEDURE drop_general_mastering(id INT UNSIGNED)
 BEGIN
 	DELETE FROM general_mastering WHERE `ID` = id;
 END;
@@ -621,9 +621,9 @@ END;
 -- table: professional_mastering
 
 CREATE PROCEDURE add_professional_mastering(
-	code MEDIUMINT,
-	theme MEDIUMINT,
-	mastering MEDIUMINT
+	code INT UNSIGNED,
+	theme INT UNSIGNED,
+	mastering INT UNSIGNED
 	)
 BEGIN
 	INSERT INTO professional_mastering(
@@ -638,16 +638,16 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_professional_mastering(id MEDIUMINT)
+CREATE PROCEDURE get_professional_mastering(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM professional_mastering WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_professional_mastering(
-	id MEDIUMINT,
-	code MEDIUMINT,
-	theme MEDIUMINT,
-	mastering MEDIUMINT
+	id INT UNSIGNED,
+	code INT UNSIGNED,
+	theme INT UNSIGNED,
+	mastering INT UNSIGNED
 	)
 BEGIN
 	UPDATE professional_mastering
@@ -658,7 +658,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_professional_mastering(id MEDIUMINT)
+CREATE PROCEDURE drop_professional_mastering(id INT UNSIGNED)
 BEGIN
 	DELETE FROM professional_mastering WHERE `ID` = id;
 END;
@@ -672,9 +672,9 @@ END;
 -- table: general_selection
 
 CREATE PROCEDURE add_general_selection(
-	code MEDIUMINT,
-	theme MEDIUMINT,
-	mastering MEDIUMINT
+	code INT UNSIGNED,
+	theme INT UNSIGNED,
+	mastering INT UNSIGNED
 	)
 BEGIN
 	INSERT INTO general_selection(
@@ -689,16 +689,16 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_general_selection(id MEDIUMINT)
+CREATE PROCEDURE get_general_selection(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM general_selection WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_general_selection(
-	id MEDIUMINT,
-	code MEDIUMINT,
-	theme MEDIUMINT,
-	mastering MEDIUMINT
+	id INT UNSIGNED,
+	code INT UNSIGNED,
+	theme INT UNSIGNED,
+	mastering INT UNSIGNED
 	)
 BEGIN
 	UPDATE general_selection
@@ -709,7 +709,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_general_selection(id MEDIUMINT)
+CREATE PROCEDURE drop_general_selection(id INT UNSIGNED)
 BEGIN
 	DELETE FROM general_selection WHERE `ID` = id;
 END;
@@ -723,9 +723,9 @@ END;
 -- table: professional_selection
 
 CREATE PROCEDURE add_professional_selection(
-	code MEDIUMINT,
-	theme MEDIUMINT,
-	mastering MEDIUMINT
+	code INT UNSIGNED,
+	theme INT UNSIGNED,
+	mastering INT UNSIGNED
 	)
 BEGIN
 	INSERT INTO professional_selection(
@@ -740,16 +740,16 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_professional_selection(id MEDIUMINT)
+CREATE PROCEDURE get_professional_selection(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM professional_selection WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_professional_selection(
-	id MEDIUMINT,
-	code MEDIUMINT,
-	theme MEDIUMINT,
-	mastering MEDIUMINT
+	id INT UNSIGNED,
+	code INT UNSIGNED,
+	theme INT UNSIGNED,
+	mastering INT UNSIGNED
 	)
 BEGIN
 	UPDATE professional_selection
@@ -760,7 +760,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_professional_selection(id MEDIUMINT)
+CREATE PROCEDURE drop_professional_selection(id INT UNSIGNED)
 BEGIN
 	DELETE FROM professional_selection WHERE `ID` = id;
 END;
@@ -773,10 +773,10 @@ END;
 
 -- table: disciplines
 
-delimiter \;
+
 
 CREATE PROCEDURE add_discipline(
-	code MEDIUMINT,
+	code INT UNSIGNED,
 	name VARCHAR(250)
 	)
 BEGIN
@@ -790,16 +790,16 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_discipline(id MEDIUMINT)
+CREATE PROCEDURE get_discipline(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM disciplines WHERE `ID` = id;
 END;
 
-delimiter \;
+
 
 CREATE PROCEDURE set_discipline(
-	id MEDIUMINT,
-	code MEDIUMINT,
+	id INT UNSIGNED,
+	code INT UNSIGNED,
 	name VARCHAR(250)
 	)
 BEGIN
@@ -810,7 +810,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_discipline(id MEDIUMINT)
+CREATE PROCEDURE drop_discipline(id INT UNSIGNED)
 BEGIN
 	DELETE FROM disciplines WHERE `ID` = id;
 END;
@@ -824,10 +824,10 @@ END;
 -- table: theme_plan
 
 CREATE PROCEDURE add_section(
-	discipline MEDIUMINT,
-	section_no MEDIUMINT,
+	discipline INT UNSIGNED,
+	section_no INT UNSIGNED,
 	name VARCHAR(500),
-	section_hours MEDIUMINT
+	section_hours INT UNSIGNED
 	)
 BEGIN
 	INSERT INTO theme_plan(
@@ -844,17 +844,17 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_section(id MEDIUMINT)
+CREATE PROCEDURE get_section(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM theme_plan WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_section(
-	id MEDIUMINT,
-	discipline MEDIUMINT,
-	section_no MEDIUMINT,
+	id INT UNSIGNED,
+	discipline INT UNSIGNED,
+	section_no INT UNSIGNED,
 	name VARCHAR(500),
-	section_hours MEDIUMINT
+	section_hours INT UNSIGNED
 	)
 BEGIN
 	UPDATE theme_plan
@@ -866,7 +866,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_section(id MEDIUMINT)
+CREATE PROCEDURE drop_section(id INT UNSIGNED)
 BEGIN
 	DELETE FROM theme_plan WHERE `ID` = id;
 END;
@@ -880,11 +880,11 @@ END;
 -- table: themes
 
 CREATE PROCEDURE add_theme(
-	topic MEDIUMINT,
-	mastering_level MEDIUMINT,
-	theme_no MEDIUMINT,
+	topic INT UNSIGNED,
+	mastering_level INT UNSIGNED,
+	theme_no INT UNSIGNED,
 	name VARCHAR(500),
-	theme_hours MEDIUMINT
+	theme_hours INT UNSIGNED
 	)
 BEGIN
 	INSERT INTO themes(
@@ -903,18 +903,18 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_theme(id MEDIUMINT)
+CREATE PROCEDURE get_theme(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM themes WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_theme(
-	id MEDIUMINT,
-	topic MEDIUMINT,
-	mastering_level MEDIUMINT,
-	theme_no MEDIUMINT,
+	id INT UNSIGNED,
+	topic INT UNSIGNED,
+	mastering_level INT UNSIGNED,
+	theme_no INT UNSIGNED,
 	name VARCHAR(500),
-	theme_hours MEDIUMINT
+	theme_hours INT UNSIGNED
 	)
 BEGIN
 	UPDATE themes
@@ -927,7 +927,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_theme(id MEDIUMINT)
+CREATE PROCEDURE drop_theme(id INT UNSIGNED)
 BEGIN
 	DELETE FROM themes WHERE `ID` = id;
 END;
@@ -941,8 +941,8 @@ END;
 -- table: works
 
 CREATE PROCEDURE add_work(
-	theme MEDIUMINT,
-	work_type MEDIUMINT
+	theme INT UNSIGNED,
+	work_type INT UNSIGNED
 	)
 BEGIN
 	INSERT INTO works(
@@ -955,15 +955,15 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_work(id MEDIUMINT)
+CREATE PROCEDURE get_work(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM works WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_work(
-	id MEDIUMINT,
-	theme MEDIUMINT,
-	work_type MEDIUMINT
+	id INT UNSIGNED,
+	theme INT UNSIGNED,
+	work_type INT UNSIGNED
 	)
 BEGIN
 	UPDATE works
@@ -973,7 +973,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_work(id MEDIUMINT)
+CREATE PROCEDURE drop_work(id INT UNSIGNED)
 BEGIN
 	DELETE FROM works WHERE `ID` = id;
 END;
@@ -987,9 +987,9 @@ END;
 -- table: tasks
 
 CREATE PROCEDURE add_task(
-	work_id MEDIUMINT,
+	work_id INT UNSIGNED,
 	name VARCHAR(500),
-	task_hours MEDIUMINT
+	task_hours SMALLINT UNSIGNED
 	)
 BEGIN
 	INSERT INTO tasks(
@@ -1004,15 +1004,15 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_task(id MEDIUMINT)
+CREATE PROCEDURE get_task(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM tasks WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_task(
-	work_id MEDIUMINT,
+	work_id INT UNSIGNED,
 	name VARCHAR(500),
-	task_hours MEDIUMINT
+	task_hours SMALLINT UNSIGNED
 	)
 BEGIN
 	UPDATE tasks
@@ -1023,7 +1023,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_task(id MEDIUMINT)
+CREATE PROCEDURE drop_task(id INT UNSIGNED)
 BEGIN
 	DELETE FROM tasks WHERE `ID` = id;
 END;
@@ -1035,11 +1035,9 @@ END;
 
 -- table: meta data
 
-delimiter \;
-
 CREATE PROCEDURE add_meta_data(
-	discipline MEDIUMINT,
-	type_id MEDIUMINT,
+	discipline INT UNSIGNED,
+	type_id INT UNSIGNED,
 	name VARCHAR(500)
 	)
 BEGIN
@@ -1055,14 +1053,14 @@ BEGIN
 	);
 END;
 
-CREATE PROCEDURE get_meta_data(id MEDIUMINT)
+CREATE PROCEDURE get_meta_data(id INT UNSIGNED)
 BEGIN
 	SELECT * FROM Meta_data WHERE `ID` = id;
 END;
 
 CREATE PROCEDURE set_meta_data(
-	discipline MEDIUMINT,
-	type_id MEDIUMINT,
+	discipline INT UNSIGNED,
+	type_id INT UNSIGNED,
 	name VARCHAR(500)
 	)
 BEGIN
@@ -1074,7 +1072,7 @@ BEGIN
 	WHERE `ID` = id;
 END;
 
-CREATE PROCEDURE drop_meta_data(id MEDIUMINT)
+CREATE PROCEDURE drop_meta_data(id INT UNSIGNED)
 BEGIN
 	DELETE FROM Meta_data WHERE `ID` = id;
 END;
@@ -1088,7 +1086,7 @@ END;
 
 -- Custom procedures
 
-delimiter \;
+
 
 CREATE PROCEDURE seek_for_column_type(name VARCHAR(15))
 BEGIN
