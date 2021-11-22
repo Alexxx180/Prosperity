@@ -33,4 +33,7 @@ ALTER TABLE Competetions_mastering CHANGE COLUMN `Theme` `Discipline` MEDIUMINT 
 ADD FOREIGN KEY Competetions_Mastering_Disciplines (`Discipline`)
 	  REFERENCES Disciplines (ID);
 	  
-	  
+
+ALTER TABLE Disciplines DROP COLUMN `Relation`;
+ALTER TABLE Disciplines DROP COLUMN `DistanceCourse`;
+ALTER TABLE Disciplines DROP COLUMN `PrepareWay`;

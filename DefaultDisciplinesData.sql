@@ -1,3 +1,17 @@
+-- meta data types
+
+CALL add_meta_type(
+    "Отношение дисциплины"
+);
+
+CALL add_meta_type(
+    "Путь практической подготовки"
+);
+
+CALL add_meta_type(
+    "Курс ДО"
+);
+
 -- levels
 
 CALL add_level(

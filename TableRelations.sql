@@ -73,6 +73,15 @@ ADD FOREIGN KEY Conformity_Specialities (`Speciality`)
 	 ALTER TABLE Theme_Plan
 ADD FOREIGN KEY Theme_Plan_Disciplines (`Discipline`)
 	  REFERENCES Disciplines (ID);
+
+
+	 ALTER TABLE Meta_data
+ADD FOREIGN KEY Meta_data_Disciplines (`Discipline`)
+	  REFERENCES Disciplines (ID);
+
+  	 ALTER TABLE Meta_data
+ADD FOREIGN KEY Meta_data_Meta_Types (`Type`)
+	  REFERENCES Meta_Types (ID);
 	  
   	 ALTER TABLE Sources
 ADD FOREIGN KEY Sources_Disciplines (`Discipline`)
@@ -93,6 +102,7 @@ ADD FOREIGN KEY Hours_Disciplines (`Discipline`)
   	 ALTER TABLE Hours
 ADD FOREIGN KEY Hours_Work_Types (`WorkType`)
 	  REFERENCES Work_types (ID);
+
 	  
   	 ALTER TABLE Conformity
 ADD FOREIGN KEY Conformity_Discipline (`Discipline`)
