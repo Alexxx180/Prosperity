@@ -237,6 +237,43 @@ BEGIN
 	DELETE FROM source_types;
 END;
 
+
+-- table: meta types
+
+delimiter \;
+
+CREATE PROCEDURE add_meta_types(name VARCHAR(250))
+BEGIN
+	INSERT INTO meta_types(`Name`)
+	VALUES (name);
+END;
+
+CREATE PROCEDURE get_meta_type(id MEDIUMINT)
+BEGIN
+	SELECT * FROM meta_types WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE set_meta_type(
+		id MEDIUMINT,
+		name VARCHAR(250)
+		)
+BEGIN
+	UPDATE meta_types
+	SET `Name` = name
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_meta_type(id MEDIUMINT)
+BEGIN
+	DELETE FROM meta_types WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_all_meta_type()
+BEGIN
+	DELETE FROM meta_types;
+END;
+
+
 -- Tables with relations
 -- to other smaller tables
 
@@ -740,25 +777,16 @@ delimiter \;
 
 CREATE PROCEDURE add_discipline(
 	code MEDIUMINT,
-	name VARCHAR(250),
-	relation VARCHAR(500),
-	distance_course VARCHAR(500),
-	prepare_way VARCHAR(500)
+	name VARCHAR(250)
 	)
 BEGIN
 	INSERT INTO disciplines(
 	`Code`,
-	`Name`,
-	`Relation`,
-	`DistanceCourse`,
-	`PrepareWay`
+	`Name`
 	)
 	VALUES (
 	code,
-	name,
-	relation,
-	distance_course,
-	prepare_way
+	name
 	);
 END;
 
@@ -772,19 +800,13 @@ delimiter \;
 CREATE PROCEDURE set_discipline(
 	id MEDIUMINT,
 	code MEDIUMINT,
-	name VARCHAR(250),
-	relation VARCHAR(500),
-	distance_course VARCHAR(500),
-	prepare_way VARCHAR(500)
+	name VARCHAR(250)
 	)
 BEGIN
 	UPDATE disciplines
 	SET
 	`Code` = code,
-	`Name` = name,
-	`Relation` = relation,
-	`DistanceCourse` = distance_course,
-	`PrepareWay` = prepare_way
+	`Name` = name
 	WHERE `ID` = id;
 END;
 
@@ -1009,4 +1031,75 @@ END;
 CREATE PROCEDURE drop_all_tasks()
 BEGIN
 	DELETE FROM tasks;
+END;
+
+-- table: meta data
+
+delimiter \;
+
+CREATE PROCEDURE add_meta_data(
+	discipline MEDIUMINT,
+	type_id MEDIUMINT,
+	name VARCHAR(500)
+	)
+BEGIN
+	INSERT INTO Meta_data(
+	`Discipline`,
+	`Type`,
+	`Name`
+	)
+	VALUES (
+	discipline,
+	type_id,
+	name
+	);
+END;
+
+CREATE PROCEDURE get_meta_data(id MEDIUMINT)
+BEGIN
+	SELECT * FROM Meta_data WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE set_meta_data(
+	discipline MEDIUMINT,
+	type_id MEDIUMINT,
+	name VARCHAR(500)
+	)
+BEGIN
+	UPDATE Meta_data
+	SET
+	`Discipline` = discipline,
+	`Type` = type_id,
+	`Name` = name
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_meta_data(id MEDIUMINT)
+BEGIN
+	DELETE FROM Meta_data WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE drop_all_meta_data()
+BEGIN
+	DELETE FROM Meta_data;
+END;
+
+
+
+-- Custom procedures
+
+delimiter \;
+
+CREATE PROCEDURE seek_for_column_type(name VARCHAR(15))
+BEGIN
+	SELECT 
+		table_name,
+		column_name,
+		numeric_precision,
+		column_type
+	FROM information_schema.columns
+	WHERE
+		TABLE_SCHEMA = 'prosperity'
+	   AND
+		data_type = name;
 END;
