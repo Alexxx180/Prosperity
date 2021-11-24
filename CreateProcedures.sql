@@ -92,10 +92,10 @@ END;
 
 -- table: discipline_codes
 
-CREATE PROCEDURE add_discipline_codes(name VARCHAR(50))
+CREATE PROCEDURE add_discipline_code(code VARCHAR(50))
 BEGIN
-	INSERT INTO discipline_codes(`Name`)
-	VALUES (name);
+	INSERT INTO discipline_codes(`Code`)
+	VALUES (code);
 END;
 
 CREATE PROCEDURE get_discipline_code(id INT UNSIGNED)
@@ -105,11 +105,11 @@ END;
 
 CREATE PROCEDURE set_discipline_code(
 		id INT UNSIGNED,
-		name VARCHAR(50)
+		code VARCHAR(50)
 		)
 BEGIN
 	UPDATE discipline_codes
-	SET `Name` = name
+	SET `Code` = code
 	WHERE `ID` = id;
 END;
 
@@ -206,7 +206,7 @@ END;
 
 -- table: source_types
 
-CREATE PROCEDURE add_source_type(name VARCHAR(50))
+CREATE PROCEDURE add_source_type(name VARCHAR(500))
 BEGIN
 	INSERT INTO source_types(`Name`)
 	VALUES (name);
@@ -219,7 +219,7 @@ END;
 
 CREATE PROCEDURE set_source_type(
 		id INT UNSIGNED,
-		name VARCHAR(50)
+		name VARCHAR(500)
 		)
 BEGIN
 	UPDATE source_types
@@ -240,9 +240,9 @@ END;
 
 -- table: meta types
 
+delimiter \;
 
-
-CREATE PROCEDURE add_meta_types(name VARCHAR(250))
+CREATE PROCEDURE add_meta_type(name VARCHAR(250))
 BEGIN
 	INSERT INTO meta_types(`Name`)
 	VALUES (name);
@@ -279,12 +279,12 @@ END;
 
 -- table: source
 
-
+delimiter \;
 
 CREATE PROCEDURE add_source(
 	discipline INT UNSIGNED,
 	type_id INT UNSIGNED,
-	name VARCHAR(50)
+	name VARCHAR(1000)
 )
 BEGIN
 	INSERT INTO sources(
@@ -304,11 +304,13 @@ BEGIN
 	SELECT * FROM sources WHERE `ID` = id;
 END;
 
+delimiter \;
+
 CREATE PROCEDURE set_source(
 		id INT UNSIGNED,
 		discipline INT UNSIGNED,
 		type_id INT UNSIGNED,
-		name VARCHAR(50)
+		name VARCHAR(1000)
 		)
 BEGIN
 	UPDATE sources
@@ -1035,10 +1037,12 @@ END;
 
 -- table: meta data
 
+delimiter \;
+
 CREATE PROCEDURE add_meta_data(
 	discipline INT UNSIGNED,
 	type_id INT UNSIGNED,
-	name VARCHAR(500)
+	name VARCHAR(1000)
 	)
 BEGIN
 	INSERT INTO Meta_data(
@@ -1058,10 +1062,12 @@ BEGIN
 	SELECT * FROM Meta_data WHERE `ID` = id;
 END;
 
+delimiter \;
+
 CREATE PROCEDURE set_meta_data(
 	discipline INT UNSIGNED,
 	type_id INT UNSIGNED,
-	name VARCHAR(500)
+	name VARCHAR(1000)
 	)
 BEGIN
 	UPDATE Meta_data
@@ -1100,4 +1106,11 @@ BEGIN
 		TABLE_SCHEMA = 'prosperity'
 	   AND
 		data_type = name;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE get_log(name VARCHAR(50), value INT) 
+BEGIN
+	SELECT concat(name, value);
 END;

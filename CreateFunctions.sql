@@ -110,7 +110,7 @@ BEGIN
 	RETURN work_hours;
 END;
 
-
+delimiter \;
 
 CREATE FUNCTION get_theme_hours(theme_id INT UNSIGNED)
 RETURNS INT UNSIGNED
@@ -120,7 +120,7 @@ BEGIN
 	SET works_hours = (
 		SELECT SUM(`Hours`)
 		FROM tasks
-		WHERE `Work` = (
+		WHERE `Work` IN (
 			SELECT `ID`
 			FROM works
 			WHERE `Theme` = theme_id
@@ -129,8 +129,6 @@ BEGIN
 	RETURN works_hours;
 END;
 
-
-
 CREATE FUNCTION get_topic_hours(topic_id INT UNSIGNED)
 RETURNS INT UNSIGNED
 READS SQL DATA
@@ -138,10 +136,10 @@ BEGIN
 	RETURN (
 		SELECT SUM(`Hours`)
 		FROM tasks
-		WHERE `Work` = (
+		WHERE `Work` IN (
 			SELECT `ID`
 			FROM works
-			WHERE `Theme` = (
+			WHERE `Theme` IN (
 				SELECT `ID`
 				FROM Themes
 				WHERE `Topic` = topic_id
@@ -150,8 +148,6 @@ BEGIN
 	);
 END;
 
-
-
 CREATE FUNCTION get_discipline_hours_by_work_type(discipline INT UNSIGNED, type_id INT UNSIGNED)
 RETURNS INT UNSIGNED
 READS SQL DATA
@@ -159,19 +155,19 @@ BEGIN
 	RETURN (
 		SELECT SUM(`Hours`)
 		FROM tasks
-		WHERE `Work` = (
+		WHERE `Work` IN  (
 			SELECT `ID`
 			FROM works
-			WHERE `Theme` = (
+			WHERE `Theme` IN  (
 				SELECT `ID`
 				FROM Themes
-				WHERE `Topic` = (
+				WHERE `Topic` IN (
 					SELECT `ID`
 					FROM Theme_plan
 					WHERE `Discipline` = discipline
 				)
 			)
+			AND `Type` = type_id
 		)
-		AND `Work_type` = type_id
 	);
 END;

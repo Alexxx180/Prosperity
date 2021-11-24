@@ -1,4 +1,8 @@
--- meta data types
+-- meta data
+
+CALL drop_meta_type(4);
+CALL drop_meta_type(5);
+CALL drop_meta_type(6);
 
 CALL add_meta_type(
     "Отношение дисциплины"
@@ -159,6 +163,7 @@ CALL add_section(
     21
 );
 
+-- SET max_sp_recursion_depth=255;
 CALL add_theme(
     1,
     2,
@@ -169,7 +174,7 @@ CALL add_theme(
 
 CALL add_work(
     1,
-    0
+    1
 );
 
 CALL add_task(
@@ -194,7 +199,7 @@ CALL add_theme(
 
 CALL add_work(
     2,
-    0
+    1
 );
 
 CALL add_task(
@@ -267,7 +272,7 @@ CALL add_theme(
 
 CALL add_work(
     3,
-    0
+    1
 );
 
 CALL add_task(
@@ -331,7 +336,7 @@ CALL add_theme(
 
 CALL add_work(
     4,
-    0
+    1
 );
 
 CALL add_task(
@@ -362,7 +367,7 @@ CALL add_theme(
 
 CALL add_work(
     5,
-    0
+    1
 );
 
 CALL add_task(
@@ -387,7 +392,7 @@ CALL add_theme(
 
 CALL add_work(
     6,
-    0
+    1
 );
 
 CALL add_task(
@@ -420,7 +425,7 @@ CALL add_theme(
 
 CALL add_work(
     7,
-    0
+    1
 );
 
 CALL add_task(
@@ -445,7 +450,7 @@ CALL add_theme(
 
 CALL add_work(
     8,
-    0
+    1
 );
 
 CALL add_task(
@@ -470,7 +475,7 @@ CALL add_theme(
 
 CALL add_work(
     9,
-    0
+    1
 );
 
 CALL add_task(
@@ -503,7 +508,7 @@ CALL add_theme(
 
 CALL add_work(
     10,
-    0
+    1
 );
 
 CALL add_task(
@@ -528,7 +533,7 @@ CALL add_theme(
 
 CALL add_work(
     11,
-    0
+    1
 );
 
 CALL add_task(
@@ -553,7 +558,7 @@ CALL add_theme(
 
 CALL add_work(
     12,
-    0
+    1
 );
 
 CALL add_task(
@@ -578,7 +583,7 @@ CALL add_theme(
 
 CALL add_work(
     13,
-    0
+    1
 );
 
 CALL add_task(
@@ -611,7 +616,7 @@ CALL add_theme(
 
 CALL add_work(
     14,
-    0
+    1
 );
 
 CALL add_task(
@@ -636,7 +641,7 @@ CALL add_theme(
 
 CALL add_work(
     15,
-    0
+    1
 );
 
 CALL add_task(
@@ -661,7 +666,7 @@ CALL add_theme(
 
 CALL add_work(
     16,
-    0
+    1
 );
 
 CALL add_task(
@@ -694,7 +699,7 @@ CALL add_theme(
 
 CALL add_work(
     17,
-    0
+    1
 );
 
 CALL add_task(
@@ -719,7 +724,7 @@ CALL add_theme(
 
 CALL add_work(
     18,
-    0
+    1
 );
 
 CALL add_task(
@@ -752,7 +757,7 @@ CALL add_theme(
 
 CALL add_work(
     19,
-    0
+    1
 );
 
 CALL add_task(
@@ -777,7 +782,7 @@ CALL add_theme(
 
 CALL add_work(
     20,
-    0
+    1
 );
 
 CALL add_task(
@@ -802,7 +807,7 @@ CALL add_theme(
 
 CALL add_work(
     21,
-    0
+    1
 );
 
 CALL add_task(
@@ -835,7 +840,7 @@ CALL add_theme(
 
 CALL add_work(
     22,
-    0
+    1
 );
 
 CALL add_task(
@@ -860,7 +865,7 @@ CALL add_theme(
 
 CALL add_work(
     23,
-    0
+    1
 );
 
 CALL add_task(
@@ -876,7 +881,7 @@ CALL add_task(
 );
 
 CALL add_theme(
-    10,
+    9,
     2,
     3,
     "Программирование на уровне задач. Task-Level Programming.",
@@ -885,7 +890,7 @@ CALL add_theme(
 
 CALL add_work(
     24,
-    0
+    1
 );
 
 CALL add_task(
@@ -901,7 +906,7 @@ CALL add_task(
 );
 
 CALL add_theme(
-    10,
+    9,
     2,
     4,
     "Приводы контура обратной связи. Feedback Loop Actuators.",
@@ -910,7 +915,7 @@ CALL add_theme(
 
 CALL add_work(
     25,
-    0
+    1
 );
 
 CALL add_task(
@@ -927,11 +932,11 @@ CALL add_task(
 
 CALL add_work(
     25,
-    0
+    2
 );
 
 CALL add_task(
-    53,
+    27,
     "«подготовка презентации по теме».",
     1
 );

@@ -11,80 +11,69 @@ delimiter \;
 delimiter \;
 
 CREATE TRIGGER insert_tasks
-BEFORE INSERT ON tasks FOR EACH ROW
+AFTER INSERT ON tasks FOR EACH ROW
 BEGIN
-	DECLARE theme_id, discipline_id, work_type_id INT;
+	DECLARE theme_id, discipline_id, work_type_id, theme_hours, dp_hours INT;
 	SET theme_id = (SELECT get_theme_by_task_id(NEW.`ID`));
 	SET work_type_id = (SELECT get_work_type_by_task_id(NEW.`ID`));
 	SET discipline_id = (SELECT get_discipline_by_task_id(NEW.`ID`));
-
-	CALL add_task(
-		NEW.`Work`,
-		NEW.`Name`,
-		NEW.`Hours`	
-	);
+	SET theme_hours = (SELECT get_theme_hours(theme_id));
+	SET dp_hours = (SELECT get_discipline_hours_by_work_type(discipline_id, work_type_id)); 
 	
 	UPDATE Themes
-	SET `Hours` = (SELECT get_theme_hours(theme_id))
+	SET `Hours` = IFNULL(theme_hours, 0)
 	WHERE `ID` = theme_id;
 	
 	UPDATE Hours
-	SET `Count` = (SELECT get_discipline_hours_by_work_type(discipline_id, work_type_id))
+	SET `Count` = IFNULL(dp_hours, 0)
 	WHERE
 	`Discipline` = discipline_id
 	AND
 	`WorkType` = work_type_id;
 END;
 
-delimiter \;
+-- delimiter \;
 
 CREATE TRIGGER update_tasks
-BEFORE UPDATE ON tasks FOR EACH ROW
+AFTER UPDATE ON tasks FOR EACH ROW
 BEGIN
-	DECLARE theme_id, discipline_id, work_type_id INT;
+	DECLARE theme_id, discipline_id, work_type_id, theme_hours, dp_hours INT;
 	SET theme_id = (SELECT get_theme_by_task_id(NEW.`ID`));
 	SET work_type_id = (SELECT get_work_type_by_task_id(NEW.`ID`));
 	SET discipline_id = (SELECT get_discipline_by_task_id(NEW.`ID`));
-
-	CALL set_task(
-		NEW.`ID`,
-		NEW.`Work`,
-		NEW.`Name`,
-		NEW.`Hours`	
-	);
+	SET theme_hours = (SELECT get_theme_hours(theme_id));
+	SET dp_hours = (SELECT get_discipline_hours_by_work_type(discipline_id, work_type_id)); 
 	
 	UPDATE Themes
-	SET `Hours` = (SELECT get_theme_hours(theme_id))
+	SET `Hours` = IFNULL(theme_hours, 0)
 	WHERE `ID` = theme_id;
 	
 	UPDATE Hours
-	SET `Count` = (SELECT get_discipline_hours_by_work_type(discipline_id, work_type_id))
+	SET `Count` = IFNULL(dp_hours, 0)
 	WHERE
 	`Discipline` = discipline_id
 	AND
 	`WorkType` = work_type_id;
 END;
 
-delimiter \;
+-- delimiter \;
 
 CREATE TRIGGER delete_tasks
-BEFORE DELETE ON tasks FOR EACH ROW
+AFTER DELETE ON tasks FOR EACH ROW
 BEGIN
-	DECLARE theme_id, discipline_id, work_type_id INT;
+	DECLARE theme_id, discipline_id, work_type_id, theme_hours, dp_hours INT;
 	SET theme_id = (SELECT get_theme_by_task_id(OLD.`ID`));
 	SET work_type_id = (SELECT get_work_type_by_task_id(OLD.`ID`));
 	SET discipline_id = (SELECT get_discipline_by_task_id(OLD.`ID`));
-
-	CALL drop_task(
-		OLD.`ID`
-	);
+	SET theme_hours = (SELECT get_theme_hours(theme_id));
+	SET dp_hours = (SELECT get_discipline_hours_by_work_type(discipline_id, work_type_id)); 
 	
 	UPDATE Themes
-	SET `Hours` = (SELECT get_theme_hours(theme_id))
+	SET `Hours` = IFNULL(theme_hours, 0)
 	WHERE `ID` = theme_id;
 	
 	UPDATE Hours
-	SET `Count` = (SELECT get_discipline_hours_by_work_type(discipline_id, work_type_id))
+	SET `Count` = IFNULL(dp_hours, 0)
 	WHERE
 	`Discipline` = discipline_id
 	AND
@@ -94,79 +83,56 @@ END;
 
 -- table: themes <- theme_plan
 
-delimiter \;
+-- delimiter \;
 
 CREATE TRIGGER insert_themes
-BEFORE INSERT ON Themes FOR EACH ROW
+AFTER INSERT ON Themes FOR EACH ROW
 BEGIN
-	DECLARE topic_id INT;
-	SET topic_id = (SELECT get_topic_by_theme_id(NEW.`ID`));
-
-	CALL add_theme(
-		NEW.`Topic`,
-		NEW.`Level`,
-		NEW.`No`,
-		NEW.`Name`,
-		NEW.`Hours`	
-	);
+	DECLARE topic_id, hours_cnt INT;
+	SET topic_id = NEW.`Topic`;
+	SET hours_cnt = (SELECT get_topic_hours(topic_id)); 
 
 	UPDATE Theme_plan
-	SET `Hours` = (SELECT get_topic_hours(topic_id))
+	SET `Hours` = IFNULL(hours_cnt, 0)
 	WHERE `ID` = topic_id;
 END;
 
 delimiter \;
 
 CREATE TRIGGER update_themes
-BEFORE UPDATE ON Themes FOR EACH ROW
+AFTER UPDATE ON Themes FOR EACH ROW
 BEGIN
-	DECLARE topic_id INT;
-	SET topic_id = (SELECT get_topic_by_theme_id(NEW.`ID`));
-
-	CALL set_theme(
-		NEW.`ID`,
-		NEW.`Topic`,
-		NEW.`Level`,
-		NEW.`No`,
-		NEW.`Name`,
-		NEW.`Hours`	
-	);
+	DECLARE topic_id, hours_cnt INT;
+	SET topic_id = NEW.`Topic`;
+	SET hours_cnt = (SELECT get_topic_hours(topic_id)); 
 	
 	UPDATE Theme_plan
-	SET `Hours` = (SELECT get_topic_hours(topic_id))
+	SET `Hours` = IFNULL(hours_cnt, 0)
 	WHERE `ID` = topic_id;
 END;
 
-delimiter \;
+-- delimiter \;
 
 CREATE TRIGGER delete_themes
-BEFORE DELETE ON Themes FOR EACH ROW
+AFTER DELETE ON Themes FOR EACH ROW
 BEGIN
-	DECLARE topic_id INT;
-	SET topic_id = (SELECT get_topic_by_theme_id(OLD.`ID`));
-	
-	CALL drop_theme(
-		OLD.`ID`
-	);
+	DECLARE topic_id, hours_cnt INT;
+	SET topic_id = OLD.`Topic`;
+	SET hours_cnt = (SELECT get_topic_hours(topic_id)); 
 	
 	UPDATE Theme_plan
-	SET `Hours` = (SELECT get_topic_hours(topic_id))
+	SET `Hours` = IFNULL(hours_cnt, 0)
 	WHERE `ID` = topic_id;
 END;
 
 
 -- table: disciplines
 
-delimiter \;
+ delimiter \;
 
 CREATE TRIGGER insert_disciplines
-BEFORE INSERT ON disciplines FOR EACH ROW
+AFTER INSERT ON disciplines FOR EACH ROW
 BEGIN
-	CALL add_discipline(
-		NEW.`Code`,
-		NEW.`Name`
-	);
-	
 	CALL add_hour(
 		NEW.`ID`, 0, 0
 	);
@@ -192,16 +158,12 @@ BEGIN
 	);
 END;
 
-delimiter \;
+-- delimiter \;
 
 CREATE TRIGGER delete_disciplines
 BEFORE DELETE ON disciplines FOR EACH ROW
 BEGIN
 	CALL drop_hour(
-		OLD.`ID`
-	);
-
-	CALL drop_discipline(
 		OLD.`ID`
 	);
 END;
