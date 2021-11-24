@@ -8,7 +8,7 @@ delimiter \;
 -- table through relation: 
 -- tasks <- works <- work_type -> hours
 
-delimiter \;
+-- delimiter \;
 
 CREATE TRIGGER insert_tasks
 AFTER INSERT ON tasks FOR EACH ROW
@@ -97,7 +97,7 @@ BEGIN
 	WHERE `ID` = topic_id;
 END;
 
-delimiter \;
+-- delimiter \;
 
 CREATE TRIGGER update_themes
 AFTER UPDATE ON Themes FOR EACH ROW
@@ -128,7 +128,7 @@ END;
 
 -- table: disciplines
 
- delimiter \;
+-- delimiter \;
 
 CREATE TRIGGER insert_disciplines
 AFTER INSERT ON disciplines FOR EACH ROW
