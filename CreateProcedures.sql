@@ -45,7 +45,7 @@ END;
 
 -- table: hours
 
-
+delimiter \;
 
 CREATE PROCEDURE add_hour(
 	discipline_id INT UNSIGNED,
@@ -54,7 +54,7 @@ CREATE PROCEDURE add_hour(
 	)
 BEGIN
 	INSERT INTO hours(`Discipline`, `WorkType`,`Count`)
-	VALUES (discipline_id, discipline_id, hours_count);
+	VALUES (discipline_id, work_type_id, hours_count);
 END;
 
 CREATE PROCEDURE get_hour(id INT UNSIGNED)
