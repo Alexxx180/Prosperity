@@ -42,6 +42,38 @@ BEGIN
 	DELETE FROM levels;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_level(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE levels
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_level(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE levels
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_levels()
+BEGIN
+	UPDATE levels
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_levels()
+BEGIN
+	DELETE FROM levels WHERE `ToDrop` = TRUE;
+END;
+
 
 -- table: hours
 
@@ -89,6 +121,38 @@ BEGIN
 	DELETE FROM hours;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_hour(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE hours
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_hour(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE hours
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_hours()
+BEGIN
+	UPDATE hours
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_hours()
+BEGIN
+	DELETE FROM hours WHERE `ToDrop` = TRUE;
+END;
+
 
 -- table: discipline_codes
 
@@ -123,6 +187,37 @@ BEGIN
 	DELETE FROM discipline_codes;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_discipline_code(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE discipline_codes
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_discipline_code(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE discipline_codes
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_discipline_codes()
+BEGIN
+	UPDATE discipline_codes
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_discipline_codes()
+BEGIN
+	DELETE FROM discipline_codes WHERE `ToDrop` = TRUE;
+END;
 
 -- table: speciality_codes
 
@@ -159,6 +254,38 @@ END;
 CREATE PROCEDURE drop_all_speciality_code()
 BEGIN
 	DELETE FROM speciality_codes;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_speciality_code(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE speciality_codes
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_speciality_code(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE speciality_codes
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_speciality_codes()
+BEGIN
+	UPDATE speciality_codes
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_speciality_codes()
+BEGIN
+	DELETE FROM speciality_codes WHERE `ToDrop` = TRUE;
 END;
 
 
@@ -203,6 +330,38 @@ BEGIN
 	DELETE FROM work_types;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_work_type(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE work_types
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_work_type(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE work_types
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_work_types()
+BEGIN
+	UPDATE work_types
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_work_types()
+BEGIN
+	DELETE FROM work_types WHERE `ToDrop` = TRUE;
+END;
+
 
 -- table: source_types
 
@@ -235,6 +394,38 @@ END;
 CREATE PROCEDURE drop_all_source_types()
 BEGIN
 	DELETE FROM source_types;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_source_type(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE source_types
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_source_type(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE source_types
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_source_types()
+BEGIN
+	UPDATE source_types
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_source_types()
+BEGIN
+	DELETE FROM source_types WHERE `ToDrop` = TRUE;
 END;
 
 
@@ -271,6 +462,38 @@ END;
 CREATE PROCEDURE drop_all_meta_type()
 BEGIN
 	DELETE FROM meta_types;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_meta_type(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE meta_types
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_meta_type(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE meta_types
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_meta_types()
+BEGIN
+	UPDATE meta_types
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_meta_types()
+BEGIN
+	DELETE FROM meta_types WHERE `ToDrop` = TRUE;
 END;
 
 
@@ -331,6 +554,38 @@ BEGIN
 	DELETE FROM sources;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_source(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE sources
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_source(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE sources
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_sources()
+BEGIN
+	UPDATE sources
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_sources()
+BEGIN
+	DELETE FROM sources WHERE `ToDrop` = TRUE;
+END;
+
 
 -- table: conformity
 
@@ -375,6 +630,38 @@ END;
 CREATE PROCEDURE drop_all_conformities()
 BEGIN
 	DELETE FROM conformity;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_conformity(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE conformity
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_conformity(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE conformity
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_conformities()
+BEGIN
+	UPDATE conformity
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_conformities()
+BEGIN
+	DELETE FROM conformity WHERE `ToDrop` = TRUE;
 END;
 
 
@@ -425,6 +712,38 @@ END;
 CREATE PROCEDURE drop_all_specialities()
 BEGIN
 	DELETE FROM specialities;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_speciality(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE specialities
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_speciality(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE specialities
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_specialities()
+BEGIN
+	UPDATE specialities
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_specialities()
+BEGIN
+	DELETE FROM specialities WHERE `ToDrop` = TRUE;
 END;
 
 
@@ -490,6 +809,38 @@ END;
 CREATE PROCEDURE drop_all_general_competetions()
 BEGIN
 	DELETE FROM general_competetions;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_general_competetion(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE general_competetions
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_general_competetion(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE general_competetions
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_general_competetions()
+BEGIN
+	UPDATE general_competetions
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_general_competetions()
+BEGIN
+	DELETE FROM general_competetions WHERE `ToDrop` = TRUE;
 END;
 
 
@@ -567,6 +918,38 @@ BEGIN
 	DELETE FROM professional_competetions;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_professional_competetion(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE professional_competetions
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_professional_competetion(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE professional_competetions
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_professional_competetions()
+BEGIN
+	UPDATE professional_competetions
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_professional_competetions()
+BEGIN
+	DELETE FROM professional_competetions WHERE `ToDrop` = TRUE;
+END;
+
 
 
 -- table: general_mastering
@@ -617,6 +1000,38 @@ END;
 CREATE PROCEDURE drop_all_general_mastering()
 BEGIN
 	DELETE FROM general_mastering;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_general_mastering(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE general_mastering
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_general_mastering(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE general_mastering
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_general_mastering()
+BEGIN
+	UPDATE general_mastering
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_general_mastering()
+BEGIN
+	DELETE FROM general_mastering WHERE `ToDrop` = TRUE;
 END;
 
 
@@ -670,6 +1085,38 @@ BEGIN
 	DELETE FROM professional_mastering;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_professional_mastering(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE professional_mastering
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_professional_mastering(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE professional_mastering
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_professional_mastering()
+BEGIN
+	UPDATE professional_mastering
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_professional_mastering()
+BEGIN
+	DELETE FROM professional_mastering WHERE `ToDrop` = TRUE;
+END;
+
 
 -- table: general_selection
 
@@ -719,6 +1166,38 @@ END;
 CREATE PROCEDURE drop_all_general_selection()
 BEGIN
 	DELETE FROM general_selection;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_general_selection(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE general_selection
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_general_selection(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE general_selection
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_general_selection()
+BEGIN
+	UPDATE general_selection
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_general_selection()
+BEGIN
+	DELETE FROM general_selection WHERE `ToDrop` = TRUE;
 END;
 
 
@@ -772,6 +1251,38 @@ BEGIN
 	DELETE FROM professional_selection;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_professional_selection(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE professional_selection
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_professional_selection(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE professional_selection
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_professional_selection()
+BEGIN
+	UPDATE professional_selection
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_professional_selection()
+BEGIN
+	DELETE FROM professional_selection WHERE `ToDrop` = TRUE;
+END;
+
 
 -- table: disciplines
 
@@ -820,6 +1331,38 @@ END;
 CREATE PROCEDURE drop_all_disciplines()
 BEGIN
 	DELETE FROM disciplines;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_discipline(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE disciplines
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_discipline(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE disciplines
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_disciplines()
+BEGIN
+	UPDATE disciplines
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_disciplines()
+BEGIN
+	DELETE FROM disciplines WHERE `ToDrop` = TRUE;
 END;
 
 
@@ -876,6 +1419,38 @@ END;
 CREATE PROCEDURE drop_all_theme_plan()
 BEGIN
 	DELETE FROM theme_plan;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_section(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE theme_plan
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_section(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE theme_plan
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_sections()
+BEGIN
+	UPDATE theme_plan
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_sections()
+BEGIN
+	DELETE FROM theme_plan WHERE `ToDrop` = TRUE;
 END;
 
 
@@ -939,6 +1514,38 @@ BEGIN
 	DELETE FROM themes;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_theme(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE themes
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_theme(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE themes
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_themes()
+BEGIN
+	UPDATE themes
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_themes()
+BEGIN
+	DELETE FROM themes WHERE `ToDrop` = TRUE;
+END;
+
 
 -- table: works
 
@@ -985,6 +1592,37 @@ BEGIN
 	DELETE FROM works;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_work(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE works
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_work(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE works
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_works()
+BEGIN
+	UPDATE works
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_works()
+BEGIN
+	DELETE FROM works WHERE `ToDrop` = TRUE;
+END;
 
 -- table: tasks
 
@@ -1033,6 +1671,38 @@ END;
 CREATE PROCEDURE drop_all_tasks()
 BEGIN
 	DELETE FROM tasks;
+END;
+
+delimiter \;
+
+CREATE PROCEDURE mark_task(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE tasks
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_task(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE tasks
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_tasks()
+BEGIN
+	UPDATE tasks
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_tasks()
+BEGIN
+	DELETE FROM tasks WHERE `ToDrop` = TRUE;
 END;
 
 -- table: meta data
@@ -1088,6 +1758,37 @@ BEGIN
 	DELETE FROM Meta_data;
 END;
 
+delimiter \;
+
+CREATE PROCEDURE mark_meta_data(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE meta_data
+	SET `ToDrop` = TRUE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_meta_data(
+	id INT UNSIGNED
+	)
+BEGIN
+	UPDATE meta_data
+	SET `ToDrop` = FALSE
+	WHERE `ID` = id;
+END;
+
+CREATE PROCEDURE unmark_all_meta_data()
+BEGIN
+	UPDATE meta_data
+	SET
+	`ToDrop` = FALSE;
+END;
+
+CREATE PROCEDURE drop_all_marked_meta_data()
+BEGIN
+	DELETE FROM meta_data WHERE `ToDrop` = TRUE;
+END;
 
 
 -- Custom procedures
