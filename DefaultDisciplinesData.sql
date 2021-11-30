@@ -35,8 +35,7 @@ CALL add_level(
 
 -- work types
 
-CALL add_work_type_ignore_increment(
-    0,
+CALL add_work_type(
     "Содержание"
 );
 

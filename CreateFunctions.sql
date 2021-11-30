@@ -110,7 +110,7 @@ BEGIN
 	RETURN work_hours;
 END;
 
-delimiter \;
+-- delimiter \;
 
 CREATE FUNCTION get_theme_hours(theme_id INT UNSIGNED)
 RETURNS INT UNSIGNED
@@ -129,7 +129,7 @@ BEGIN
 	RETURN works_hours;
 END;
 
-delimiter \;
+-- delimiter \;
 
 CREATE FUNCTION get_topic_hours(topic_id INT UNSIGNED)
 RETURNS INT UNSIGNED
@@ -152,7 +152,7 @@ BEGIN
 	RETURN hours_sum;
 END;
 
-delimiter \;
+-- delimiter \;
 
 CREATE FUNCTION get_discipline_hours_by_work_type(discipline_id INT UNSIGNED, type_id INT UNSIGNED)
 RETURNS INT UNSIGNED
