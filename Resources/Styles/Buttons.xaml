@@ -55,4 +55,36 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style x:Key="ComboButton" TargetType="Button">
+        <Setter Property="Control.Background" Value="#FF00A2E8"/>
+        <Setter Property="Control.Foreground" Value="White"/>
+        <Setter Property="Control.BorderThickness" Value="0"/>
+        <!--<Setter Property="Control.BorderBrush" Value="White"/>-->
+        <!--<Setter Property="Control.FontWeight" Value="Bold"/>-->
+        <Setter Property="Control.FontSize" Value="28"/>
+        <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
+        <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Control.Margin" Value="0"/>
+    </Style>
+    <Style x:Key="ImpactButton" TargetType="Button">
+        <Setter Property="Control.Background" Value="#FFC8BFD7"/>
+        <Setter Property="Control.Foreground" Value="#FFA35DA4"/>
+        <Setter Property="Control.BorderBrush" Value="#FFA35DA4"/>
+        <Setter Property="Control.BorderThickness" Value="2"/>
+        <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
+        <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Control.Margin" Value="0"/>
+    </Style>
+    <Style x:Key="InvisibleButton" TargetType="Button">
+        <Setter Property="Control.Background" Value="#00000000"/>
+        <Setter Property="Control.Foreground" Value="#FF333333"/>
+        <Setter Property="Control.BorderBrush" Value="#FF333333"/>
+        <Setter Property="Control.BorderThickness" Value="2"/>
+        <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
+        <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Control.Margin" Value="0"/>
+    </Style>
 </ResourceDictionary>

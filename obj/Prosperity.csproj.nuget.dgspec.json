@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Александр\\Windows 7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj": {}
+    "D:\\Aleksandr\\Windows-7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj": {}
   },
   "projects": {
-    "D:\\Александр\\Windows 7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj": {
+    "D:\\Aleksandr\\Windows-7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Александр\\Windows 7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj",
+        "projectUniqueName": "D:\\Aleksandr\\Windows-7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj",
         "projectName": "Prosperity",
-        "projectPath": "D:\\Александр\\Windows 7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj",
+        "projectPath": "D:\\Aleksandr\\Windows-7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj",
         "packagesPath": "C:\\Users\\Администратор\\.nuget\\packages\\",
-        "outputPath": "D:\\Александр\\Windows 7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\obj\\",
+        "outputPath": "D:\\Aleksandr\\Windows-7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Администратор\\AppData\\Roaming\\NuGet\\NuGet.Config",

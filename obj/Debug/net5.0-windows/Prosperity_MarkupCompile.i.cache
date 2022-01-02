@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Александр\Windows 7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\
 Prosperity
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-D:\Александр\Windows 7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\App.xaml
-7810244834
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\App.xaml
+9187679577
 
-6-825945983
+8-1559320170
 1941378839004
-MainWindow.xaml;Resources\Styles\Buttons.xaml;Resources\Styles\CheckBoxes.xaml;Resources\Styles\ComboBoxes.xaml;Resources\Styles\FlowDocuments.xaml;Resources\Styles\TextBlocks.xaml;Resources\Styles\TextBoxes.xaml;
+Controls\MainForm\MainPart.xaml;Controls\MainForm\ProsperityHeader.xaml;MainWindow.xaml;Resources\Styles\Buttons.xaml;Resources\Styles\CheckBoxes.xaml;Resources\Styles\ComboBoxes.xaml;Resources\Styles\FlowDocuments.xaml;Resources\Styles\TextBlocks.xaml;Resources\Styles\TextBoxes.xaml;
 
 True
 

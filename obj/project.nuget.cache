@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GCpnUf8CTdQBKP5D2N/ygp4Usy0reetihAud3xaF3dQCMcMLerf4asRyqb3l8mtVgFW5QVFsoeB8bELHC337FQ==",
+  "dgSpecHash": "RrwyLz11EOq8gq8hZelMH5H5sUMqJlkS5W6H0zZ5EEF6l79MChOkMRQG5t6tBZRZaACTI81CMaYiOTFIaEf4dA==",
   "success": true,
-  "projectFilePath": "D:\\Александр\\Windows 7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj",
+  "projectFilePath": "D:\\Aleksandr\\Windows-7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Администратор\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Администратор\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

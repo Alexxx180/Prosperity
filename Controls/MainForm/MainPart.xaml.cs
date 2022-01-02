@@ -13,31 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Prosperity
+namespace Prosperity.Controls.MainForm
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для MainPart.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainPart : UserControl
     {
-        public MainWindow()
+        public MainPart()
         {
             InitializeComponent();
-        }
-
-        private void Disciplines_Select(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Specialities_Select(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Conformity_Select(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
