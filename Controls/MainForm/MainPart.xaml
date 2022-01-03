@@ -4,7 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Prosperity.Controls.MainForm"
+             xmlns:viewModel="clr-namespace:Prosperity.ViewModel"
+             d:DataContext="{d:DesignInstance Type=viewModel:GlobalViewModel}"
              mc:Ignorable="d" 
+             DataContext="viewModel"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -27,10 +30,10 @@
 
             <StackPanel Orientation="Horizontal" Grid.Column="1">
                 <Viewbox>
-                    <TextBlock Text=" - Дисциплина - " />
+                    <TextBlock Text="{Binding Path=CurrentState.Name}" />
                 </Viewbox>
                 <Viewbox>
-                    <TextBlock Text="1" />
+                    <TextBlock Text="{Binding Path=CurrentState.Value}" />
                 </Viewbox>
             </StackPanel>
         </Grid>

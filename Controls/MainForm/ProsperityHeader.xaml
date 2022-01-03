@@ -25,18 +25,18 @@
             <TextBlock Text="Процветание" Style="{StaticResource CaptionSections}" />
         </Viewbox>
 
-        <ComboBox Grid.Column="3" Grid.Row="1" Style="{StaticResource ComboBoxStyle}">
+        <ComboBox Grid.Column="3" Grid.Row="1" Style="{StaticResource ComboBoxStyle}" SelectionChanged="PrimaryTables_Select">
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="ComboBoxItem" BasedOn="{StaticResource ItemsBox}"/>
             </ComboBox.ItemContainerStyle>
 
-            <ComboBoxItem IsSelected="True">
+            <ComboBoxItem ButtonBase.Click="PrimaryTables_Click">
                 Дисциплины
             </ComboBoxItem>
-            <ComboBoxItem>
+            <ComboBoxItem ButtonBase.Click="PrimaryTables_Click">
                 Специальности
             </ComboBoxItem>
-            <ComboBoxItem>
+            <ComboBoxItem ButtonBase.Click="PrimaryTables_Click">
                 Соответствия
             </ComboBoxItem>
         </ComboBox>

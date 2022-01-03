@@ -68,3 +68,11 @@ D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosp
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\MainForm\ProsperityHeader.baml
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\MainForm\MainPart.g.cs
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\MainForm\MainPart.baml
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\BouncyCastle.Crypto.dll
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\Google.Protobuf.dll
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\K4os.Compression.LZ4.dll
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\K4os.Compression.LZ4.Streams.dll
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\K4os.Hash.xxHash.dll
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\MySql.Data.dll
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\Ubiety.Dns.Core.dll
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\ZstdNet.dll

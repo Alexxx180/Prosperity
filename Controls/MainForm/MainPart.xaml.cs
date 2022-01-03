@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
+using Prosperity.ViewModel;
+using Prosperity.Model.DataBase;
 
 namespace Prosperity.Controls.MainForm
 {
@@ -23,6 +12,26 @@ namespace Prosperity.Controls.MainForm
         public MainPart()
         {
             InitializeComponent();
+            GlobalViewModel model = new GlobalViewModel();
+            DataContext = model;
+            //model.AddTransition("ЛООЛ", 1);
         }
+
+        public void FillDisciplines()
+        {
+
+        }
+
+        public void FillSpecialities()
+        {
+
+        }
+
+        public void FillConformity()
+        {
+
+        }
+
+        public ProgramData Data = new ProgramData();
     }
 }
