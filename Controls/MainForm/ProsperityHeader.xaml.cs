@@ -1,4 +1,4 @@
-﻿using System.Windows;
+﻿using System.Windows.Input;
 using System.Windows.Controls;
 using static System.Diagnostics.Trace;
 
@@ -47,7 +47,7 @@ namespace Prosperity.Controls.MainForm
             WriteLine(selector.SelectedIndex);
         }
 
-        private void PrimaryTables_Click(object sender, RoutedEventArgs e)
+        private void PrimaryTables_Click(object sender, MouseButtonEventArgs e)
         {
             ComboBox selector = sender as ComboBox;
             CheckSelection(selector);

@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style x:Key="ItemsBox" TargetType="{x:Type ComboBoxItem}">
-        <Setter Property="ComboBoxItem.Background" Value="#FFC8BFD7"/>
+    <Style x:Key="ItemsBox" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="ListBoxItem.Background" Value="#FFC8BFD7"/>
         <Setter Property="Control.Foreground" Value="#FFA35DA4"/>
         <Setter Property="Control.BorderBrush" Value="#FFA35DA4"/>
         <Setter Property="Control.BorderThickness" Value="2"/>
