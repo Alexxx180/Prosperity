@@ -1,60 +1,4 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style x:Key="DeleteButton">
-        <Setter Property="Control.Background" Value="#FFFF2A2A"/>
-        <Setter Property="Control.Foreground" Value="White"/>
-        <Setter Property="Control.BorderBrush" Value="Black"/>
-        <Setter Property="Control.FontSize" Value="26"/>
-        <Setter Property="Control.FontWeight" Value="Bold"/>
-        <Setter Property="Control.FontFamily" Value="Gill Sans MT"/>
-        <Setter Property="Button.Content" Value="X"/>
-    </Style>
-    <Style x:Key="AddButton">
-        <Setter Property="Control.Background" Value="#FF00FF2A"/>
-        <Setter Property="Control.Foreground" Value="White"/>
-        <Setter Property="Control.BorderBrush" Value="Black"/>
-        <Setter Property="Control.FontSize" Value="32"/>
-        <Setter Property="Control.FontFamily" Value="Gill Sans Ultra Bold"/>
-        <Setter Property="Button.Content" Value="+"/>
-    </Style>
-    <Style x:Key="Steps">
-        <Setter Property="Control.Background" Value="#FFEFE4B0"/>
-        <Setter Property="Control.Foreground" Value="#FF00A2E8"/>
-        <Setter Property="Control.BorderBrush" Value="#FFEFE4B0"/>
-        <Setter Property="Control.FontWeight" Value="Bold"/>
-        <Setter Property="Control.FontSize" Value="28"/>
-        <Setter Property="Control.FontFamily" Value="Cambria"/>
-        <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
-        <Setter Property="Control.Margin" Value="0"/>
-    </Style>
-    <Style x:Key="Steps2">
-        <Setter Property="Control.Background" Value="#FF00A2E8"/>
-        <Setter Property="Control.Foreground" Value="#FFEFE4B0"/>
-        <Setter Property="Control.BorderBrush" Value="#FFEFE4B0"/>
-        <Setter Property="Control.FontWeight" Value="Bold"/>
-        <Setter Property="Control.FontSize" Value="28"/>
-        <Setter Property="Control.FontFamily" Value="Cambria"/>
-        <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
-        <Setter Property="Control.Margin" Value="0"/>
-    </Style>
-    <Style x:Key="Steps3" TargetType="Button">
-        <Setter Property="Control.Background" Value="White"/>
-        <Setter Property="Control.Foreground" Value="#FF00A2E8"/>
-        <Setter Property="Control.BorderBrush" Value="#FF00A2E8"/>
-        <Setter Property="Control.FontWeight" Value="Bold"/>
-        <Setter Property="Control.FontSize" Value="28"/>
-        <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
-        <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
-        <Setter Property="Control.Margin" Value="0"/>
-        <Style.Triggers>
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Background" Value="#FF00A2E8"/>
-                <Setter Property="Foreground" Value="White"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
     <Style x:Key="ComboButton" TargetType="Button">
         <Setter Property="Control.Background" Value="#FF00A2E8"/>
         <Setter Property="Control.Foreground" Value="White"/>
@@ -67,6 +11,7 @@
         <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
         <Setter Property="Control.Margin" Value="0"/>
     </Style>
+    
     <Style x:Key="ImpactButton" TargetType="Button">
         <Setter Property="Control.Background" Value="#FFC8BFD7"/>
         <Setter Property="Control.Foreground" Value="#FFA35DA4"/>
@@ -77,11 +22,31 @@
         <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
         <Setter Property="Control.Margin" Value="0"/>
     </Style>
-
     <Style x:Key="ImpactButton2" TargetType="Button">
         <Setter Property="Control.Background" Value="#FFA35DA4"/>
         <Setter Property="Control.Foreground" Value="#FFC8BFD7"/>
         <Setter Property="Control.BorderBrush" Value="#FFA35DA4"/>
+        <Setter Property="Control.BorderThickness" Value="2"/>
+        <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
+        <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Control.Margin" Value="0"/>
+    </Style>
+    
+    <Style x:Key="ImpactButton3" TargetType="Button">
+        <Setter Property="Control.Background" Value="#FFFFBB00"/>
+        <Setter Property="Control.Foreground" Value="#FF555555"/>
+        <Setter Property="Control.BorderBrush" Value="#FFFFBB00"/>
+        <Setter Property="Control.BorderThickness" Value="2"/>
+        <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
+        <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Control.Margin" Value="0"/>
+    </Style>
+    <Style x:Key="ImpactButton4" TargetType="Button">
+        <Setter Property="Control.Background" Value="#FFAABB00"/>
+        <Setter Property="Control.Foreground" Value="#FF000000"/>
+        <Setter Property="Control.BorderBrush" Value="#FFAABB00"/>
         <Setter Property="Control.BorderThickness" Value="2"/>
         <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
         <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>

@@ -5,31 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Prosperity.Controls.Tables.Disciplines"
              xmlns:converters="clr-namespace:Prosperity.Controls.Binds.Converters"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="800">
+             d:DesignHeight="35" d:DesignWidth="800">
     <UserControl.Resources>
         <converters:ProcentualHeightConverter x:Key="ProcentualHeightConverter" />
+        <Style x:Key="Impact1" BasedOn="{StaticResource ImpactButton3}" TargetType="Button" />
+        <Style x:Key="Impact2" BasedOn="{StaticResource ImpactButton4}" TargetType="Button" />
     </UserControl.Resources>
-    <Grid Height="35">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.15*" />
-            <ColumnDefinition Width="0.15*" />
-            <ColumnDefinition Width="0.15*" />
-            <ColumnDefinition Width="0.55*" />
-        </Grid.ColumnDefinitions>
+    <Button Height="35" HorizontalContentAlignment="Stretch" Style="{StaticResource ImpactButton3}" Click="Select">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.15*" />
+                <ColumnDefinition Width="0.15*" />
+                <ColumnDefinition Width="0.15*" />
+                <ColumnDefinition Width="0.55*" />
+            </Grid.ColumnDefinitions>
 
-        <Viewbox>
-            <TextBlock x:Name="Index" Text="1" />
-        </Viewbox>
-        <Viewbox Grid.Column="1">
-            <TextBlock x:Name="DisciplineId" Text="1" />
-        </Viewbox>
-        <Button Grid.Column="2">
-            <Viewbox>
-                <TextBlock x:Name="DisciplineСode" Text="1" />
+            <Viewbox IsHitTestVisible="False">
+                <TextBlock Text="{Binding Path=No}" />
             </Viewbox>
-        </Button>
+            <Viewbox Grid.Column="1"  IsHitTestVisible="False">
+                <TextBlock Text="{Binding Path=Id}" />
+            </Viewbox>
+            <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" IsEnabled="{Binding Path=CanBeEdited}" Click="SelectCode">
+                <Viewbox>
+                    <TextBlock Text="{Binding Path=Code}" />
+                </Viewbox>
+            </Button>
 
-        <TextBox Grid.Column="3" Text="" FontSize="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={StaticResource ProcentualHeightConverter}, ConverterParameter='1,6'}" />
-    </Grid>
+            <TextBox Grid.Column="3" Text="{Binding Path=DisciplineName}" IsEnabled="{Binding Path=CanBeEdited}" FontSize="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={StaticResource ProcentualHeightConverter}, ConverterParameter='1,6'}" />
+        </Grid>
+    </Button>
 </UserControl>

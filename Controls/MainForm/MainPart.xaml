@@ -50,7 +50,7 @@
 
                 </Border>
                 <StackPanel x:Name="CurrentView" Grid.Row="1">
-
+                    
                 </StackPanel>
             </Grid>
         </ScrollViewer>

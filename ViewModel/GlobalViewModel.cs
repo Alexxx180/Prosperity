@@ -20,6 +20,19 @@ namespace Prosperity.ViewModel
             }
         }
 
+        private int _selectedRows = 0;
+        public int SelectedRows
+        {
+            get => _selectedRows;
+            set
+            {
+                _selectedRows = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool CanBeAffected => _selectedRows > 0;
+
         public void AddTransition(string name, int id)
         {
             Pair<string, int> transition = new Pair<string, int>($"- {name} -", id);

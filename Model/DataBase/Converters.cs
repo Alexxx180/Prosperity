@@ -18,11 +18,11 @@ namespace Prosperity.Model.DataBase
             return result;
         }
 
-        public static List<TOutput> ConvertAll<TInput, TOutput>(List<TInput> array, Func<TInput, TOutput> converter)
+        public static List<TOutput> ConvertAll<TInput, TOutput>(List<TInput> list, Func<TInput, TOutput> converter)
         {
-            List<TOutput> result = new List<TOutput>(array.Count);
-            for (int i = 0; i < array.Count; i++)
-                result[i] = converter(array[i]);
+            List<TOutput> result = new List<TOutput>();
+            for (int i = 0; i < list.Count; i++)
+                result.Add(converter(list[i]));
             return result;
         }
 

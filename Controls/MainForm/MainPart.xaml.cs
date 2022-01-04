@@ -1,6 +1,7 @@
 ﻿using System.Windows.Controls;
 using Prosperity.ViewModel;
 using Prosperity.Model.DataBase;
+using Prosperity.Controls.Tables.Disciplines;
 
 namespace Prosperity.Controls.MainForm
 {
@@ -14,6 +15,7 @@ namespace Prosperity.Controls.MainForm
             InitializeComponent();
             GlobalViewModel model = new GlobalViewModel();
             DataContext = model;
+            DisciplineRow.AddElements(CurrentView, Data.Disciplines);
             //model.AddTransition("ЛООЛ", 1);
         }
 
