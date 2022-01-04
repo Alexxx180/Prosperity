@@ -18,4 +18,9 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controls\Tables\Specialities\" />
+    <Folder Include="Controls\Tables\Conformity\" />
+  </ItemGroup>
+
 </Project>

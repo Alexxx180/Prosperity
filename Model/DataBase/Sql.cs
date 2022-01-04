@@ -64,7 +64,12 @@ namespace Prosperity.Model.DataBase
         // Specialities
         public List<object[]> SpecialitiesList()
         {
-            return GetRecords("get_specialities_full");
+            return GetRecords("get_specialities");
+        }
+
+        public List<object[]> SpecialityCodes()
+        {
+            return GetRecords("get_speciality_codes");
         }
 
         public List<object[]> GeneralCompetetions(uint value)
@@ -80,7 +85,12 @@ namespace Prosperity.Model.DataBase
         // Disciplines
         public List<object[]> DisciplinesList()
         {
-            return GetRecords("get_disciplines_full");
+            return GetRecords("get_disciplines");
+        }
+
+        public List<object[]> DisciplineCodes()
+        {
+            return GetRecords("get_discipline_codes");
         }
 
         public List<object[]> TotalHours(uint value)

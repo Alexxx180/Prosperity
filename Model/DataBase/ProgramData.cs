@@ -15,11 +15,15 @@ namespace Prosperity.Model.DataBase
 
         public static List<string[]> Specialities => Converters.Specialities;
 
+        public static List<string[]> SpecialityCodes => Converters.SpecialityCodes;
+
         public static List<string[]> GeneralCompetetions(uint specialityId) => Converters.GeneralCompetetions(specialityId);
 
         public static List<string[]> ProfessionalCompetetions(uint specialityId) => Converters.ProfessionalCompetetions(specialityId);
 
         public static List<string[]> Disciplines => Converters.Disciplines;
+
+        public static List<string[]> DisciplineCodes => Converters.DisciplineCodes;
 
         public static List<string[]> TotalHours(uint disciplineId) => Converters.TotalHours(disciplineId);
 

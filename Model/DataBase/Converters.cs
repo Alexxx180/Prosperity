@@ -29,9 +29,11 @@ namespace Prosperity.Model.DataBase
         private static string ElementToString(object value) => value.ToString();
         private static string[] ElementsToString(object[] values) => ConvertAll(values, ElementToString);
 
-        // Overall tables: 19
+        // Overall tables: 21
 
         public static List<string[]> Specialities => ConvertAll(_dataBase.SpecialitiesList(), ElementsToString);
+
+        public static List<string[]> SpecialityCodes => ConvertAll(_dataBase.SpecialityCodes(), ElementsToString);
 
         public static List<string[]> GeneralCompetetions(uint specialityId) => ConvertAll(_dataBase.GeneralCompetetions(specialityId), ElementsToString);
 
@@ -39,6 +41,8 @@ namespace Prosperity.Model.DataBase
 
 
         public static List<string[]> Disciplines => ConvertAll(_dataBase.DisciplinesList(), ElementsToString);
+
+        public static List<string[]> DisciplineCodes => ConvertAll(_dataBase.DisciplineCodes(), ElementsToString);
 
         public static List<string[]> TotalHours(uint disciplineId) => ConvertAll(_dataBase.TotalHours(disciplineId), ElementsToString);
 
