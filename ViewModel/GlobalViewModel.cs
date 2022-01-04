@@ -32,6 +32,7 @@ namespace Prosperity.ViewModel
         }
 
         public bool CanBeAffected => _selectedRows > 0;
+        //public int RecordCount => ;
 
         public void AddTransition(string name, int id)
         {

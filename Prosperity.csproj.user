@@ -13,7 +13,13 @@
     <Compile Update="Controls\MainForm\ProsperityHeader.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\Tables\Disciplines\DisciplineColumns.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\Tables\Disciplines\DisciplineRow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\DisciplineRowAdditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -24,7 +30,13 @@
     <Page Update="Controls\MainForm\ProsperityHeader.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Controls\Tables\Disciplines\DisciplineColumns.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Controls\Tables\Disciplines\DisciplineRow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\DisciplineRowAdditor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

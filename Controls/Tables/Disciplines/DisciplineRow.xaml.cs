@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using System.Windows;
 
 namespace Prosperity.Controls.Tables.Disciplines
 {
@@ -87,7 +87,8 @@ namespace Prosperity.Controls.Tables.Disciplines
 
         public static void AddElements(StackPanel table, List<string[]> rows)
         {
-            for (ushort no = 0; no < rows.Count; no++)
+            ushort no = 0;
+            for (; no < rows.Count; no++)
             {
                 string[] row = rows[no];
                 int id = ToInt32(row[0]);
@@ -95,6 +96,7 @@ namespace Prosperity.Controls.Tables.Disciplines
                 string name = row[2];
                 AddElement(table, no + 1, id, code, name);
             }
+            DisciplineRowAdditor.AddElement(table, no + 1);
         }
 
         public static void AddElement(StackPanel table, int no, int id, int code, string name)

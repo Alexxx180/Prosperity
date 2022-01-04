@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Prosperity.Controls.Tables.Disciplines.DisciplineRowAdditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Prosperity.Controls.Tables.Disciplines"
+             xmlns:converters="clr-namespace:Prosperity.Controls.Binds.Converters"
+             mc:Ignorable="d" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DesignHeight="35" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:ProcentualHeightConverter x:Key="ProcentualHeightConverter" />
+    </UserControl.Resources>
+    <Grid Height="35">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.55*" />
+        </Grid.ColumnDefinitions>
+        
+        <Button Style="{StaticResource ImpactButton}" IsEnabled="{Binding Path=CanBeEdited}">
+            <Viewbox>
+                <TextBlock Text="+" />
+            </Viewbox>
+        </Button>
+        <Viewbox Grid.Column="1">
+            <TextBlock Text="{Binding Path=No}" />
+        </Viewbox>
+        <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="SelectCode">
+            <Viewbox>
+                <TextBlock Text="{Binding Path=Code}" />
+            </Viewbox>
+        </Button>
+
+        <TextBox Grid.Column="3" Text="{Binding Path=DisciplineName}" FontSize="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={StaticResource ProcentualHeightConverter}, ConverterParameter='1,6'}" />
+    </Grid>
+</UserControl>

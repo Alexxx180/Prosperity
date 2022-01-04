@@ -47,7 +47,7 @@
                 </Grid.RowDefinitions>
 
                 <Border x:Name="CurrentHeaders">
-
+                    <disciplines:DisciplineColumns />
                 </Border>
                 <StackPanel x:Name="CurrentView" Grid.Row="1">
                     
@@ -69,7 +69,7 @@
                     <TextBlock Text="Записи: " Style="{StaticResource Impact}" />
                 </Viewbox>
                 <Viewbox>
-                    <TextBlock Text="{Binding ElementName=CurrentView, Path=Children.Count}" Style="{StaticResource Impact}" />
+                    <TextBlock x:Name="CountRecords" Text="{Binding ElementName=CurrentView, Path=Children.Count}" Style="{StaticResource Impact}" />
                 </Viewbox>
             </StackPanel>
 
