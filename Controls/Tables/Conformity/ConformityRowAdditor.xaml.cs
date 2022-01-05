@@ -3,12 +3,12 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Prosperity.Controls.Tables.Disciplines
+namespace Prosperity.Controls.Tables.Conformity
 {
     /// <summary>
-    /// Логика взаимодействия для DisciplineRowAdditor.xaml
+    /// Логика взаимодействия для ConformityRowAdditor.xaml
     /// </summary>
-    public partial class DisciplineRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class ConformityRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
         private int _no = 1;
         public int No
@@ -21,24 +21,35 @@ namespace Prosperity.Controls.Tables.Disciplines
             }
         }
 
-        private int _code = 1;
-        public int Code
+        private int _id = 1;
+        public int Id
         {
-            get => _code;
+            get => _id;
             set
             {
-                _code = value;
+                _id = value;
                 OnPropertyChanged();
             }
         }
 
-        private string _name = "";
-        public string DisciplineName
+        private int _discipline = 1;
+        public int Discipline
         {
-            get => _name;
+            get => _discipline;
             set
             {
-                _name = value;
+                _discipline = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _speciality = 1;
+        public int Speciality
+        {
+            get => _speciality;
+            set
+            {
+                _speciality = value;
                 OnPropertyChanged();
             }
         }
@@ -51,12 +62,12 @@ namespace Prosperity.Controls.Tables.Disciplines
             return (_table != null) && _table.Children.Count < ushort.MaxValue;
         }
 
-        public DisciplineRowAdditor()
+        public ConformityRowAdditor()
         {
             InitializeComponent();
         }
 
-        public DisciplineRowAdditor(int no) : this()
+        public ConformityRowAdditor(int no) : this()
         {
             SetElement(no);
         }
@@ -68,14 +79,19 @@ namespace Prosperity.Controls.Tables.Disciplines
 
         public static void AddElement(StackPanel table, int no = 1)
         {
-            DisciplineRowAdditor row = new DisciplineRowAdditor(no);
+            ConformityRowAdditor row = new ConformityRowAdditor(no);
             _ = table.Children.Add(row);
             row.OnPropertyChanged(nameof(CanBeEdited));
         }
 
-        private void SelectCode(object sender, RoutedEventArgs e)
+        private void SelectDiscipline(object sender, RoutedEventArgs e)
         {
-            
+            e.Handled = true;
+        }
+
+        private void SelectSpeciality(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
         }
 
         public void Index(int no)

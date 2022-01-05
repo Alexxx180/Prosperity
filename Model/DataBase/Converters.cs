@@ -29,7 +29,10 @@ namespace Prosperity.Model.DataBase
         private static string ElementToString(object value) => value.ToString();
         private static string[] ElementsToString(object[] values) => ConvertAll(values, ElementToString);
 
-        // Overall tables: 21
+        // Overall tables: 22
+
+        public static List<string[]> Conformity => ConvertAll(_dataBase.ConformityList(), ElementsToString);
+
 
         public static List<string[]> Specialities => ConvertAll(_dataBase.SpecialitiesList(), ElementsToString);
 

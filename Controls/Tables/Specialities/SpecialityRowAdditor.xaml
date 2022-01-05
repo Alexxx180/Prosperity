@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Prosperity.Controls.Tables.Disciplines.DisciplineRowAdditor"
+﻿<UserControl x:Class="Prosperity.Controls.Tables.Specialities.SpecialityRowAdditor"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,7 +14,7 @@
             <ColumnDefinition Width="0.15*" />
             <ColumnDefinition Width="0.55*" />
         </Grid.ColumnDefinitions>
-        
+
         <Button Style="{StaticResource ImpactButton}">
             <Button.IsEnabled>
                 <Binding Path="CanBeEdited" />

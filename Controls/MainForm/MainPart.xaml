@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Prosperity.Controls.MainForm"
              xmlns:disciplines="clr-namespace:Prosperity.Controls.Tables.Disciplines"
+             xmlns:specialities="clr-namespace:Prosperity.Controls.Tables.Specialities"
+             xmlns:conformity="clr-namespace:Prosperity.Controls.Tables.Conformity"
              xmlns:viewModel="clr-namespace:Prosperity.ViewModel"
              d:DataContext="{d:DesignInstance Type=viewModel:GlobalViewModel}"
              mc:Ignorable="d" 
@@ -46,9 +48,12 @@
                     <RowDefinition Height="0.9*" />
                 </Grid.RowDefinitions>
 
-                <Border x:Name="CurrentHeaders">
-                    <disciplines:DisciplineColumns />
-                </Border>
+                <Grid x:Name="CurrentHeaders">
+                    <disciplines:DisciplineColumns x:Name="DisciplineHeader" Visibility="Collapsed" />
+                    <specialities:SpecialityColumns x:Name="SpecialityHeader" Visibility="Collapsed" />
+                    <conformity:ConformityColumns x:Name="ConformityHeader" Visibility="Collapsed" />
+                </Grid>
+
                 <StackPanel x:Name="CurrentView" Grid.Row="1">
                     
                 </StackPanel>

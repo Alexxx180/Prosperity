@@ -5,12 +5,12 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 
-namespace Prosperity.Controls.Tables.Disciplines
+namespace Prosperity.Controls.Tables.Specialities
 {
     /// <summary>
-    /// Логика взаимодействия для DisciplineRow.xaml
+    /// Логика взаимодействия для SpecialityRow.xaml
     /// </summary>
-    public partial class DisciplineRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class SpecialityRow : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
         private int _no = 1;
         public int No
@@ -88,13 +88,13 @@ namespace Prosperity.Controls.Tables.Disciplines
             Selection = _unselected;
         }
 
-        public DisciplineRow()
+        public SpecialityRow()
         {
             InitializeComponent();
             SetStyles();
         }
 
-        public DisciplineRow(int no, int id, int code, string name) : this()
+        public SpecialityRow(int no, int id, int code, string name) : this()
         {
             SetElement(no, id, code, name);
         }
@@ -118,12 +118,12 @@ namespace Prosperity.Controls.Tables.Disciplines
                 string name = row[2];
                 AddElement(table, no + 1, id, code, name);
             }
-            DisciplineRowAdditor.AddElement(table, no + 1);
+            SpecialityRowAdditor.AddElement(table, no + 1);
         }
 
         public static void AddElement(StackPanel table, int no, int id, int code, string name)
         {
-            DisciplineRow row = new DisciplineRow(no, id, code, name);
+            SpecialityRow row = new SpecialityRow(no, id, code, name);
             _ = table.Children.Add(row);
         }
 

@@ -3,12 +3,12 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Prosperity.Controls.Tables.Disciplines
+namespace Prosperity.Controls.Tables.Specialities
 {
     /// <summary>
-    /// Логика взаимодействия для DisciplineRowAdditor.xaml
+    /// Логика взаимодействия для SpecialityRowAdditor.xaml
     /// </summary>
-    public partial class DisciplineRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class SpecialityRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
         private int _no = 1;
         public int No
@@ -51,12 +51,12 @@ namespace Prosperity.Controls.Tables.Disciplines
             return (_table != null) && _table.Children.Count < ushort.MaxValue;
         }
 
-        public DisciplineRowAdditor()
+        public SpecialityRowAdditor()
         {
             InitializeComponent();
         }
 
-        public DisciplineRowAdditor(int no) : this()
+        public SpecialityRowAdditor(int no) : this()
         {
             SetElement(no);
         }
@@ -66,16 +66,23 @@ namespace Prosperity.Controls.Tables.Disciplines
             No = no;
         }
 
-        public static void AddElement(StackPanel table, int no = 1)
+        public static void AddElement(StackPanel table)
         {
-            DisciplineRowAdditor row = new DisciplineRowAdditor(no);
+            SpecialityRowAdditor row = new SpecialityRowAdditor();
+            _ = table.Children.Add(row);
+            row.OnPropertyChanged(nameof(CanBeEdited));
+        }
+
+        public static void AddElement(StackPanel table, int no)
+        {
+            SpecialityRowAdditor row = new SpecialityRowAdditor(no);
             _ = table.Children.Add(row);
             row.OnPropertyChanged(nameof(CanBeEdited));
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         public void Index(int no)

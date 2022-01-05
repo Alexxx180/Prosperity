@@ -13,6 +13,8 @@ namespace Prosperity.Model.DataBase
             Converters.Connect(connector);
         }
 
+        public List<string[]> Conformity => Converters.Conformity;
+
         public List<string[]> Specialities => Converters.Specialities;
 
         public List<string[]> SpecialityCodes => Converters.SpecialityCodes;

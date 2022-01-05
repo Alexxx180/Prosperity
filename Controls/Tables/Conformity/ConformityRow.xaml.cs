@@ -5,12 +5,12 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 
-namespace Prosperity.Controls.Tables.Disciplines
+namespace Prosperity.Controls.Tables.Conformity
 {
     /// <summary>
-    /// Логика взаимодействия для DisciplineRow.xaml
+    /// Логика взаимодействия для ConformityRow.xaml
     /// </summary>
-    public partial class DisciplineRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class ConformityRow : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
         private int _no = 1;
         public int No
@@ -34,24 +34,24 @@ namespace Prosperity.Controls.Tables.Disciplines
             }
         }
 
-        private int _code = 1;
-        public int Code
+        private int _discipline = 1;
+        public int Discipline
         {
-            get => _code;
+            get => _discipline;
             set
             {
-                _code = value;
+                _discipline = value;
                 OnPropertyChanged();
             }
         }
 
-        private string _name = "";
-        public string DisciplineName
+        private int _speciality = 1;
+        public int Speciality
         {
-            get => _name;
+            get => _speciality;
             set
             {
-                _name = value;
+                _speciality = value;
                 OnPropertyChanged();
             }
         }
@@ -88,23 +88,23 @@ namespace Prosperity.Controls.Tables.Disciplines
             Selection = _unselected;
         }
 
-        public DisciplineRow()
+        public ConformityRow()
         {
             InitializeComponent();
             SetStyles();
         }
 
-        public DisciplineRow(int no, int id, int code, string name) : this()
+        public ConformityRow(int no, int id, int disciplineNo, int specialityNo) : this()
         {
-            SetElement(no, id, code, name);
+            SetElement(no, id, disciplineNo, specialityNo);
         }
 
-        public void SetElement(int no, int id, int code, string name)
+        public void SetElement(int no, int id, int disciplineNo, int specialityNo)
         {
             No = no;
             Id = id;
-            Code = code;
-            DisciplineName = name;
+            Discipline = disciplineNo;
+            Speciality = specialityNo;
         }
 
         public static void AddElements(StackPanel table, List<string[]> rows)
@@ -114,16 +114,16 @@ namespace Prosperity.Controls.Tables.Disciplines
             {
                 string[] row = rows[no];
                 int id = ToInt32(row[0]);
-                int code = ToInt32(row[1]);
-                string name = row[2];
-                AddElement(table, no + 1, id, code, name);
+                int disciplineNo = ToInt32(row[1]);
+                int specialityNo = ToInt32(row[2]);
+                AddElement(table, no + 1, id, disciplineNo, specialityNo);
             }
-            DisciplineRowAdditor.AddElement(table, no + 1);
+            ConformityRowAdditor.AddElement(table, no + 1);
         }
 
-        public static void AddElement(StackPanel table, int no, int id, int code, string name)
+        public static void AddElement(StackPanel table, int no, int id, int disciplineNo, int specialityNo)
         {
-            DisciplineRow row = new DisciplineRow(no, id, code, name);
+            ConformityRow row = new ConformityRow(no, id, disciplineNo, specialityNo);
             _ = table.Children.Add(row);
         }
 
@@ -133,7 +133,12 @@ namespace Prosperity.Controls.Tables.Disciplines
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
-        private void SelectCode(object sender, RoutedEventArgs e)
+        private void SelectDiscipline(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void SelectSpeciality(object sender, RoutedEventArgs e)
         {
             e.Handled = true;
         }

@@ -61,6 +61,11 @@ namespace Prosperity.Model.DataBase
             return GetRecords("get_professional_competetion", "comp_id", value);
         }
 
+        public List<object[]> ConformityList()
+        {
+            return GetRecords("get_conformity_full");
+        }
+
         // Specialities
         public List<object[]> SpecialitiesList()
         {

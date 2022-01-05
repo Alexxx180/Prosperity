@@ -2,6 +2,8 @@
 using Prosperity.ViewModel;
 using Prosperity.Model.DataBase;
 using Prosperity.Controls.Tables.Disciplines;
+using Prosperity.Controls.Tables.Specialities;
+using Prosperity.Controls.Tables.Conformity;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 //using static System.GC;
@@ -13,11 +15,12 @@ namespace Prosperity.Controls.MainForm
     /// </summary>
     public partial class MainPart : UserControl, INotifyPropertyChanged
     {
+        public GlobalViewModel ViewModel = new GlobalViewModel();
+
         public MainPart()
         {
             InitializeComponent();
-            GlobalViewModel model = new GlobalViewModel();
-            DataContext = model;
+            DataContext = ViewModel;
             FillDisciplines();
         }
 
@@ -31,14 +34,14 @@ namespace Prosperity.Controls.MainForm
         public void FillSpecialities()
         {
             CurrentView.Children.Clear();
-            DisciplineRow.AddElements(CurrentView, Data.Disciplines);
+            SpecialityRow.AddElements(CurrentView, Data.Specialities);
             RefreshCount();
         }
 
         public void FillConformity()
         {
             CurrentView.Children.Clear();
-            DisciplineRow.AddElements(CurrentView, Data.Disciplines);
+            ConformityRow.AddElements(CurrentView, Data.Conformity);
             RefreshCount();
         }
 
