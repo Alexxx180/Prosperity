@@ -3,6 +3,8 @@ using Prosperity.ViewModel;
 using Prosperity.Controls.Tables.Disciplines;
 using Prosperity.Controls.Tables.Specialities;
 using Prosperity.Controls.Tables.Conformity;
+using Prosperity.Controls.Tables.Specialities.GeneralCompetetions;
+using Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 
@@ -57,17 +59,19 @@ namespace Prosperity.Controls.MainForm
         }
 
 
-        public void FillGeneralCompetetions()
+        public void FillGeneralCompetetions(uint id)
         {
+            ResetHeaders(GeneralCompetetionHeader);
             CurrentView.Children.Clear();
-            
+            GeneralCompetetionRow.AddElements(CurrentView, ViewModel.Data.GeneralCompetetions(id));
             RefreshCount();
         }
 
-        public void FillProfessionalCompetetions()
+        public void FillProfessionalCompetetions(uint id)
         {
+            ResetHeaders(ProfessionalCompetetionHeader);
             CurrentView.Children.Clear();
-
+            ProfessionalCompetetionRow.AddElements(CurrentView, ViewModel.Data.ProfessionalCompetetions(id));
             RefreshCount();
         }
 

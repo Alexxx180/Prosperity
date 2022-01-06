@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines
 {
@@ -118,6 +119,7 @@ namespace Prosperity.Controls.Tables.Disciplines
                 string name = row[2];
                 AddElement(table, no + 1, id, code, name);
             }
+            //AddElement<DisciplineRowAdditor>(table, no + 1);
             DisciplineRowAdditor.AddElement(table, no + 1);
         }
 

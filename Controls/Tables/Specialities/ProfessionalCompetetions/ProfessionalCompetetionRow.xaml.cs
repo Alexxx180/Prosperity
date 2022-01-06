@@ -125,9 +125,17 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
         private Style _unselected;
         private Style _selected;
 
+        private void SetStyles()
+        {
+            _unselected = (Style)TryFindResource("Impact1");
+            _selected = (Style)TryFindResource("Impact2");
+            Selection = _unselected;
+        }
+
         public ProfessionalCompetetionRow()
         {
             InitializeComponent();
+            SetStyles();
         }
 
         public void SetElement(int no, int id, int professionalNo1,

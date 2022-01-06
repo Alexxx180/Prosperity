@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -87,30 +86,13 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             }
         }
 
-        private bool _canBeEdited = false;
-        public bool CanBeEdited
-        {
-            get => _canBeEdited;
-            set
-            {
-                _canBeEdited = value;
-                OnPropertyChanged();
-            }
-        }
+        public bool CanBeEdited => HaveSpace();
+        private StackPanel _table => Parent as StackPanel;
 
-        private Style _selection;
-        public Style Selection
+        private bool HaveSpace()
         {
-            get => _selection;
-            set
-            {
-                _selection = value;
-                OnPropertyChanged();
-            }
+            return (_table != null) && _table.Children.Count < ushort.MaxValue;
         }
-
-        private Style _unselected;
-        private Style _selected;
 
         public ProfessionalCompetetionRowAdditor()
         {
@@ -131,12 +113,6 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
         {
             ProfessionalCompetetionRowAdditor row = new ProfessionalCompetetionRowAdditor(no);
             _ = table.Children.Add(row);
-        }
-
-        private void Select(object sender, RoutedEventArgs e)
-        {
-            CanBeEdited = !CanBeEdited;
-            Selection = CanBeEdited ? _selected : _unselected;
         }
 
         public void Index(int no)

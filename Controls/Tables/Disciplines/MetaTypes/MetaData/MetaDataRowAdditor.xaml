@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData.MetaDataRowAdditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DesignHeight="35" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.55*" />
+        </Grid.ColumnDefinitions>
+
+        <Button Style="{StaticResource ImpactButton}">
+            <Button.IsEnabled>
+                <Binding Path="CanBeEdited" />
+            </Button.IsEnabled>
+            <Viewbox>
+                <TextBlock Text="+" />
+            </Viewbox>
+        </Button>
+
+        <Viewbox Grid.Column="1" IsHitTestVisible="False">
+            <TextBlock Text="{Binding Path=No}" />
+        </Viewbox>
+
+        <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="SelectCode">
+            <Button.IsEnabled>
+                <Binding Path="CanBeEdited" />
+            </Button.IsEnabled>
+            <Viewbox>
+                <TextBlock Text="{Binding Path=MetaType}" />
+            </Viewbox>
+        </Button>
+
+        <TextBox Grid.Column="3">
+            <TextBox.Text>
+                <Binding Path="MetaValue" />
+            </TextBox.Text>
+            <TextBox.IsEnabled>
+                <Binding Path="CanBeEdited" />
+            </TextBox.IsEnabled>
+            <TextBox.FontSize>
+                16.5
+            </TextBox.FontSize>
+        </TextBox>
+    </Grid>
+</UserControl>

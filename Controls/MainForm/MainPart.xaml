@@ -7,6 +7,8 @@
              xmlns:disciplines="clr-namespace:Prosperity.Controls.Tables.Disciplines"
              xmlns:specialities="clr-namespace:Prosperity.Controls.Tables.Specialities"
              xmlns:conformity="clr-namespace:Prosperity.Controls.Tables.Conformity"
+             xmlns:general="clr-namespace:Prosperity.Controls.Tables.Specialities.GeneralCompetetions"
+             xmlns:professional="clr-namespace:Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions"
              xmlns:viewModel="clr-namespace:Prosperity.ViewModel"
              d:DataContext="{d:DesignInstance Type=viewModel:GlobalViewModel}"
              mc:Ignorable="d" 
@@ -52,6 +54,9 @@
                     <disciplines:DisciplineColumns x:Name="DisciplineHeader" Visibility="Collapsed" />
                     <specialities:SpecialityColumns x:Name="SpecialityHeader" Visibility="Collapsed" />
                     <conformity:ConformityColumns x:Name="ConformityHeader" Visibility="Collapsed" />
+
+                    <general:GeneralCompetetionColumns x:Name="GeneralCompetetionHeader" Visibility="Collapsed" />
+                    <professional:ProfessionalCompetetionColumns x:Name="ProfessionalCompetetionHeader" Visibility="Collapsed" />
                 </Grid>
 
                 <StackPanel x:Name="CurrentView" Grid.Row="1" Tag="{RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=4}">

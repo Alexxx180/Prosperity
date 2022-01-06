@@ -19,7 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\Tables\Specialities\ProfessionalCompetetions\" />
+    <Folder Include="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\Tasks\" />
+    <Folder Include="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\CompetetionLevels\" />
+    <Folder Include="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\" />
+    <Folder Include="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\" />
   </ItemGroup>
 
 </Project>

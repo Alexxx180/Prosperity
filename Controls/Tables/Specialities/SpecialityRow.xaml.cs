@@ -24,8 +24,8 @@ namespace Prosperity.Controls.Tables.Specialities
             }
         }
 
-        private int _id = 1;
-        public int Id
+        private uint _id = 1;
+        public uint Id
         {
             get => _id;
             set
@@ -35,8 +35,8 @@ namespace Prosperity.Controls.Tables.Specialities
             }
         }
 
-        private int _code = 1;
-        public int Code
+        private uint _code = 1;
+        public uint Code
         {
             get => _code;
             set
@@ -95,12 +95,12 @@ namespace Prosperity.Controls.Tables.Specialities
             SetStyles();
         }
 
-        public SpecialityRow(int no, int id, int code, string name) : this()
+        public SpecialityRow(int no, uint id, uint code, string name) : this()
         {
             SetElement(no, id, code, name);
         }
 
-        public void SetElement(int no, int id, int code, string name)
+        public void SetElement(int no, uint id, uint code, string name)
         {
             No = no;
             Id = id;
@@ -114,15 +114,15 @@ namespace Prosperity.Controls.Tables.Specialities
             for (; no < rows.Count; no++)
             {
                 string[] row = rows[no];
-                int id = ToInt32(row[0]);
-                int code = ToInt32(row[1]);
+                uint id = ToUInt32(row[0]);
+                uint code = ToUInt32(row[1]);
                 string name = row[2];
                 AddElement(table, no + 1, id, code, name);
             }
             SpecialityRowAdditor.AddElement(table, no + 1);
         }
 
-        public static void AddElement(StackPanel table, int no, int id, int code, string name)
+        public static void AddElement(StackPanel table, int no, uint id, uint code, string name)
         {
             SpecialityRow row = new SpecialityRow(no, id, code, name);
             _ = table.Children.Add(row);
@@ -156,10 +156,10 @@ namespace Prosperity.Controls.Tables.Specialities
             switch (selector.SelectedIndex)
             {
                 case 0:
-                    _tables.FillGeneralCompetetions();
+                    _tables.FillGeneralCompetetions(Id);
                     break;
                 case 1:
-                    _tables.FillProfessionalCompetetions();
+                    _tables.FillProfessionalCompetetions(Id);
                     break;
                 default:
                     break;
