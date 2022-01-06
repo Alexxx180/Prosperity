@@ -4,14 +4,13 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using Prosperity.Controls.MainForm;
 
-namespace Prosperity.Controls.Tables.Specialities
+namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 {
     /// <summary>
-    /// Логика взаимодействия для SpecialityRow.xaml
+    /// Логика взаимодействия для GeneralCompetetionRow.xaml
     /// </summary>
-    public partial class SpecialityRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class GeneralCompetetionRow : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
         private int _no = 1;
         public int No
@@ -35,24 +34,46 @@ namespace Prosperity.Controls.Tables.Specialities
             }
         }
 
-        private int _code = 1;
-        public int Code
+        private int _generalNo = 1;
+        public int GeneralNo
         {
-            get => _code;
+            get => _generalNo;
             set
             {
-                _code = value;
+                _generalNo = value;
                 OnPropertyChanged();
             }
         }
 
         private string _name = "";
-        public string DisciplineName
+        public string GeneralName
         {
             get => _name;
             set
             {
                 _name = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _skills = "";
+        public string Skills
+        {
+            get => _skills;
+            set
+            {
+                _skills = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _knowledge = "";
+        public string Knowledge
+        {
+            get => _knowledge;
+            set
+            {
+                _knowledge = value;
                 OnPropertyChanged();
             }
         }
@@ -89,23 +110,20 @@ namespace Prosperity.Controls.Tables.Specialities
             Selection = _unselected;
         }
 
-        public SpecialityRow()
+        public GeneralCompetetionRow()
         {
             InitializeComponent();
             SetStyles();
         }
 
-        public SpecialityRow(int no, int id, int code, string name) : this()
-        {
-            SetElement(no, id, code, name);
-        }
-
-        public void SetElement(int no, int id, int code, string name)
+        public void SetElement(int no, int id, int generalNo, string name, string skills, string knowledge)
         {
             No = no;
             Id = id;
-            Code = code;
-            DisciplineName = name;
+            GeneralNo = generalNo;
+            GeneralName = name;
+            Skills = skills;
+            Knowledge = knowledge;
         }
 
         public static void AddElements(StackPanel table, List<string[]> rows)
@@ -115,16 +133,20 @@ namespace Prosperity.Controls.Tables.Specialities
             {
                 string[] row = rows[no];
                 int id = ToInt32(row[0]);
-                int code = ToInt32(row[1]);
-                string name = row[2];
-                AddElement(table, no + 1, id, code, name);
+                int generalNo = ToInt32(row[2]);
+                string name = row[3];
+                string knowledge = row[4];
+                string skills = row[5];
+                AddElement(table, no + 1, id, generalNo, name, skills, knowledge);
             }
-            SpecialityRowAdditor.AddElement(table, no + 1);
+            GeneralCompetetionRowAdditor.AddElement(table, no + 1);
         }
 
-        public static void AddElement(StackPanel table, int no, int id, int code, string name)
+        public static void AddElement(StackPanel table, int no, int id,
+            int generalNo, string name, string skills, string knowledge)
         {
-            SpecialityRow row = new SpecialityRow(no, id, code, name);
+            GeneralCompetetionRow row = new GeneralCompetetionRow();
+            row.SetElement(no, id, generalNo, name, skills, knowledge);
             _ = table.Children.Add(row);
         }
 
@@ -134,42 +156,9 @@ namespace Prosperity.Controls.Tables.Specialities
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
-        private void SelectCode(object sender, RoutedEventArgs e)
-        {
-            e.Handled = true;
-        }
-
         public void Index(int no)
         {
             No = no;
-        }
-
-        private MainPart _tables => GetMainPart();
-        private MainPart GetMainPart()
-        {
-            StackPanel mainStack = Parent as StackPanel;
-            return mainStack.Tag as MainPart;
-        }
-
-        private void CheckSelection(ComboBox selector)
-        {
-            switch (selector.SelectedIndex)
-            {
-                case 0:
-                    _tables.FillGeneralCompetetions();
-                    break;
-                case 1:
-                    _tables.FillProfessionalCompetetions();
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void SecondaryTables_Select(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox selector = sender as ComboBox;
-            CheckSelection(selector);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

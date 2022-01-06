@@ -94,3 +94,9 @@ D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosp
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Conformity\ConformityColumns.baml
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Conformity\ConformityRow.baml
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Specialities\SpecialityRowAdditor.baml
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionColumns.g.cs
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionRow.g.cs
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionRowAdditor.g.cs
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionColumns.baml
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionRow.baml
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionRowAdditor.baml

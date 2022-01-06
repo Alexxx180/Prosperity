@@ -54,7 +54,7 @@
                     <conformity:ConformityColumns x:Name="ConformityHeader" Visibility="Collapsed" />
                 </Grid>
 
-                <StackPanel x:Name="CurrentView" Grid.Row="1">
+                <StackPanel x:Name="CurrentView" Grid.Row="1" Tag="{RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=4}">
                     
                 </StackPanel>
             </Grid>

@@ -46,17 +46,7 @@
                     <Binding Path="CanBeEdited" />
                 </TextBox.IsEnabled>
                 <TextBox.FontSize>
-                    <Binding RelativeSource="{RelativeSource Self}">
-                        <Binding.Path>
-                            ActualHeight
-                        </Binding.Path>
-                        <Binding.Converter>
-                            <converters:ProcentualHeightConverter/>
-                        </Binding.Converter>
-                        <Binding.ConverterParameter>
-                            1,6
-                        </Binding.ConverterParameter>
-                    </Binding>
+                    16.5
                 </TextBox.FontSize>
             </TextBox>
         </Grid>

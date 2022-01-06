@@ -1,12 +1,10 @@
 ﻿using System.Windows.Controls;
 using Prosperity.ViewModel;
-using Prosperity.Model.DataBase;
 using Prosperity.Controls.Tables.Disciplines;
 using Prosperity.Controls.Tables.Specialities;
 using Prosperity.Controls.Tables.Conformity;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
-//using static System.GC;
 
 namespace Prosperity.Controls.MainForm
 {
@@ -15,7 +13,7 @@ namespace Prosperity.Controls.MainForm
     /// </summary>
     public partial class MainPart : UserControl, INotifyPropertyChanged
     {
-        public GlobalViewModel ViewModel = new GlobalViewModel();
+        private readonly GlobalViewModel ViewModel = new GlobalViewModel();
 
         public MainPart()
         {
@@ -24,24 +22,52 @@ namespace Prosperity.Controls.MainForm
             FillDisciplines();
         }
 
+        private void ResetHeaders(UserControl currentHeader)
+        {
+            for (byte i = 0; i < CurrentHeaders.Children.Count; i++)
+            {
+                UserControl header = CurrentHeaders.Children[i] as UserControl;
+                header.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            currentHeader.Visibility = System.Windows.Visibility.Visible;
+        }
+
         public void FillDisciplines()
         {
+            ResetHeaders(DisciplineHeader);
             CurrentView.Children.Clear();
-            DisciplineRow.AddElements(CurrentView, Data.Disciplines);
+            DisciplineRow.AddElements(CurrentView, ViewModel.Data.Disciplines);
             RefreshCount();
         }
 
         public void FillSpecialities()
         {
+            ResetHeaders(SpecialityHeader);
             CurrentView.Children.Clear();
-            SpecialityRow.AddElements(CurrentView, Data.Specialities);
+            SpecialityRow.AddElements(CurrentView, ViewModel.Data.Specialities);
             RefreshCount();
         }
 
         public void FillConformity()
         {
+            ResetHeaders(ConformityHeader);
             CurrentView.Children.Clear();
-            ConformityRow.AddElements(CurrentView, Data.Conformity);
+            ConformityRow.AddElements(CurrentView, ViewModel.Data.Conformity);
+            RefreshCount();
+        }
+
+
+        public void FillGeneralCompetetions()
+        {
+            CurrentView.Children.Clear();
+            
+            RefreshCount();
+        }
+
+        public void FillProfessionalCompetetions()
+        {
+            CurrentView.Children.Clear();
+
             RefreshCount();
         }
 
@@ -49,8 +75,6 @@ namespace Prosperity.Controls.MainForm
         {
             CountRecords.GetBindingExpression(TextBlock.TextProperty).UpdateTarget();
         }
-
-        public ProgramData Data = new ProgramData();
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

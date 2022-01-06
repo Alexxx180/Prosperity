@@ -31,6 +31,15 @@
     <Compile Update="Controls\Tables\Disciplines\DisciplineRowAdditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionRowAdditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionColumns.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionRow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\Tables\Specialities\SpecialityColumns.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -64,6 +73,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Tables\Disciplines\DisciplineRowAdditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionRowAdditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionColumns.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionRow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Tables\Specialities\SpecialityColumns.xaml">

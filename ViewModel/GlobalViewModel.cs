@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Collections;
 using Prosperity.Model;
+using Prosperity.Model.DataBase;
 
 namespace Prosperity.ViewModel
 {
@@ -32,7 +33,6 @@ namespace Prosperity.ViewModel
         }
 
         public bool CanBeAffected => _selectedRows > 0;
-        //public int RecordCount => ;
 
         public void AddTransition(string name, int id)
         {
@@ -46,6 +46,8 @@ namespace Prosperity.ViewModel
             Pair<string, int> transition = (Pair<string, int>)Transitions.Peek();
             return transition ?? new Pair<string, int>("- Верхний уровень -", 0);
         }
+
+        public ProgramData Data = new ProgramData();
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

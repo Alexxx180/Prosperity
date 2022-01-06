@@ -1,6 +1,5 @@
 ﻿using System.Windows.Input;
 using System.Windows.Controls;
-using static System.Diagnostics.Trace;
 
 namespace Prosperity.Controls.MainForm
 {
@@ -44,14 +43,12 @@ namespace Prosperity.Controls.MainForm
         {
             ComboBox selector = sender as ComboBox;
             CheckSelection(selector);
-            WriteLine(selector.SelectedIndex);
         }
 
         private void PrimaryTables_Click(object sender, MouseButtonEventArgs e)
         {
             ComboBox selector = sender as ComboBox;
             CheckSelection(selector);
-            WriteLine(selector.Text);
         }
     }
 }
