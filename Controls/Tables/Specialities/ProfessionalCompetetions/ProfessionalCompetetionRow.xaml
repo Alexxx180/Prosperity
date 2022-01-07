@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:converters="clr-namespace:Prosperity.Controls.Binds.Converters"
              mc:Ignorable="d" 
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
              d:DesignHeight="100" d:DesignWidth="800">
@@ -34,7 +33,10 @@
                 <TextBlock Text="{Binding Path=Id}" />
             </Viewbox>
 
-            <TextBox Grid.Column="2" Height="35" MaxHeight="35">
+            <TextBox Grid.Column="2" Height="35" MaxHeight="35" PreviewTextInput="Hours" DataObject.Pasting="PastingHours">
+                <TextBox.MaxLength>
+                    3
+                </TextBox.MaxLength>
                 <TextBox.Text>
                     <Binding Path="ProfessionalNo1" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -45,7 +47,10 @@
                     20
                 </TextBox.FontSize>
             </TextBox>
-            <TextBox Grid.Column="3" Height="35" MaxHeight="35">
+            <TextBox Grid.Column="3" Height="35" MaxHeight="35" PreviewTextInput="Hours" DataObject.Pasting="PastingHours">
+                <TextBox.MaxLength>
+                    3
+                </TextBox.MaxLength>
                 <TextBox.Text>
                     <Binding Path="ProfessionalNo2" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -58,6 +63,9 @@
             </TextBox>
 
             <TextBox Grid.Column="4" TextWrapping="Wrap" Height="90" MaxHeight="90">
+                <TextBox.MaxLength>
+                    250
+                </TextBox.MaxLength>
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>
@@ -72,6 +80,9 @@
                 </TextBox.FontSize>
             </TextBox>
             <TextBox Grid.Column="5" TextWrapping="Wrap" Height="90" MaxHeight="90">
+                <TextBox.MaxLength>
+                    1000
+                </TextBox.MaxLength>
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>
@@ -86,6 +97,9 @@
                 </TextBox.FontSize>
             </TextBox>
             <TextBox Grid.Column="6" TextWrapping="Wrap" Height="90" MaxHeight="90">
+                <TextBox.MaxLength>
+                    1000
+                </TextBox.MaxLength>
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>
@@ -100,6 +114,9 @@
                 </TextBox.FontSize>
             </TextBox>
             <TextBox Grid.Column="7" TextWrapping="Wrap" Height="90" MaxHeight="90">
+                <TextBox.MaxLength>
+                    1000
+                </TextBox.MaxLength>
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>

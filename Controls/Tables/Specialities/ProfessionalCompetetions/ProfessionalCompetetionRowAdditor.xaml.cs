@@ -1,13 +1,17 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Input;
+using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using static System.Convert;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
 {
     /// <summary>
-    /// Логика взаимодействия для ProfessionalCompetetionRowAdditor.xaml
+    /// Professional competetions table special row to add new rows
     /// </summary>
-    public partial class ProfessionalCompetetionRowAdditor : UserControl
+    public partial class ProfessionalCompetetionRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
         private int _no = 1;
         public int No
@@ -20,8 +24,8 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             }
         }
 
-        private int _professionalNo1 = 1;
-        public int ProfessionalNo1
+        private string _professionalNo1 = "1";
+        public string ProfessionalNo1
         {
             get => _professionalNo1;
             set
@@ -31,8 +35,8 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             }
         }
 
-        private int _professionalNo2 = 1;
-        public int ProfessionalNo2
+        private string _professionalNo2 = "1";
+        public string ProfessionalNo2
         {
             get => _professionalNo2;
             set
@@ -94,6 +98,9 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             return (_table != null) && _table.Children.Count < ushort.MaxValue;
         }
 
+        public int CompetetionNo1 => ToUInt16(ProfessionalNo1);
+        public int CompetetionNo2 => ToUInt16(ProfessionalNo2);
+
         public ProfessionalCompetetionRowAdditor()
         {
             InitializeComponent();
@@ -118,6 +125,15 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
         public void Index(int no)
         {
             No = no;
+        }
+
+        private void Hours(object sender, TextCompositionEventArgs e)
+        {
+            CheckForHours(sender, e);
+        }
+        private void PastingHours(object sender, DataObjectPastingEventArgs e)
+        {
+            CheckForPastingHours(sender, e);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

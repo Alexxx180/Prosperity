@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 {
     /// <summary>
-    /// Логика взаимодействия для GeneralCompetetionRow.xaml
+    /// General competetons table row component
     /// </summary>
     public partial class GeneralCompetetionRow : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
@@ -34,8 +36,8 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             }
         }
 
-        private int _generalNo = 1;
-        public int GeneralNo
+        private string _generalNo = "1";
+        public string GeneralNo
         {
             get => _generalNo;
             set
@@ -89,6 +91,8 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             }
         }
 
+        public int CompetetionNo => ToUInt16(GeneralNo);
+
         private Style _selection;
         public Style Selection
         {
@@ -116,7 +120,7 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             SetStyles();
         }
 
-        public void SetElement(int no, int id, int generalNo, string name, string skills, string knowledge)
+        public void SetElement(int no, int id, string generalNo, string name, string skills, string knowledge)
         {
             No = no;
             Id = id;
@@ -133,7 +137,7 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             {
                 string[] row = rows[no];
                 int id = ToInt32(row[0]);
-                int generalNo = ToInt32(row[2]);
+                string generalNo = row[2];
                 string name = row[3];
                 string knowledge = row[4];
                 string skills = row[5];
@@ -143,7 +147,7 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
         }
 
         public static void AddElement(StackPanel table, int no, int id,
-            int generalNo, string name, string skills, string knowledge)
+            string generalNo, string name, string skills, string knowledge)
         {
             GeneralCompetetionRow row = new GeneralCompetetionRow();
             row.SetElement(no, id, generalNo, name, skills, knowledge);
@@ -159,6 +163,15 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
         public void Index(int no)
         {
             No = no;
+        }
+
+        private void Hours(object sender, TextCompositionEventArgs e)
+        {
+            CheckForHours(sender, e);
+        }
+        private void PastingHours(object sender, DataObjectPastingEventArgs e)
+        {
+            CheckForPastingHours(sender, e);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

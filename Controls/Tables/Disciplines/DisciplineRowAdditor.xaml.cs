@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace Prosperity.Controls.Tables.Disciplines
 {
     /// <summary>
-    /// Логика взаимодействия для DisciplineRowAdditor.xaml
+    /// Disciplines table special row to add new rows
     /// </summary>
     public partial class DisciplineRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {

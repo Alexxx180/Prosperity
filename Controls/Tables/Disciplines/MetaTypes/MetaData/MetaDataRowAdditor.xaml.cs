@@ -6,7 +6,7 @@ using System.Windows;
 namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 {
     /// <summary>
-    /// Metadata table special row component to add new rows
+    /// Metadata table special row to add new rows
     /// </summary>
     public partial class MetaDataRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {

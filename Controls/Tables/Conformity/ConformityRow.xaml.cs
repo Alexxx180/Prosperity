@@ -1,5 +1,4 @@
-﻿//using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
@@ -9,7 +8,7 @@ using static System.Convert;
 namespace Prosperity.Controls.Tables.Conformity
 {
     /// <summary>
-    /// Логика взаимодействия для ConformityRow.xaml
+    /// Conformity table row component
     /// </summary>
     public partial class ConformityRow : UserControl, INotifyPropertyChanged, IAutoIndexing
     {

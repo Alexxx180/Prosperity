@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 {
     /// <summary>
-    /// Sources table special row component to add new rows
+    /// Sources table special row to add new rows
     /// </summary>
     public partial class SourceRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {

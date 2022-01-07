@@ -3,7 +3,7 @@
 namespace Prosperity.Controls.Tables.Disciplines.DisciplineCodes
 {
     /// <summary>
-    /// Логика взаимодействия для DisciplineCodeColuumns.xaml
+    /// Discipline codes table columns header
     /// </summary>
     public partial class DisciplineCodeColumns : UserControl
     {

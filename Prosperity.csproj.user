@@ -103,6 +103,69 @@
     <Compile Update="Controls\Tables\Disciplines\WorkTypes\Hours\HoursRowAdditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\CompetetionLevels\LevelColumns.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\CompetetionLevels\LevelRow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\CompetetionLevels\LevelRowAdditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringColumns.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringRow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringRowAdditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringColumns.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringRow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringRowAdditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeColumns.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeRow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeRowAdditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\Tasks\TaskColumns.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\Tasks\TaskRow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\Tasks\TaskRowAdditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\WorkColumns.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\WorkRow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\WorkRowAdditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\TopicColumns.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\TopicRow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\TopicRowAdditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\Tables\Disciplines\WorkTypes\WorkTypesColumns.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -244,6 +307,69 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Tables\Disciplines\WorkTypes\Hours\HoursRowAdditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\CompetetionLevels\LevelColumns.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\CompetetionLevels\LevelRow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\CompetetionLevels\LevelRowAdditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringColumns.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringRow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringRowAdditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringColumns.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringRow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringRowAdditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeColumns.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeRow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeRowAdditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\Tasks\TaskColumns.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\Tasks\TaskRow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\Tasks\TaskRowAdditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\WorkColumns.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\WorkRow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\WorkRowAdditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\TopicColumns.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\TopicRow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\TopicRowAdditor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Tables\Disciplines\WorkTypes\WorkTypesColumns.xaml">

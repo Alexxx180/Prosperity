@@ -1,12 +1,15 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using static System.Convert;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 {
     /// <summary>
-    /// Логика взаимодействия для GeneralCompetetionAdditor.xaml
+    /// General competetions table special row to add new rows
     /// </summary>
     public partial class GeneralCompetetionRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
@@ -21,8 +24,8 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             }
         }
 
-        private int _generalNo = 1;
-        public int GeneralNo
+        private string _generalNo = "1";
+        public string GeneralNo
         {
             get => _generalNo;
             set
@@ -73,6 +76,8 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             return (_table != null) && _table.Children.Count < ushort.MaxValue;
         }
 
+        public int CompetetionNo => ToUInt16(GeneralNo);
+
         public GeneralCompetetionRowAdditor()
         {
             InitializeComponent();
@@ -105,6 +110,15 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
         public void Index(int no)
         {
             No = no;
+        }
+
+        private void Hours(object sender, TextCompositionEventArgs e)
+        {
+            CheckForHours(sender, e);
+        }
+        private void PastingHours(object sender, DataObjectPastingEventArgs e)
+        {
+            CheckForPastingHours(sender, e);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

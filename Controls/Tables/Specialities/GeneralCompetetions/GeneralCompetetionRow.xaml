@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:converters="clr-namespace:Prosperity.Controls.Binds.Converters"
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="800">
@@ -32,7 +31,10 @@
                 <TextBlock Text="{Binding Path=Id}" />
             </Viewbox>
 
-            <TextBox Grid.Column="2">
+            <TextBox Grid.Column="2" Height="35" MaxHeight="35" PreviewTextInput="Hours" DataObject.Pasting="PastingHours">
+                <TextBox.MaxLength>
+                    3
+                </TextBox.MaxLength>
                 <TextBox.Text>
                     <Binding Path="GeneralNo" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -40,21 +42,14 @@
                     <Binding Path="CanBeEdited" />
                 </TextBox.IsEnabled>
                 <TextBox.FontSize>
-                    <Binding RelativeSource="{RelativeSource Self}">
-                        <Binding.Path>
-                            ActualHeight
-                        </Binding.Path>
-                        <Binding.Converter>
-                            <converters:ProcentualHeightConverter/>
-                        </Binding.Converter>
-                        <Binding.ConverterParameter>
-                            1,6
-                        </Binding.ConverterParameter>
-                    </Binding>
+                    20
                 </TextBox.FontSize>
             </TextBox>
-            
+
             <TextBox Grid.Column="3" TextWrapping="Wrap" Height="90" MaxHeight="90">
+                <TextBox.MaxLength>
+                    250
+                </TextBox.MaxLength>
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>
@@ -69,6 +64,9 @@
                 </TextBox.FontSize>
             </TextBox>
             <TextBox Grid.Column="4" TextWrapping="Wrap" Height="90" MaxHeight="90">
+                <TextBox.MaxLength>
+                    1000
+                </TextBox.MaxLength>
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>
@@ -83,6 +81,9 @@
                 </TextBox.FontSize>
             </TextBox>
             <TextBox Grid.Column="5" TextWrapping="Wrap" Height="90" MaxHeight="90">
+                <TextBox.MaxLength>
+                    1000
+                </TextBox.MaxLength>
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>

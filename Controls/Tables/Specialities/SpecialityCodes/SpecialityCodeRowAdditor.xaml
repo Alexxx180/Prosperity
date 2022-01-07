@@ -21,12 +21,15 @@
                 <TextBlock Text="+" />
             </Viewbox>
         </Button>
-        
+
         <Viewbox Grid.Column="1" IsHitTestVisible="False">
             <TextBlock Text="{Binding Path=No}" />
         </Viewbox>
 
         <TextBox Grid.Column="2">
+            <TextBox.MaxLength>
+                15
+            </TextBox.MaxLength>
             <TextBox.Text>
                 <Binding Path="SpecialityCode" />
             </TextBox.Text>
@@ -34,7 +37,7 @@
                 <Binding Path="CanBeEdited" />
             </TextBox.IsEnabled>
             <TextBox.FontSize>
-                16.5
+                20
             </TextBox.FontSize>
         </TextBox>
     </Grid>

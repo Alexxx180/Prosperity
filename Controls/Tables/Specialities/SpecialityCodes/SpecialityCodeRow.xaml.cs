@@ -8,7 +8,7 @@ using static System.Convert;
 namespace Prosperity.Controls.Tables.Specialities.SpecialityCodes
 {
     /// <summary>
-    /// Speciality code row component
+    /// Speciality codes table row component
     /// </summary>
     public partial class SpecialityCodeRow : UserControl, INotifyPropertyChanged, IAutoIndexing
     {

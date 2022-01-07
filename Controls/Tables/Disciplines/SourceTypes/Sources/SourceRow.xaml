@@ -39,8 +39,11 @@
             </Button>
 
             <TextBox Grid.Column="3">
+                <TextBox.MaxLength>
+                    1000
+                </TextBox.MaxLength>
                 <TextBox.Text>
-                    <Binding Path="Source" />
+                    <Binding Path="Source" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
                 <TextBox.IsEnabled>
                     <Binding Path="CanBeEdited" />

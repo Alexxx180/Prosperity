@@ -5,9 +5,9 @@ using System.Runtime.CompilerServices;
 namespace Prosperity.Controls.Tables.Specialities.SpecialityCodes
 {
     /// <summary>
-    /// Логика взаимодействия для SpecialityCodeRowAdditor.xaml
+    /// Speciality codes table special row to add new rows
     /// </summary>
-    public partial class SpecialityCodeRowAdditor : UserControl
+    public partial class SpecialityCodeRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
         private int _no = 1;
         public int No
@@ -67,7 +67,6 @@ namespace Prosperity.Controls.Tables.Specialities.SpecialityCodes
             _ = table.Children.Add(row);
             row.OnPropertyChanged(nameof(CanBeEdited));
         }
-
 
         public void Index(int no)
         {

@@ -27,7 +27,7 @@
             <TextBlock Text="Наименование" />
         </Viewbox>
         <Viewbox Grid.Column="4">
-            <TextBlock Text="Перейти к" />
+            <TextBlock Text="Далее" />
         </Viewbox>
     </Grid>
 </UserControl>

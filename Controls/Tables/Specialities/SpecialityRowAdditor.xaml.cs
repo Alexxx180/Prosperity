@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace Prosperity.Controls.Tables.Specialities
 {
     /// <summary>
-    /// Логика взаимодействия для SpecialityRowAdditor.xaml
+    /// Specialities table special row to add new rows
     /// </summary>
     public partial class SpecialityRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {

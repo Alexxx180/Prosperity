@@ -29,6 +29,9 @@
             </Viewbox>
 
             <TextBox Grid.Column="2">
+                <TextBox.MaxLength>
+                    15
+                </TextBox.MaxLength>
                 <TextBox.Text>
                     <Binding Path="SpecialityCode" />
                 </TextBox.Text>

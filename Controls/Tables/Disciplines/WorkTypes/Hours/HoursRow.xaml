@@ -34,7 +34,7 @@
                     <Binding Path="CanBeEdited" />
                 </Button.IsEnabled>
                 <Viewbox>
-                    <TextBlock Text="{Binding Path=WorkType}" />
+                    <TextBlock Text="{Binding Path=HoursType}" />
                 </Viewbox>
             </Button>
 
@@ -43,7 +43,7 @@
                     3
                 </TextBox.MaxLength>
                 <TextBox.Text>
-                    <Binding Path="HoursCount" />
+                    <Binding Path="HoursCount" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
                 <TextBox.IsEnabled>
                     <Binding Path="CanBeEdited" />

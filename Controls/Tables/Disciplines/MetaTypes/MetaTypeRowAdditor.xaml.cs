@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 namespace Prosperity.Controls.Tables.Disciplines.MetaTypes
 {
     /// <summary>
-    /// Meta types table special row component to add new rows
+    /// Meta types table special row to add new rows
     /// </summary>
     public partial class MetaTypeRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {

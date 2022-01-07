@@ -8,7 +8,7 @@ using static Prosperity.Controls.Tables.EditHelper;
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
 {
     /// <summary>
-    /// Hours table special row component to add new rows
+    /// Hours table special row to add new rows
     /// </summary>
     public partial class HoursRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {

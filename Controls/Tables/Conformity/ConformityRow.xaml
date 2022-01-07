@@ -16,10 +16,10 @@
         </Button.Style>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.25*" />
-                <ColumnDefinition Width="0.25*" />
-                <ColumnDefinition Width="0.25*" />
-                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Viewbox IsHitTestVisible="False">

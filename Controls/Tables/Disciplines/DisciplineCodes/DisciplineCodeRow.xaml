@@ -29,8 +29,11 @@
             </Viewbox>
 
             <TextBox Grid.Column="2">
+                <TextBox.MaxLength>
+                    15
+                </TextBox.MaxLength>
                 <TextBox.Text>
-                    <Binding Path="DisciplineCode" />
+                    <Binding Path="DisciplineCode" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
                 <TextBox.IsEnabled>
                     <Binding Path="CanBeEdited" />

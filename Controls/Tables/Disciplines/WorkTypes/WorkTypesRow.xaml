@@ -29,8 +29,11 @@
             </Viewbox>
 
             <TextBox Grid.Column="3">
+                <TextBox.MaxLength>
+                    50
+                </TextBox.MaxLength>
                 <TextBox.Text>
-                    <Binding Path="WorkType" />
+                    <Binding Path="WorkType" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
                 <TextBox.IsEnabled>
                     <Binding Path="CanBeEdited" />

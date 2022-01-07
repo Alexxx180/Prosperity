@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace Prosperity.Controls.Tables.Disciplines.ProfessionalMastering
 {
     /// <summary>
-    /// Professional mastering special row component to add new rows
+    /// Professional mastering special row to add new rows
     /// </summary>
     public partial class DisciplineProfessionalMasteringRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {

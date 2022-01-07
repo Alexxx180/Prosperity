@@ -39,8 +39,11 @@
             </Button>
 
             <TextBox Grid.Column="3">
+                <TextBox.MaxLength>
+                    250
+                </TextBox.MaxLength>
                 <TextBox.Text>
-                    <Binding Path="DisciplineName" />
+                    <Binding Path="SpecialityName" />
                 </TextBox.Text>
                 <TextBox.IsEnabled>
                     <Binding Path="CanBeEdited" />

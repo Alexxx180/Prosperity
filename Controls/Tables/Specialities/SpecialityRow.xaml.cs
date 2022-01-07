@@ -9,7 +9,7 @@ using Prosperity.Controls.MainForm;
 namespace Prosperity.Controls.Tables.Specialities
 {
     /// <summary>
-    /// Логика взаимодействия для SpecialityRow.xaml
+    /// Specialities table row component
     /// </summary>
     public partial class SpecialityRow : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
@@ -47,7 +47,7 @@ namespace Prosperity.Controls.Tables.Specialities
         }
 
         private string _name = "";
-        public string DisciplineName
+        public string SpecialityName
         {
             get => _name;
             set
@@ -105,7 +105,7 @@ namespace Prosperity.Controls.Tables.Specialities
             No = no;
             Id = id;
             Code = code;
-            DisciplineName = name;
+            SpecialityName = name;
         }
 
         public static void AddElements(StackPanel table, List<string[]> rows)

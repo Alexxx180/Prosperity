@@ -3,7 +3,7 @@
 namespace Prosperity.Controls.Tables.Disciplines.SourceTypes
 {
     /// <summary>
-    /// Sourcetypes table columns header
+    /// Source types table columns header
     /// </summary>
     public partial class SourceTypeColumns : UserControl
     {

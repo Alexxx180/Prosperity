@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
 {
     /// <summary>
-    /// Work types table special row component to add new rows
+    /// Work types table special row to add new rows
     /// </summary>
     public partial class WorkTypesRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {

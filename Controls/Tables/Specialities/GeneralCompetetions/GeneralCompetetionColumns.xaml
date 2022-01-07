@@ -22,7 +22,7 @@
             <TextBlock Text="ID" />
         </Viewbox>
         <Viewbox Grid.Column="2">
-            <TextBlock Text="Номер" />
+            <TextBlock Text="#" />
         </Viewbox>
         <Viewbox Grid.Column="3">
             <TextBlock Text="Наименование" />

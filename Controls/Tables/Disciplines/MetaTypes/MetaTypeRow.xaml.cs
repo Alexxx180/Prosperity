@@ -8,7 +8,7 @@ using static System.Convert;
 namespace Prosperity.Controls.Tables.Disciplines.MetaTypes
 {
     /// <summary>
-    /// Meta type table row component
+    /// Meta types table row component
     /// </summary>
     public partial class MetaTypeRow : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
