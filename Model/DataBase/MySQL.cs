@@ -23,16 +23,16 @@ namespace Prosperity.Model.DataBase
         {
             return new MySqlConnection(path);
         }
-        //[EN] Publishing experimental
-        //[RU] Публикация-эксперимент
+
+        // Experimental publish
         public static MySqlConnection PublishExperimentalConnection()
         {
             return NewConnection(PublishSource +
                 Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
                 + PublishLocation);
         }
-        //[EN] Server connection
-        //[RU] Подключение через сервер (ПК создателя)
+
+        // Server connection
         public static MySqlConnection ParentServerConnection()
         {
             string source = "SERVER=127.0.0.1;";
@@ -41,16 +41,16 @@ namespace Prosperity.Model.DataBase
             string pass = "PASSWORD=;";
             return NewConnection(source + catalog + user + pass);
         }
-        //[EN] Local connection
-        //[RU] Подключение локально
+
+        // Local connection
         public static MySqlConnection LocalConnection()
         {
             return NewConnection(PublishSource +
                 Directory.GetParent(Environment.CurrentDirectory)
                 .Parent.Parent.FullName + PublishLocation);
         }
-        //[EN] Publishing local connection
-        //[RU] Публикация с локальным подключением
+
+        // Local connection publish
         public static MySqlConnection PublishLocalConnection()
         {
             return NewConnection(PublishSource +
@@ -72,23 +72,17 @@ namespace Prosperity.Model.DataBase
                 Cmd.Connection.Open();
                 _ = Cmd.ExecuteNonQuery();
             }
-            catch (MySqlException exception)
+            catch (MySqlException dbException)
             {
-                string problem = "полные данные из источника";
-                string fullMessage = $"{exception.ErrorCode} {exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                MySqlMessage(dbException, "выборочные данные в источнике");
             }
-            catch (InvalidOperationException exception)
+            catch (InvalidOperationException operationException)
             {
-                string problem = "неподдерживаемая операция";
-                string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                NetMessage(operationException, "неподдерживаемая операция");
             }
             catch (Exception exception)
             {
-                string problem = "программный сбой";
-                string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                NetMessage(exception, "программный сбой");
             }
             finally
             {
@@ -102,38 +96,34 @@ namespace Prosperity.Model.DataBase
             try
             {
                 Cmd.Connection.Open();
-                DataReader = Cmd.ExecuteReader();
-                if (DataReader.HasRows)
-                    while (DataReader.Read())
-                    {
-                        object[] row = new object[DataReader.FieldCount];
-                        for (int i = 0; i < DataReader.FieldCount; i++)
-                            row[i] = DataReader.GetValue(i);
-                        table.Add(row);
-                    }
+                using (DataReader = Cmd.ExecuteReader())
+                {
+                    if (DataReader.HasRows)
+                        while (DataReader.Read())
+                        {
+                            object[] row = new object[DataReader.FieldCount];
+                            for (int i = 0; i < DataReader.FieldCount; i++)
+                                row[i] = DataReader.GetValue(i);
+                            table.Add(row);
+                        }
+                }
             }
-            catch (MySqlException exception)
+            catch (MySqlException dbException)
             {
-                string problem = "полные данные из источника";
-                string fullMessage = $"{exception.ErrorCode} {exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                MySqlMessage(dbException, "полные данные из источника");
             }
-            catch (InvalidOperationException exception)
+            catch (InvalidOperationException operationException)
             {
-                string problem = "неподдерживаемая операция";
-                string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                NetMessage(operationException, "неподдерживаемая операция");
             }
             catch (Exception exception)
             {
-                string problem = "программный сбой";
-                string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                NetMessage(exception, "программный сбой");
             }
             finally
             {
-                DataReader.Close();
                 Cmd.Connection.Close();
+                Application.Current.Shutdown();
             }
             return table;
         }
@@ -144,36 +134,32 @@ namespace Prosperity.Model.DataBase
             try
             {
                 Cmd.Connection.Open();
-                DataReader = Cmd.ExecuteReader();
-                if (DataReader.HasRows)
-                    while (DataReader.Read())
-                    {
-                        object cell = DataReader.GetValue(column);
-                        table.Add(cell);
-                    }
+                using (DataReader = Cmd.ExecuteReader())
+                {
+                    if (DataReader.HasRows)
+                        while (DataReader.Read())
+                        {
+                            object cell = DataReader.GetValue(column);
+                            table.Add(cell);
+                        }
+                }
             }
-            catch (MySqlException exception)
+            catch (MySqlException dbException)
             {
-                string problem = "выборочные данные из источника";
-                string fullMessage = $"{exception.ErrorCode} {exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                MySqlMessage(dbException, "выборочные данные из источника");
             }
-            catch (InvalidOperationException exception)
+            catch (InvalidOperationException operationException)
             {
-                string problem = "неподдерживаемая операция";
-                string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                NetMessage(operationException, "неподдерживаемая операция");
             }
             catch (Exception exception)
             {
-                string problem = "программный сбой";
-                string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                NetMessage(exception, "программный сбой");
             }
             finally
             {
-                DataReader.Close();
                 Cmd.Connection.Close();
+                Application.Current.Shutdown();
             }
             return table;
         }
@@ -184,41 +170,36 @@ namespace Prosperity.Model.DataBase
             try
             {
                 Cmd.Connection.Open();
-                DataReader = Cmd.ExecuteReader();
-                int count = EndValue - StartValue;
-                if (DataReader.HasRows)
-                    while (DataReader.Read())
-                    {
-                        object[] row = new object[count];
-                        for (int i = 0, j = StartValue; j < EndValue; i++, j++)
-                            row[i] = DataReader.GetValue(j);
-                        table.Add(row);
-                    }
+                using (DataReader = Cmd.ExecuteReader())
+                {
+                    int count = EndValue - StartValue;
+                    if (DataReader.HasRows)
+                        while (DataReader.Read())
+                        {
+                            object[] row = new object[count];
+                            for (int i = 0, j = StartValue; j < EndValue; i++, j++)
+                                row[i] = DataReader.GetValue(j);
+                            table.Add(row);
+                        }
+                }
             }
-            catch(MySqlException exception)
+            catch(MySqlException dbException)
             {
-                string problem = "выборочные данные из источника";
-                string fullMessage = $"{exception.ErrorCode} {exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                MySqlMessage(dbException, "выборочные данные из источника");
             }
-            catch (InvalidOperationException exception)
+            catch (InvalidOperationException operationException)
             {
-                string problem = "неподдерживаемая операция";
-                string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                NetMessage(operationException, "неподдерживаемая операция");
             }
             catch (Exception exception)
             {
-                string problem = "программный сбой";
-                string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
-                ConnectionMessage(problem, fullMessage);
+                NetMessage(exception, "программный сбой");
             }
             finally
             {
-                DataReader.Close();
                 Cmd.Connection.Close();
+                Application.Current.Shutdown();
             }
-            
             return table;
         }
 
@@ -238,15 +219,10 @@ namespace Prosperity.Model.DataBase
             Cmd.Parameters.Clear();
         }
 
-        private static void ConnectionMessage(string loadProblem, string exception)
+        private static void MySqlMessage(MySqlException exception, string problem)
         {
-            string noLoad = "Не удалось обработать: ";
-            string message = "\nОшибка подключения. Вы не можете продолжать работу.\n";
-            string advice = "Свяжитесь с администратором насчет установления причины проблемы.\nПолное сообщение:\n";
-
-            string caption = "Ошибка";
-            string fullMessage = noLoad + loadProblem + message + advice + exception;
-            _ = MessageBox.Show(fullMessage, caption, MessageBoxButton.OK, MessageBoxImage.Error);
+            string fullMessage = $"Error: {exception.ErrorCode}\n{exception.HelpLink}\n{exception.Message}";
+            ConnectionMessage(problem, fullMessage);
         }
 
         public MySqlCommand Cmd { get; set; }

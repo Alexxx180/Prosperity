@@ -1,9 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Windows;
+using System.Collections.Generic;
 
 namespace Prosperity.Model.DataBase
 {
     public abstract class Sql
     {
+        public static void ConnectionMessage(string loadProblem, string exception)
+        {
+            string noLoad = "Не удалось обработать: ";
+            string message = "\nОшибка подключения. Вы не можете продолжать работу.\n";
+            string advice = "Свяжитесь с администратором насчет установления причины проблемы.\nПолное сообщение:\n";
+
+            string caption = "Ошибка";
+            string fullMessage = noLoad + loadProblem + message + advice + exception;
+            _ = MessageBox.Show(fullMessage, caption, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public static void NetMessage(Exception exception, string problem)
+        {
+            string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
+            ConnectionMessage(problem, fullMessage);
+        }
+
         public abstract void PassParameter(in string ParamName, in object newParam);
 
         public void PassParameters(Dictionary<string, object> parameters)
