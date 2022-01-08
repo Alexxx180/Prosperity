@@ -10,7 +10,8 @@
             <ColumnDefinition Width="0.15*" />
             <ColumnDefinition Width="0.15*" />
             <ColumnDefinition Width="0.15*" />
-            <ColumnDefinition Width="0.55*" />
+            <ColumnDefinition Width="0.4*" />
+            <ColumnDefinition Width="0.15*" />
         </Grid.ColumnDefinitions>
 
         <Viewbox>
@@ -24,6 +25,9 @@
         </Viewbox>
         <Viewbox Grid.Column="3">
             <TextBlock Text="Наименование" />
+        </Viewbox>
+        <Viewbox Grid.Column="4">
+            <TextBlock Text="Далее" />
         </Viewbox>
     </Grid>
 </UserControl>

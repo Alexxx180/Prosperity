@@ -123,7 +123,6 @@ namespace Prosperity.Model.DataBase
             finally
             {
                 Cmd.Connection.Close();
-                Application.Current.Shutdown();
             }
             return table;
         }
@@ -159,7 +158,6 @@ namespace Prosperity.Model.DataBase
             finally
             {
                 Cmd.Connection.Close();
-                Application.Current.Shutdown();
             }
             return table;
         }
@@ -198,7 +196,6 @@ namespace Prosperity.Model.DataBase
             finally
             {
                 Cmd.Connection.Close();
-                Application.Current.Shutdown();
             }
             return table;
         }

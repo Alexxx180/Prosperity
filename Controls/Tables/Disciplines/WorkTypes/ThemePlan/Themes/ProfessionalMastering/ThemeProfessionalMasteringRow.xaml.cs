@@ -10,7 +10,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Prof
     /// <summary>
     /// Professional selection table row component
     /// </summary>
-    public partial class ThemeProfessionaMasteringRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class ThemeProfessionalMasteringRow : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
         private int _no = 1;
         public int No
@@ -77,13 +77,13 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Prof
             Selection = _unselected;
         }
 
-        public ThemeProfessionaMasteringRow()
+        public ThemeProfessionalMasteringRow()
         {
             InitializeComponent();
             SetStyles();
         }
 
-        public ThemeProfessionaMasteringRow(int no, uint id, uint code) : this()
+        public ThemeProfessionalMasteringRow(int no, uint id, uint code) : this()
         {
             SetElement(no, id, code);
         }
@@ -105,12 +105,12 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Prof
                 uint code = ToUInt32(row[2]);
                 AddElement(table, no + 1, id, code);
             }
-            ThemeProfessionaMasteringRowAdditor.AddElement(table, no + 1);
+            ThemeProfessionalMasteringRowAdditor.AddElement(table, no + 1);
         }
 
         public static void AddElement(StackPanel table, int no, uint id, uint code)
         {
-            ThemeProfessionaMasteringRow row = new ThemeProfessionaMasteringRow(no, id, code);
+            ThemeProfessionalMasteringRow row = new ThemeProfessionalMasteringRow(no, id, code);
             _ = table.Children.Add(row);
         }
 

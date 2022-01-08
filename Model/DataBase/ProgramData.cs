@@ -39,7 +39,7 @@ namespace Prosperity.Model.DataBase
 
         public List<string[]> Tasks(ulong workId) => Converters.Tasks(workId);
 
-        public List<string[]> MetaData(uint topicId) => Converters.MetaData(topicId);
+        public List<string[]> MetaData(uint disciplineId) => Converters.MetaData(disciplineId);
 
         public List<string[]> MetaTypes => Converters.MetaTypes;
 

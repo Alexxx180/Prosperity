@@ -164,12 +164,12 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             {
                 string[] row = rows[no];
                 int id = ToInt32(row[0]);
-                string professionalNo1 = row[2];
-                string professionalNo2 = row[3];
-                string name = row[4];
-                string knowledge = row[5];
-                string skills = row[6];
-                string experience = row[7];
+                string professionalNo1 = row[1];
+                string professionalNo2 = row[2];
+                string name = row[3];
+                string knowledge = row[4];
+                string skills = row[5];
+                string experience = row[6];
                 AddElement(table, no + 1, id, professionalNo1,
                     professionalNo2, name, experience, skills, knowledge);
             }

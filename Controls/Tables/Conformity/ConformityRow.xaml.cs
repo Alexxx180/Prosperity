@@ -107,7 +107,7 @@ namespace Prosperity.Controls.Tables.Conformity
             Speciality = specialityNo;
         }
 
-        public static void AddElements(StackPanel table, List<string[]> rows)
+        public static void AddElements(StackPanel table, List<string[]> rows, uint selected)
         {
             ushort no = 0;
             for (; no < rows.Count; no++)
@@ -116,21 +116,28 @@ namespace Prosperity.Controls.Tables.Conformity
                 int id = ToInt32(row[0]);
                 int disciplineNo = ToInt32(row[1]);
                 int specialityNo = ToInt32(row[2]);
-                AddElement(table, no + 1, id, disciplineNo, specialityNo);
+                AddElement(table, no + 1, id, disciplineNo, specialityNo, selected);
             }
             ConformityRowAdditor.AddElement(table, no + 1);
         }
 
-        public static void AddElement(StackPanel table, int no, int id, int disciplineNo, int specialityNo)
+        public static void AddElement(StackPanel table, int no, int id, int disciplineNo, int specialityNo, uint selected)
         {
             ConformityRow row = new ConformityRow(no, id, disciplineNo, specialityNo);
+            if (id == selected)
+                row.Select();
             _ = table.Children.Add(row);
+        }
+
+        public void Select()
+        {
+            CanBeEdited = !CanBeEdited;
+            Selection = CanBeEdited ? _selected : _unselected;
         }
 
         private void Select(object sender, RoutedEventArgs e)
         {
-            CanBeEdited = !CanBeEdited;
-            Selection = CanBeEdited ? _selected : _unselected;
+            Select();
         }
 
         private void SelectDiscipline(object sender, RoutedEventArgs e)

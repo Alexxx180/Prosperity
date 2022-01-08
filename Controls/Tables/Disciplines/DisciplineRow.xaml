@@ -19,7 +19,8 @@
                 <ColumnDefinition Width="0.15*" />
                 <ColumnDefinition Width="0.15*" />
                 <ColumnDefinition Width="0.15*" />
-                <ColumnDefinition Width="0.55*" />
+                <ColumnDefinition Width="0.4*" />
+                <ColumnDefinition Width="0.15*" />
             </Grid.ColumnDefinitions>
 
             <Viewbox IsHitTestVisible="False">
@@ -51,6 +52,34 @@
                     16.5
                 </TextBox.FontSize>
             </TextBox>
+
+            <ComboBox Grid.Column="4" Grid.Row="1" Style="{StaticResource ComboBoxStyle}" SelectionChanged="SecondaryTables_Select">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem" BasedOn="{StaticResource ItemsBox}"/>
+                </ComboBox.ItemContainerStyle>
+                <ComboBox.FontSize>
+                    16.5
+                </ComboBox.FontSize>
+
+                <ComboBoxItem>
+                    Тематический план
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Общие компетенции
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Профессиональные компетенции
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Источники
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Метаданные
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Часы
+                </ComboBoxItem>
+            </ComboBox>
         </Grid>
     </Button>
 </UserControl>

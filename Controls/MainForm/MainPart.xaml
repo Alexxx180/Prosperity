@@ -3,16 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Prosperity.Controls.MainForm"
-             xmlns:disciplines="clr-namespace:Prosperity.Controls.Tables.Disciplines"
-             xmlns:specialities="clr-namespace:Prosperity.Controls.Tables.Specialities"
              xmlns:conformity="clr-namespace:Prosperity.Controls.Tables.Conformity"
+             xmlns:specialities="clr-namespace:Prosperity.Controls.Tables.Specialities"
              xmlns:general="clr-namespace:Prosperity.Controls.Tables.Specialities.GeneralCompetetions"
              xmlns:professional="clr-namespace:Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions"
+             xmlns:disciplines="clr-namespace:Prosperity.Controls.Tables.Disciplines"
+             xmlns:generalMastering="clr-namespace:Prosperity.Controls.Tables.Disciplines.GeneralMastering"
+             xmlns:professionalMastering="clr-namespace:Prosperity.Controls.Tables.Disciplines.ProfessionalMastering"
+             xmlns:sources="clr-namespace:Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources"
+             xmlns:metadata="clr-namespace:Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData"
+             xmlns:hours="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours"
+             xmlns:plan="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan"
+             xmlns:themes="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes"
+             xmlns:levels="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.CompetetionLevels"
+             xmlns:generalSelection="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralMastering"
+             xmlns:professionalSelection="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ProfessionalMastering"
+             xmlns:works="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works"
+             xmlns:tasks="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks"
              xmlns:viewModel="clr-namespace:Prosperity.ViewModel"
              d:DataContext="{d:DesignInstance Type=viewModel:GlobalViewModel}"
              mc:Ignorable="d" 
-             DataContext="viewModel"
+             DataContext="viewModel" x:Name="MainRedactor"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -27,20 +38,30 @@
                 <ColumnDefinition Width="0.85*" />
             </Grid.ColumnDefinitions>
 
-            <Button Style="{StaticResource ImpactButton}">
+            <Button Style="{StaticResource ImpactButton}" Click="Back">
+                <Button.Visibility>
+                    <Binding Path="BackOperations" />
+                </Button.Visibility>
                 <Viewbox>
                     <TextBlock Text="Назад" />
                 </Viewbox>
             </Button>
 
-            <StackPanel Orientation="Horizontal" Grid.Column="1">
-                <Viewbox>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.025*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.45*"/>
+                    <ColumnDefinition Width="0.025*"/>
+                </Grid.ColumnDefinitions>
+
+                <Viewbox Grid.Column="1" HorizontalAlignment="Left" Grid.RowSpan="2">
                     <TextBlock Text="{Binding Path=CurrentState.Name}" />
                 </Viewbox>
-                <Viewbox>
-                    <TextBlock Text="{Binding Path=CurrentState.Value}" />
+                <Viewbox Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,17,0" Grid.RowSpan="2">
+                    <TextBlock Text="{Binding Path=CurrentState.Id}" />
                 </Viewbox>
-            </StackPanel>
+            </Grid>
         </Grid>
 
         <ScrollViewer Grid.Row="1">
@@ -51,16 +72,29 @@
                 </Grid.RowDefinitions>
 
                 <Grid x:Name="CurrentHeaders">
-                    <disciplines:DisciplineColumns x:Name="DisciplineHeader" Visibility="Collapsed" />
-                    <specialities:SpecialityColumns x:Name="SpecialityHeader" Visibility="Collapsed" />
                     <conformity:ConformityColumns x:Name="ConformityHeader" Visibility="Collapsed" />
 
+                    <specialities:SpecialityColumns x:Name="SpecialityHeader" Visibility="Collapsed" />
                     <general:GeneralCompetetionColumns x:Name="GeneralCompetetionHeader" Visibility="Collapsed" />
                     <professional:ProfessionalCompetetionColumns x:Name="ProfessionalCompetetionHeader" Visibility="Collapsed" />
+
+                    <disciplines:DisciplineColumns x:Name="DisciplineHeader" Visibility="Collapsed" />
+                    <generalMastering:DisciplineGeneralMasteringColumns x:Name="GeneralMasteringHeader" Visibility="Collapsed" />
+                    <professionalMastering:DisciplineProfessionalMasteringColumns x:Name="ProfessionalMasteringHeader" Visibility="Collapsed" />
+                    <sources:SourceColumns x:Name="SourceHeader" Visibility="Collapsed" />
+                    <metadata:MetaDataColumns x:Name="MetadataHeader" Visibility="Collapsed" />
+                    <hours:HoursColumns x:Name="HoursHeader" Visibility="Collapsed" />
+                    <plan:TopicColumns x:Name="ThemePlanHeader" Visibility="Collapsed" />
+                    <themes:ThemeColumns x:Name="ThemesHeader" Visibility="Collapsed" />
+                    <levels:LevelColumns x:Name="LevelsHeader" Visibility="Collapsed" />
+                    <generalSelection:ThemeGeneralMasteringColumns x:Name="GeneralSelectionHeader" Visibility="Collapsed" />
+                    <professionalSelection:ThemeProfessionalMasteringColumns x:Name="ProfessionalSelectionHeader" Visibility="Collapsed" />
+                    <works:WorkColumns x:Name="WorksHeader" Visibility="Collapsed" />
+                    <tasks:TaskColumns x:Name="TasksHeader" Visibility="Collapsed" />
                 </Grid>
 
-                <StackPanel x:Name="CurrentView" Grid.Row="1" Tag="{RelativeSource AncestorType={x:Type UserControl}, AncestorLevel=4}">
-                    
+                <StackPanel x:Name="CurrentView" Grid.Row="1" Tag="{x:Reference MainRedactor}">
+
                 </StackPanel>
             </Grid>
         </ScrollViewer>

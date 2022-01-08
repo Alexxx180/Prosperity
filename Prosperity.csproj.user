@@ -121,13 +121,13 @@
     <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringRowAdditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringColumns.xaml.cs">
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringColumns.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringRow.xaml.cs">
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringRow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringRowAdditor.xaml.cs">
+    <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringRowAdditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeColumns.xaml.cs">
@@ -327,13 +327,13 @@
     <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringRowAdditor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringColumns.xaml">
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringColumns.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringRow.xaml">
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringRow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionaMasteringRowAdditor.xaml">
+    <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringRowAdditor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeColumns.xaml">

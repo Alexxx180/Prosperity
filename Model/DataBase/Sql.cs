@@ -15,6 +15,7 @@ namespace Prosperity.Model.DataBase
             string caption = "Ошибка";
             string fullMessage = noLoad + loadProblem + message + advice + exception;
             _ = MessageBox.Show(fullMessage, caption, MessageBoxButton.OK, MessageBoxImage.Error);
+            Application.Current.Shutdown();
         }
 
         public static void NetMessage(Exception exception, string problem)
@@ -119,7 +120,7 @@ namespace Prosperity.Model.DataBase
 
         public List<object[]> TotalHours(uint value)
         {
-            return GetRecords("get_discipline_total_hours", "discipline_id", value);
+            return GetRecords("get_discipline_total_hours_original", "discipline_id", value);
         }
 
         public List<object[]> ThemePlan(uint value)
@@ -134,7 +135,7 @@ namespace Prosperity.Model.DataBase
 
         public List<object[]> Works(uint value)
         {
-            return GetRecords("get_work_by_theme", "theme_id", value);
+            return GetRecords("get_work_by_theme_original", "theme_id", value);
         }
 
         public List<object[]> WorkTypes()
@@ -149,7 +150,7 @@ namespace Prosperity.Model.DataBase
 
         public List<object[]> MetaData(uint value)
         {
-            return GetRecords("get_discipline_meta_data", "discipline_id", value);
+            return GetRecords("get_discipline_meta_data_original", "discipline_id", value);
         }
 
         public List<object[]> MetaTypes()

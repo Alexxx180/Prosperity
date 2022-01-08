@@ -108,7 +108,7 @@ namespace Prosperity.Controls.Tables.Specialities
             SpecialityName = name;
         }
 
-        public static void AddElements(StackPanel table, List<string[]> rows)
+        public static void AddElements(StackPanel table, List<string[]> rows, uint selected)
         {
             ushort no = 0;
             for (; no < rows.Count; no++)
@@ -117,21 +117,28 @@ namespace Prosperity.Controls.Tables.Specialities
                 uint id = ToUInt32(row[0]);
                 uint code = ToUInt32(row[1]);
                 string name = row[2];
-                AddElement(table, no + 1, id, code, name);
+                AddElement(table, no + 1, id, code, name, selected);
             }
             SpecialityRowAdditor.AddElement(table, no + 1);
         }
 
-        public static void AddElement(StackPanel table, int no, uint id, uint code, string name)
+        public static void AddElement(StackPanel table, int no, uint id, uint code, string name, uint selected)
         {
             SpecialityRow row = new SpecialityRow(no, id, code, name);
+            if (id == selected)
+                row.Select();
             _ = table.Children.Add(row);
+        }
+
+        public void Select()
+        {
+            CanBeEdited = !CanBeEdited;
+            Selection = CanBeEdited ? _selected : _unselected;
         }
 
         private void Select(object sender, RoutedEventArgs e)
         {
-            CanBeEdited = !CanBeEdited;
-            Selection = CanBeEdited ? _selected : _unselected;
+            Select();
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)

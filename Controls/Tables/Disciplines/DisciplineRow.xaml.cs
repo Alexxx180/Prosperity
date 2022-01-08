@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
 
 namespace Prosperity.Controls.Tables.Disciplines
 {
@@ -23,8 +24,8 @@ namespace Prosperity.Controls.Tables.Disciplines
             }
         }
 
-        private int _id = 1;
-        public int Id
+        private uint _id = 1;
+        public uint Id
         {
             get => _id;
             set
@@ -34,8 +35,8 @@ namespace Prosperity.Controls.Tables.Disciplines
             }
         }
 
-        private int _code = 1;
-        public int Code
+        private uint _code = 1;
+        public uint Code
         {
             get => _code;
             set
@@ -94,12 +95,12 @@ namespace Prosperity.Controls.Tables.Disciplines
             SetStyles();
         }
 
-        public DisciplineRow(int no, int id, int code, string name) : this()
+        public DisciplineRow(int no, uint id, uint code, string name) : this()
         {
             SetElement(no, id, code, name);
         }
 
-        public void SetElement(int no, int id, int code, string name)
+        public void SetElement(int no, uint id, uint code, string name)
         {
             No = no;
             Id = id;
@@ -107,30 +108,37 @@ namespace Prosperity.Controls.Tables.Disciplines
             DisciplineName = name;
         }
 
-        public static void AddElements(StackPanel table, List<string[]> rows)
+        public static void AddElements(StackPanel table, List<string[]> rows, uint selected)
         {
             ushort no = 0;
             for (; no < rows.Count; no++)
             {
                 string[] row = rows[no];
-                int id = ToInt32(row[0]);
-                int code = ToInt32(row[1]);
+                uint id = ToUInt32(row[0]);
+                uint code = ToUInt32(row[1]);
                 string name = row[2];
-                AddElement(table, no + 1, id, code, name);
+                AddElement(table, no + 1, id, code, name, selected);
             }
             DisciplineRowAdditor.AddElement(table, no + 1);
         }
 
-        public static void AddElement(StackPanel table, int no, int id, int code, string name)
+        public static void AddElement(StackPanel table, int no, uint id, uint code, string name, uint selected)
         {
             DisciplineRow row = new DisciplineRow(no, id, code, name);
+            if (id == selected)
+                row.Select();
             _ = table.Children.Add(row);
+        }
+
+        public void Select()
+        {
+            CanBeEdited = !CanBeEdited;
+            Selection = CanBeEdited ? _selected : _unselected;
         }
 
         private void Select(object sender, RoutedEventArgs e)
         {
-            CanBeEdited = !CanBeEdited;
-            Selection = CanBeEdited ? _selected : _unselected;
+            Select();
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)
@@ -141,6 +149,46 @@ namespace Prosperity.Controls.Tables.Disciplines
         public void Index(int no)
         {
             No = no;
+        }
+
+        private MainPart _tables => GetMainPart();
+        private MainPart GetMainPart()
+        {
+            StackPanel mainStack = Parent as StackPanel;
+            return mainStack.Tag as MainPart;
+        }
+
+        private void CheckSelection(ComboBox selector)
+        {
+            switch (selector.SelectedIndex)
+            {
+                case 0:
+                    _tables.FillTopics(Id);
+                    break;
+                case 1:
+                    _tables.FillDisciplineGeneralCompetetions(Id);
+                    break;
+                case 2:
+                    _tables.FillDisciplineProfessionalCompetetions(Id);
+                    break;
+                case 3:
+                    _tables.FillSources(Id);
+                    break;
+                case 4:
+                    _tables.FillMetaData(Id);
+                    break;
+                case 5:
+                    _tables.FillHours(Id);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void SecondaryTables_Select(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox selector = sender as ComboBox;
+            CheckSelection(selector);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

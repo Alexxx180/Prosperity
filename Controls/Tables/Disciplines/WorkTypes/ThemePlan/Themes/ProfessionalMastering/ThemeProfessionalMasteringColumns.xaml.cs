@@ -5,9 +5,9 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Prof
     /// <summary>
     /// Professional selection table columns header
     /// </summary>
-    public partial class ThemeProfessionaMasteringColumns : UserControl
+    public partial class ThemeProfessionalMasteringColumns : UserControl
     {
-        public ThemeProfessionaMasteringColumns()
+        public ThemeProfessionalMasteringColumns()
         {
             InitializeComponent();
         }

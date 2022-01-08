@@ -137,10 +137,10 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             {
                 string[] row = rows[no];
                 int id = ToInt32(row[0]);
-                string generalNo = row[2];
-                string name = row[3];
-                string knowledge = row[4];
-                string skills = row[5];
+                string generalNo = row[1];
+                string name = row[2];
+                string knowledge = row[3];
+                string skills = row[4];
                 AddElement(table, no + 1, id, generalNo, name, skills, knowledge);
             }
             GeneralCompetetionRowAdditor.AddElement(table, no + 1);

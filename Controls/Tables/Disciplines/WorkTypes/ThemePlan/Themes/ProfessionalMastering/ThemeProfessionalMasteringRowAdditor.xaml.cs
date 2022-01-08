@@ -8,7 +8,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Prof
     /// <summary>
     /// Professional selection table special row to add new rows
     /// </summary>
-    public partial class ThemeProfessionaMasteringRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class ThemeProfessionalMasteringRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
         private int _no = 1;
         public int No
@@ -40,12 +40,12 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Prof
             return (_table != null) && _table.Children.Count < ushort.MaxValue;
         }
 
-        public ThemeProfessionaMasteringRowAdditor()
+        public ThemeProfessionalMasteringRowAdditor()
         {
             InitializeComponent();
         }
 
-        public ThemeProfessionaMasteringRowAdditor(int no) : this()
+        public ThemeProfessionalMasteringRowAdditor(int no) : this()
         {
             SetElement(no);
         }
@@ -57,7 +57,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Prof
 
         public static void AddElement(StackPanel table, int no)
         {
-            ThemeProfessionaMasteringRowAdditor row = new ThemeProfessionaMasteringRowAdditor(no);
+            ThemeProfessionalMasteringRowAdditor row = new ThemeProfessionalMasteringRowAdditor(no);
             _ = table.Children.Add(row);
             row.OnPropertyChanged(nameof(CanBeEdited));
         }

@@ -114,8 +114,8 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
             {
                 string[] row = rows[no];
                 uint id = ToUInt32(row[0]);
+                string value = row[1];
                 uint type = ToUInt32(row[2]);
-                string value = row[3];
                 AddElement(table, no + 1, id, type, value);
             }
             SourceRowAdditor.AddElement(table, no + 1);

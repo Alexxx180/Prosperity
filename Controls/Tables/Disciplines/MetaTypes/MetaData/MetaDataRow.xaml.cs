@@ -114,8 +114,8 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
             {
                 string[] row = rows[no];
                 uint id = ToUInt32(row[0]);
-                uint type = ToUInt32(row[2]);
-                string value = row[3];
+                uint type = ToUInt32(row[1]);
+                string value = row[2];
                 AddElement(table, no + 1, id, type, value);
             }
             MetaDataRowAdditor.AddElement(table, no + 1);

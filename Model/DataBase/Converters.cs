@@ -59,7 +59,7 @@ namespace Prosperity.Model.DataBase
 
         public static List<string[]> Tasks(ulong workId) => ConvertAll(_dataBase.Tasks(workId), ElementsToString);
 
-        public static List<string[]> MetaData(uint topicId) => ConvertAll(_dataBase.MetaData(topicId), ElementsToString);
+        public static List<string[]> MetaData(uint disciplineId) => ConvertAll(_dataBase.MetaData(disciplineId), ElementsToString);
 
         public static List<string[]> MetaTypes => ConvertAll(_dataBase.MetaTypes(), ElementsToString);
 

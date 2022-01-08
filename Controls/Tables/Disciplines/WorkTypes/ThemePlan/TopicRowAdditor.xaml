@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
              d:DesignHeight="35" d:DesignWidth="800">
-    <Grid>
+    <Grid Height="35">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.15*" />
             <ColumnDefinition Width="0.15*" />

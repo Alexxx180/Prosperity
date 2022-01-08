@@ -128,9 +128,9 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
             {
                 string[] row = rows[no];
                 uint id = ToUInt32(row[0]);
-                string topicNo = row[2];
-                string name = row[3];
-                string hours = row[4];
+                string topicNo = row[1];
+                string name = row[2];
+                string hours = row[3];
                 AddElement(table, no + 1, id, topicNo, name, hours);
             }
             TopicRowAdditor.AddElement(table, no + 1);

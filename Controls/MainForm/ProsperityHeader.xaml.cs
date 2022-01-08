@@ -4,7 +4,7 @@ using System.Windows.Controls;
 namespace Prosperity.Controls.MainForm
 {
     /// <summary>
-    /// Логика взаимодействия для ProsperityHeader.xaml
+    /// Part responsible for primary tables selection
     /// </summary>
     public partial class ProsperityHeader : UserControl
     {

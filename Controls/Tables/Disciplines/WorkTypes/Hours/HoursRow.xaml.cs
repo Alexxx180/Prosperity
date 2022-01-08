@@ -116,8 +116,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
             {
                 string[] row = rows[no];
                 uint id = ToUInt32(row[0]);
-                uint type = ToUInt32(row[2]);
-                string value = row[3];
+                uint type = ToUInt32(row[1]);
+                string value = row[2];
                 AddElement(table, no + 1, id, type, value);
             }
             HoursRowAdditor.AddElement(table, no + 1);

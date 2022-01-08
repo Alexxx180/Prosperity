@@ -1,6 +1,7 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using System.Windows;
 using System.Collections;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Prosperity.Model;
 using Prosperity.Model.DataBase;
 
@@ -8,7 +9,10 @@ namespace Prosperity.ViewModel
 {
     public class GlobalViewModel : INotifyPropertyChanged
     {
-        public Pair<string, int> CurrentState => GetTransition();
+        public TransitionBase CurrentState => GetTransition();
+
+        public bool IsTopTransition => Transitions.Count <= 0;
+        public Visibility BackOperations => IsTopTransition ? Visibility.Hidden : Visibility.Visible;
 
         private Stack _transitions = new Stack();
         public Stack Transitions
@@ -34,17 +38,35 @@ namespace Prosperity.ViewModel
 
         public bool CanBeAffected => _selectedRows > 0;
 
-        public void AddTransition(string name, int id)
+        public void CleanBuffer()
         {
-            Pair<string, int> transition = new Pair<string, int>($"- {name} -", id);
-            Transitions.Push(transition);
-            OnPropertyChanged(nameof(CurrentState));
+            Transitions.Clear();
         }
 
-        private Pair<string, int> GetTransition()
+        public void AddTransition(TransitionBase.Transition way, string name, uint id)
         {
-            Pair<string, int> transition = (Pair<string, int>)Transitions.Peek();
-            return transition ?? new Pair<string, int>("- Верхний уровень -", 0);
+            TransitionBase transition = new TransitionBase(way, name, id);
+            Transitions.Push(transition);
+            TransitionStateChanged();
+        }
+
+        public TransitionBase GetTransition()
+        {
+            TransitionBase transition = Transitions.Peek() as TransitionBase;
+            return transition ?? new TransitionBase(null, "- Верхний уровень -", 0);
+        }
+
+        public TransitionBase PopTransition()
+        {
+            TransitionBase transition = Transitions.Pop() as TransitionBase;
+            TransitionStateChanged();
+            return transition;
+        }
+
+        public void TransitionStateChanged()
+        {
+            OnPropertyChanged(nameof(CurrentState));
+            OnPropertyChanged(nameof(BackOperations));
         }
 
         public ProgramData Data = new ProgramData();

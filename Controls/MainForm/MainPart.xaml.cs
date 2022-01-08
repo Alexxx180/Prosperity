@@ -1,17 +1,33 @@
-﻿using System.Windows.Controls;
-using Prosperity.ViewModel;
-using Prosperity.Controls.Tables.Disciplines;
-using Prosperity.Controls.Tables.Specialities;
-using Prosperity.Controls.Tables.Conformity;
-using Prosperity.Controls.Tables.Specialities.GeneralCompetetions;
-using Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
+using Prosperity.ViewModel;
+using Prosperity.Controls.Tables.Conformity;
+using Prosperity.Controls.Tables.Specialities;
+using Prosperity.Controls.Tables.Specialities.GeneralCompetetions;
+using Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions;
+using Prosperity.Controls.Tables.Disciplines;
+using Prosperity.Controls.Tables.Disciplines.GeneralMastering;
+using Prosperity.Controls.Tables.Disciplines.ProfessionalMastering;
+using Prosperity.Controls.Tables.Disciplines.SourceTypes;
+using Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources;
+using Prosperity.Controls.Tables.Disciplines.MetaTypes;
+using Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData;
+using Prosperity.Controls.Tables.Disciplines.WorkTypes;
+using Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours;
+using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan;
+using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes;
+using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.CompetetionLevels;
+using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralMastering;
+using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ProfessionalMastering;
+using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works;
+using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks;
 
 namespace Prosperity.Controls.MainForm
 {
     /// <summary>
-    /// Логика взаимодействия для MainPart.xaml
+    /// Part responsible for viewing and editing data
     /// </summary>
     public partial class MainPart : UserControl, INotifyPropertyChanged
     {
@@ -24,43 +40,42 @@ namespace Prosperity.Controls.MainForm
             FillDisciplines();
         }
 
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            ViewModel.PopTransition().MakeTransition();
+        }
+
         private void ResetHeaders(UserControl currentHeader)
         {
             for (byte i = 0; i < CurrentHeaders.Children.Count; i++)
             {
                 UserControl header = CurrentHeaders.Children[i] as UserControl;
-                header.Visibility = System.Windows.Visibility.Collapsed;
+                header.Visibility = Visibility.Collapsed;
             }
-            currentHeader.Visibility = System.Windows.Visibility.Visible;
+            currentHeader.Visibility = Visibility.Visible;
         }
 
-        public void FillDisciplines()
+        public void FillConformity(uint id = 0)
         {
-            ResetHeaders(DisciplineHeader);
-            CurrentView.Children.Clear();
-            DisciplineRow.AddElements(CurrentView, ViewModel.Data.Disciplines);
-            RefreshCount();
-        }
-
-        public void FillSpecialities()
-        {
-            ResetHeaders(SpecialityHeader);
-            CurrentView.Children.Clear();
-            SpecialityRow.AddElements(CurrentView, ViewModel.Data.Specialities);
-            RefreshCount();
-        }
-
-        public void FillConformity()
-        {
+            ViewModel.CleanBuffer();
             ResetHeaders(ConformityHeader);
             CurrentView.Children.Clear();
-            ConformityRow.AddElements(CurrentView, ViewModel.Data.Conformity);
+            ConformityRow.AddElements(CurrentView, ViewModel.Data.Conformity, id);
             RefreshCount();
         }
 
+        public void FillSpecialities(uint id = 0)
+        {
+            ViewModel.CleanBuffer();
+            ResetHeaders(SpecialityHeader);
+            CurrentView.Children.Clear();
+            SpecialityRow.AddElements(CurrentView, ViewModel.Data.Specialities, id);
+            RefreshCount();
+        }
 
         public void FillGeneralCompetetions(uint id)
         {
+            ViewModel.AddTransition(FillSpecialities, "Специальности", id);
             ResetHeaders(GeneralCompetetionHeader);
             CurrentView.Children.Clear();
             GeneralCompetetionRow.AddElements(CurrentView, ViewModel.Data.GeneralCompetetions(id));
@@ -69,9 +84,124 @@ namespace Prosperity.Controls.MainForm
 
         public void FillProfessionalCompetetions(uint id)
         {
+            ViewModel.AddTransition(FillSpecialities, "Специальности", id);
             ResetHeaders(ProfessionalCompetetionHeader);
             CurrentView.Children.Clear();
             ProfessionalCompetetionRow.AddElements(CurrentView, ViewModel.Data.ProfessionalCompetetions(id));
+            RefreshCount();
+        }
+
+        public void FillDisciplines(uint id = 0)
+        {
+            ViewModel.CleanBuffer();
+            ResetHeaders(DisciplineHeader);
+            CurrentView.Children.Clear();
+            DisciplineRow.AddElements(CurrentView, ViewModel.Data.Disciplines, id);
+            RefreshCount();
+        }
+
+        public void FillDisciplineGeneralCompetetions(uint id)
+        {
+            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ResetHeaders(GeneralMasteringHeader);
+            CurrentView.Children.Clear();
+            DisciplineGeneralMasteringRow.AddElements(CurrentView,
+                ViewModel.Data.DisciplineGeneralMastering(id));
+            RefreshCount();
+        }
+
+        public void FillDisciplineProfessionalCompetetions(uint id)
+        {
+            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ResetHeaders(ProfessionalMasteringHeader);
+            CurrentView.Children.Clear();
+            DisciplineProfessionalMasteringRow.AddElements(CurrentView,
+                ViewModel.Data.DisciplineProfessionalMastering(id));
+            RefreshCount();
+        }
+
+        public void FillSources(uint id)
+        {
+            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ResetHeaders(SourceHeader);
+            CurrentView.Children.Clear();
+            SourceRow.AddElements(CurrentView, ViewModel.Data.Sources(id));
+            RefreshCount();
+        }
+
+        public void FillMetaData(uint id)
+        {
+            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ResetHeaders(MetadataHeader);
+            CurrentView.Children.Clear();
+            MetaDataRow.AddElements(CurrentView, ViewModel.Data.MetaData(id));
+            RefreshCount();
+        }
+
+        public void FillHours(uint id)
+        {
+            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ResetHeaders(HoursHeader);
+            CurrentView.Children.Clear();
+            HoursRow.AddElements(CurrentView, ViewModel.Data.TotalHours(id));
+            RefreshCount();
+        }
+
+        public void FillTopics(uint id)
+        {
+            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ResetHeaders(ThemePlanHeader);
+            CurrentView.Children.Clear();
+            TopicRow.AddElements(CurrentView, ViewModel.Data.ThemePlan(id));
+            RefreshCount();
+        }
+
+        public void FillThemes(uint id)
+        {
+            //ViewModel.AddTransition(FillTopics(uint id), "Дисциплины", id);
+            ResetHeaders(ThemesHeader);
+            CurrentView.Children.Clear();
+            ThemeRow.AddElements(CurrentView, ViewModel.Data.Themes(id));
+            RefreshCount();
+        }
+
+        public void FillCompetetionLevels()
+        {
+            ResetHeaders(LevelsHeader);
+            CurrentView.Children.Clear();
+            LevelRow.AddElements(CurrentView, ViewModel.Data.Levels);
+            RefreshCount();
+        }
+
+        public void FillThemeGeneralCompetetions(uint id)
+        {
+            ResetHeaders(GeneralSelectionHeader);
+            CurrentView.Children.Clear();
+            ThemeGeneralMasteringRow.AddElements(CurrentView, ViewModel.Data.ThemeGeneralMastering(id));
+            RefreshCount();
+        }
+
+        public void FillThemeProfessionalCompetetions(uint id)
+        {
+            ResetHeaders(LevelsHeader);
+            CurrentView.Children.Clear();
+            ThemeProfessionalMasteringRow.AddElements(CurrentView, ViewModel.Data.ThemeProfessionalMastering(id));
+            RefreshCount();
+        }
+
+        public void FillWorks(uint id)
+        {
+            ResetHeaders(ThemesHeader);
+            CurrentView.Children.Clear();
+            WorkRow.AddElements(CurrentView, ViewModel.Data.Works(id));
+            RefreshCount();
+        }
+
+        public void FillTasks(uint id)
+        {
+            ResetHeaders(ThemesHeader);
+            CurrentView.Children.Clear();
+            TaskRow.AddElements(CurrentView, ViewModel.Data.Tasks(id));
             RefreshCount();
         }
 
