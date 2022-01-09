@@ -73,7 +73,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
 
         public static void AddElement(StackPanel table, int no)
         {
-            ThemeRowAdditor row = new ThemeRowAdditor(no);
+            TaskRowAdditor row = new TaskRowAdditor(no);
             _ = table.Children.Add(row);
             row.OnPropertyChanged(nameof(CanBeEdited));
         }

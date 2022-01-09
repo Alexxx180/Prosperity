@@ -1,5 +1,10 @@
 ﻿namespace Prosperity.Model
 {
+    /// <summary>
+    /// An universal class to create any necessary objects while debugging
+    /// </summary>
+    /// <typeparam name="TName">Type of name</typeparam>
+    /// <typeparam name="TValue">Type of value</typeparam>
     public class Pair<TName, TValue>
     {
         public Pair()

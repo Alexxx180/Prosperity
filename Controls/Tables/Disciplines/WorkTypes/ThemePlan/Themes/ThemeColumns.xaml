@@ -9,9 +9,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*" />
             <ColumnDefinition Width="0.1*" />
-            <ColumnDefinition Width="0.125*" />
-            <ColumnDefinition Width="0.125*" />
-            <ColumnDefinition Width="0.4*" />
+            <ColumnDefinition Width="0.1*" />
+            <ColumnDefinition Width="0.1*" />
+            <ColumnDefinition Width="0.35*" />
+            <ColumnDefinition Width="0.1*" />
             <ColumnDefinition Width="0.15*" />
         </Grid.ColumnDefinitions>
 
@@ -33,6 +34,9 @@
         </Viewbox>
         <Viewbox Grid.Column="5">
             <TextBlock Text="Часы" />
+        </Viewbox>
+        <Viewbox Grid.Column="6">
+            <TextBlock Text="Далее" />
         </Viewbox>
     </Grid>
 </UserControl>

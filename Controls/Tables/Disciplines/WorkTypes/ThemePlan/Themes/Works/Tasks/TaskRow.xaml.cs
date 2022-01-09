@@ -98,7 +98,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             SetStyles();
         }
 
-        public TaskRow(int no, uint id, string name, string hours)
+        public TaskRow(int no, uint id, string name, string hours) : this()
         {
             SetElement(no, id, name, hours);
         }
@@ -118,8 +118,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             {
                 string[] row = rows[no];
                 uint id = ToUInt32(row[0]);
-                string name = row[2];
-                string hours = row[3];
+                string name = row[1];
+                string hours = row[2];
                 AddElement(table, no + 1, id, name, hours);
             }
             TaskRowAdditor.AddElement(table, no + 1);

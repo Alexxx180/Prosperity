@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
+using Prosperity.Controls.MainForm;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
 {
@@ -140,10 +141,10 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             {
                 string[] row = rows[no];
                 uint id = ToUInt32(row[0]);
-                uint themeLevel = ToUInt32(row[2]);
-                string themeNo = row[3];
-                string name = row[4];
-                string hours = row[5];
+                string themeNo = row[1];
+                string name = row[2];
+                string hours = row[3];
+                uint themeLevel = ToUInt32(row[4]);
                 AddElement(table, no + 1, id, themeLevel, themeNo, name, hours);
             }
             ThemeRowAdditor.AddElement(table, no + 1);
@@ -171,6 +172,37 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
         public void Index(int no)
         {
             No = no;
+        }
+
+        private MainPart _tables => GetMainPart();
+        private MainPart GetMainPart()
+        {
+            StackPanel mainStack = Parent as StackPanel;
+            return mainStack.Tag as MainPart;
+        }
+
+        private void CheckSelection(ComboBox selector)
+        {
+            switch (selector.SelectedIndex)
+            {
+                case 0:
+                    _tables.FillWorks(Id);
+                    break;
+                case 1:
+                    _tables.FillThemeGeneralCompetetions(Id);
+                    break;
+                case 2:
+                    _tables.FillThemeProfessionalCompetetions(Id);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void SecondaryTables_Select(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox selector = sender as ComboBox;
+            CheckSelection(selector);
         }
 
         private void Hours(object sender, TextCompositionEventArgs e)

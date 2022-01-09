@@ -1,5 +1,8 @@
 ﻿namespace Prosperity.Model
 {
+    /// <summary>
+    /// Table transitions class based on delegates
+    /// </summary>
     public class TransitionBase
     {
         public TransitionBase(Transition transition, string name, uint id)

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
+using Prosperity.Controls.MainForm;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
 {
@@ -158,6 +159,18 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
         public void Index(int no)
         {
             No = no;
+        }
+
+        private MainPart _tables => GetMainPart();
+        private MainPart GetMainPart()
+        {
+            StackPanel mainStack = Parent as StackPanel;
+            return mainStack.Tag as MainPart;
+        }
+
+        private void GoToThemes(object sender, RoutedEventArgs e)
+        {
+            _tables.FillThemes(Id);
         }
 
         private void Hours(object sender, TextCompositionEventArgs e)

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Prosperity.Model.DataBase
 {
+    /// <summary>
+    /// Class containing necessary methods to work with database
+    /// </summary>
     public abstract class Sql
     {
         public static void ConnectionMessage(string loadProblem, string exception)

@@ -151,7 +151,7 @@ namespace Prosperity.Controls.Tables.Disciplines
             No = no;
         }
 
-        private MainPart _tables => GetMainPart();
+        private MainPart _tables;
         private MainPart GetMainPart()
         {
             StackPanel mainStack = Parent as StackPanel;
@@ -160,29 +160,41 @@ namespace Prosperity.Controls.Tables.Disciplines
 
         private void CheckSelection(ComboBox selector)
         {
+            _tables = GetMainPart();
             switch (selector.SelectedIndex)
             {
                 case 0:
+                    DisciplinesTransition();
                     _tables.FillTopics(Id);
                     break;
                 case 1:
+                    DisciplinesTransition();
                     _tables.FillDisciplineGeneralCompetetions(Id);
                     break;
                 case 2:
+                    DisciplinesTransition();
                     _tables.FillDisciplineProfessionalCompetetions(Id);
                     break;
                 case 3:
+                    DisciplinesTransition();
                     _tables.FillSources(Id);
                     break;
                 case 4:
+                    DisciplinesTransition();
                     _tables.FillMetaData(Id);
                     break;
                 case 5:
+                    DisciplinesTransition();
                     _tables.FillHours(Id);
                     break;
                 default:
                     break;
             }
+        }
+
+        private void DisciplinesTransition()
+        {
+            _tables.ViewModel.AddTransition(_tables.FillDisciplines, "Ранее смотрели: Дисциплина - ID", Id);
         }
 
         private void SecondaryTables_Select(object sender, SelectionChangedEventArgs e)

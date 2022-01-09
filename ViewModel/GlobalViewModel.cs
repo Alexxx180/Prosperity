@@ -9,7 +9,7 @@ namespace Prosperity.ViewModel
 {
     public class GlobalViewModel : INotifyPropertyChanged
     {
-        public TransitionBase CurrentState => GetTransition();
+        public TransitionBase CurrentState => GetTransition() ?? new TransitionBase(null, "Верхний уровень -", 0);
 
         public bool IsTopTransition => Transitions.Count <= 0;
         public Visibility BackOperations => IsTopTransition ? Visibility.Hidden : Visibility.Visible;
@@ -38,9 +38,20 @@ namespace Prosperity.ViewModel
 
         public bool CanBeAffected => _selectedRows > 0;
 
+        public void Select(bool selected)
+        {
+            SelectedRows += selected ? 1 : -1;
+        }
+
+        public void NullifySelection()
+        {
+            SelectedRows = 0;
+        }
+
         public void CleanBuffer()
         {
             Transitions.Clear();
+            TransitionStateChanged();
         }
 
         public void AddTransition(TransitionBase.Transition way, string name, uint id)
@@ -53,7 +64,7 @@ namespace Prosperity.ViewModel
         public TransitionBase GetTransition()
         {
             TransitionBase transition = Transitions.Peek() as TransitionBase;
-            return transition ?? new TransitionBase(null, "- Верхний уровень -", 0);
+            return transition;
         }
 
         public TransitionBase PopTransition()

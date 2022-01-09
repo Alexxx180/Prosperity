@@ -2,6 +2,9 @@
 
 namespace Prosperity.Model.DataBase
 {
+    /// <summary>
+    /// Educational programs data from database
+    /// </summary>
     public class ProgramData
     {
         public ProgramData() : this(new MySQL())

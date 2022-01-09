@@ -21,6 +21,7 @@
              xmlns:works="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works"
              xmlns:tasks="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks"
              xmlns:viewModel="clr-namespace:Prosperity.ViewModel"
+             xmlns:converters="clr-namespace:Prosperity.Controls.Binds.Converters"
              d:DataContext="{d:DesignInstance Type=viewModel:GlobalViewModel}"
              mc:Ignorable="d" 
              DataContext="viewModel" x:Name="MainRedactor"
@@ -71,7 +72,7 @@
                     <RowDefinition Height="0.9*" />
                 </Grid.RowDefinitions>
 
-                <Grid x:Name="CurrentHeaders">
+                <Grid x:Name="CurrentHeaders" Style="{StaticResource ViewImpact}">
                     <conformity:ConformityColumns x:Name="ConformityHeader" Visibility="Collapsed" />
 
                     <specialities:SpecialityColumns x:Name="SpecialityHeader" Visibility="Collapsed" />
@@ -110,10 +111,21 @@
 
             <StackPanel Orientation="Horizontal">
                 <Viewbox>
-                    <TextBlock Text="Записи: " Style="{StaticResource Impact}" />
+                    <TextBlock Text=" Записи: " Style="{StaticResource Impact}" Padding="2" />
                 </Viewbox>
                 <Viewbox>
-                    <TextBlock x:Name="CountRecords" Text="{Binding ElementName=CurrentView, Path=Children.Count}" Style="{StaticResource Impact}" />
+                    <TextBlock x:Name="CountRecords" Padding="2" Style="{StaticResource Impact}">
+                        <TextBlock.Text>
+                            <Binding ElementName="CurrentView">
+                                <Binding.Path>
+                                    Children.Count
+                                </Binding.Path>
+                                <Binding.Converter>
+                                    <converters:RowCountConverter/>
+                                </Binding.Converter>
+                            </Binding>
+                        </TextBlock.Text>
+                    </TextBlock>
                 </Viewbox>
             </StackPanel>
 

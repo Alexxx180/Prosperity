@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works
 {
@@ -102,7 +103,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             {
                 string[] row = rows[no];
                 uint id = ToUInt32(row[0]);
-                uint type = ToUInt32(row[2]);
+                uint type = ToUInt32(row[1]);
                 AddElement(table, no + 1, id, type);
             }
             WorkRowAdditor.AddElement(table, no + 1);
@@ -128,6 +129,18 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
         public void Index(int no)
         {
             No = no;
+        }
+
+        private MainPart _tables => GetMainPart();
+        private MainPart GetMainPart()
+        {
+            StackPanel mainStack = Parent as StackPanel;
+            return mainStack.Tag as MainPart;
+        }
+
+        private void GoToTasks(object sender, RoutedEventArgs e)
+        {
+            _tables.FillTasks(Id);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

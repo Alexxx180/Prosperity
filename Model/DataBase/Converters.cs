@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Prosperity.Model.DataBase
 {
+    /// <summary>
+    /// Converters used for converting database objects to string fields
+    /// </summary>
     public static class Converters
     {
         public static void Connect(Sql connector)

@@ -151,7 +151,7 @@ namespace Prosperity.Controls.Tables.Specialities
             No = no;
         }
 
-        private MainPart _tables => GetMainPart();
+        private MainPart _tables;
         private MainPart GetMainPart()
         {
             StackPanel mainStack = Parent as StackPanel;
@@ -160,17 +160,25 @@ namespace Prosperity.Controls.Tables.Specialities
 
         private void CheckSelection(ComboBox selector)
         {
+            _tables = GetMainPart();
             switch (selector.SelectedIndex)
             {
                 case 0:
+                    SpecialitiesTransition();
                     _tables.FillGeneralCompetetions(Id);
                     break;
                 case 1:
+                    SpecialitiesTransition();
                     _tables.FillProfessionalCompetetions(Id);
                     break;
                 default:
                     break;
             }
+        }
+
+        private void SpecialitiesTransition()
+        {
+            _tables.ViewModel.AddTransition(_tables.FillSpecialities, "Ранее смотрели: Специальность - ID", Id);
         }
 
         private void SecondaryTables_Select(object sender, SelectionChangedEventArgs e)

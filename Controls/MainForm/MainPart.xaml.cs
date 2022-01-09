@@ -23,6 +23,7 @@ using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralM
 using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ProfessionalMastering;
 using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works;
 using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks;
+using static System.Diagnostics.Trace;
 
 namespace Prosperity.Controls.MainForm
 {
@@ -31,7 +32,7 @@ namespace Prosperity.Controls.MainForm
     /// </summary>
     public partial class MainPart : UserControl, INotifyPropertyChanged
     {
-        private readonly GlobalViewModel ViewModel = new GlobalViewModel();
+        public GlobalViewModel ViewModel { get; } = new GlobalViewModel();
 
         public MainPart()
         {
@@ -42,7 +43,11 @@ namespace Prosperity.Controls.MainForm
 
         private void Back(object sender, RoutedEventArgs e)
         {
-            ViewModel.PopTransition().MakeTransition();
+            _ = ViewModel.PopTransition();
+            ViewModel.GetTransition().MakeTransition();
+            if (!ViewModel.IsTopTransition)
+            _ = ViewModel.PopTransition();
+            //WriteLine(ViewModel.GetTransition().Name);
         }
 
         private void ResetHeaders(UserControl currentHeader)
@@ -75,7 +80,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillGeneralCompetetions(uint id)
         {
-            ViewModel.AddTransition(FillSpecialities, "Специальности", id);
+            ViewModel.AddTransition(FillGeneralCompetetions, "Специальность - ID", id);
             ResetHeaders(GeneralCompetetionHeader);
             CurrentView.Children.Clear();
             GeneralCompetetionRow.AddElements(CurrentView, ViewModel.Data.GeneralCompetetions(id));
@@ -84,7 +89,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillProfessionalCompetetions(uint id)
         {
-            ViewModel.AddTransition(FillSpecialities, "Специальности", id);
+            ViewModel.AddTransition(FillProfessionalCompetetions, "Специальность - ID", id);
             ResetHeaders(ProfessionalCompetetionHeader);
             CurrentView.Children.Clear();
             ProfessionalCompetetionRow.AddElements(CurrentView, ViewModel.Data.ProfessionalCompetetions(id));
@@ -102,7 +107,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillDisciplineGeneralCompetetions(uint id)
         {
-            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ViewModel.AddTransition(FillDisciplineGeneralCompetetions, "Дисциплина - ID", id);
             ResetHeaders(GeneralMasteringHeader);
             CurrentView.Children.Clear();
             DisciplineGeneralMasteringRow.AddElements(CurrentView,
@@ -112,7 +117,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillDisciplineProfessionalCompetetions(uint id)
         {
-            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ViewModel.AddTransition(FillDisciplineProfessionalCompetetions, "Дисциплина - ID", id);
             ResetHeaders(ProfessionalMasteringHeader);
             CurrentView.Children.Clear();
             DisciplineProfessionalMasteringRow.AddElements(CurrentView,
@@ -122,7 +127,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillSources(uint id)
         {
-            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ViewModel.AddTransition(FillSources, "Дисциплина - ID", id);
             ResetHeaders(SourceHeader);
             CurrentView.Children.Clear();
             SourceRow.AddElements(CurrentView, ViewModel.Data.Sources(id));
@@ -131,7 +136,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillMetaData(uint id)
         {
-            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ViewModel.AddTransition(FillMetaData, "Дисциплина - ID", id);
             ResetHeaders(MetadataHeader);
             CurrentView.Children.Clear();
             MetaDataRow.AddElements(CurrentView, ViewModel.Data.MetaData(id));
@@ -140,7 +145,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillHours(uint id)
         {
-            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ViewModel.AddTransition(FillHours, "Дисциплина - ID", id);
             ResetHeaders(HoursHeader);
             CurrentView.Children.Clear();
             HoursRow.AddElements(CurrentView, ViewModel.Data.TotalHours(id));
@@ -149,7 +154,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillTopics(uint id)
         {
-            ViewModel.AddTransition(FillDisciplines, "Дисциплины", id);
+            ViewModel.AddTransition(FillTopics, "Дисциплина - ID", id);
             ResetHeaders(ThemePlanHeader);
             CurrentView.Children.Clear();
             TopicRow.AddElements(CurrentView, ViewModel.Data.ThemePlan(id));
@@ -158,7 +163,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillThemes(uint id)
         {
-            //ViewModel.AddTransition(FillTopics(uint id), "Дисциплины", id);
+            ViewModel.AddTransition(FillThemes, "Раздел - ID", id);
             ResetHeaders(ThemesHeader);
             CurrentView.Children.Clear();
             ThemeRow.AddElements(CurrentView, ViewModel.Data.Themes(id));
@@ -175,6 +180,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillThemeGeneralCompetetions(uint id)
         {
+            ViewModel.AddTransition(FillThemeGeneralCompetetions, "Тема - ID", id);
             ResetHeaders(GeneralSelectionHeader);
             CurrentView.Children.Clear();
             ThemeGeneralMasteringRow.AddElements(CurrentView, ViewModel.Data.ThemeGeneralMastering(id));
@@ -183,7 +189,8 @@ namespace Prosperity.Controls.MainForm
 
         public void FillThemeProfessionalCompetetions(uint id)
         {
-            ResetHeaders(LevelsHeader);
+            ViewModel.AddTransition(FillThemeProfessionalCompetetions, "Тема - ID", id);
+            ResetHeaders(ProfessionalSelectionHeader);
             CurrentView.Children.Clear();
             ThemeProfessionalMasteringRow.AddElements(CurrentView, ViewModel.Data.ThemeProfessionalMastering(id));
             RefreshCount();
@@ -191,7 +198,8 @@ namespace Prosperity.Controls.MainForm
 
         public void FillWorks(uint id)
         {
-            ResetHeaders(ThemesHeader);
+            ViewModel.AddTransition(FillWorks, "Тема - ID", id);
+            ResetHeaders(WorksHeader);
             CurrentView.Children.Clear();
             WorkRow.AddElements(CurrentView, ViewModel.Data.Works(id));
             RefreshCount();
@@ -199,7 +207,8 @@ namespace Prosperity.Controls.MainForm
 
         public void FillTasks(uint id)
         {
-            ResetHeaders(ThemesHeader);
+            ViewModel.AddTransition(FillTasks, "Работа - ID", id);
+            ResetHeaders(TasksHeader);
             CurrentView.Children.Clear();
             TaskRow.AddElements(CurrentView, ViewModel.Data.Tasks(id));
             RefreshCount();

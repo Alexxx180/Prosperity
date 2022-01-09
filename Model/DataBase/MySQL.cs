@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Reflection;
-using System.Windows;
 using MySql.Data.MySqlClient;
 
 namespace Prosperity.Model.DataBase
 {
+    /// <summary>
+    /// Connection to database via MySQL
+    /// </summary>
     public class MySQL : Sql
     {
         private const string PublishSource =

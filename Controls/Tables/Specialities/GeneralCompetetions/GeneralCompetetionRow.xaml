@@ -32,6 +32,9 @@
             </Viewbox>
 
             <TextBox Grid.Column="2" Height="35" MaxHeight="35" PreviewTextInput="Hours" DataObject.Pasting="PastingHours">
+                <TextBox.TextAlignment>
+                    Right
+                </TextBox.TextAlignment>
                 <TextBox.MaxLength>
                     3
                 </TextBox.MaxLength>
