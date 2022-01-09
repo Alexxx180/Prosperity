@@ -38,10 +38,7 @@
                 </Viewbox>
             </Button>
 
-            <TextBox Grid.Column="3">
-                <TextBox.MaxLength>
-                    1000
-                </TextBox.MaxLength>
+            <TextBox Grid.Column="3" Style="{StaticResource NameBox1000}">
                 <TextBox.Text>
                     <Binding Path="Source" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>

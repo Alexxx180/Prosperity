@@ -27,10 +27,7 @@
             <TextBlock Text="{Binding Path=No}" />
         </Viewbox>
 
-        <TextBox Grid.Column="2">
-            <TextBox.MaxLength>
-                50
-            </TextBox.MaxLength>
+        <TextBox Grid.Column="2" Style="{StaticResource NameBox50}">
             <TextBox.Text>
                 <Binding Path="LevelName" />
             </TextBox.Text>
@@ -42,10 +39,7 @@
             </TextBox.FontSize>
         </TextBox>
 
-        <TextBox Grid.Column="3">
-            <TextBox.MaxLength>
-                500
-            </TextBox.MaxLength>
+        <TextBox Grid.Column="3" Style="{StaticResource NameBox500}">
             <TextBox.Text>
                 <Binding Path="Description" />
             </TextBox.Text>

@@ -26,10 +26,7 @@
             <TextBlock Text="{Binding Path=No}" />
         </Viewbox>
 
-        <TextBox Grid.Column="2">
-            <TextBox.MaxLength>
-                50
-            </TextBox.MaxLength>
+        <TextBox Grid.Column="2" Style="{StaticResource NameBox50}">
             <TextBox.Text>
                 <Binding Path="SourceType" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
             </TextBox.Text>

@@ -23,7 +23,6 @@ using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralM
 using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ProfessionalMastering;
 using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works;
 using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks;
-using static System.Diagnostics.Trace;
 
 namespace Prosperity.Controls.MainForm
 {
@@ -47,7 +46,6 @@ namespace Prosperity.Controls.MainForm
             ViewModel.GetTransition().MakeTransition();
             if (!ViewModel.IsTopTransition)
             _ = ViewModel.PopTransition();
-            //WriteLine(ViewModel.GetTransition().Name);
         }
 
         private void ResetHeaders(UserControl currentHeader)

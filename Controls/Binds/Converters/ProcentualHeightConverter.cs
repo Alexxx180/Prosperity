@@ -15,7 +15,8 @@ namespace Prosperity.Controls.Binds.Converters
                     bool result = double.TryParse(p, out double param);
                     if (result)
                     {
-                        return v / param;
+                        double size = v / param;
+                        return size > 0 ? size : 1;
                     }
                 }
             }

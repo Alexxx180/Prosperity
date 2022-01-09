@@ -31,13 +31,7 @@
                 <TextBlock Text="{Binding Path=Id}" />
             </Viewbox>
 
-            <TextBox Grid.Column="2" PreviewTextInput="Hours" DataObject.Pasting="PastingHours">
-                <TextBox.TextAlignment>
-                    Right
-                </TextBox.TextAlignment>
-                <TextBox.MaxLength>
-                    3
-                </TextBox.MaxLength>
+            <TextBox Grid.Column="2" Style="{StaticResource HoursBox}">
                 <TextBox.Text>
                     <Binding Path="TopicNo" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -49,10 +43,7 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <TextBox Grid.Column="3">
-                <TextBox.MaxLength>
-                    500
-                </TextBox.MaxLength>
+            <TextBox Grid.Column="3" Style="{StaticResource NameBox500}">
                 <TextBox.Text>
                     <Binding Path="TopicName" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -64,13 +55,8 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <TextBox Grid.Column="4" PreviewTextInput="Hours" DataObject.Pasting="PastingHours">
-                <TextBox.TextAlignment>
-                    Right
-                </TextBox.TextAlignment>
-                <TextBox.MaxLength>
-                    3
-                </TextBox.MaxLength>
+            <!--PreviewTextInput="Hours" DataObject.Pasting="PastingHours"-->
+            <TextBox Grid.Column="4" Style="{StaticResource HoursBox}">
                 <TextBox.Text>
                     <Binding Path="TopicHours" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>

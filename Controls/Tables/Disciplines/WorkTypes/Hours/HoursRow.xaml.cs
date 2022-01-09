@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Input;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
 {
@@ -143,15 +141,6 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
         public void Index(int no)
         {
             No = no;
-        }
-
-        private void Hours(object sender, TextCompositionEventArgs e)
-        {
-            CheckForHours(sender, e);
-        }
-        private void PastingHours(object sender, DataObjectPastingEventArgs e)
-        {
-            CheckForPastingHours(sender, e);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

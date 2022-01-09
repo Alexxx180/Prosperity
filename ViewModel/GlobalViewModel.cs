@@ -9,7 +9,16 @@ namespace Prosperity.ViewModel
 {
     public class GlobalViewModel : INotifyPropertyChanged
     {
-        public TransitionBase CurrentState => GetTransition() ?? new TransitionBase(null, "Верхний уровень -", 0);
+        private TransitionBase _currentState = new TransitionBase(null, "Добро пожаловать!", 0);
+        public TransitionBase CurrentState
+        {
+            get => _currentState;
+            set
+            {
+                _currentState = value;
+                OnPropertyChanged();
+            }
+        }
 
         public bool IsTopTransition => Transitions.Count <= 0;
         public Visibility BackOperations => IsTopTransition ? Visibility.Hidden : Visibility.Visible;
@@ -76,7 +85,8 @@ namespace Prosperity.ViewModel
 
         public void TransitionStateChanged()
         {
-            OnPropertyChanged(nameof(CurrentState));
+            if (!IsTopTransition)
+                CurrentState = GetTransition();
             OnPropertyChanged(nameof(BackOperations));
         }
 

@@ -29,9 +29,7 @@ D:\Александр\Windows 7\misc\Надгробные плиты\PL-Projects
 D:\Александр\Windows 7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\App.baml
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Prosperity.csproj.AssemblyReference.cache
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Resources\Styles\Buttons.baml
-D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Resources\Styles\CheckBoxes.baml
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Resources\Styles\ComboBoxes.baml
-D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Resources\Styles\FlowDocuments.baml
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Resources\Styles\TextBoxes.baml
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\MainWindow.g.cs
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\App.g.cs
@@ -208,3 +206,4 @@ D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosp
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringRow.g.cs
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringRowAdditor.g.cs
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Resources\Styles\Total.baml
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Resources\Styles\TextBoxes.g.cs

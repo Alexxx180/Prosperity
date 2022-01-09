@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Input;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using static Prosperity.Controls.Tables.EditHelper;
 using Prosperity.Controls.MainForm;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
@@ -171,15 +169,6 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
         private void GoToThemes(object sender, RoutedEventArgs e)
         {
             _tables.FillThemes(Id);
-        }
-
-        private void Hours(object sender, TextCompositionEventArgs e)
-        {
-            CheckForHours(sender, e);
-        }
-        private void PastingHours(object sender, DataObjectPastingEventArgs e)
-        {
-            CheckForPastingHours(sender, e);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

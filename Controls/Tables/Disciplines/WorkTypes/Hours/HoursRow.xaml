@@ -38,13 +38,7 @@
                 </Viewbox>
             </Button>
 
-            <TextBox Grid.Column="3" PreviewTextInput="Hours" DataObject.Pasting="PastingHours">
-                <TextBox.TextAlignment>
-                    Right
-                </TextBox.TextAlignment>
-                <TextBox.MaxLength>
-                    3
-                </TextBox.MaxLength>
+            <TextBox Grid.Column="3" Style="{StaticResource HoursBox}">
                 <TextBox.Text>
                     <Binding Path="HoursCount" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
