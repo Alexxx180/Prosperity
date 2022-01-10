@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
 
 namespace Prosperity.Controls.Tables.Conformity
 {
@@ -23,8 +24,8 @@ namespace Prosperity.Controls.Tables.Conformity
             }
         }
 
-        private int _id = 1;
-        public int Id
+        private uint _id = 1;
+        public uint Id
         {
             get => _id;
             set
@@ -34,8 +35,8 @@ namespace Prosperity.Controls.Tables.Conformity
             }
         }
 
-        private int _discipline = 1;
-        public int Discipline
+        private uint _discipline = 1;
+        public uint Discipline
         {
             get => _discipline;
             set
@@ -45,8 +46,8 @@ namespace Prosperity.Controls.Tables.Conformity
             }
         }
 
-        private int _speciality = 1;
-        public int Speciality
+        private uint _speciality = 1;
+        public uint Speciality
         {
             get => _speciality;
             set
@@ -94,12 +95,12 @@ namespace Prosperity.Controls.Tables.Conformity
             SetStyles();
         }
 
-        public ConformityRow(int no, int id, int disciplineNo, int specialityNo) : this()
+        public ConformityRow(int no, uint id, uint disciplineNo, uint specialityNo) : this()
         {
             SetElement(no, id, disciplineNo, specialityNo);
         }
 
-        public void SetElement(int no, int id, int disciplineNo, int specialityNo)
+        public void SetElement(int no, uint id, uint disciplineNo, uint specialityNo)
         {
             No = no;
             Id = id;
@@ -113,20 +114,22 @@ namespace Prosperity.Controls.Tables.Conformity
             for (; no < rows.Count; no++)
             {
                 string[] row = rows[no];
-                int id = ToInt32(row[0]);
-                int disciplineNo = ToInt32(row[1]);
-                int specialityNo = ToInt32(row[2]);
+                uint id = ToUInt32(row[0]);
+                uint disciplineNo = ToUInt32(row[1]);
+                uint specialityNo = ToUInt32(row[2]);
                 AddElement(table, no + 1, id, disciplineNo, specialityNo, selected);
             }
             ConformityRowAdditor.AddElement(table, no + 1);
         }
 
-        public static void AddElement(StackPanel table, int no, int id, int disciplineNo, int specialityNo, uint selected)
+        public static void AddElement(StackPanel table, int no,
+            uint id, uint disciplineNo, uint specialityNo, uint selected)
         {
             ConformityRow row = new ConformityRow(no, id, disciplineNo, specialityNo);
             if (id == selected)
                 row.Select();
             _ = table.Children.Add(row);
+            row.Tables = GetMainPart(table);
         }
 
         public void Select()
@@ -140,13 +143,42 @@ namespace Prosperity.Controls.Tables.Conformity
             Select();
         }
 
+        public MainPart Tables { get; set; }
+        public static MainPart GetMainPart(StackPanel panel) => panel.Tag as MainPart;
+
         private void SelectDiscipline(object sender, RoutedEventArgs e)
         {
+            List<string[]> records = Tables.ViewModel.Data.Disciplines;
+            RecordSelection selection = new RecordSelection(records);
+            if (selection.ShowDialog().Value)
+            {
+                if (selection.EditsNeeded)
+                {
+                    Tables.FillDisciplines(Discipline);
+                }
+                else
+                {
+                    Discipline = selection.Id;
+                }
+            }
             e.Handled = true;
         }
 
         private void SelectSpeciality(object sender, RoutedEventArgs e)
         {
+            List<string[]> records = Tables.ViewModel.Data.Specialities;
+            RecordSelection selection = new RecordSelection(records);
+            if (selection.ShowDialog().Value)
+            {
+                if (selection.EditsNeeded)
+                {
+                    Tables.FillSpecialities(Speciality);
+                }
+                else
+                {
+                    Speciality = selection.Id;
+                }
+            }
             e.Handled = true;
         }
 

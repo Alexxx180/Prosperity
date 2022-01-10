@@ -207,3 +207,7 @@ D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosp
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringRowAdditor.g.cs
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Resources\Styles\Total.baml
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Resources\Styles\TextBoxes.g.cs
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\RecordForm\MainPart.g.cs
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\RecordSelection.g.cs
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\RecordForm\MainPart.baml
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\RecordSelection.baml
