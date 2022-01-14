@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Controls;
 using Prosperity.Model;
 using static System.Convert;
@@ -56,8 +57,24 @@ namespace Prosperity.Controls.RecordForm
 
         private void SelectOne(object sender, RoutedEventArgs e)
         {
+            if (SelectedRow == null)
+                return;
             _dialog = GetMainPart();
             _dialog.SelectARecord(SelectedRow.Name);
+        }
+
+        private void CurrentView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (SelectedRow == null)
+                return;
+            _dialog = GetMainPart();
+            _dialog.SelectARecord(SelectedRow.Name);
+        }
+
+        public void SetHeader(string records, string main)
+        {
+            RecordsName.Text = " " + records;
+            MainTableName.Text = main + " ";
         }
 
         public void FillRows(List<string[]> rows)
@@ -67,15 +84,13 @@ namespace Prosperity.Controls.RecordForm
             {
                 string[] row = rows[i];
                 Rows.Add(ConvertRow(row));
-            }    
+            }
         }
 
         private static Pair<uint, string> ConvertRow(string[] row)
         {
             uint id = ToUInt32(row[0]);
-            string data = "";
-            for (ushort i = 1; i < row.Length; i++)
-                data += "; " + row[i];
+            string data = string.Join(';', row);
             return new Pair<uint, string>(id, data);
         }
 

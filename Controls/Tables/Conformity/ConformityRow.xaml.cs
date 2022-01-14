@@ -149,7 +149,7 @@ namespace Prosperity.Controls.Tables.Conformity
         private void SelectDiscipline(object sender, RoutedEventArgs e)
         {
             List<string[]> records = Tables.ViewModel.Data.Disciplines;
-            RecordSelection selection = new RecordSelection(records);
+            RecordSelection selection = new RecordSelection(records, "Дисциплины:", "Соответствие");
             if (selection.ShowDialog().Value)
             {
                 if (selection.EditsNeeded)
@@ -167,7 +167,7 @@ namespace Prosperity.Controls.Tables.Conformity
         private void SelectSpeciality(object sender, RoutedEventArgs e)
         {
             List<string[]> records = Tables.ViewModel.Data.Specialities;
-            RecordSelection selection = new RecordSelection(records);
+            RecordSelection selection = new RecordSelection(records, "Специальности:", "Соответствие");
             if (selection.ShowDialog().Value)
             {
                 if (selection.EditsNeeded)

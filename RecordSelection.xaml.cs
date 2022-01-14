@@ -21,6 +21,13 @@ namespace Prosperity
             ListTableView.FillRows(records);
         }
 
+        public RecordSelection(List<string[]> records,
+            string selectionName, string mainName) : this()
+        {
+            ListTableView.SetHeader(selectionName, mainName);
+            ListTableView.FillRows(records);
+        }
+
         public void NeedMoreRecords()
         {
             EditsNeeded = true;

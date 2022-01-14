@@ -23,12 +23,10 @@
             </Grid.ColumnDefinitions>
 
             <Viewbox HorizontalAlignment="Left" Grid.RowSpan="2">
-                <TextBlock Text=" Дисциплины:" Padding="1" />
-                <!--{Binding Path=CurrentState.Name, Mode=OneWay, TargetNullValue='Дисциплины:'}-->
+                <TextBlock x:Name="RecordsName" Text="" Padding="1" />
             </Viewbox>
             <Viewbox Grid.Column="1" HorizontalAlignment="Right" Grid.RowSpan="2">
-                <TextBlock Text="Соответсвие " Padding="1" />
-                <!--{Binding Path=CurrentState.Id, Mode=OneWay, TargetNullValue='Соответствие'}-->
+                <TextBlock x:Name="MainTableName" Text="" Padding="1" />
             </Viewbox>
         </Grid>
 
@@ -52,7 +50,10 @@
                 </Viewbox>
             </Grid>
 
-            <ListBox x:Name="CurrentView" Grid.Row="1" ItemsSource="{Binding Rows}" SelectedItem="{Binding SelectedRow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+            <ListBox x:Name="CurrentView" Grid.Row="1" ItemsSource="{Binding Rows}" MouseDoubleClick="CurrentView_MouseDoubleClick">
+                <ListBox.SelectedItem>
+                    <Binding Path="SelectedRow" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" />
+                </ListBox.SelectedItem>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -72,13 +73,13 @@
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Style="{StaticResource ImpactButton}">
+            <Button Style="{StaticResource ImpactButton}" Click="AddAnotherOne">
                 <Viewbox>
                     <TextBlock Text="[+] Добавить" />
                 </Viewbox>
             </Button>
 
-            <Button Grid.Column="2" Style="{StaticResource ImpactButton2}">
+            <Button Grid.Column="2" Style="{StaticResource ImpactButton2}" Click="SelectOne">
                 <Viewbox>
                     <TextBlock Text="[v] Выбрать" />
                 </Viewbox>
