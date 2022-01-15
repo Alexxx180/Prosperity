@@ -4,6 +4,8 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
 {
@@ -125,6 +127,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
         {
             HoursRow row = new HoursRow(no, id, type, value);
             _ = table.Children.Add(row);
+            row.SetTables(table);
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -133,8 +136,21 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            HoursType = id;
+        }
+
         private void SelectCode(object sender, RoutedEventArgs e)
         {
+            SelectionFields(Id, _tables.ViewModel.Data.WorkTypes,
+                "Типы работ:", "Общие часы", _tables.FillWorkTypes, SetCode);
             e.Handled = true;
         }
 

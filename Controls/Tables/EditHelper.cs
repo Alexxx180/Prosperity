@@ -1,8 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Controls;
+using static Prosperity.Model.TransitionBase;
+using Prosperity.Controls.MainForm;
 
 namespace Prosperity.Controls.Tables
 {
@@ -19,6 +21,43 @@ namespace Prosperity.Controls.Tables
         //    UIElement component = (UIElement)Activator.CreateInstance(typeof(T), args);
         //    _ = stack.Children.Add(component);
         //}
+
+        public static MainPart GetMainPart(StackPanel tableView)
+        {
+            return tableView.Tag as MainPart;
+        }
+
+        public static void SelectionFields(
+            uint mainId, List<string[]> records,
+            string selectionName, string mainName, 
+            Transition transition, Transition codeSelect)
+        {
+            RecordSelection dialog = FewFieldsDialog(records, selectionName, mainName);
+            SelectFromFewFields(mainId, dialog, transition, codeSelect);
+        }
+
+        public static RecordSelection FewFieldsDialog(List<string[]> records,
+            string selectionTableName, string mainTableName)
+        {
+            return new RecordSelection(records, selectionTableName, mainTableName);
+        }
+
+        public static void SelectFromFewFields(
+            uint mainId, RecordSelection selection,
+            Transition transition, Transition codeSelect)
+        {
+            if (selection.ShowDialog().Value)
+            {
+                if (selection.EditsNeeded)
+                {
+                    transition(mainId);
+                }
+                else
+                {
+                    codeSelect(selection.Id);
+                }
+            }
+        }
 
         private static string GetProposedText(TextBox textBox, string newText)
         {

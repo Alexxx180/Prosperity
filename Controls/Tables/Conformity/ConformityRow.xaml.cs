@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Conformity
 {
@@ -129,7 +130,7 @@ namespace Prosperity.Controls.Tables.Conformity
             if (id == selected)
                 row.Select();
             _ = table.Children.Add(row);
-            row.Tables = GetMainPart(table);
+            row.SetTables(table);
         }
 
         public void Select()
@@ -143,42 +144,33 @@ namespace Prosperity.Controls.Tables.Conformity
             Select();
         }
 
-        public MainPart Tables { get; set; }
-        public static MainPart GetMainPart(StackPanel panel) => panel.Tag as MainPart;
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        private void SetDisciplineId(uint id)
+        {
+            Discipline = id;
+        }
+
+        private void SetSpecialityId(uint id)
+        {
+            Speciality = id;
+        }
 
         private void SelectDiscipline(object sender, RoutedEventArgs e)
         {
-            List<string[]> records = Tables.ViewModel.Data.Disciplines;
-            RecordSelection selection = new RecordSelection(records, "Дисциплины:", "Соответствие");
-            if (selection.ShowDialog().Value)
-            {
-                if (selection.EditsNeeded)
-                {
-                    Tables.FillDisciplines(Discipline);
-                }
-                else
-                {
-                    Discipline = selection.Id;
-                }
-            }
+            SelectionFields(Id, _tables.ViewModel.Data.Disciplines,
+                "Дисциплины:", "Соответствие", _tables.FillDisciplines, SetDisciplineId);
             e.Handled = true;
         }
 
         private void SelectSpeciality(object sender, RoutedEventArgs e)
         {
-            List<string[]> records = Tables.ViewModel.Data.Specialities;
-            RecordSelection selection = new RecordSelection(records, "Специальности:", "Соответствие");
-            if (selection.ShowDialog().Value)
-            {
-                if (selection.EditsNeeded)
-                {
-                    Tables.FillSpecialities(Speciality);
-                }
-                else
-                {
-                    Speciality = selection.Id;
-                }
-            }
+            SelectionFields(Id, _tables.ViewModel.Data.Specialities,
+                "Специальности:", "Соответствие", _tables.FillSpecialities, SetSpecialityId);
             e.Handled = true;
         }
 

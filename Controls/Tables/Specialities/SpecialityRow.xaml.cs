@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Specialities
 {
@@ -128,6 +129,7 @@ namespace Prosperity.Controls.Tables.Specialities
             if (id == selected)
                 row.Select();
             _ = table.Children.Add(row);
+            row.SetTables(table);
         }
 
         public void Select()
@@ -141,8 +143,15 @@ namespace Prosperity.Controls.Tables.Specialities
             Select();
         }
 
+        public void SetCode(uint id)
+        {
+            Code = id;
+        }
+
         private void SelectCode(object sender, RoutedEventArgs e)
         {
+            SelectionFields(Id, _tables.ViewModel.Data.SpecialityCodes,
+                "Коды специальностей:", "Специальность", _tables.FillSpecialityCodes, SetCode);
             e.Handled = true;
         }
 
@@ -152,15 +161,13 @@ namespace Prosperity.Controls.Tables.Specialities
         }
 
         private MainPart _tables;
-        private MainPart GetMainPart()
+        public void SetTables(StackPanel table)
         {
-            StackPanel mainStack = Parent as StackPanel;
-            return mainStack.Tag as MainPart;
+            _tables = GetMainPart(table);
         }
 
         private void CheckSelection(ComboBox selector)
         {
-            _tables = GetMainPart();
             switch (selector.SelectedIndex)
             {
                 case 0:

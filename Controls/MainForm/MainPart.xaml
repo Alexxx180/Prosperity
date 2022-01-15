@@ -5,13 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:conformity="clr-namespace:Prosperity.Controls.Tables.Conformity"
              xmlns:specialities="clr-namespace:Prosperity.Controls.Tables.Specialities"
+             xmlns:specialityCodes="clr-namespace:Prosperity.Controls.Tables.Specialities.SpecialityCodes"
              xmlns:general="clr-namespace:Prosperity.Controls.Tables.Specialities.GeneralCompetetions"
              xmlns:professional="clr-namespace:Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions"
              xmlns:disciplines="clr-namespace:Prosperity.Controls.Tables.Disciplines"
+             xmlns:disciplineCodes="clr-namespace:Prosperity.Controls.Tables.Disciplines.DisciplineCodes"
              xmlns:generalMastering="clr-namespace:Prosperity.Controls.Tables.Disciplines.GeneralMastering"
              xmlns:professionalMastering="clr-namespace:Prosperity.Controls.Tables.Disciplines.ProfessionalMastering"
+             xmlns:sourceTypes="clr-namespace:Prosperity.Controls.Tables.Disciplines.SourceTypes"
              xmlns:sources="clr-namespace:Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources"
+             xmlns:metaTypes="clr-namespace:Prosperity.Controls.Tables.Disciplines.MetaTypes"
              xmlns:metadata="clr-namespace:Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData"
+             xmlns:workTypes="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes"
              xmlns:hours="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours"
              xmlns:plan="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan"
              xmlns:themes="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes"
@@ -77,10 +82,16 @@
 
                 <Grid x:Name="CurrentHeaders" Style="{StaticResource ViewImpact}">
                     <conformity:ConformityColumns x:Name="ConformityHeader" Visibility="Collapsed" />
+                    <specialityCodes:SpecialityCodeColumns x:Name="SpecialityCodesHeader" Visibility="Collapsed" />
+                    <disciplineCodes:DisciplineCodeColumns x:Name="DisciplineCodesHeader" Visibility="Collapsed" />
 
                     <specialities:SpecialityColumns x:Name="SpecialityHeader" Visibility="Collapsed" />
                     <general:GeneralCompetetionColumns x:Name="GeneralCompetetionHeader" Visibility="Collapsed" />
                     <professional:ProfessionalCompetetionColumns x:Name="ProfessionalCompetetionHeader" Visibility="Collapsed" />
+
+                    <sourceTypes:SourceTypeColumns x:Name="SourceTypesHeader" Visibility="Collapsed"/>
+                    <metaTypes:MetaTypeColumns x:Name="MetaTypesHeader" Visibility="Collapsed"/>
+                    <workTypes:WorkTypesColumns x:Name="WorkTypesHeader" Visibility="Collapsed"/>
 
                     <disciplines:DisciplineColumns x:Name="DisciplineHeader" Visibility="Collapsed" />
                     <generalMastering:DisciplineGeneralMasteringColumns x:Name="GeneralMasteringHeader" Visibility="Collapsed" />

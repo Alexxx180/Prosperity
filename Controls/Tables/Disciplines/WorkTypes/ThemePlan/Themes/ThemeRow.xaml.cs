@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
 {
@@ -154,6 +155,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             ThemeRow row = new ThemeRow();
             row.SetElement(no, id, themeLevel, themeNo, name, hours);
             _ = table.Children.Add(row);
+            row.SetTables(table);
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -162,21 +164,27 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
-        private void SelectCode(object sender, RoutedEventArgs e)
-        {
-            e.Handled = true;
-        }
-
         public void Index(int no)
         {
             No = no;
         }
 
-        private MainPart _tables => GetMainPart();
-        private MainPart GetMainPart()
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
         {
-            StackPanel mainStack = Parent as StackPanel;
-            return mainStack.Tag as MainPart;
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            ThemeLevel = id;
+        }
+
+        private void SelectCode(object sender, RoutedEventArgs e)
+        {
+            SelectionFields(Id, _tables.ViewModel.Data.Levels,
+                "Уровни компетенций:", "Тема", _tables.FillCompetetionLevels, SetCode);
+            e.Handled = true;
         }
 
         private void CheckSelection(ComboBox selector)

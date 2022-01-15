@@ -9,7 +9,7 @@ namespace Prosperity.ViewModel
 {
     public class GlobalViewModel : INotifyPropertyChanged
     {
-        private TransitionBase _currentState = new TransitionBase(null, "Добро пожаловать!", 0);
+        private TransitionBase _currentState = new TransitionBase(null, "Пополнений стека:", 0);
         public TransitionBase CurrentState
         {
             get => _currentState;

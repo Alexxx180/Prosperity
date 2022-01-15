@@ -4,6 +4,8 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 {
@@ -125,6 +127,7 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
         {
             SourceRow row = new SourceRow(no, id, type, value);
             _ = table.Children.Add(row);
+            row.SetTables(table);
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -133,8 +136,21 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            SourceType = id;
+        }
+
         private void SelectCode(object sender, RoutedEventArgs e)
         {
+            SelectionFields(Id, _tables.ViewModel.Data.SourceTypes,
+                "Типы источников:", "Источник", _tables.FillSourceTypes, SetCode);
             e.Handled = true;
         }
 

@@ -4,6 +4,8 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 {
@@ -107,6 +109,24 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
             MetaValue = value;
         }
 
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            MetaType = id;
+        }
+
+        private void SelectCode(object sender, RoutedEventArgs e)
+        {
+            SelectionFields(Id, _tables.ViewModel.Data.MetaTypes,
+                "Типы метаданных:", "Метаданные", _tables.FillMetaTypes, SetCode);
+            e.Handled = true;
+        }
+
         public static void AddElements(StackPanel table, List<string[]> rows)
         {
             ushort no = 0;
@@ -125,17 +145,13 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
         {
             MetaDataRow row = new MetaDataRow(no, id, type, value);
             _ = table.Children.Add(row);
+            row.SetTables(table);
         }
 
         private void Select(object sender, RoutedEventArgs e)
         {
             CanBeEdited = !CanBeEdited;
             Selection = CanBeEdited ? _selected : _unselected;
-        }
-
-        private void SelectCode(object sender, RoutedEventArgs e)
-        {
-            e.Handled = true;
         }
 
         public void Index(int no)

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works
 {
@@ -113,6 +114,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
         {
             WorkRow row = new WorkRow(no, id, type);
             _ = table.Children.Add(row);
+            row.SetTables(table);
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -121,21 +123,27 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
-        private void SelectCode(object sender, RoutedEventArgs e)
-        {
-            e.Handled = true;
-        }
-
         public void Index(int no)
         {
             No = no;
         }
 
-        private MainPart _tables => GetMainPart();
-        private MainPart GetMainPart()
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
         {
-            StackPanel mainStack = Parent as StackPanel;
-            return mainStack.Tag as MainPart;
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            WorkType = id;
+        }
+
+        private void SelectCode(object sender, RoutedEventArgs e)
+        {
+            SelectionFields(Id, _tables.ViewModel.Data.WorkTypes,
+                "Типы работ:", "Работа", _tables.FillWorkTypes, SetCode);
+            e.Handled = true;
         }
 
         private void GoToTasks(object sender, RoutedEventArgs e)

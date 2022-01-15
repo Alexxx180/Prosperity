@@ -105,7 +105,7 @@ namespace Prosperity.Controls.Tables.Specialities.SpecialityCodes
                 string code = row[1];
                 AddElement(table, no + 1, id, code);
             }
-            SpecialityRowAdditor.AddElement(table, no + 1);
+            SpecialityCodeRowAdditor.AddElement(table, no + 1);
         }
 
         public static void AddElement(StackPanel table, int no, uint id, string code)

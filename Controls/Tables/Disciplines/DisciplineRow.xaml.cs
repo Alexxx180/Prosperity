@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines
 {
@@ -108,6 +109,12 @@ namespace Prosperity.Controls.Tables.Disciplines
             DisciplineName = name;
         }
 
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
         public static void AddElements(StackPanel table, List<string[]> rows, uint selected)
         {
             ushort no = 0;
@@ -128,6 +135,7 @@ namespace Prosperity.Controls.Tables.Disciplines
             if (id == selected)
                 row.Select();
             _ = table.Children.Add(row);
+            row.SetTables(table);
         }
 
         public void Select()
@@ -141,8 +149,15 @@ namespace Prosperity.Controls.Tables.Disciplines
             Select();
         }
 
+        public void SetCode(uint id)
+        {
+            Code = id;
+        }
+
         private void SelectCode(object sender, RoutedEventArgs e)
         {
+            SelectionFields(Id, _tables.ViewModel.Data.DisciplineCodes,
+                "Коды дисциплин:", "Дисциплина", _tables.FillDisciplineCodes, SetCode);
             e.Handled = true;
         }
 
@@ -151,16 +166,8 @@ namespace Prosperity.Controls.Tables.Disciplines
             No = no;
         }
 
-        private MainPart _tables;
-        private MainPart GetMainPart()
-        {
-            StackPanel mainStack = Parent as StackPanel;
-            return mainStack.Tag as MainPart;
-        }
-
         private void CheckSelection(ComboBox selector)
         {
-            _tables = GetMainPart();
             switch (selector.SelectedIndex)
             {
                 case 0:

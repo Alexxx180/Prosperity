@@ -31,7 +31,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Comp
             }
         }
 
-        private string _description = "0";
+        private string _description = "";
         public string Description
         {
             get => _description;
