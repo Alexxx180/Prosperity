@@ -195,5 +195,26 @@ namespace Prosperity.Model.DataBase
         {
             return GetRecords("get_all_levels");
         }
+
+
+        public List<object[]> ConformityGeneralCompetetions(uint value)
+        {
+            return GetRecords("get_conformity_general_competetions", "discipline_id", value);
+        }
+
+        public List<object[]> ConformityProfessionalCompetetions(uint value)
+        {
+            return GetRecords("get_conformity_professional_competetions", "discipline_id", value);
+        }
+
+        public List<object[]> DisciplineGeneralMasteringByTheme(uint value)
+        {
+            return GetRecords("get_discipline_general_by_theme", "theme_id", value);
+        }
+
+        public List<object[]> DisciplineProfessionalMasteringByTheme(uint value)
+        {
+            return GetRecords("get_discipline_professional_by_theme", "theme_id", value);
+        }
     }
 }

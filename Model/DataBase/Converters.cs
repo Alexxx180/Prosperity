@@ -80,6 +80,15 @@ namespace Prosperity.Model.DataBase
 
         public static List<string[]> Levels => ConvertAll(_dataBase.Levels(), ElementsToString);
 
+
+        public static List<string[]> ConformityGeneralCompetetions(uint disciplineId) => ConvertAll(_dataBase.ConformityGeneralCompetetions(disciplineId), ElementsToString);
+
+        public static List<string[]> ConformityProfessionalCompetetions(uint disciplineId) => ConvertAll(_dataBase.ConformityProfessionalCompetetions(disciplineId), ElementsToString);
+
+        public static List<string[]> DisciplineGeneralMasteringByTheme(uint themeId) => ConvertAll(_dataBase.DisciplineGeneralMasteringByTheme(themeId), ElementsToString);
+
+        public static List<string[]> DisciplineProfessionalMasteringByTheme(uint themeId) => ConvertAll(_dataBase.DisciplineProfessionalMasteringByTheme(themeId), ElementsToString);
+
         private static Sql _dataBase;
     }
 }

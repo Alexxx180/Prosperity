@@ -4,6 +4,8 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.GeneralMastering
 {
@@ -112,6 +114,7 @@ namespace Prosperity.Controls.Tables.Disciplines.GeneralMastering
         {
             DisciplineGeneralMasteringRow row = new DisciplineGeneralMasteringRow(no, id, code);
             _ = table.Children.Add(row);
+            row.SetTables(table);
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -120,8 +123,24 @@ namespace Prosperity.Controls.Tables.Disciplines.GeneralMastering
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            Code = id;
+        }
+
         private void SelectCode(object sender, RoutedEventArgs e)
         {
+            uint disciplineId = _tables.ViewModel.CurrentState.Id;
+            List<string[]> rows = _tables.ViewModel.Data.ConformityGeneralCompetetions(disciplineId);
+            if (rows.Count > 0)
+                SelectionFields(disciplineId, rows, "Общие компетенции:",
+                    "Освоение общей компетенции", _tables.FillGeneralFromMastering, SetCode);
             e.Handled = true;
         }
 

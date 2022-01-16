@@ -25,6 +25,7 @@ using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralM
 using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ProfessionalMastering;
 using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works;
 using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks;
+using System.Collections.Generic;
 
 namespace Prosperity.Controls.MainForm
 {
@@ -82,20 +83,42 @@ namespace Prosperity.Controls.MainForm
             RefreshCount();
         }
 
+        public void FillGeneralCompetetions(List<string[]> records)
+        {
+            ResetView(GeneralCompetetionHeader);
+            GeneralCompetetionRow.AddElements(CurrentView, records);
+            RefreshCount();
+        }
+
         public void FillGeneralCompetetions(uint id)
         {
             ViewModel.AddTransition(FillGeneralCompetetions, "Специальность - ID", id);
-            ResetView(GeneralCompetetionHeader);
-            GeneralCompetetionRow.AddElements(CurrentView, ViewModel.Data.GeneralCompetetions(id));
+            FillGeneralCompetetions(ViewModel.Data.GeneralCompetetions(id));
+        }
+
+        public void FillGeneralFromMastering(uint id)
+        {
+            ViewModel.AddTransition(FillGeneralFromMastering, "Дисциплина - ID", id);
+            FillGeneralCompetetions(ViewModel.Data.ConformityGeneralCompetetions(id));
+        }
+
+        public void FillProfessionalCompetetions(List<string[]> records)
+        {
+            ResetView(ProfessionalCompetetionHeader);
+            ProfessionalCompetetionRow.AddElements(CurrentView, records);
             RefreshCount();
         }
 
         public void FillProfessionalCompetetions(uint id)
         {
             ViewModel.AddTransition(FillProfessionalCompetetions, "Специальность - ID", id);
-            ResetView(ProfessionalCompetetionHeader);
-            ProfessionalCompetetionRow.AddElements(CurrentView, ViewModel.Data.ProfessionalCompetetions(id));
-            RefreshCount();
+            FillProfessionalCompetetions(ViewModel.Data.ProfessionalCompetetions(id));
+        }
+
+        public void FillProfessionalFromMastering(uint id)
+        {
+            ViewModel.AddTransition(FillProfessionalFromMastering, "Дисциплина - ID", id);
+            FillGeneralCompetetions(ViewModel.Data.ConformityProfessionalCompetetions(id));
         }
 
         public void FillDisciplines(uint id = 0)
@@ -106,22 +129,42 @@ namespace Prosperity.Controls.MainForm
             RefreshCount();
         }
 
+        public void FillDisciplineGeneralCompetetions(List<string[]> rows)
+        {
+            ResetView(GeneralMasteringHeader);
+            DisciplineGeneralMasteringRow.AddElements(CurrentView, rows);
+            RefreshCount();
+        }
+
         public void FillDisciplineGeneralCompetetions(uint id)
         {
             ViewModel.AddTransition(FillDisciplineGeneralCompetetions, "Дисциплина - ID", id);
-            ResetView(GeneralMasteringHeader);
-            DisciplineGeneralMasteringRow.AddElements(CurrentView,
-                ViewModel.Data.DisciplineGeneralMastering(id));
+            FillDisciplineGeneralCompetetions(ViewModel.Data.DisciplineGeneralMastering(id));
+        }
+
+        public void FillDisciplineGeneralFromMastering(uint id)
+        {
+            ViewModel.AddTransition(FillDisciplineGeneralFromMastering, "Дисциплина - ID", id);
+            FillDisciplineGeneralCompetetions(ViewModel.Data.DisciplineGeneralMasteringByTheme(id));
+        }
+
+        public void FillDisciplineProfessionalCompetetions(List<string[]> rows)
+        {
+            ResetView(ProfessionalMasteringHeader);
+            DisciplineProfessionalMasteringRow.AddElements(CurrentView, rows);
             RefreshCount();
         }
 
         public void FillDisciplineProfessionalCompetetions(uint id)
         {
             ViewModel.AddTransition(FillDisciplineProfessionalCompetetions, "Дисциплина - ID", id);
-            ResetView(ProfessionalMasteringHeader);
-            DisciplineProfessionalMasteringRow.AddElements(CurrentView,
-                ViewModel.Data.DisciplineProfessionalMastering(id));
-            RefreshCount();
+            FillDisciplineProfessionalCompetetions(ViewModel.Data.DisciplineProfessionalMastering(id));
+        }
+
+        public void FillDisciplineProfessionalFromMastering(uint id)
+        {
+            ViewModel.AddTransition(FillDisciplineProfessionalFromMastering, "Дисциплина - ID", id);
+            FillDisciplineProfessionalCompetetions(ViewModel.Data.DisciplineProfessionalMasteringByTheme(id));
         }
 
         public void FillSources(uint id)
@@ -199,7 +242,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillSpecialityCodes(uint id)
         {
-            ViewModel.AddTransition(FillSpecialities, "Специальность - ID", id);
+            ViewModel.AddTransition(FillSpecialities, "Ранее смотрели: Специальность - ID", id);
             ViewModel.AddTransition(FillSpecialityCodes, "Ранее смотрели: Специальность - ID", id);
             ResetView(SpecialityCodesHeader);
             SpecialityCodeRow.AddElements(CurrentView, ViewModel.Data.SpecialityCodes);
@@ -208,7 +251,7 @@ namespace Prosperity.Controls.MainForm
 
         public void FillDisciplineCodes(uint id)
         {
-            ViewModel.AddTransition(FillDisciplines, "Дисциплина - ID", id);
+            ViewModel.AddTransition(FillDisciplines, "Ранее смотрели: Дисциплина - ID", id);
             ViewModel.AddTransition(FillDisciplineCodes, "Ранее смотрели: Дисциплина - ID", id);
             ResetView(DisciplineCodesHeader);
             DisciplineCodeRow.AddElements(CurrentView, ViewModel.Data.DisciplineCodes);

@@ -58,6 +58,14 @@ namespace Prosperity.Model.DataBase
 
         public List<string[]> ThemeProfessionalMastering(uint themeId) => Converters.ThemeProfessionalMastering(themeId);
 
+        public List<string[]> ConformityGeneralCompetetions(uint disciplineId) => Converters.ConformityGeneralCompetetions(disciplineId);
+
+        public List<string[]> ConformityProfessionalCompetetions(uint disciplineId) => Converters.ConformityProfessionalCompetetions(disciplineId);
+
+        public List<string[]> DisciplineGeneralMasteringByTheme(uint themeId) => Converters.DisciplineGeneralMasteringByTheme(themeId);
+
+        public List<string[]> DisciplineProfessionalMasteringByTheme(uint themeId) => Converters.DisciplineProfessionalMasteringByTheme(themeId);
+
         public List<string[]> Levels => Converters.Levels;
     }
 }
