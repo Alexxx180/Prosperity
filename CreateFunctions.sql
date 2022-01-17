@@ -45,20 +45,32 @@ BEGIN
 	RETURN topic_id;
 END;
 
+delimiter \;
 
-
-CREATE FUNCTION get_discipline_by_task_id(task_id INT UNSIGNED)
+CREATE FUNCTION get_discipline_by_theme_id(theme_id INT UNSIGNED)
 RETURNS INT UNSIGNED
 READS SQL DATA
 BEGIN
-	DECLARE theme_id, topic_id, discipline_id INT UNSIGNED;
-	SET theme_id = (SELECT get_theme_by_task_id(task_id));
+	DECLARE topic_id, discipline_id INT UNSIGNED;
 	SET topic_id = (SELECT get_topic_by_theme_id(theme_id));
 	SET discipline_id = (
 		SELECT `Discipline`
 		FROM Theme_Plan
 		WHERE `ID` = topic_id
 	);
+	RETURN discipline_id;
+END;
+
+
+delimiter \;
+
+CREATE FUNCTION get_discipline_by_task_id(task_id INT UNSIGNED)
+RETURNS INT UNSIGNED
+READS SQL DATA
+BEGIN
+	DECLARE theme_id, discipline_id INT UNSIGNED;
+	SET theme_id = (SELECT get_theme_by_task_id(task_id));
+	SET discipline_id = (SELECT get_discipline_by_theme_id(theme_id));
 	RETURN discipline_id;
 END;
 

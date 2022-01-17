@@ -141,10 +141,67 @@ CALL add_meta_data(
 	"/3"
 );
 
-
 -- disciplines
 
 -- discipline OGSE.01
+
+CALL add_general_mastering (
+    1,
+    1
+);
+
+CALL add_general_mastering (
+    1,
+    2
+);
+
+CALL add_general_selection (
+    1,
+    1
+);
+
+CALL add_general_selection (
+    2,
+    2
+);
+
+
+
+CALL add_professional_mastering (
+    1,
+    1
+);
+
+CALL add_professional_mastering (
+    1,
+    2
+);
+
+CALL add_professional_mastering (
+    1,
+    3
+);
+
+CALL add_professional_selection (
+    1,
+    1
+);
+
+CALL add_professional_selection (
+    1,
+    2
+);
+
+CALL add_professional_selection (
+    2,
+    2
+);
+
+CALL add_professional_selection (
+    2,
+    3
+);
+
 
 CALL add_discipline_code(
     "ОГСЭ.01"
@@ -209,7 +266,7 @@ CALL add_task(
 
 CALL add_work(
     2,
-    1
+    2
 );
 
 CALL add_task(
@@ -244,6 +301,49 @@ CALL add_source(
 
 
 -- discipline OGSE.02
+
+CALL add_general_mastering (
+    2,
+    3
+);
+
+CALL add_general_mastering (
+    2,
+    4
+);
+
+CALL add_general_selection (
+    2,
+    3
+);
+
+
+
+CALL add_professional_mastering (
+    2,
+    6
+);
+
+CALL add_professional_mastering (
+    2,
+    7
+);
+
+CALL add_professional_mastering (
+    2,
+    8
+);
+
+CALL add_professional_selection (
+    1,
+    5
+);
+
+CALL add_professional_selection (
+    1,
+    6
+);
+
 
 CALL add_discipline_code(
     "ОГСЭ.02"
@@ -306,6 +406,2567 @@ CALL add_source(
 
 
 -- discipline OGSE.03
+
+CALL add_general_mastering (
+    3,
+    5
+);
+
+CALL add_general_mastering (
+    3,
+    6
+);
+
+CALL add_general_mastering (
+    3,
+    7
+);
+
+CALL add_general_mastering (
+    3,
+    8
+);
+
+CALL add_general_mastering (
+    3,
+    9
+);
+
+CALL add_general_mastering (
+    3,
+    10
+);
+
+CALL add_general_mastering (
+    3,
+    11
+);
+
+CALL add_general_mastering (
+    3,
+    12
+);
+
+
+
+
+
+CALL add_general_selection (
+    4,
+    7
+);
+
+CALL add_general_selection (
+    4,
+    8
+);
+
+CALL add_general_selection (
+    4,
+    9
+);
+
+CALL add_general_selection (
+    4,
+    10
+);
+
+CALL add_general_selection (
+    4,
+    11
+);
+
+CALL add_general_selection (
+    4,
+    12
+);
+
+CALL add_general_selection (
+    4,
+    13
+);
+
+CALL add_general_selection (
+    4,
+    14
+);
+
+
+CALL add_general_selection (
+    5,
+    7
+);
+
+CALL add_general_selection (
+    5,
+    8
+);
+
+CALL add_general_selection (
+    5,
+    9
+);
+
+CALL add_general_selection (
+    5,
+    10
+);
+
+CALL add_general_selection (
+    5,
+    11
+);
+
+CALL add_general_selection (
+    5,
+    12
+);
+
+CALL add_general_selection (
+    5,
+    13
+);
+
+CALL add_general_selection (
+    5,
+    14
+);
+
+
+CALL add_general_selection (
+    6,
+    7
+);
+
+CALL add_general_selection (
+    6,
+    8
+);
+
+CALL add_general_selection (
+    6,
+    9
+);
+
+CALL add_general_selection (
+    6,
+    10
+);
+
+CALL add_general_selection (
+    6,
+    11
+);
+
+CALL add_general_selection (
+    6,
+    12
+);
+
+CALL add_general_selection (
+    6,
+    13
+);
+
+CALL add_general_selection (
+    6,
+    14
+);
+
+CALL add_general_selection (
+    7,
+    7
+);
+
+CALL add_general_selection (
+    7,
+    8
+);
+
+CALL add_general_selection (
+    7,
+    9
+);
+
+CALL add_general_selection (
+    7,
+    10
+);
+
+CALL add_general_selection (
+    7,
+    11
+);
+
+CALL add_general_selection (
+    7,
+    12
+);
+
+CALL add_general_selection (
+    7,
+    13
+);
+
+CALL add_general_selection (
+    7,
+    14
+);
+
+CALL add_general_selection (
+    8,
+    7
+);
+
+CALL add_general_selection (
+    8,
+    8
+);
+
+CALL add_general_selection (
+    8,
+    9
+);
+
+CALL add_general_selection (
+    8,
+    10
+);
+
+CALL add_general_selection (
+    8,
+    11
+);
+
+CALL add_general_selection (
+    8,
+    12
+);
+
+CALL add_general_selection (
+    8,
+    13
+);
+
+CALL add_general_selection (
+    8,
+    14
+);
+
+CALL add_general_selection (
+    9,
+    7
+);
+
+CALL add_general_selection (
+    9,
+    8
+);
+
+CALL add_general_selection (
+    9,
+    9
+);
+
+CALL add_general_selection (
+    9,
+    10
+);
+
+CALL add_general_selection (
+    9,
+    11
+);
+
+CALL add_general_selection (
+    9,
+    12
+);
+
+CALL add_general_selection (
+    9,
+    13
+);
+
+CALL add_general_selection (
+    9,
+    14
+);
+
+CALL add_general_selection (
+    10,
+    7
+);
+
+CALL add_general_selection (
+    10,
+    8
+);
+
+CALL add_general_selection (
+    10,
+    9
+);
+
+CALL add_general_selection (
+    10,
+    10
+);
+
+CALL add_general_selection (
+    10,
+    11
+);
+
+CALL add_general_selection (
+    10,
+    12
+);
+
+CALL add_general_selection (
+    10,
+    13
+);
+
+CALL add_general_selection (
+    10,
+    14
+);
+
+CALL add_general_selection (
+    11,
+    7
+);
+
+CALL add_general_selection (
+    11,
+    8
+);
+
+CALL add_general_selection (
+    11,
+    9
+);
+
+CALL add_general_selection (
+    11,
+    10
+);
+
+CALL add_general_selection (
+    11,
+    11
+);
+
+CALL add_general_selection (
+    11,
+    12
+);
+
+CALL add_general_selection (
+    11,
+    13
+);
+
+CALL add_general_selection (
+    11,
+    14
+);
+
+
+CALL add_general_selection (
+    12,
+    7
+);
+
+CALL add_general_selection (
+    12,
+    8
+);
+
+CALL add_general_selection (
+    12,
+    9
+);
+
+CALL add_general_selection (
+    12,
+    10
+);
+
+CALL add_general_selection (
+    12,
+    11
+);
+
+CALL add_general_selection (
+    12,
+    12
+);
+
+CALL add_general_selection (
+    12,
+    13
+);
+
+CALL add_general_selection (
+    12,
+    14
+);
+
+CALL add_general_selection (
+    13,
+    7
+);
+
+CALL add_general_selection (
+    13,
+    8
+);
+
+CALL add_general_selection (
+    13,
+    9
+);
+
+CALL add_general_selection (
+    13,
+    10
+);
+
+CALL add_general_selection (
+    13,
+    11
+);
+
+CALL add_general_selection (
+    13,
+    12
+);
+
+CALL add_general_selection (
+    13,
+    13
+);
+
+CALL add_general_selection (
+    13,
+    14
+);
+
+CALL add_general_selection (
+    14,
+    7
+);
+
+CALL add_general_selection (
+    14,
+    8
+);
+
+CALL add_general_selection (
+    14,
+    9
+);
+
+CALL add_general_selection (
+    14,
+    10
+);
+
+CALL add_general_selection (
+    14,
+    11
+);
+
+CALL add_general_selection (
+    14,
+    12
+);
+
+CALL add_general_selection (
+    14,
+    13
+);
+
+CALL add_general_selection (
+    14,
+    14
+);
+
+CALL add_general_selection (
+    15,
+    7
+);
+
+CALL add_general_selection (
+    15,
+    8
+);
+
+CALL add_general_selection (
+    15,
+    9
+);
+
+CALL add_general_selection (
+    15,
+    10
+);
+
+CALL add_general_selection (
+    15,
+    11
+);
+
+CALL add_general_selection (
+    15,
+    12
+);
+
+CALL add_general_selection (
+    15,
+    13
+);
+
+CALL add_general_selection (
+    15,
+    14
+);
+
+CALL add_general_selection (
+    16,
+    7
+);
+
+CALL add_general_selection (
+    16,
+    8
+);
+
+CALL add_general_selection (
+    16,
+    9
+);
+
+CALL add_general_selection (
+    16,
+    10
+);
+
+CALL add_general_selection (
+    16,
+    11
+);
+
+CALL add_general_selection (
+    16,
+    12
+);
+
+CALL add_general_selection (
+    16,
+    13
+);
+
+CALL add_general_selection (
+    16,
+    14
+);
+
+CALL add_general_selection (
+    17,
+    7
+);
+
+CALL add_general_selection (
+    17,
+    8
+);
+
+CALL add_general_selection (
+    17,
+    9
+);
+
+CALL add_general_selection (
+    17,
+    10
+);
+
+CALL add_general_selection (
+    17,
+    11
+);
+
+CALL add_general_selection (
+    17,
+    12
+);
+
+CALL add_general_selection (
+    17,
+    13
+);
+
+CALL add_general_selection (
+    17,
+    14
+);
+
+CALL add_general_selection (
+    18,
+    7
+);
+
+CALL add_general_selection (
+    18,
+    8
+);
+
+CALL add_general_selection (
+    18,
+    9
+);
+
+CALL add_general_selection (
+    18,
+    10
+);
+
+CALL add_general_selection (
+    18,
+    11
+);
+
+CALL add_general_selection (
+    18,
+    12
+);
+
+CALL add_general_selection (
+    18,
+    13
+);
+
+CALL add_general_selection (
+    18,
+    14
+);
+
+CALL add_general_selection (
+    19,
+    7
+);
+
+CALL add_general_selection (
+    19,
+    8
+);
+
+CALL add_general_selection (
+    19,
+    9
+);
+
+CALL add_general_selection (
+    19,
+    10
+);
+
+CALL add_general_selection (
+    19,
+    11
+);
+
+CALL add_general_selection (
+    19,
+    12
+);
+
+CALL add_general_selection (
+    19,
+    13
+);
+
+CALL add_general_selection (
+    19,
+    14
+);
+
+CALL add_general_selection (
+    20,
+    7
+);
+
+CALL add_general_selection (
+    20,
+    8
+);
+
+CALL add_general_selection (
+    20,
+    9
+);
+
+CALL add_general_selection (
+    20,
+    10
+);
+
+CALL add_general_selection (
+    20,
+    11
+);
+
+CALL add_general_selection (
+    20,
+    12
+);
+
+CALL add_general_selection (
+    20,
+    13
+);
+
+CALL add_general_selection (
+    20,
+    14
+);
+
+CALL add_general_selection (
+    21,
+    7
+);
+
+CALL add_general_selection (
+    21,
+    8
+);
+
+CALL add_general_selection (
+    21,
+    9
+);
+
+CALL add_general_selection (
+    21,
+    10
+);
+
+CALL add_general_selection (
+    21,
+    11
+);
+
+CALL add_general_selection (
+    21,
+    12
+);
+
+CALL add_general_selection (
+    21,
+    13
+);
+
+CALL add_general_selection (
+    21,
+    14
+);
+
+CALL add_general_selection (
+    22,
+    7
+);
+
+CALL add_general_selection (
+    22,
+    8
+);
+
+CALL add_general_selection (
+    22,
+    9
+);
+
+CALL add_general_selection (
+    22,
+    10
+);
+
+CALL add_general_selection (
+    22,
+    11
+);
+
+CALL add_general_selection (
+    22,
+    12
+);
+
+CALL add_general_selection (
+    22,
+    13
+);
+
+CALL add_general_selection (
+    22,
+    14
+);
+
+CALL add_general_selection (
+    23,
+    7
+);
+
+CALL add_general_selection (
+    23,
+    8
+);
+
+CALL add_general_selection (
+    23,
+    9
+);
+
+CALL add_general_selection (
+    23,
+    10
+);
+
+CALL add_general_selection (
+    23,
+    11
+);
+
+CALL add_general_selection (
+    23,
+    12
+);
+
+CALL add_general_selection (
+    23,
+    13
+);
+
+CALL add_general_selection (
+    23,
+    14
+);
+
+CALL add_general_selection (
+    24,
+    7
+);
+
+CALL add_general_selection (
+    24,
+    8
+);
+
+CALL add_general_selection (
+    24,
+    9
+);
+
+CALL add_general_selection (
+    24,
+    10
+);
+
+CALL add_general_selection (
+    24,
+    11
+);
+
+CALL add_general_selection (
+    24,
+    12
+);
+
+CALL add_general_selection (
+    24,
+    13
+);
+
+CALL add_general_selection (
+    24,
+    14
+);
+
+CALL add_general_selection (
+    25,
+    7
+);
+
+CALL add_general_selection (
+    25,
+    8
+);
+
+CALL add_general_selection (
+    25,
+    9
+);
+
+CALL add_general_selection (
+    25,
+    10
+);
+
+CALL add_general_selection (
+    25,
+    11
+);
+
+CALL add_general_selection (
+    25,
+    12
+);
+
+CALL add_general_selection (
+    25,
+    13
+);
+
+CALL add_general_selection (
+    25,
+    14
+);
+
+
+
+
+
+
+
+
+CALL add_professional_mastering (
+    3,
+    9
+);
+
+CALL add_professional_mastering (
+    3,
+    10
+);
+
+CALL add_professional_mastering (
+    3,
+    11
+);
+
+CALL add_professional_mastering (
+    3,
+    12
+);
+
+CALL add_professional_mastering (
+    3,
+    13
+);
+
+CALL add_professional_mastering (
+    3,
+    14
+);
+
+CALL add_professional_mastering (
+    3,
+    15
+);
+
+CALL add_professional_mastering (
+    3,
+    16
+);
+
+CALL add_professional_mastering (
+    3,
+    17
+);
+
+CALL add_professional_mastering (
+    3,
+    18
+);
+
+CALL add_professional_mastering (
+    3,
+    19
+);
+
+CALL add_professional_mastering (
+    3,
+    20
+);
+
+CALL add_professional_mastering (
+    3,
+    21
+);
+
+CALL add_professional_mastering (
+    3,
+    22
+);
+
+
+
+
+
+
+CALL add_professional_selection (
+    4,
+    7
+);
+
+CALL add_professional_selection (
+    4,
+    8
+);
+
+CALL add_professional_selection (
+    4,
+    9
+);
+
+CALL add_professional_selection (
+    4,
+    10
+);
+
+CALL add_professional_selection (
+    4,
+    11
+);
+
+CALL add_professional_selection (
+    4,
+    12
+);
+
+CALL add_professional_selection (
+    4,
+    13
+);
+
+CALL add_professional_selection (
+    4,
+    14
+);
+
+CALL add_professional_selection (
+    4,
+    15
+);
+
+CALL add_professional_selection (
+    4,
+    16
+);
+
+CALL add_professional_selection (
+    4,
+    17
+);
+
+CALL add_professional_selection (
+    4,
+    18
+);
+
+CALL add_professional_selection (
+    4,
+    19
+);
+
+CALL add_professional_selection (
+    4,
+    20
+);
+
+CALL add_professional_selection (
+    5,
+    7
+);
+
+CALL add_professional_selection (
+    5,
+    8
+);
+
+CALL add_professional_selection (
+    5,
+    9
+);
+
+CALL add_professional_selection (
+    5,
+    10
+);
+
+CALL add_professional_selection (
+    5,
+    11
+);
+
+CALL add_professional_selection (
+    5,
+    12
+);
+
+CALL add_professional_selection (
+    5,
+    13
+);
+
+CALL add_professional_selection (
+    5,
+    14
+);
+
+CALL add_professional_selection (
+    5,
+    15
+);
+
+CALL add_professional_selection (
+    5,
+    16
+);
+
+CALL add_professional_selection (
+    5,
+    17
+);
+
+CALL add_professional_selection (
+    5,
+    18
+);
+
+CALL add_professional_selection (
+    5,
+    19
+);
+
+CALL add_professional_selection (
+    5,
+    20
+);
+
+CALL add_professional_selection (
+    6,
+    7
+);
+
+CALL add_professional_selection (
+    6,
+    8
+);
+
+CALL add_professional_selection (
+    6,
+    9
+);
+
+CALL add_professional_selection (
+    6,
+    10
+);
+
+CALL add_professional_selection (
+    6,
+    11
+);
+
+CALL add_professional_selection (
+    6,
+    12
+);
+
+CALL add_professional_selection (
+    6,
+    13
+);
+
+CALL add_professional_selection (
+    6,
+    14
+);
+
+CALL add_professional_selection (
+    6,
+    15
+);
+
+CALL add_professional_selection (
+    6,
+    16
+);
+
+CALL add_professional_selection (
+    6,
+    17
+);
+
+CALL add_professional_selection (
+    6,
+    18
+);
+
+CALL add_professional_selection (
+    6,
+    19
+);
+
+CALL add_professional_selection (
+    6,
+    20
+);
+
+CALL add_professional_selection (
+    7,
+    7
+);
+
+CALL add_professional_selection (
+    7,
+    8
+);
+
+CALL add_professional_selection (
+    7,
+    9
+);
+
+CALL add_professional_selection (
+    7,
+    10
+);
+
+CALL add_professional_selection (
+    7,
+    11
+);
+
+CALL add_professional_selection (
+    7,
+    12
+);
+
+CALL add_professional_selection (
+    7,
+    13
+);
+
+CALL add_professional_selection (
+    7,
+    14
+);
+
+CALL add_professional_selection (
+    7,
+    15
+);
+
+CALL add_professional_selection (
+    7,
+    16
+);
+
+CALL add_professional_selection (
+    7,
+    17
+);
+
+CALL add_professional_selection (
+    7,
+    18
+);
+
+CALL add_professional_selection (
+    7,
+    19
+);
+
+CALL add_professional_selection (
+    7,
+    20
+);
+
+CALL add_professional_selection (
+    8,
+    7
+);
+
+CALL add_professional_selection (
+    8,
+    8
+);
+
+CALL add_professional_selection (
+    8,
+    9
+);
+
+CALL add_professional_selection (
+    8,
+    10
+);
+
+CALL add_professional_selection (
+    8,
+    11
+);
+
+CALL add_professional_selection (
+    8,
+    12
+);
+
+CALL add_professional_selection (
+    8,
+    13
+);
+
+CALL add_professional_selection (
+    8,
+    14
+);
+
+CALL add_professional_selection (
+    8,
+    15
+);
+
+CALL add_professional_selection (
+    8,
+    16
+);
+
+CALL add_professional_selection (
+    8,
+    17
+);
+
+CALL add_professional_selection (
+    8,
+    18
+);
+
+CALL add_professional_selection (
+    8,
+    19
+);
+
+CALL add_professional_selection (
+    8,
+    20
+);
+
+CALL add_professional_selection (
+    9,
+    7
+);
+
+CALL add_professional_selection (
+    9,
+    8
+);
+
+CALL add_professional_selection (
+    9,
+    9
+);
+
+CALL add_professional_selection (
+    9,
+    10
+);
+
+CALL add_professional_selection (
+    9,
+    11
+);
+
+CALL add_professional_selection (
+    9,
+    12
+);
+
+CALL add_professional_selection (
+    9,
+    13
+);
+
+CALL add_professional_selection (
+    9,
+    14
+);
+
+CALL add_professional_selection (
+    9,
+    15
+);
+
+CALL add_professional_selection (
+    9,
+    16
+);
+
+CALL add_professional_selection (
+    9,
+    17
+);
+
+CALL add_professional_selection (
+    9,
+    18
+);
+
+CALL add_professional_selection (
+    9,
+    19
+);
+
+CALL add_professional_selection (
+    9,
+    20
+);
+
+CALL add_professional_selection (
+    10,
+    7
+);
+
+CALL add_professional_selection (
+    10,
+    8
+);
+
+CALL add_professional_selection (
+    10,
+    9
+);
+
+CALL add_professional_selection (
+    10,
+    10
+);
+
+CALL add_professional_selection (
+    10,
+    11
+);
+
+CALL add_professional_selection (
+    10,
+    12
+);
+
+CALL add_professional_selection (
+    10,
+    13
+);
+
+CALL add_professional_selection (
+    10,
+    14
+);
+
+CALL add_professional_selection (
+    10,
+    15
+);
+
+CALL add_professional_selection (
+    10,
+    16
+);
+
+CALL add_professional_selection (
+    10,
+    17
+);
+
+CALL add_professional_selection (
+    10,
+    18
+);
+
+CALL add_professional_selection (
+    10,
+    19
+);
+
+CALL add_professional_selection (
+    10,
+    20
+);
+
+CALL add_professional_selection (
+    11,
+    7
+);
+
+CALL add_professional_selection (
+    11,
+    8
+);
+
+CALL add_professional_selection (
+    11,
+    9
+);
+
+CALL add_professional_selection (
+    11,
+    10
+);
+
+CALL add_professional_selection (
+    11,
+    11
+);
+
+CALL add_professional_selection (
+    11,
+    12
+);
+
+CALL add_professional_selection (
+    11,
+    13
+);
+
+CALL add_professional_selection (
+    11,
+    14
+);
+
+CALL add_professional_selection (
+    11,
+    15
+);
+
+CALL add_professional_selection (
+    11,
+    16
+);
+
+CALL add_professional_selection (
+    11,
+    17
+);
+
+CALL add_professional_selection (
+    11,
+    18
+);
+
+CALL add_professional_selection (
+    11,
+    19
+);
+
+CALL add_professional_selection (
+    11,
+    20
+);
+
+CALL add_professional_selection (
+    12,
+    7
+);
+
+CALL add_professional_selection (
+    12,
+    8
+);
+
+CALL add_professional_selection (
+    12,
+    9
+);
+
+CALL add_professional_selection (
+    12,
+    10
+);
+
+CALL add_professional_selection (
+    12,
+    11
+);
+
+CALL add_professional_selection (
+    12,
+    12
+);
+
+CALL add_professional_selection (
+    12,
+    13
+);
+
+CALL add_professional_selection (
+    12,
+    14
+);
+
+CALL add_professional_selection (
+    12,
+    15
+);
+
+CALL add_professional_selection (
+    12,
+    16
+);
+
+CALL add_professional_selection (
+    12,
+    17
+);
+
+CALL add_professional_selection (
+    12,
+    18
+);
+
+CALL add_professional_selection (
+    12,
+    19
+);
+
+CALL add_professional_selection (
+    12,
+    20
+);
+
+CALL add_professional_selection (
+    13,
+    7
+);
+
+CALL add_professional_selection (
+    13,
+    8
+);
+
+CALL add_professional_selection (
+    13,
+    9
+);
+
+CALL add_professional_selection (
+    13,
+    10
+);
+
+CALL add_professional_selection (
+    13,
+    11
+);
+
+CALL add_professional_selection (
+    13,
+    12
+);
+
+CALL add_professional_selection (
+    13,
+    13
+);
+
+CALL add_professional_selection (
+    13,
+    14
+);
+
+CALL add_professional_selection (
+    13,
+    15
+);
+
+CALL add_professional_selection (
+    13,
+    16
+);
+
+CALL add_professional_selection (
+    13,
+    17
+);
+
+CALL add_professional_selection (
+    13,
+    18
+);
+
+CALL add_professional_selection (
+    13,
+    19
+);
+
+CALL add_professional_selection (
+    13,
+    20
+);
+
+CALL add_professional_selection (
+    14,
+    7
+);
+
+CALL add_professional_selection (
+    14,
+    8
+);
+
+CALL add_professional_selection (
+    14,
+    9
+);
+
+CALL add_professional_selection (
+    14,
+    10
+);
+
+CALL add_professional_selection (
+    14,
+    11
+);
+
+CALL add_professional_selection (
+    14,
+    12
+);
+
+CALL add_professional_selection (
+    14,
+    13
+);
+
+CALL add_professional_selection (
+    14,
+    14
+);
+
+CALL add_professional_selection (
+    14,
+    15
+);
+
+CALL add_professional_selection (
+    14,
+    16
+);
+
+CALL add_professional_selection (
+    14,
+    17
+);
+
+CALL add_professional_selection (
+    14,
+    18
+);
+
+CALL add_professional_selection (
+    14,
+    19
+);
+
+CALL add_professional_selection (
+    14,
+    20
+);
+
+CALL add_professional_selection (
+    15,
+    7
+);
+
+CALL add_professional_selection (
+    15,
+    8
+);
+
+CALL add_professional_selection (
+    15,
+    9
+);
+
+CALL add_professional_selection (
+    15,
+    10
+);
+
+CALL add_professional_selection (
+    15,
+    11
+);
+
+CALL add_professional_selection (
+    15,
+    12
+);
+
+CALL add_professional_selection (
+    15,
+    13
+);
+
+CALL add_professional_selection (
+    15,
+    14
+);
+
+CALL add_professional_selection (
+    15,
+    15
+);
+
+CALL add_professional_selection (
+    15,
+    16
+);
+
+CALL add_professional_selection (
+    15,
+    17
+);
+
+CALL add_professional_selection (
+    15,
+    18
+);
+
+CALL add_professional_selection (
+    15,
+    19
+);
+
+CALL add_professional_selection (
+    15,
+    20
+);
+
+CALL add_professional_selection (
+    16,
+    7
+);
+
+CALL add_professional_selection (
+    16,
+    8
+);
+
+CALL add_professional_selection (
+    16,
+    9
+);
+
+CALL add_professional_selection (
+    16,
+    10
+);
+
+CALL add_professional_selection (
+    16,
+    11
+);
+
+CALL add_professional_selection (
+    16,
+    12
+);
+
+CALL add_professional_selection (
+    16,
+    13
+);
+
+CALL add_professional_selection (
+    16,
+    14
+);
+
+CALL add_professional_selection (
+    16,
+    15
+);
+
+CALL add_professional_selection (
+    16,
+    16
+);
+
+CALL add_professional_selection (
+    16,
+    17
+);
+
+CALL add_professional_selection (
+    16,
+    18
+);
+
+CALL add_professional_selection (
+    16,
+    19
+);
+
+CALL add_professional_selection (
+    16,
+    20
+);
+
+CALL add_professional_selection (
+    17,
+    7
+);
+
+CALL add_professional_selection (
+    17,
+    8
+);
+
+CALL add_professional_selection (
+    17,
+    9
+);
+
+CALL add_professional_selection (
+    17,
+    10
+);
+
+CALL add_professional_selection (
+    17,
+    11
+);
+
+CALL add_professional_selection (
+    17,
+    12
+);
+
+CALL add_professional_selection (
+    17,
+    13
+);
+
+CALL add_professional_selection (
+    17,
+    14
+);
+
+CALL add_professional_selection (
+    17,
+    15
+);
+
+CALL add_professional_selection (
+    17,
+    16
+);
+
+CALL add_professional_selection (
+    17,
+    17
+);
+
+CALL add_professional_selection (
+    17,
+    18
+);
+
+CALL add_professional_selection (
+    17,
+    19
+);
+
+CALL add_professional_selection (
+    17,
+    20
+);
+
+CALL add_professional_selection (
+    18,
+    7
+);
+
+CALL add_professional_selection (
+    18,
+    8
+);
+
+CALL add_professional_selection (
+    18,
+    9
+);
+
+CALL add_professional_selection (
+    18,
+    10
+);
+
+CALL add_professional_selection (
+    18,
+    11
+);
+
+CALL add_professional_selection (
+    18,
+    12
+);
+
+CALL add_professional_selection (
+    18,
+    13
+);
+
+CALL add_professional_selection (
+    18,
+    14
+);
+
+CALL add_professional_selection (
+    18,
+    15
+);
+
+CALL add_professional_selection (
+    18,
+    16
+);
+
+CALL add_professional_selection (
+    18,
+    17
+);
+
+CALL add_professional_selection (
+    18,
+    18
+);
+
+CALL add_professional_selection (
+    18,
+    19
+);
+
+CALL add_professional_selection (
+    18,
+    20
+);
+
+CALL add_professional_selection (
+    19,
+    7
+);
+
+CALL add_professional_selection (
+    19,
+    8
+);
+
+CALL add_professional_selection (
+    19,
+    9
+);
+
+CALL add_professional_selection (
+    19,
+    10
+);
+
+CALL add_professional_selection (
+    19,
+    11
+);
+
+CALL add_professional_selection (
+    19,
+    12
+);
+
+CALL add_professional_selection (
+    19,
+    13
+);
+
+CALL add_professional_selection (
+    19,
+    14
+);
+
+CALL add_professional_selection (
+    19,
+    15
+);
+
+CALL add_professional_selection (
+    19,
+    16
+);
+
+CALL add_professional_selection (
+    19,
+    17
+);
+
+CALL add_professional_selection (
+    19,
+    18
+);
+
+CALL add_professional_selection (
+    19,
+    19
+);
+
+CALL add_professional_selection (
+    19,
+    20
+);
+
+CALL add_professional_selection (
+    20,
+    7
+);
+
+CALL add_professional_selection (
+    20,
+    8
+);
+
+CALL add_professional_selection (
+    20,
+    9
+);
+
+CALL add_professional_selection (
+    20,
+    10
+);
+
+CALL add_professional_selection (
+    20,
+    11
+);
+
+CALL add_professional_selection (
+    20,
+    12
+);
+
+CALL add_professional_selection (
+    20,
+    13
+);
+
+CALL add_professional_selection (
+    20,
+    14
+);
+
+CALL add_professional_selection (
+    20,
+    15
+);
+
+CALL add_professional_selection (
+    20,
+    16
+);
+
+CALL add_professional_selection (
+    20,
+    17
+);
+
+CALL add_professional_selection (
+    20,
+    18
+);
+
+CALL add_professional_selection (
+    20,
+    19
+);
+
+CALL add_professional_selection (
+    20,
+    20
+);
+
+CALL add_professional_selection (
+    21,
+    7
+);
+
+CALL add_professional_selection (
+    21,
+    8
+);
+
+CALL add_professional_selection (
+    21,
+    9
+);
+
+CALL add_professional_selection (
+    21,
+    10
+);
+
+CALL add_professional_selection (
+    21,
+    11
+);
+
+CALL add_professional_selection (
+    21,
+    12
+);
+
+CALL add_professional_selection (
+    21,
+    13
+);
+
+CALL add_professional_selection (
+    21,
+    14
+);
+
+CALL add_professional_selection (
+    21,
+    15
+);
+
+CALL add_professional_selection (
+    21,
+    16
+);
+
+CALL add_professional_selection (
+    21,
+    17
+);
+
+CALL add_professional_selection (
+    21,
+    18
+);
+
+CALL add_professional_selection (
+    21,
+    19
+);
+
+CALL add_professional_selection (
+    21,
+    20
+);
+
+CALL add_professional_selection (
+    22,
+    7
+);
+
+CALL add_professional_selection (
+    22,
+    8
+);
+
+CALL add_professional_selection (
+    22,
+    9
+);
+
+CALL add_professional_selection (
+    22,
+    10
+);
+
+CALL add_professional_selection (
+    22,
+    11
+);
+
+CALL add_professional_selection (
+    22,
+    12
+);
+
+CALL add_professional_selection (
+    22,
+    13
+);
+
+CALL add_professional_selection (
+    22,
+    14
+);
+
+CALL add_professional_selection (
+    22,
+    15
+);
+
+CALL add_professional_selection (
+    22,
+    16
+);
+
+CALL add_professional_selection (
+    22,
+    17
+);
+
+CALL add_professional_selection (
+    22,
+    18
+);
+
+CALL add_professional_selection (
+    22,
+    19
+);
+
+CALL add_professional_selection (
+    22,
+    20
+);
+
+CALL add_professional_selection (
+    23,
+    7
+);
+
+CALL add_professional_selection (
+    23,
+    8
+);
+
+CALL add_professional_selection (
+    23,
+    9
+);
+
+CALL add_professional_selection (
+    23,
+    10
+);
+
+CALL add_professional_selection (
+    23,
+    11
+);
+
+CALL add_professional_selection (
+    23,
+    12
+);
+
+CALL add_professional_selection (
+    23,
+    13
+);
+
+CALL add_professional_selection (
+    23,
+    14
+);
+
+CALL add_professional_selection (
+    23,
+    15
+);
+
+CALL add_professional_selection (
+    23,
+    16
+);
+
+CALL add_professional_selection (
+    23,
+    17
+);
+
+CALL add_professional_selection (
+    23,
+    18
+);
+
+CALL add_professional_selection (
+    23,
+    19
+);
+
+CALL add_professional_selection (
+    23,
+    20
+);
+
+CALL add_professional_selection (
+    24,
+    7
+);
+
+CALL add_professional_selection (
+    24,
+    8
+);
+
+CALL add_professional_selection (
+    24,
+    9
+);
+
+CALL add_professional_selection (
+    24,
+    10
+);
+
+CALL add_professional_selection (
+    24,
+    11
+);
+
+CALL add_professional_selection (
+    24,
+    12
+);
+
+CALL add_professional_selection (
+    24,
+    13
+);
+
+CALL add_professional_selection (
+    24,
+    14
+);
+
+CALL add_professional_selection (
+    24,
+    15
+);
+
+CALL add_professional_selection (
+    24,
+    16
+);
+
+CALL add_professional_selection (
+    24,
+    17
+);
+
+CALL add_professional_selection (
+    24,
+    18
+);
+
+CALL add_professional_selection (
+    24,
+    19
+);
+
+CALL add_professional_selection (
+    24,
+    20
+);
+
+CALL add_professional_selection (
+    25,
+    7
+);
+
+CALL add_professional_selection (
+    25,
+    8
+);
+
+CALL add_professional_selection (
+    25,
+    9
+);
+
+CALL add_professional_selection (
+    25,
+    10
+);
+
+CALL add_professional_selection (
+    25,
+    11
+);
+
+CALL add_professional_selection (
+    25,
+    12
+);
+
+CALL add_professional_selection (
+    25,
+    13
+);
+
+CALL add_professional_selection (
+    25,
+    14
+);
+
+CALL add_professional_selection (
+    25,
+    15
+);
+
+CALL add_professional_selection (
+    25,
+    16
+);
+
+CALL add_professional_selection (
+    25,
+    17
+);
+
+CALL add_professional_selection (
+    25,
+    18
+);
+
+CALL add_professional_selection (
+    25,
+    19
+);
+
+CALL add_professional_selection (
+    25,
+    20
+);
+
+
+
+
+
+
+
+
+
+
+
+
 
 CALL add_discipline_code(
     "ОГСЭ.03"
