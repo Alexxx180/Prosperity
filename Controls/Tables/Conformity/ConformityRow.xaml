@@ -19,16 +19,13 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Viewbox IsHitTestVisible="False">
                 <TextBlock Text="{Binding Path=No}" />
             </Viewbox>
-            <Viewbox Grid.Column="1"  IsHitTestVisible="False">
-                <TextBlock Text="{Binding Path=Id}" />
-            </Viewbox>
-            <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="SelectDiscipline">
+            
+            <Button Grid.Column="1" Style="{StaticResource InvisibleButton}" Click="SelectDiscipline">
                 <Button.IsEnabled>
                     <Binding Path="CanBeEdited" />
                 </Button.IsEnabled>
@@ -36,7 +33,8 @@
                     <TextBlock Text="{Binding Path=Discipline}" />
                 </Viewbox>
             </Button>
-            <Button Grid.Column="3" Style="{StaticResource InvisibleButton}" Click="SelectSpeciality">
+            
+            <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="SelectSpeciality">
                 <Button.IsEnabled>
                     <Binding Path="CanBeEdited" />
                 </Button.IsEnabled>

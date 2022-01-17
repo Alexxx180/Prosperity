@@ -16,20 +16,16 @@
         </Button.Style>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.15*" />
-                <ColumnDefinition Width="0.15*" />
-                <ColumnDefinition Width="0.15*" />
-                <ColumnDefinition Width="0.55*" />
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.6*" />
             </Grid.ColumnDefinitions>
 
             <Viewbox IsHitTestVisible="False">
                 <TextBlock Text="{Binding Path=No}" />
             </Viewbox>
-            <Viewbox Grid.Column="1" IsHitTestVisible="False">
-                <TextBlock Text="{Binding Path=Id}" />
-            </Viewbox>
 
-            <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="SelectCode">
+            <Button Grid.Column="1" Style="{StaticResource InvisibleButton}" Click="SelectCode">
                 <Button.IsEnabled>
                     <Binding Path="CanBeEdited" />
                 </Button.IsEnabled>
@@ -38,7 +34,7 @@
                 </Viewbox>
             </Button>
 
-            <TextBox Grid.Column="3" Style="{StaticResource NameBox1000}">
+            <TextBox Grid.Column="2" Style="{StaticResource NameBox1000}">
                 <TextBox.Text>
                     <Binding Path="MetaValue" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>

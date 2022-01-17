@@ -8,9 +8,8 @@
              d:DesignHeight="35" d:DesignWidth="800">
     <Grid Height="35">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <Button Style="{StaticResource ImpactButton}">
@@ -22,11 +21,7 @@
             </Viewbox>
         </Button>
 
-        <Viewbox Grid.Column="1" IsHitTestVisible="False">
-            <TextBlock Text="{Binding Path=No}" />
-        </Viewbox>
-
-        <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="SelectCode">
+        <Button Grid.Column="1" Style="{StaticResource InvisibleButton}" Click="SelectCode">
             <Button.IsEnabled>
                 <Binding Path="CanBeEdited" />
             </Button.IsEnabled>

@@ -16,32 +16,19 @@
         </Button.Style>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="0.125*" />
+                <ColumnDefinition Width="0.125*" />
                 <ColumnDefinition Width="0.35*" />
-                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="0.125*" />
+                <ColumnDefinition Width="0.125*" />
                 <ColumnDefinition Width="0.15*" />
             </Grid.ColumnDefinitions>
 
             <Viewbox IsHitTestVisible="False">
                 <TextBlock Text="{Binding Path=No}" />
             </Viewbox>
-            <Viewbox Grid.Column="1" IsHitTestVisible="False">
-                <TextBlock Text="{Binding Path=Id}" />
-            </Viewbox>
 
-            <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="SelectCode">
-                <Button.IsEnabled>
-                    <Binding Path="CanBeEdited" />
-                </Button.IsEnabled>
-                <Viewbox>
-                    <TextBlock Text="{Binding Path=ThemeLevel}" />
-                </Viewbox>
-            </Button>
-
-            <TextBox Grid.Column="3" Style="{StaticResource HoursBox}">
+            <TextBox Grid.Column="1" Style="{StaticResource HoursBox}">
                 <TextBox.Text>
                     <Binding Path="ThemeNo" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -53,7 +40,7 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <TextBox Grid.Column="4" Style="{StaticResource NameBox500}">
+            <TextBox Grid.Column="2" Style="{StaticResource NameBox500}">
                 <TextBox.Text>
                     <Binding Path="ThemeName" />
                 </TextBox.Text>
@@ -65,7 +52,7 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <TextBox Grid.Column="5" Style="{StaticResource HoursBox}">
+            <TextBox Grid.Column="3" Style="{StaticResource HoursBox}">
                 <TextBox.Text>
                     <Binding Path="ThemeHours" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -77,7 +64,16 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <ComboBox Grid.Column="6" Grid.Row="1" Style="{StaticResource ComboBoxStyle}" SelectionChanged="SecondaryTables_Select">
+            <Button Grid.Column="4" Style="{StaticResource InvisibleButton}" Click="SelectCode">
+                <Button.IsEnabled>
+                    <Binding Path="CanBeEdited" />
+                </Button.IsEnabled>
+                <Viewbox>
+                    <TextBlock Text="{Binding Path=ThemeLevel}" />
+                </Viewbox>
+            </Button>
+            
+            <ComboBox Grid.Column="5" Grid.Row="1" Style="{StaticResource ComboBoxStyle}" SelectionChanged="SecondaryTables_Select">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem" BasedOn="{StaticResource ItemsBox}"/>
                 </ComboBox.ItemContainerStyle>

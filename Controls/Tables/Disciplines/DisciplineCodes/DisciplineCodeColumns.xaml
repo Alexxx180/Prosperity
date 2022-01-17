@@ -7,8 +7,7 @@
              d:DesignHeight="35" d:DesignWidth="800">
     <Grid Height="35">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.25*" />
-            <ColumnDefinition Width="0.25*" />
+            <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
 
@@ -16,9 +15,6 @@
             <TextBlock Text="№" />
         </Viewbox>
         <Viewbox Grid.Column="1">
-            <TextBlock Text="ID" />
-        </Viewbox>
-        <Viewbox Grid.Column="3">
             <TextBlock Text="Код" />
         </Viewbox>
     </Grid>

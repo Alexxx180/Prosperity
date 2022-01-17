@@ -18,22 +18,18 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.1*" />
                 <ColumnDefinition Width="0.1*" />
-                <ColumnDefinition Width="0.05*" />
-                <ColumnDefinition Width="0.05*" />
+                <ColumnDefinition Width="0.1*" />
                 <ColumnDefinition Width="0.25*" />
                 <ColumnDefinition Width="0.15*" />
                 <ColumnDefinition Width="0.15*" />
                 <ColumnDefinition Width="0.15*" />
             </Grid.ColumnDefinitions>
 
-            <Viewbox IsHitTestVisible="False">
+            <Viewbox IsHitTestVisible="False" Height="35">
                 <TextBlock Text="{Binding Path=No}" />
             </Viewbox>
-            <Viewbox Grid.Column="1" IsHitTestVisible="False">
-                <TextBlock Text="{Binding Path=Id}" />
-            </Viewbox>
 
-            <TextBox Grid.Column="2" Style="{StaticResource HoursBox}" Height="35" MaxHeight="35" PreviewTextInput="Hours" DataObject.Pasting="PastingHours">
+            <TextBox Grid.Column="1" Style="{StaticResource HoursBox}" Height="35" MaxHeight="35">
                 <TextBox.Text>
                     <Binding Path="ProfessionalNo1" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -44,7 +40,7 @@
                     20
                 </TextBox.FontSize>
             </TextBox>
-            <TextBox Grid.Column="3" Style="{StaticResource HoursBox}" Height="35" MaxHeight="35" PreviewTextInput="Hours" DataObject.Pasting="PastingHours">
+            <TextBox Grid.Column="2" Style="{StaticResource HoursBox}" Height="35" MaxHeight="35">
                 <TextBox.Text>
                     <Binding Path="ProfessionalNo2" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -56,7 +52,7 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <TextBox Grid.Column="4" Style="{StaticResource NameBox250}" TextWrapping="Wrap" Height="90" MaxHeight="90">
+            <TextBox Grid.Column="3" Style="{StaticResource NameBox250}" TextWrapping="Wrap" Height="90" MaxHeight="90">
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>
@@ -70,7 +66,7 @@
                     16.5
                 </TextBox.FontSize>
             </TextBox>
-            <TextBox Grid.Column="5" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="90" MaxHeight="90">
+            <TextBox Grid.Column="4" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="90" MaxHeight="90">
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>
@@ -84,7 +80,7 @@
                     16.5
                 </TextBox.FontSize>
             </TextBox>
-            <TextBox Grid.Column="6" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="90" MaxHeight="90">
+            <TextBox Grid.Column="5" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="90" MaxHeight="90">
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>
@@ -98,7 +94,7 @@
                     16.5
                 </TextBox.FontSize>
             </TextBox>
-            <TextBox Grid.Column="7" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="90" MaxHeight="90">
+            <TextBox Grid.Column="6" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="90" MaxHeight="90">
                 <TextBox.VerticalScrollBarVisibility>
                     Auto
                 </TextBox.VerticalScrollBarVisibility>

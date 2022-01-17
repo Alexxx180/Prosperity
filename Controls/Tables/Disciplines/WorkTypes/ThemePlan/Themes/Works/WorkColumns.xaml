@@ -10,21 +10,17 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Viewbox>
             <TextBlock Text="№" />
         </Viewbox>
-        <Viewbox Grid.Column="1">
-            <TextBlock Text="ID" />
-        </Viewbox>
 
-        <Viewbox Grid.Column="2">
+        <Viewbox Grid.Column="1">
             <TextBlock Text="Тип работы" />
         </Viewbox>
 
-        <Viewbox Grid.Column="3">
+        <Viewbox Grid.Column="2">
             <TextBlock Text="Далее" />
         </Viewbox>
     </Grid>

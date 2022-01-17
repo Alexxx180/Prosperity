@@ -8,9 +8,8 @@
              d:DesignHeight="35" d:DesignWidth="800">
     <Grid Height="35">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.25*" />
-            <ColumnDefinition Width="0.25*" />
-            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <Button Style="{StaticResource ImpactButton}">
@@ -22,11 +21,7 @@
             </Viewbox>
         </Button>
 
-        <Viewbox Grid.Column="1" IsHitTestVisible="False">
-            <TextBlock Text="{Binding Path=No}" />
-        </Viewbox>
-
-        <TextBox Grid.Column="2" Style="{StaticResource CodeBox}">
+        <TextBox Grid.Column="1" Style="{StaticResource CodeBox}">
             <TextBox.Text>
                 <Binding Path="SpecialityCode" />
             </TextBox.Text>

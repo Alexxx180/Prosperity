@@ -16,16 +16,12 @@
         </Button.Style>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.25*" />
-                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition Width="0.5*" />
             </Grid.ColumnDefinitions>
 
             <Viewbox IsHitTestVisible="False">
                 <TextBlock Text="{Binding Path=No}" />
-            </Viewbox>
-            <Viewbox Grid.Column="1" IsHitTestVisible="False">
-                <TextBlock Text="{Binding Path=Id}" />
             </Viewbox>
 
             <TextBox Grid.Column="2" Style="{StaticResource CodeBox}">

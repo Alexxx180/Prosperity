@@ -16,22 +16,18 @@
         </Button.Style>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.125*" />
-                <ColumnDefinition Width="0.125*" />
-                <ColumnDefinition Width="0.125*" />
-                <ColumnDefinition Width="0.35*" />
-                <ColumnDefinition Width="0.125*" />
+                <ColumnDefinition Width="0.15*" />
+                <ColumnDefinition Width="0.15*" />
+                <ColumnDefinition Width="0.4*" />
+                <ColumnDefinition Width="0.15*" />
                 <ColumnDefinition Width="0.15*" />
             </Grid.ColumnDefinitions>
 
             <Viewbox IsHitTestVisible="False">
                 <TextBlock Text="{Binding Path=No}" />
             </Viewbox>
-            <Viewbox Grid.Column="1" IsHitTestVisible="False">
-                <TextBlock Text="{Binding Path=Id}" />
-            </Viewbox>
 
-            <TextBox Grid.Column="2" Style="{StaticResource HoursBox}">
+            <TextBox Grid.Column="1" Style="{StaticResource HoursBox}">
                 <TextBox.Text>
                     <Binding Path="TopicNo" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -43,7 +39,7 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <TextBox Grid.Column="3" Style="{StaticResource NameBox500}">
+            <TextBox Grid.Column="2" Style="{StaticResource NameBox500}">
                 <TextBox.Text>
                     <Binding Path="TopicName" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -55,8 +51,7 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <!--PreviewTextInput="Hours" DataObject.Pasting="PastingHours"-->
-            <TextBox Grid.Column="4" Style="{StaticResource HoursBox}">
+            <TextBox Grid.Column="3" Style="{StaticResource HoursBox}">
                 <TextBox.Text>
                     <Binding Path="TopicHours" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -68,7 +63,7 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <Button Grid.Column="5" Style="{StaticResource ImpactButton2}" Click="GoToThemes">
+            <Button Grid.Column="4" Style="{StaticResource ImpactButton2}" Click="GoToThemes">
                 <Viewbox>
                     <TextBlock Text="Темы" />
                 </Viewbox>

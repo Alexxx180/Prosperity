@@ -9,14 +9,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Viewbox>
             <TextBlock Text="№" />
-        </Viewbox>
-        <Viewbox Grid.Column="1">
-            <TextBlock Text="ID" />
         </Viewbox>
         <Viewbox Grid.Column="2">
             <TextBlock Text="Освоение" />

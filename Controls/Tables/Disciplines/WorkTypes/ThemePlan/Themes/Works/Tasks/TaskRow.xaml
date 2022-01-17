@@ -17,19 +17,15 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.15*" />
+                <ColumnDefinition Width="0.7*" />
                 <ColumnDefinition Width="0.15*" />
-                <ColumnDefinition Width="0.5*" />
-                <ColumnDefinition Width="0.2*" />
             </Grid.ColumnDefinitions>
 
             <Viewbox IsHitTestVisible="False">
                 <TextBlock Text="{Binding Path=No}" />
             </Viewbox>
-            <Viewbox Grid.Column="1" IsHitTestVisible="False">
-                <TextBlock Text="{Binding Path=Id}" />
-            </Viewbox>
 
-            <TextBox Grid.Column="2" Style="{StaticResource NameBox500}">
+            <TextBox Grid.Column="1" Style="{StaticResource NameBox500}">
                 <TextBox.Text>
                     <Binding Path="TaskName" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -41,7 +37,7 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <TextBox Grid.Column="3" Style="{StaticResource HoursBox}">
+            <TextBox Grid.Column="2" Style="{StaticResource HoursBox}">
                 <TextBox.Text>
                     <Binding Path="TaskHours" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>

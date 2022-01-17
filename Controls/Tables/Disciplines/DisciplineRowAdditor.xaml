@@ -10,8 +10,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.15*" />
             <ColumnDefinition Width="0.15*" />
-            <ColumnDefinition Width="0.15*" />
-            <ColumnDefinition Width="0.55*" />
+            <ColumnDefinition Width="0.7*" />
         </Grid.ColumnDefinitions>
 
         <Button Style="{StaticResource ImpactButton}">
@@ -22,16 +21,14 @@
                 <TextBlock Text="+" />
             </Viewbox>
         </Button>
-        <Viewbox Grid.Column="1">
-            <TextBlock Text="{Binding Path=No}" />
-        </Viewbox>
-        <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="SelectCode">
+        
+        <Button Grid.Column="1" Style="{StaticResource InvisibleButton}" Click="SelectCode">
             <Viewbox>
                 <TextBlock Text="{Binding Path=Code}" />
             </Viewbox>
         </Button>
 
-        <TextBox Grid.Column="3" Style="{StaticResource NameBox250}">
+        <TextBox Grid.Column="2" Style="{StaticResource NameBox250}">
             <TextBox.Text>
                 <Binding Path="DisciplineName" Mode="TwoWay" UpdateSourceTrigger="LostFocus"/>
             </TextBox.Text>

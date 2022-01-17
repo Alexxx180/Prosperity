@@ -8,10 +8,9 @@
              d:DesignHeight="100" d:DesignWidth="800">
     <Grid Height="100">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.1*" />
-            <ColumnDefinition Width="0.1*" />
-            <ColumnDefinition Width="0.1*" />
-            <ColumnDefinition Width="0.25*" />
+            <ColumnDefinition Width="0.125*" />
+            <ColumnDefinition Width="0.125*" />
+            <ColumnDefinition Width="0.3*" />
             <ColumnDefinition Width="0.225*" />
             <ColumnDefinition Width="0.225*" />
         </Grid.ColumnDefinitions>
@@ -24,18 +23,8 @@
                 <TextBlock Text="+" />
             </Viewbox>
         </Button>
-        
-        <Viewbox Grid.Column="1">
-            <TextBlock Text="{Binding Path=No}" />
-        </Viewbox>
-        
-        <TextBox Grid.Column="2" Height="35" MaxHeight="35" PreviewTextInput="Hours" DataObject.Pasting="PastingHours">
-            <TextBox.TextAlignment>
-                Right
-            </TextBox.TextAlignment>
-            <TextBox.MaxLength>
-                3
-            </TextBox.MaxLength>
+
+        <TextBox Grid.Column="1" Height="35" MaxHeight="35" Style="{StaticResource HoursBox}">
             <TextBox.VerticalScrollBarVisibility>
                 Auto
             </TextBox.VerticalScrollBarVisibility>
@@ -49,12 +38,9 @@
                 20
             </TextBox.FontSize>
         </TextBox>
-        
 
-        <TextBox Grid.Column="3" TextWrapping="Wrap" Height="100" MaxHeight="100">
-            <TextBox.MaxLength>
-                250
-            </TextBox.MaxLength>
+
+        <TextBox Grid.Column="2" Style="{StaticResource NameBox250}" TextWrapping="Wrap" Height="100" MaxHeight="100">
             <TextBox.VerticalScrollBarVisibility>
                 Auto
             </TextBox.VerticalScrollBarVisibility>
@@ -68,10 +54,7 @@
                 20
             </TextBox.FontSize>
         </TextBox>
-        <TextBox Grid.Column="4" TextWrapping="Wrap" Height="100" MaxHeight="100">
-            <TextBox.MaxLength>
-                1000
-            </TextBox.MaxLength>
+        <TextBox Grid.Column="3" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="100" MaxHeight="100">
             <TextBox.VerticalScrollBarVisibility>
                 Auto
             </TextBox.VerticalScrollBarVisibility>
@@ -85,10 +68,7 @@
                 20
             </TextBox.FontSize>
         </TextBox>
-        <TextBox Grid.Column="5" TextWrapping="Wrap" Height="100" MaxHeight="100">
-            <TextBox.MaxLength>
-                1000
-            </TextBox.MaxLength>
+        <TextBox Grid.Column="4" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="100" MaxHeight="100">
             <TextBox.VerticalScrollBarVisibility>
                 Auto
             </TextBox.VerticalScrollBarVisibility>

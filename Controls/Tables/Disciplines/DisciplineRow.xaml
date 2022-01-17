@@ -18,18 +18,15 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.15*" />
                 <ColumnDefinition Width="0.15*" />
-                <ColumnDefinition Width="0.15*" />
-                <ColumnDefinition Width="0.4*" />
+                <ColumnDefinition Width="0.55*" />
                 <ColumnDefinition Width="0.15*" />
             </Grid.ColumnDefinitions>
 
             <Viewbox IsHitTestVisible="False">
                 <TextBlock Text="{Binding Path=No}" />
             </Viewbox>
-            <Viewbox Grid.Column="1"  IsHitTestVisible="False">
-                <TextBlock Text="{Binding Path=Id}" />
-            </Viewbox>
-            <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="SelectCode">
+            
+            <Button Grid.Column="1" Style="{StaticResource InvisibleButton}" Click="SelectCode">
                 <Button.IsEnabled>
                     <Binding Path="CanBeEdited" />
                 </Button.IsEnabled>
@@ -38,7 +35,7 @@
                 </Viewbox>
             </Button>
 
-            <TextBox Grid.Column="3" Style="{StaticResource NameBox250}">
+            <TextBox Grid.Column="2" Style="{StaticResource NameBox250}">
                 <TextBox.Text>
                     <Binding Path="DisciplineName" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
                 </TextBox.Text>
@@ -50,7 +47,7 @@
                 </TextBox.FontSize>
             </TextBox>
 
-            <ComboBox Grid.Column="4" Grid.Row="1" Style="{StaticResource ComboBoxStyle}" SelectionChanged="SecondaryTables_Select">
+            <ComboBox Grid.Column="3" Grid.Row="1" Style="{StaticResource ComboBoxStyle}" SelectionChanged="SecondaryTables_Select">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem" BasedOn="{StaticResource ItemsBox}"/>
                 </ComboBox.ItemContainerStyle>
