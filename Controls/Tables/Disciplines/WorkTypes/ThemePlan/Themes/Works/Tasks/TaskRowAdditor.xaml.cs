@@ -3,6 +3,8 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks
 {
@@ -61,24 +63,26 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
 
         public TaskRowAdditor(int no) : this()
         {
-            SetElement(no);
-        }
-
-        private void SetElement(int no)
-        {
-            No = no;
+            Index(no);
         }
 
         public static void AddElement(StackPanel table, int no)
         {
             TaskRowAdditor row = new TaskRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
         }
 
-        private void SelectCode(object sender, RoutedEventArgs e)
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
         {
-            e.Handled = true;
+            _tables = GetMainPart(table);
+        }
+
+        private void AddNewRow(object sender, RoutedEventArgs e)
+        {
+            _tables.ViewModel.RefreshTransition();
         }
 
         public void Index(int no)

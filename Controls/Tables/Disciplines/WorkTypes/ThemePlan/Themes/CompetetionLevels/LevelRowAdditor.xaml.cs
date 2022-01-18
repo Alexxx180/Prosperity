@@ -1,6 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.CompetetionLevels
 {
@@ -57,19 +60,26 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Comp
 
         public LevelRowAdditor(int no) : this()
         {
-            SetElement(no);
+            Index(no);
         }
 
-        private void SetElement(int no)
-        {
-            No = no;
-        }
-
-        public static void AddElement(StackPanel table, int no)
+        public static void AddElement(StackPanel table, int no = 1)
         {
             LevelRowAdditor row = new LevelRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
+        }
+
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        private void AddNewRow(object sender, RoutedEventArgs e)
+        {
+            _tables.ViewModel.RefreshTransition();
         }
 
         public void Index(int no)

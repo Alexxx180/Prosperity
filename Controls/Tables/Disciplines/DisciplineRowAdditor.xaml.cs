@@ -2,6 +2,8 @@
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines
 {
@@ -21,8 +23,8 @@ namespace Prosperity.Controls.Tables.Disciplines
             }
         }
 
-        private int _code = 1;
-        public int Code
+        private uint _code = 1;
+        public uint Code
         {
             get => _code;
             set
@@ -58,24 +60,38 @@ namespace Prosperity.Controls.Tables.Disciplines
 
         public DisciplineRowAdditor(int no) : this()
         {
-            SetElement(no);
-        }
-
-        private void SetElement(int no)
-        {
-            No = no;
+            Index(no);
         }
 
         public static void AddElement(StackPanel table, int no = 1)
         {
             DisciplineRowAdditor row = new DisciplineRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
+        }
+
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            Code = id;
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            
+            SelectionFields(0, _tables.ViewModel.Data.DisciplineCodes,
+                "Коды дисциплин:", "Дисциплина", _tables.FillDisciplineCodes, SetCode);
+            e.Handled = true;
+        }
+
+        private void AddNewRow(object sender, RoutedEventArgs e)
+        {
+            _tables.FillDisciplines();
         }
 
         public void Index(int no)

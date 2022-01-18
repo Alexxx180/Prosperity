@@ -104,7 +104,7 @@ namespace Prosperity.Controls.Tables.Disciplines.ProfessionalMastering
             {
                 string[] row = rows[no];
                 uint id = ToUInt32(row[0]);
-                uint code = ToUInt32(row[2]);
+                uint code = ToUInt32(row[1]);
                 AddElement(table, no + 1, id, code);
             }
             DisciplineProfessionalMasteringRowAdditor.AddElement(table, no + 1);

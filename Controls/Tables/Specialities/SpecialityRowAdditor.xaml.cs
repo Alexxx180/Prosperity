@@ -2,6 +2,8 @@
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Specialities
 {
@@ -21,8 +23,8 @@ namespace Prosperity.Controls.Tables.Specialities
             }
         }
 
-        private int _code = 1;
-        public int Code
+        private uint _code = 1;
+        public uint Code
         {
             get => _code;
             set
@@ -58,31 +60,38 @@ namespace Prosperity.Controls.Tables.Specialities
 
         public SpecialityRowAdditor(int no) : this()
         {
-            SetElement(no);
+            Index(no);
         }
 
-        private void SetElement(int no)
-        {
-            No = no;
-        }
-
-        public static void AddElement(StackPanel table)
-        {
-            SpecialityRowAdditor row = new SpecialityRowAdditor();
-            _ = table.Children.Add(row);
-            row.OnPropertyChanged(nameof(CanBeEdited));
-        }
-
-        public static void AddElement(StackPanel table, int no)
+        public static void AddElement(StackPanel table, int no = 1)
         {
             SpecialityRowAdditor row = new SpecialityRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
+        }
+
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            Code = id;
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
+            SelectionFields(0, _tables.ViewModel.Data.SpecialityCodes,
+                "Коды специальностей:", "Специальность", _tables.FillSpecialityCodes, SetCode);
+            e.Handled = true;
+        }
 
+        private void AddNewRow(object sender, RoutedEventArgs e)
+        {
+            _tables.FillSpecialities();
         }
 
         public void Index(int no)

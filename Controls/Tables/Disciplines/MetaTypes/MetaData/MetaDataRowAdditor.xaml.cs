@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 {
@@ -58,24 +60,38 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 
         public MetaDataRowAdditor(int no) : this()
         {
-            SetElement(no);
+            Index(no);
         }
 
-        private void SetElement(int no)
-        {
-            No = no;
-        }
-
-        public static void AddElement(StackPanel table, int no)
+        public static void AddElement(StackPanel table, int no = 1)
         {
             MetaDataRowAdditor row = new MetaDataRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
+        }
+
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            MetaType = id;
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
+            SelectionFields(0, _tables.ViewModel.Data.MetaTypes,
+                "Типы метаданных:", "Метаданные", _tables.FillMetaTypes, SetCode);
             e.Handled = true;
+        }
+
+        private void AddNewRow(object sender, RoutedEventArgs e)
+        {
+            _tables.ViewModel.RefreshTransition();
         }
 
         public void Index(int no)

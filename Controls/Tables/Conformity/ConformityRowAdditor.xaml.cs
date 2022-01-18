@@ -2,11 +2,13 @@
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Conformity
 {
     /// <summary>
-    /// Логика взаимодействия для ConformityRowAdditor.xaml
+    /// Conformity table special row to add new rows
     /// </summary>
     public partial class ConformityRowAdditor : UserControl, INotifyPropertyChanged, IAutoIndexing
     {
@@ -21,8 +23,8 @@ namespace Prosperity.Controls.Tables.Conformity
             }
         }
 
-        private int _id = 1;
-        public int Id
+        private uint _id = 1;
+        public uint Id
         {
             get => _id;
             set
@@ -32,8 +34,8 @@ namespace Prosperity.Controls.Tables.Conformity
             }
         }
 
-        private int _discipline = 1;
-        public int Discipline
+        private uint _discipline = 1;
+        public uint Discipline
         {
             get => _discipline;
             set
@@ -43,8 +45,8 @@ namespace Prosperity.Controls.Tables.Conformity
             }
         }
 
-        private int _speciality = 1;
-        public int Speciality
+        private uint _speciality = 1;
+        public uint Speciality
         {
             get => _speciality;
             set
@@ -69,29 +71,50 @@ namespace Prosperity.Controls.Tables.Conformity
 
         public ConformityRowAdditor(int no) : this()
         {
-            SetElement(no);
-        }
-
-        private void SetElement(int no)
-        {
-            No = no;
+            Index(no);
         }
 
         public static void AddElement(StackPanel table, int no = 1)
         {
             ConformityRowAdditor row = new ConformityRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
+        }
+
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        private void SetDisciplineId(uint id)
+        {
+            Discipline = id;
+        }
+
+        private void SetSpecialityId(uint id)
+        {
+            Speciality = id;
         }
 
         private void SelectDiscipline(object sender, RoutedEventArgs e)
         {
+            SelectionFields(0, _tables.ViewModel.Data.Disciplines,
+                "Дисциплины:", "Соответствие", _tables.FillDisciplines, SetDisciplineId);
             e.Handled = true;
         }
 
         private void SelectSpeciality(object sender, RoutedEventArgs e)
         {
+            SelectionFields(0, _tables.ViewModel.Data.Specialities,
+                "Специальности:", "Соответствие", _tables.FillSpecialities, SetSpecialityId);
             e.Handled = true;
+        }
+
+        private void AddNewRow(object sender, RoutedEventArgs e)
+        {
+            _tables.FillConformity();
         }
 
         public void Index(int no)

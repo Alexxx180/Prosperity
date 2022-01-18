@@ -13,7 +13,7 @@
             <ColumnDefinition Width="0.4*" />
         </Grid.ColumnDefinitions>
 
-        <Button Style="{StaticResource ImpactButton}">
+        <Button Style="{StaticResource ImpactButton}" Click="AddNewRow">
             <Button.IsEnabled>
                 <Binding Path="CanBeEdited" />
             </Button.IsEnabled>

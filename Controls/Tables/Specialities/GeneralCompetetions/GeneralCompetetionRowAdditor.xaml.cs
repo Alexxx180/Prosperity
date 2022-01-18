@@ -1,9 +1,9 @@
 ﻿using System.Windows;
-using System.Windows.Input;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
@@ -85,25 +85,14 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 
         public GeneralCompetetionRowAdditor(int no) : this()
         {
-            SetElement(no);
+            Index(no);
         }
 
-        private void SetElement(int no)
-        {
-            No = no;
-        }
-
-        public static void AddElement(StackPanel table)
-        {
-            GeneralCompetetionRowAdditor row = new GeneralCompetetionRowAdditor();
-            _ = table.Children.Add(row);
-            row.OnPropertyChanged(nameof(CanBeEdited));
-        }
-
-        public static void AddElement(StackPanel table, int no)
+        public static void AddElement(StackPanel table, int no = 1)
         {
             GeneralCompetetionRowAdditor row = new GeneralCompetetionRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
         }
 
@@ -112,13 +101,15 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             No = no;
         }
 
-        private void Hours(object sender, TextCompositionEventArgs e)
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
         {
-            CheckForHours(sender, e);
+            _tables = GetMainPart(table);
         }
-        private void PastingHours(object sender, DataObjectPastingEventArgs e)
+
+        private void AddNewRow(object sender, RoutedEventArgs e)
         {
-            CheckForPastingHours(sender, e);
+            _tables.ViewModel.RefreshTransition();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

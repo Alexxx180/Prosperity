@@ -1,7 +1,10 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralMastering
 {
@@ -47,24 +50,41 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Gene
 
         public ThemeGeneralMasteringRowAdditor(int no) : this()
         {
-            SetElement(no);
-        }
-
-        private void SetElement(int no)
-        {
-            No = no;
+            Index(no);
         }
 
         public static void AddElement(StackPanel table, int no)
         {
             ThemeGeneralMasteringRowAdditor row = new ThemeGeneralMasteringRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
+        }
+
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            Code = id;
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
+            uint themeId = _tables.ViewModel.CurrentState.Id;
+            List<string[]> rows = _tables.ViewModel.Data.DisciplineGeneralMasteringByTheme(themeId);
+            if (rows.Count > 0)
+                SelectionFields(themeId, rows, "Общие компетенции дисциплины:",
+                    "Освоение общей компетенции", _tables.FillDisciplineGeneralFromMastering, SetCode);
             e.Handled = true;
+        }
+
+        private void AddNewRow(object sender, RoutedEventArgs e)
+        {
+            _tables.ViewModel.RefreshTransition();
         }
 
         public void Index(int no)

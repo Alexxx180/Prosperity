@@ -1,6 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
 {
@@ -54,16 +57,28 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
             No = no;
         }
 
-        public static void AddElement(StackPanel table, int no)
+        public static void AddElement(StackPanel table, int no = 1)
         {
             WorkTypesRowAdditor row = new WorkTypesRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
         }
 
         public void Index(int no)
         {
             No = no;
+        }
+
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        private void AddNewRow(object sender, RoutedEventArgs e)
+        {
+            _tables.ViewModel.RefreshTransition();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

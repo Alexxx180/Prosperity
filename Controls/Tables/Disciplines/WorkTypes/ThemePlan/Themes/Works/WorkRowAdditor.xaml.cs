@@ -2,6 +2,8 @@
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works
 {
@@ -47,24 +49,38 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
 
         public WorkRowAdditor(int no) : this()
         {
-            SetElement(no);
+            Index(no);
         }
 
-        private void SetElement(int no)
-        {
-            No = no;
-        }
-
-        public static void AddElement(StackPanel table, int no)
+        public static void AddElement(StackPanel table, int no = 1)
         {
             WorkRowAdditor row = new WorkRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
+        }
+
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        public void SetCode(uint id)
+        {
+            WorkType = id;
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
+            SelectionFields(0, _tables.ViewModel.Data.WorkTypes,
+                "Типы работ:", "Работа", _tables.FillWorkTypes, SetCode);
             e.Handled = true;
+        }
+
+        private void AddNewRow(object sender, RoutedEventArgs e)
+        {
+            _tables.ViewModel.RefreshTransition();
         }
 
         public void Index(int no)

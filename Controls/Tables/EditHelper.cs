@@ -29,7 +29,7 @@ namespace Prosperity.Controls.Tables
 
         public static void SelectionFields(
             uint mainId, List<string[]> records,
-            string selectionName, string mainName, 
+            string selectionName, string mainName,
             Transition transition, Transition codeSelect)
         {
             RecordSelection dialog = FewFieldsDialog(records, selectionName, mainName);

@@ -1,6 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Specialities.SpecialityCodes
 {
@@ -46,31 +49,31 @@ namespace Prosperity.Controls.Tables.Specialities.SpecialityCodes
 
         public SpecialityCodeRowAdditor(int no) : this()
         {
-            SetElement(no);
+            Index(no);
         }
 
-        private void SetElement(int no)
-        {
-            No = no;
-        }
-
-        public static void AddElement(StackPanel table)
-        {
-            SpecialityCodeRowAdditor row = new SpecialityCodeRowAdditor();
-            _ = table.Children.Add(row);
-            row.OnPropertyChanged(nameof(CanBeEdited));
-        }
-
-        public static void AddElement(StackPanel table, int no)
+        public static void AddElement(StackPanel table, int no = 1)
         {
             SpecialityCodeRowAdditor row = new SpecialityCodeRowAdditor(no);
             _ = table.Children.Add(row);
+            row.SetTables(table);
             row.OnPropertyChanged(nameof(CanBeEdited));
         }
 
         public void Index(int no)
         {
             No = no;
+        }
+
+        private MainPart _tables;
+        public void SetTables(StackPanel table)
+        {
+            _tables = GetMainPart(table);
+        }
+
+        private void AddNewRow(object sender, RoutedEventArgs e)
+        {
+            _tables.ViewModel.RefreshTransition();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
