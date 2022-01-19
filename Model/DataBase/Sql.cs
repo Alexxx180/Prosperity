@@ -7,7 +7,7 @@ namespace Prosperity.Model.DataBase
     /// <summary>
     /// Class containing necessary methods to work with database
     /// </summary>
-    public abstract class Sql
+    public abstract class Sql : IDataViewer, IDataRedactor
     {
         public static void ConnectionMessage(string loadProblem, string exception)
         {
@@ -45,6 +45,22 @@ namespace Prosperity.Model.DataBase
             OnlyExecute();
         }
 
+        public void ExecuteProcedure(string name, string paramName, object value)
+        {
+            Procedure(name);
+            PassParameter(paramName, value);
+            OnlyExecute();
+            ClearParameters();
+        }
+
+        public void ExecuteProcedure(string name, Dictionary<string, object> parameters)
+        {
+            Procedure(name);
+            PassParameters(parameters);
+            OnlyExecute();
+            ClearParameters();
+        }
+
         public abstract List<object[]> ReadData();
 
         public abstract List<object> ReadData(in int column);
@@ -78,6 +94,8 @@ namespace Prosperity.Model.DataBase
             ClearParameters();
             return records;
         }
+
+        // Data view methods
 
         public List<object[]> ConformityList()
         {
@@ -210,6 +228,346 @@ namespace Prosperity.Model.DataBase
         public List<object[]> DisciplineProfessionalMasteringByTheme(uint value)
         {
             return GetRecords("get_discipline_professional_by_theme_unmarked", "theme_id", value);
+        }
+
+        // Data editing methods
+        
+        public void AddConformity(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_conformity", parameters);
+        }
+
+        // Specialities
+        public void AddSpeciality(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_speciality", parameters);
+        }
+
+        public void AddSpecialityCode(string value)
+        {
+            ExecuteProcedure("add_speciality_code", "speciality_code", value);
+        }
+
+        public void AddGeneralCompetetion(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_general_competetion", parameters);
+        }
+
+        public void AddProfessionalCompetetion(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_professional_competetion", parameters);
+        }
+
+        // Disciplines
+        public void AddDiscipline(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_discipline", parameters);
+        }
+
+        public void AddDisciplineCode(string value)
+        {
+            ExecuteProcedure("add_discipline_code", "discipline_code", value);
+        }
+
+        public void AddTotalHour(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_hour", parameters);
+        }
+
+        public void AddTopic(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_section", parameters);
+        }
+
+        public void AddTheme(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_theme", parameters);
+        }
+
+        public void AddWork(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_work", parameters);
+        }
+
+        public void AddWorkType(string value)
+        {
+            ExecuteProcedure("add_work_type", "type_name", value);
+        }
+
+        public void AddTask(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_task", parameters);
+        }
+
+        public void AddMetaData(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_meta_data", parameters);
+        }
+
+        public void AddMetaType(string value)
+        {
+            ExecuteProcedure("add_meta_type", "type_name", value);
+        }
+
+        public void AddSource(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_source", parameters);
+        }
+
+        public void AddSourceType(string value)
+        {
+            ExecuteProcedure("add_source_type", "type_name", value);
+        }
+
+        public void AddGeneralMastering(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_general_mastering", parameters);
+        }
+
+        public void AddProfessionalMastering(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_professional_mastering", parameters);
+        }
+
+        public void AddGeneralSelection(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_general_selection", parameters);
+        }
+
+        public void AddProfessionalSelection(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_professional_selection", parameters);
+        }
+
+        public void AddLevel(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("add_level", parameters);
+        }
+
+
+        public void SetConformity(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_conformity", parameters);
+        }
+
+        // Specialities
+        public void SetSpeciality(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_speciality", parameters);
+        }
+
+        public void SetSpecialityCode(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_speciality_code", parameters);
+        }
+
+        public void SetGeneralCompetetion(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_general_competetion", parameters);
+        }
+
+        public void SetProfessionalCompetetion(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_professional_competetion", parameters);
+        }
+
+        // Disciplines
+        public void SetDiscipline(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_discipline", parameters);
+        }
+
+        public void SetDisciplineCode(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_discipline_code", parameters);
+        }
+
+        public void SetTotalHour(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_hour", parameters);
+        }
+
+        public void SetTopic(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_section", parameters);
+        }
+
+        public void SetTheme(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_theme", parameters);
+        }
+
+        public void SetWork(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_work", parameters);
+        }
+
+        public void SetWorkType(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_work_type", parameters);
+        }
+
+        public void SetTask(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_task", parameters);
+        }
+
+        public void SetMetaData(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_meta_data", parameters);
+        }
+
+        public void SetMetaType(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_meta_type", parameters);
+        }
+
+        public void SetSource(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_source", parameters);
+        }
+
+        public void SetSourceType(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_source_type", parameters);
+        }
+
+        public void SetGeneralMastering(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_general_mastering", parameters);
+        }
+
+        public void SetProfessionalMastering(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_professional_mastering", parameters);
+        }
+
+        public void SetGeneralSelection(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_general_selection", parameters);
+        }
+
+        public void SetProfessionalSelection(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_professional_selection", parameters);
+        }
+
+        public void SetLevel(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("set_level", parameters);
+        }
+
+
+        public void MarkConformity(uint value)
+        {
+            ExecuteProcedure("mark_conformity", "conformity_id", value);
+        }
+
+        // Specialities
+        public void MarkSpeciality(uint value)
+        {
+            ExecuteProcedure("mark_speciality", "speciality_id", value);
+        }
+
+        public void MarkSpecialityCode(uint value)
+        {
+            ExecuteProcedure("mark_speciality_code", "code_id", value);
+        }
+
+        public void MarkGeneralCompetetion(uint value)
+        {
+            ExecuteProcedure("mark_general_competetion", "comp_id", value);
+        }
+
+        public void MarkProfessionalCompetetion(uint value)
+        {
+            ExecuteProcedure("mark_professional_competetion", "comp_id", value);
+        }
+
+        // Disciplines
+        public void MarkDiscipline(uint value)
+        {
+            ExecuteProcedure("mark_discipline", "discipline_id", value);
+        }
+
+        public void MarkDisciplineCode(uint value)
+        {
+            ExecuteProcedure("mark_discipline_code", "code_id", value);
+        }
+
+        public void MarkTotalHour(uint value)
+        {
+            ExecuteProcedure("mark_hour", "hour_id", value);
+        }
+
+        public void MarkTopic(uint value)
+        {
+            ExecuteProcedure("mark_section", "section_id", value);
+        }
+
+        public void MarkTheme(uint value)
+        {
+            ExecuteProcedure("mark_theme", "theme_id", value);
+        }
+
+        public void MarkWork(uint value)
+        {
+            ExecuteProcedure("mark_work", "work_id", value);
+        }
+
+        public void MarkWorkType(uint value)
+        {
+            ExecuteProcedure("mark_work_type", "type_id", value);
+        }
+
+        public void MarkTask(uint value)
+        {
+            ExecuteProcedure("mark_task", "task_id", value);
+        }
+
+        public void MarkMetaData(uint value)
+        {
+            ExecuteProcedure("mark_meta_data", "data_id", value);
+        }
+
+        public void MarkMetaType(uint value)
+        {
+            ExecuteProcedure("mark_meta_type", "type_id", value);
+        }
+
+        public void MarkSource(uint value)
+        {
+            ExecuteProcedure("mark_source", "source_id", value);
+        }
+
+        public void MarkSourceType(uint value)
+        {
+            ExecuteProcedure("mark_source_type", "type_id", value);
+        }
+
+        public void MarkGeneralMastering(uint value)
+        {
+            ExecuteProcedure("mark_general_mastering", "mastering_id", value);
+        }
+
+        public void MarkProfessionalMastering(uint value)
+        {
+            ExecuteProcedure("mark_professional_mastering", "mastering_id", value);
+        }
+
+        public void MarkGeneralSelection(uint value)
+        {
+            ExecuteProcedure("mark_general_selection", "selection_id", value);
+        }
+
+        public void MarkProfessionalSelection(uint value)
+        {
+            ExecuteProcedure("mark_professional_selection", "selection_id", value);
+        }
+
+        public void MarkLevel(uint value)
+        {
+            ExecuteProcedure("mark_level", "level_id", value);
         }
     }
 }

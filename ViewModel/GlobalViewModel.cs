@@ -98,7 +98,8 @@ namespace Prosperity.ViewModel
             OnPropertyChanged(nameof(BackOperations));
         }
 
-        public ProgramData Data = new ProgramData();
+        private static readonly Sql _connector = new MySQL();
+        public ProgramData Data = new ProgramData(_connector);
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

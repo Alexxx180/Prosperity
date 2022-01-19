@@ -7,10 +7,6 @@ namespace Prosperity.Model.DataBase
     /// </summary>
     public class ProgramData
     {
-        public ProgramData() : this(new MySQL())
-        {
-        }
-
         public ProgramData(Sql connector)
         {
             Converters.Connect(connector);

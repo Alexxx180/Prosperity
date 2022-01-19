@@ -89,6 +89,6 @@ namespace Prosperity.Model.DataBase
 
         public static List<string[]> DisciplineProfessionalMasteringByTheme(uint themeId) => ConvertAll(_dataBase.DisciplineProfessionalMasteringByTheme(themeId), ElementsToString);
 
-        private static Sql _dataBase;
+        private static IDataViewer _dataBase;
     }
 }
