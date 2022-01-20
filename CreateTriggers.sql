@@ -128,34 +128,13 @@ END;
 
 -- table: disciplines
 
--- delimiter \;
+delimiter \;
 
 CREATE TRIGGER insert_disciplines
 AFTER INSERT ON disciplines FOR EACH ROW
 BEGIN
-	CALL add_hour(
-		NEW.`ID`, 0, 0
-	);
-	
-	CALL add_hour(
-		NEW.`ID`, 1, 0
-	);
-	
-	CALL add_hour(
-		NEW.`ID`, 2, 0
-	);
-	
-	CALL add_hour(
-		NEW.`ID`, 3, 0
-	);
-	
-	CALL add_hour(
-		NEW.`ID`, 4, 0
-	);
-	
-	CALL add_hour(
-		NEW.`ID`, 5, 0
-	);
+	CALL hours_auto_set(NEW.`ID`, 0);
+	CALL meta_data_auto_set(6, '');
 END;
 
 -- delimiter \;
@@ -167,3 +146,4 @@ BEGIN
 		OLD.`ID`
 	);
 END;
+
