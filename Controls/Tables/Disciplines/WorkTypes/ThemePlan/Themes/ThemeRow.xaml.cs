@@ -36,8 +36,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             }
         }
 
-        private uint _themeLevel = 1;
-        public uint ThemeLevel
+        private ushort? _themeLevel = null;
+        public ushort? ThemeLevel
         {
             get => _themeLevel;
             set
@@ -122,7 +122,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             SetStyles();
         }
 
-        public void SetElement(int no, uint id, uint themeLevel,
+        public void SetElement(int no, uint id, ushort themeLevel,
             string themeNo, string name, string hours)
         {
             No = no;
@@ -143,14 +143,14 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
                 string themeNo = row[1];
                 string name = row[2];
                 string hours = row[3];
-                uint themeLevel = ToUInt32(row[4]);
+                ushort themeLevel = ToUInt16(row[4]);
                 AddElement(table, no + 1, id, themeLevel, themeNo, name, hours);
             }
             ThemeRowAdditor.AddElement(table, no + 1);
         }
 
-        public static void AddElement(StackPanel table, int no,
-            uint id, uint themeLevel, string themeNo, string name, string hours)
+        public static void AddElement(StackPanel table, int no, uint id,
+            ushort themeLevel, string themeNo, string name, string hours)
         {
             ThemeRow row = new ThemeRow();
             row.SetElement(no, id, themeLevel, themeNo, name, hours);
@@ -177,7 +177,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
 
         public void SetCode(uint id)
         {
-            ThemeLevel = id;
+            ThemeLevel = ToUInt16(id);
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)

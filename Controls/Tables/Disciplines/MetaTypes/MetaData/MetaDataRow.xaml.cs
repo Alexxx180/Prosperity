@@ -36,8 +36,8 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
             }
         }
 
-        private uint _metaType = 1;
-        public uint MetaType
+        private uint? _metaType = null;
+        public uint? MetaType
         {
             get => _metaType;
             set

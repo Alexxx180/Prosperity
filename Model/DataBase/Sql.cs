@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Collections.Generic;
+using static System.Diagnostics.Trace;
 
 namespace Prosperity.Model.DataBase
 {
@@ -32,7 +33,11 @@ namespace Prosperity.Model.DataBase
         public void PassParameters(Dictionary<string, object> parameters)
         {
             foreach (KeyValuePair<string, object> entry in parameters)
+            {
+                WriteLine(entry.Key + ": " + entry.Value);
                 PassParameter(entry.Key, entry.Value);
+            }
+                
         }
 
         public abstract void OnlyExecute();
@@ -510,7 +515,7 @@ namespace Prosperity.Model.DataBase
             ExecuteProcedure("mark_theme", "theme_id", value);
         }
 
-        public void MarkWork(uint value)
+        public void MarkWork(ulong value)
         {
             ExecuteProcedure("mark_work", "work_id", value);
         }
@@ -520,7 +525,7 @@ namespace Prosperity.Model.DataBase
             ExecuteProcedure("mark_work_type", "type_id", value);
         }
 
-        public void MarkTask(uint value)
+        public void MarkTask(ulong value)
         {
             ExecuteProcedure("mark_task", "task_id", value);
         }

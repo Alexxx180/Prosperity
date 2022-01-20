@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
 {
@@ -24,8 +25,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             }
         }
 
-        private uint _themeLevel = 1;
-        public uint ThemeLevel
+        private ushort? _themeLevel = null;
+        public ushort? ThemeLevel
         {
             get => _themeLevel;
             set
@@ -58,7 +59,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             }
         }
 
-        private string _hoursCount = "0";
+        private string _hoursCount = "";
         public string ThemeHours
         {
             get => _hoursCount;
@@ -69,8 +70,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             }
         }
 
-        public ushort ThemeNumber => ToUInt16(ThemeNo);
-        public ushort HoursCount => ToUInt16(ThemeHours);
+        public ushort ThemeNumber => ParseHours(ThemeNo);
+        public ushort HoursCount => ParseHours(ThemeHours);
 
         public bool CanBeEdited => HaveSpace();
         private StackPanel _table => Parent as StackPanel;
@@ -106,7 +107,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
 
         public void SetCode(uint id)
         {
-            ThemeLevel = id;
+            ThemeLevel = ToUInt16(id);
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)
@@ -118,6 +119,10 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            if (ThemeLevel == null)
+                return;
+            uint topicId = _tables.ViewModel.CurrentState.Id;
+            Add.Theme(topicId, ThemeLevel.Value, ThemeNumber, ThemeName, HoursCount);
             _tables.ViewModel.RefreshTransition();
         }
 

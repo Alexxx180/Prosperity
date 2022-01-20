@@ -36,8 +36,8 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
             }
         }
 
-        private uint _sourceType = 1;
-        public uint SourceType
+        private uint? _sourceType = null;
+        public uint? SourceType
         {
             get => _sourceType;
             set

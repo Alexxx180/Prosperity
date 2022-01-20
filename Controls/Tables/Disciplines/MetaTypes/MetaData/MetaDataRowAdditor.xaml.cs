@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 {
@@ -23,8 +24,8 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
             }
         }
 
-        private uint _metaType = 1;
-        public uint MetaType
+        private uint? _metaType = null;
+        public uint? MetaType
         {
             get => _metaType;
             set
@@ -91,6 +92,10 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            if (MetaType == null)
+                return;
+            uint disciplineId = _tables.ViewModel.CurrentState.Id;
+            Add.MetaData(disciplineId, MetaType.Value, MetaValue);
             _tables.ViewModel.RefreshTransition();
         }
 

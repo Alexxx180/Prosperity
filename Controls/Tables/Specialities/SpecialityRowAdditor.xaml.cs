@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Specialities
 {
@@ -23,8 +24,8 @@ namespace Prosperity.Controls.Tables.Specialities
             }
         }
 
-        private uint _code = 1;
-        public uint Code
+        private uint? _code = null;
+        public uint? Code
         {
             get => _code;
             set
@@ -35,7 +36,7 @@ namespace Prosperity.Controls.Tables.Specialities
         }
 
         private string _name = "";
-        public string DisciplineName
+        public string SpecialityName
         {
             get => _name;
             set
@@ -91,6 +92,9 @@ namespace Prosperity.Controls.Tables.Specialities
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            if (Code == null)
+                return;
+            Add.Speciality(Code.Value, SpecialityName);
             _tables.FillSpecialities();
         }
 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works
 {
@@ -23,8 +24,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             }
         }
 
-        private uint _type = 1;
-        public uint WorkType
+        private uint? _type = null;
+        public uint? WorkType
         {
             get => _type;
             set
@@ -80,6 +81,10 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            if (WorkType == null)
+                return;
+            uint themeId = _tables.ViewModel.CurrentState.Id;
+            Add.Work(themeId, WorkType.Value);
             _tables.ViewModel.RefreshTransition();
         }
 

@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
 {
@@ -98,8 +99,8 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             return (_table != null) && _table.Children.Count < ushort.MaxValue;
         }
 
-        public int CompetetionNo1 => ToUInt16(ProfessionalNo1);
-        public int CompetetionNo2 => ToUInt16(ProfessionalNo2);
+        public ushort CompetetionNo1 => ToUInt16(ProfessionalNo1);
+        public ushort CompetetionNo2 => ToUInt16(ProfessionalNo2);
 
         public ProfessionalCompetetionRowAdditor()
         {
@@ -132,6 +133,9 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            uint specialityId = _tables.ViewModel.CurrentState.Id;
+            Add.ProfessionalCompetetion(specialityId, CompetetionNo1,
+                CompetetionNo2, ProfessionalName, Knowledge, Skills, Experience);
             _tables.ViewModel.RefreshTransition();
         }
 

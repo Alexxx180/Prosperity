@@ -114,11 +114,11 @@ namespace Prosperity.Model.DataBase
 
         public void MarkTheme(uint value);
 
-        public void MarkWork(uint value);
+        public void MarkWork(ulong value);
 
         public void MarkWorkType(uint value);
 
-        public void MarkTask(uint value);
+        public void MarkTask(ulong value);
 
         public void MarkMetaData(uint value);
 

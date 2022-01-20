@@ -2,9 +2,9 @@
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using static System.Convert;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks
 {
@@ -46,7 +46,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             }
         }
 
-        public ushort HoursCount => ToUInt16(TaskHours);
+        public ushort HoursCount => ParseHours(TaskHours);
 
         public bool CanBeEdited => HaveSpace();
         private StackPanel _table => Parent as StackPanel;
@@ -82,6 +82,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            ulong workId = _tables.ViewModel.CurrentState.Id;
+            Add.Task(workId, TaskName, HoursCount);
             _tables.ViewModel.RefreshTransition();
         }
 

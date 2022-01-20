@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 {
@@ -76,7 +77,7 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             return (_table != null) && _table.Children.Count < ushort.MaxValue;
         }
 
-        public int CompetetionNo => ToUInt16(GeneralNo);
+        public ushort CompetetionNo => ToUInt16(GeneralNo);
 
         public GeneralCompetetionRowAdditor()
         {
@@ -109,6 +110,8 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            uint specialityId = _tables.ViewModel.CurrentState.Id;
+            Add.GeneralCompetetion(specialityId, CompetetionNo, GeneralName, Knowledge, Skills);
             _tables.ViewModel.RefreshTransition();
         }
 

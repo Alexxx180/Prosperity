@@ -36,8 +36,8 @@ namespace Prosperity.Controls.Tables.Disciplines
             }
         }
 
-        private uint _code = 1;
-        public uint Code
+        private uint? _code = null;
+        public uint? Code
         {
             get => _code;
             set

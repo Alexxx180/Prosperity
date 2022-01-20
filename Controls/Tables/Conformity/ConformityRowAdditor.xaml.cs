@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Conformity
 {
@@ -34,8 +35,8 @@ namespace Prosperity.Controls.Tables.Conformity
             }
         }
 
-        private uint _discipline = 1;
-        public uint Discipline
+        private uint? _discipline = null;
+        public uint? Discipline
         {
             get => _discipline;
             set
@@ -45,8 +46,8 @@ namespace Prosperity.Controls.Tables.Conformity
             }
         }
 
-        private uint _speciality = 1;
-        public uint Speciality
+        private uint? _speciality = null;
+        public uint? Speciality
         {
             get => _speciality;
             set
@@ -114,6 +115,9 @@ namespace Prosperity.Controls.Tables.Conformity
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            if (Discipline == null || Speciality == null)
+                return;
+            Add.Conformity(Discipline.Value, Speciality.Value);
             _tables.FillConformity();
         }
 

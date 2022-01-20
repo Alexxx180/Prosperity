@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.CompetetionLevels
 {
@@ -79,6 +80,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Comp
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            Add.Level(LevelName, Description);
             _tables.ViewModel.RefreshTransition();
         }
 

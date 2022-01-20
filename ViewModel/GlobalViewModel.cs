@@ -9,7 +9,9 @@ namespace Prosperity.ViewModel
 {
     public class GlobalViewModel : INotifyPropertyChanged
     {
-        private TransitionBase _currentState = new TransitionBase(null, "Пополнений стека:", 0);
+        private static TransitionBase _defaultState = new TransitionBase(null, "Пополнений стека:", 0);
+
+        private TransitionBase _currentState = _defaultState;
         public TransitionBase CurrentState
         {
             get => _currentState;
@@ -20,7 +22,8 @@ namespace Prosperity.ViewModel
             }
         }
 
-        public bool IsTopTransition => Transitions.Count <= 0;
+        public bool IsTopTransition => IsTop(Transitions.Count, 0);
+        public static bool IsTop(int original, int toCompare) => original <= toCompare;
         public Visibility BackOperations => IsTopTransition ? Visibility.Hidden : Visibility.Visible;
 
         private Stack _transitions = new Stack();
@@ -100,6 +103,7 @@ namespace Prosperity.ViewModel
 
         private static readonly Sql _connector = new MySQL();
         public ProgramData Data = new ProgramData(_connector);
+        public RedactorTools Tools = new RedactorTools(_connector);
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

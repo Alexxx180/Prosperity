@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
 {
@@ -23,8 +24,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
             }
         }
 
-        private uint _hoursType = 1;
-        public uint HoursType
+        private uint? _hoursType = null;
+        public uint? HoursType
         {
             get => _hoursType;
             set
@@ -44,6 +45,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
                 OnPropertyChanged();
             }
         }
+
+        public ushort Hours => ParseHours(HoursCount);
 
         public bool CanBeEdited => HaveSpace();
         private StackPanel _table => Parent as StackPanel;
@@ -91,6 +94,10 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            if (HoursType == null)
+                return;
+            uint disciplineId = _tables.ViewModel.CurrentState.Id;
+            Add.TotalHour(disciplineId, HoursType.Value, Hours);
             _tables.ViewModel.RefreshTransition();
         }
 

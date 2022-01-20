@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.DisciplineCodes
 {
@@ -68,6 +69,7 @@ namespace Prosperity.Controls.Tables.Disciplines.DisciplineCodes
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            Add.DisciplineCode(DisciplineCode);
             _tables.ViewModel.RefreshTransition();
         }
 

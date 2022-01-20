@@ -36,8 +36,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
             }
         }
 
-        private uint _hoursType = 1;
-        public uint HoursType
+        private uint? _hoursType = null;
+        public uint? HoursType
         {
             get => _hoursType;
             set

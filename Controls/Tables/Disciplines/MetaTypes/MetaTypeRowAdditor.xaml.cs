@@ -1,9 +1,10 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
-using System.Windows;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.MetaTypes
 {
@@ -23,8 +24,8 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes
             }
         }
 
-        private uint _metaType = 1;
-        public uint MetaType
+        private string _metaType = "";
+        public string MetaType
         {
             get => _metaType;
             set
@@ -73,6 +74,7 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            Add.MetaType(MetaType);
             _tables.ViewModel.RefreshTransition();
         }
 

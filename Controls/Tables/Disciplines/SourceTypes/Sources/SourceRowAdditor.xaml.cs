@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 {
@@ -23,8 +24,8 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
             }
         }
 
-        private uint _sourceType = 1;
-        public uint SourceType
+        private uint? _sourceType = null;
+        public uint? SourceType
         {
             get => _sourceType;
             set
@@ -91,6 +92,10 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            if (SourceType == null)
+                return;
+            uint disciplineId = _tables.ViewModel.CurrentState.Id;
+            Add.Source(disciplineId, SourceType.Value, Source);
             _tables.ViewModel.RefreshTransition();
         }
 

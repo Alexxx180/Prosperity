@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.GeneralMastering
 {
@@ -24,8 +25,8 @@ namespace Prosperity.Controls.Tables.Disciplines.GeneralMastering
             }
         }
 
-        private uint _code = 1;
-        public uint Code
+        private uint? _code = null;
+        public uint? Code
         {
             get => _code;
             set
@@ -84,6 +85,10 @@ namespace Prosperity.Controls.Tables.Disciplines.GeneralMastering
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
+            if (Code == null)
+                return;
+            uint disciplineId = _tables.ViewModel.CurrentState.Id;
+            Add.GeneralMastering(disciplineId, Code.Value);
             _tables.ViewModel.RefreshTransition();
         }
 

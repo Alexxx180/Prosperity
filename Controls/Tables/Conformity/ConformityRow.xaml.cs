@@ -36,8 +36,8 @@ namespace Prosperity.Controls.Tables.Conformity
             }
         }
 
-        private uint _discipline = 1;
-        public uint Discipline
+        private uint? _discipline = null;
+        public uint? Discipline
         {
             get => _discipline;
             set
@@ -47,8 +47,8 @@ namespace Prosperity.Controls.Tables.Conformity
             }
         }
 
-        private uint _speciality = 1;
-        public uint Speciality
+        private uint? _speciality = null;
+        public uint? Speciality
         {
             get => _speciality;
             set

@@ -3,8 +3,9 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Controls;
-using static Prosperity.Model.TransitionBase;
+using static System.Convert;
 using Prosperity.Controls.MainForm;
+using static Prosperity.Model.TransitionBase;
 
 namespace Prosperity.Controls.Tables
 {
@@ -21,6 +22,11 @@ namespace Prosperity.Controls.Tables
         //    UIElement component = (UIElement)Activator.CreateInstance(typeof(T), args);
         //    _ = stack.Children.Add(component);
         //}
+
+        public static ushort ParseHours(string numberText)
+        {
+            return ushort.TryParse(numberText, out ushort result) ? result : ToUInt16(0);
+        }
 
         public static MainPart GetMainPart(StackPanel tableView)
         {
