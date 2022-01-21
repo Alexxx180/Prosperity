@@ -6,13 +6,14 @@ using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Conformity
 {
     /// <summary>
     /// Conformity table row component
     /// </summary>
-    public partial class ConformityRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class ConformityRow : UserControl, INotifyPropertyChanged, IAutoIndexing, IRedactable
     {
         private int _no = 1;
         public int No
@@ -82,11 +83,13 @@ namespace Prosperity.Controls.Tables.Conformity
 
         private Style _unselected;
         private Style _selected;
+        private Style _marked;
 
         private void SetStyles()
         {
-            _unselected = (Style)TryFindResource("Impact1");
-            _selected = (Style)TryFindResource("Impact2");
+            _unselected = TryFindResource("Impact1") as Style;
+            _selected = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact3") as Style;
             Selection = _unselected;
         }
 
@@ -177,6 +180,24 @@ namespace Prosperity.Controls.Tables.Conformity
         public void Index(int no)
         {
             No = no;
+        }
+
+        public void EditConfirm()
+        {
+            if (Discipline == null || Speciality == null)
+                return;
+            Edit.Conformity(Id, Discipline.Value, Speciality.Value);
+        }
+
+        public uint MarkPrepare()
+        {
+            Selection = _marked;
+            return Id;
+        }
+
+        public void UnMark()
+        {
+            Selection = _selected;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

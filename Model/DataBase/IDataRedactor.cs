@@ -94,48 +94,48 @@ namespace Prosperity.Model.DataBase
         public void SetLevel(Dictionary<string, object> parameters);
 
 
-        public void MarkConformity(uint value);
+        public void MarkConformity(ulong value);
 
-        public void MarkSpeciality(uint value);
+        public void MarkSpeciality(ulong value);
 
-        public void MarkSpecialityCode(uint value);
+        public void MarkSpecialityCode(ulong value);
 
-        public void MarkGeneralCompetetion(uint value);
+        public void MarkGeneralCompetetion(ulong value);
 
-        public void MarkProfessionalCompetetion(uint value);
+        public void MarkProfessionalCompetetion(ulong value);
 
-        public void MarkDiscipline(uint value);
+        public void MarkDiscipline(ulong value);
 
-        public void MarkDisciplineCode(uint value);
+        public void MarkDisciplineCode(ulong value);
 
-        public void MarkTotalHour(uint value);
+        public void MarkTotalHour(ulong value);
 
-        public void MarkTopic(uint value);
+        public void MarkTopic(ulong value);
 
-        public void MarkTheme(uint value);
+        public void MarkTheme(ulong value);
 
         public void MarkWork(ulong value);
 
-        public void MarkWorkType(uint value);
+        public void MarkWorkType(ulong value);
 
         public void MarkTask(ulong value);
 
-        public void MarkMetaData(uint value);
+        public void MarkMetaData(ulong value);
 
-        public void MarkMetaType(uint value);
+        public void MarkMetaType(ulong value);
 
-        public void MarkSource(uint value);
+        public void MarkSource(ulong value);
 
-        public void MarkSourceType(uint value);
+        public void MarkSourceType(ulong value);
 
-        public void MarkGeneralMastering(uint value);
+        public void MarkGeneralMastering(ulong value);
 
-        public void MarkProfessionalMastering(uint value);
+        public void MarkProfessionalMastering(ulong value);
 
-        public void MarkGeneralSelection(uint value);
+        public void MarkGeneralSelection(ulong value);
 
-        public void MarkProfessionalSelection(uint value);
+        public void MarkProfessionalSelection(ulong value);
 
-        public void MarkLevel(uint value);
+        public void MarkLevel(ulong value);
     }
 }

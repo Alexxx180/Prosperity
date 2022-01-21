@@ -9,9 +9,21 @@ namespace Prosperity.ViewModel
 {
     public class GlobalViewModel : INotifyPropertyChanged
     {
-        private static TransitionBase _defaultState = new TransitionBase(null, "Пополнений стека:", 0);
+        public GlobalViewModel()
+        {
+            ViewTools = new Pair<TransitionBase, MarkBase>
+            {
+                Name = _defaultState,
+                Value = new MarkBase()
+            };
+            CurrentState = _defaultState;
+            Transitions = new Stack();
+            SelectedRows = 0;
+        }
 
-        private TransitionBase _currentState = _defaultState;
+        private static readonly TransitionBase _defaultState = new TransitionBase(null, "Пополнений стека:", 0);
+
+        private TransitionBase _currentState;
         public TransitionBase CurrentState
         {
             get => _currentState;
@@ -26,7 +38,7 @@ namespace Prosperity.ViewModel
         public static bool IsTop(int original, int toCompare) => original <= toCompare;
         public Visibility BackOperations => IsTopTransition ? Visibility.Hidden : Visibility.Visible;
 
-        private Stack _transitions = new Stack();
+        private Stack _transitions;
         public Stack Transitions
         {
             get => _transitions;
@@ -37,7 +49,7 @@ namespace Prosperity.ViewModel
             }
         }
 
-        private int _selectedRows = 0;
+        private int _selectedRows;
         public int SelectedRows
         {
             get => _selectedRows;
@@ -64,6 +76,24 @@ namespace Prosperity.ViewModel
         {
             Transitions.Clear();
             TransitionStateChanged();
+        }
+
+        public Pair<TransitionBase, MarkBase> ViewTools;
+
+        public void ChangeMarkMethod(MarkBase.Action toolMethod,
+            TransitionBase.Transition refreshTransition, string name, uint id)
+        {
+            ViewTools.Value.ActionMethod = toolMethod;
+            ViewTools.Name.TransitionMethod = refreshTransition;
+            ViewTools.Name.Name = name;
+            ViewTools.Name.Id = id;
+        }
+
+        public void ChangeMarkMethod(MarkBase.Action toolMethod)
+        {
+            TransitionBase transition = GetTransition();
+            ChangeMarkMethod(toolMethod, transition.TransitionMethod,
+                transition.Name, transition.Id);
         }
 
         public void AddTransition(TransitionBase.Transition way, string name, uint id)

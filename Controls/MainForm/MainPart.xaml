@@ -143,13 +143,13 @@
                 </Viewbox>
             </StackPanel>
 
-            <Button Grid.Column="2" Style="{StaticResource InvisibleButton}">
+            <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="EditRows">
                 <Viewbox>
                     <TextBlock Text="|..!|" />
                 </Viewbox>
             </Button>
 
-            <Button Grid.Column="4" Style="{StaticResource InvisibleButton}">
+            <Button Grid.Column="4" Style="{StaticResource InvisibleButton}" Click="MarkRows">
                 <Viewbox>
                     <TextBlock Text="X" />
                 </Viewbox>

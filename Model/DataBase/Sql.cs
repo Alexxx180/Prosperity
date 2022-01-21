@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Collections.Generic;
-using static System.Diagnostics.Trace;
 
 namespace Prosperity.Model.DataBase
 {
@@ -33,11 +32,7 @@ namespace Prosperity.Model.DataBase
         public void PassParameters(Dictionary<string, object> parameters)
         {
             foreach (KeyValuePair<string, object> entry in parameters)
-            {
-                WriteLine(entry.Key + ": " + entry.Value);
-                PassParameter(entry.Key, entry.Value);
-            }
-                
+                PassParameter(entry.Key, entry.Value);                
         }
 
         public abstract void OnlyExecute();
@@ -463,54 +458,54 @@ namespace Prosperity.Model.DataBase
         }
 
 
-        public void MarkConformity(uint value)
+        public void MarkConformity(ulong value)
         {
             ExecuteProcedure("mark_conformity", "conformity_id", value);
         }
 
         // Specialities
-        public void MarkSpeciality(uint value)
+        public void MarkSpeciality(ulong value)
         {
             ExecuteProcedure("mark_speciality", "speciality_id", value);
         }
 
-        public void MarkSpecialityCode(uint value)
+        public void MarkSpecialityCode(ulong value)
         {
             ExecuteProcedure("mark_speciality_code", "code_id", value);
         }
 
-        public void MarkGeneralCompetetion(uint value)
+        public void MarkGeneralCompetetion(ulong value)
         {
             ExecuteProcedure("mark_general_competetion", "comp_id", value);
         }
 
-        public void MarkProfessionalCompetetion(uint value)
+        public void MarkProfessionalCompetetion(ulong value)
         {
             ExecuteProcedure("mark_professional_competetion", "comp_id", value);
         }
 
         // Disciplines
-        public void MarkDiscipline(uint value)
+        public void MarkDiscipline(ulong value)
         {
             ExecuteProcedure("mark_discipline", "discipline_id", value);
         }
 
-        public void MarkDisciplineCode(uint value)
+        public void MarkDisciplineCode(ulong value)
         {
             ExecuteProcedure("mark_discipline_code", "code_id", value);
         }
 
-        public void MarkTotalHour(uint value)
+        public void MarkTotalHour(ulong value)
         {
             ExecuteProcedure("mark_hour", "hour_id", value);
         }
 
-        public void MarkTopic(uint value)
+        public void MarkTopic(ulong value)
         {
             ExecuteProcedure("mark_section", "section_id", value);
         }
 
-        public void MarkTheme(uint value)
+        public void MarkTheme(ulong value)
         {
             ExecuteProcedure("mark_theme", "theme_id", value);
         }
@@ -520,7 +515,7 @@ namespace Prosperity.Model.DataBase
             ExecuteProcedure("mark_work", "work_id", value);
         }
 
-        public void MarkWorkType(uint value)
+        public void MarkWorkType(ulong value)
         {
             ExecuteProcedure("mark_work_type", "type_id", value);
         }
@@ -530,47 +525,47 @@ namespace Prosperity.Model.DataBase
             ExecuteProcedure("mark_task", "task_id", value);
         }
 
-        public void MarkMetaData(uint value)
+        public void MarkMetaData(ulong value)
         {
             ExecuteProcedure("mark_meta_data", "data_id", value);
         }
 
-        public void MarkMetaType(uint value)
+        public void MarkMetaType(ulong value)
         {
             ExecuteProcedure("mark_meta_type", "type_id", value);
         }
 
-        public void MarkSource(uint value)
+        public void MarkSource(ulong value)
         {
             ExecuteProcedure("mark_source", "source_id", value);
         }
 
-        public void MarkSourceType(uint value)
+        public void MarkSourceType(ulong value)
         {
             ExecuteProcedure("mark_source_type", "type_id", value);
         }
 
-        public void MarkGeneralMastering(uint value)
+        public void MarkGeneralMastering(ulong value)
         {
             ExecuteProcedure("mark_general_mastering", "mastering_id", value);
         }
 
-        public void MarkProfessionalMastering(uint value)
+        public void MarkProfessionalMastering(ulong value)
         {
             ExecuteProcedure("mark_professional_mastering", "mastering_id", value);
         }
 
-        public void MarkGeneralSelection(uint value)
+        public void MarkGeneralSelection(ulong value)
         {
             ExecuteProcedure("mark_general_selection", "selection_id", value);
         }
 
-        public void MarkProfessionalSelection(uint value)
+        public void MarkProfessionalSelection(ulong value)
         {
             ExecuteProcedure("mark_professional_selection", "selection_id", value);
         }
 
-        public void MarkLevel(uint value)
+        public void MarkLevel(ulong value)
         {
             ExecuteProcedure("mark_level", "level_id", value);
         }

@@ -472,52 +472,52 @@ namespace Prosperity.Model.DataBase
 
         internal static class Mark
         {
-            public static void Conformity(uint id)
+            public static void Conformity(ulong id)
             {
                 _dataBase.MarkConformity(id);
             }
 
-            public static void Speciality(uint id)
+            public static void Speciality(ulong id)
             {
                 _dataBase.MarkSpeciality(id);
             }
 
-            public static void SpecialityCode(uint id)
+            public static void SpecialityCode(ulong id)
             {
                 _dataBase.MarkSpecialityCode(id);
             }
 
-            public static void GeneralCompetetion(uint id)
+            public static void GeneralCompetetion(ulong id)
             {
                 _dataBase.MarkGeneralCompetetion(id);
             }
 
-            public static void ProfessionalCompetetion(uint id)
+            public static void ProfessionalCompetetion(ulong id)
             {
                 _dataBase.MarkProfessionalCompetetion(id);
             }
 
-            public static void Discipline(uint id)
+            public static void Discipline(ulong id)
             {
                 _dataBase.MarkDiscipline(id);
             }
 
-            public static void DisciplineCode(uint id)
+            public static void DisciplineCode(ulong id)
             {
                 _dataBase.MarkDisciplineCode(id);
             }
 
-            public static void TotalHour(uint id)
+            public static void TotalHour(ulong id)
             {
                 _dataBase.MarkTotalHour(id);
             }
 
-            public static void Topic(uint id)
+            public static void Topic(ulong id)
             {
                 _dataBase.MarkTopic(id);
             }
 
-            public static void Theme(uint id)
+            public static void Theme(ulong id)
             {
                 _dataBase.MarkTheme(id);
             }
@@ -527,7 +527,7 @@ namespace Prosperity.Model.DataBase
                 _dataBase.MarkWork(id);
             }
 
-            public static void WorkType(uint id)
+            public static void WorkType(ulong id)
             {
                 _dataBase.MarkWorkType(id);
             }
@@ -537,47 +537,47 @@ namespace Prosperity.Model.DataBase
                 _dataBase.MarkTask(id);
             }
 
-            public static void MetaData(uint id)
+            public static void MetaData(ulong id)
             {
                 _dataBase.MarkMetaData(id);
             }
 
-            public static void MetaType(uint id)
+            public static void MetaType(ulong id)
             {
                 _dataBase.MarkMetaType(id);
             }
 
-            public static void Source(uint id)
+            public static void Source(ulong id)
             {
                 _dataBase.MarkSource(id);
             }
 
-            public static void SourceType(uint id)
+            public static void SourceType(ulong id)
             {
                 _dataBase.MarkSourceType(id);
             }
 
-            public static void GeneralMastering(uint id)
+            public static void GeneralMastering(ulong id)
             {
                 _dataBase.MarkGeneralMastering(id);
             }
 
-            public static void ProfessionalMastering(uint id)
+            public static void ProfessionalMastering(ulong id)
             {
                 _dataBase.MarkProfessionalMastering(id);
             }
 
-            public static void GeneralSelection(uint id)
+            public static void GeneralSelection(ulong id)
             {
                 _dataBase.MarkGeneralSelection(id);
             }
 
-            public static void ProfessionalSelection(uint id)
+            public static void ProfessionalSelection(ulong id)
             {
                 _dataBase.MarkProfessionalSelection(id);
             }
 
-            public static void Level(uint id)
+            public static void Level(ulong id)
             {
                 _dataBase.MarkLevel(id);
             }
