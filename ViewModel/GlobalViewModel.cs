@@ -21,7 +21,7 @@ namespace Prosperity.ViewModel
             };
             CurrentState = _defaultState;
             Transitions = new Stack();
-            SelectedTableCodes = new Dictionary<ushort, ulong>();
+            SelectedRowIndexes = new Dictionary<ushort, ulong>();
         }
 
         private static readonly TransitionBase _defaultState = new TransitionBase(null, "Пополнений стека:", 0);
@@ -52,15 +52,15 @@ namespace Prosperity.ViewModel
             }
         }
 
-        public int SelectedRows => SelectedTableCodes.Count;
+        public int SelectedRows => SelectedRowIndexes.Count;
 
-        private Dictionary<ushort, ulong> _seletedTableCodes;
-        public Dictionary<ushort, ulong> SelectedTableCodes
+        private Dictionary<ushort, ulong> _selectedRowIndexes;
+        public Dictionary<ushort, ulong> SelectedRowIndexes
         {
-            get => _seletedTableCodes;
+            get => _selectedRowIndexes;
             set
             {
-                _seletedTableCodes = value;
+                _selectedRowIndexes = value;
                 OnPropertyChanged();
             }
         }
@@ -68,21 +68,21 @@ namespace Prosperity.ViewModel
 
         public bool CanBeAffected => SelectedRows > 0;
 
-        public void SelectRow(ushort key, ushort id)
+        public void SelectRow(ushort key)
         {
-            SelectedTableCodes.Add(key, id);
+            SelectedRowIndexes.Add(key, key);
             OnPropertyChanged(nameof(SelectedRows));
         }
 
         public void DeSelectRow(ushort key)
         {
-            SelectedTableCodes.Remove(key);
+            _ = SelectedRowIndexes.Remove(key);
             OnPropertyChanged(nameof(SelectedRows));
         }
 
         public void NullifySelection()
         {
-            SelectedTableCodes.Clear();
+            SelectedRowIndexes.Clear();
             OnPropertyChanged(nameof(SelectedRows));
         }
 
@@ -155,34 +155,56 @@ namespace Prosperity.ViewModel
 
         internal void EditRows(StackPanel view)
         {
+            foreach (KeyValuePair<ushort, ulong> pair in SelectedRowIndexes)
+            {
+                int index = pair.Key;
+                IRedactable row = view.Children[index] as IRedactable;
+                if (row != null && row.CanBeEdited)
+                    row.EditConfirm();
+            }
+        }
 
+        private void PrepareMarks(StackPanel view)
+        {
+            foreach (KeyValuePair<ushort, ulong> pair in SelectedRowIndexes)
+            {
+                int index = pair.Key;
+                IRedactable row = view.Children[index] as IRedactable;
+                if (row != null && row.CanBeEdited)
+                    row.MarkPrepare();
+            }
+        }
+
+        private void ConfirmMarks(StackPanel view)
+        {
+            foreach (KeyValuePair<ushort, ulong> pair in SelectedRowIndexes)
+            {
+                int index = pair.Key;
+                IRedactable row = view.Children[index] as IRedactable;
+                if (row != null && row.CanBeEdited)
+                    row.MarkConfirm();
+            }
+            ViewTools.Name.MakeTransition();
+        }
+
+        private void DenyMarks(StackPanel view)
+        {
+            foreach (KeyValuePair<ushort, ulong> pair in SelectedRowIndexes)
+            {
+                int index = pair.Key;
+                IRedactable row = view.Children[index] as IRedactable;
+                if (row != null && row.CanBeEdited)
+                    row.UnMark();
+            }
         }
 
         internal void MarkRows(StackPanel view)
         {
-            List<uint> ids = new List<uint>();
-            for (ushort i = 0; i < view.Children.Count; i++)
-            {
-                IRedactable row = view.Children[i] as IRedactable;
-                if (row != null && row.CanBeEdited)
-                    ids.Add(row.MarkPrepare());
-            }
-            
+            PrepareMarks(view);
             if (RowsAffectedDialog("помечено"))
-            {
-                for (ushort i = 0; i < ids.Count; i++)
-                    ViewTools.Value.Do(ids[i]);
-                ViewTools.Name.MakeTransition();
-            }
+                ConfirmMarks(view);
             else
-            {
-                for (ushort i = 0; i < view.Children.Count; i++)
-                {
-                    IRedactable row = view.Children[i] as IRedactable;
-                    if (row != null && row.CanBeEdited)
-                        row.UnMark();
-                }
-            }
+                DenyMarks(view);
         }
 
         internal bool RowsAffectedDialog(string operation)

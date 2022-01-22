@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 {
     /// <summary>
     /// Sources table row component
     /// </summary>
-    public partial class SourceRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class SourceRow : UserControl, INotifyPropertyChanged, IRedactable
     {
         private int _no = 1;
         public int No
@@ -82,12 +82,13 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 
         private Style _unselected;
         private Style _selected;
+        private Style _marked;
 
         private void SetStyles()
         {
-            _unselected = (Style)TryFindResource("Impact1");
-            _selected = (Style)TryFindResource("Impact2");
-            Selection = _unselected;
+            _unselected = TryFindResource("Impact1") as Style;
+            _selected = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact2") as Style;
         }
 
         public SourceRow()
@@ -96,38 +97,11 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
             SetStyles();
         }
 
-        public SourceRow(int no, uint id, uint type, string value) : this()
+        public void SetElement(string[] row)
         {
-            SetElement(no, id, type, value);
-        }
-
-        public void SetElement(int no, uint id, uint type, string value)
-        {
-            No = no;
-            Id = id;
-            SourceType = type;
-            Source = value;
-        }
-
-        public static void AddElements(StackPanel table, List<string[]> rows)
-        {
-            ushort no = 0;
-            for (; no < rows.Count; no++)
-            {
-                string[] row = rows[no];
-                uint id = ToUInt32(row[0]);
-                string value = row[1];
-                uint type = ToUInt32(row[2]);
-                AddElement(table, no + 1, id, type, value);
-            }
-            SourceRowAdditor.AddElement(table, no + 1);
-        }
-
-        public static void AddElement(StackPanel table, int no, uint id, uint type, string value)
-        {
-            SourceRow row = new SourceRow(no, id, type, value);
-            _ = table.Children.Add(row);
-            row.SetTables(table);
+            Id = ToUInt32(row[0]);
+            Source = row[1];
+            SourceType = ToUInt32(row[2]);
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -137,7 +111,7 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
         }
 
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }
@@ -157,6 +131,29 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
         public void Index(int no)
         {
             No = no;
+        }
+
+        public void EditConfirm()
+        {
+            if (SourceType == null)
+                return;
+            uint disciplineId = _tables.ViewModel.CurrentState.Id;
+            Edit.Source(Id, disciplineId, SourceType.Value, Source);
+        }
+
+        public void MarkPrepare()
+        {
+            Selection = _marked;
+        }
+
+        public void MarkConfirm()
+        {
+            Mark.Source(Id);
+        }
+
+        public void UnMark()
+        {
+            Selection = _selected;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

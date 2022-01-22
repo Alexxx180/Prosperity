@@ -48,31 +48,13 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
             InitializeComponent();
         }
 
-        public WorkTypesRowAdditor(int no) : this()
-        {
-            SetElement(no);
-        }
-
-        private void SetElement(int no)
-        {
-            No = no;
-        }
-
-        public static void AddElement(StackPanel table, int no = 1)
-        {
-            WorkTypesRowAdditor row = new WorkTypesRowAdditor(no);
-            _ = table.Children.Add(row);
-            row.SetTables(table);
-            row.OnPropertyChanged(nameof(CanBeEdited));
-        }
-
         public void Index(int no)
         {
             No = no;
         }
 
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }

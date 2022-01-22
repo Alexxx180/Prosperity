@@ -1,18 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.CompetetionLevels
 {
     /// <summary>
     /// Levels table row component
     /// </summary>
-    public partial class LevelRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class LevelRow : UserControl, INotifyPropertyChanged, IRedactable
     {
         private int _no = 1;
         public int No
@@ -47,7 +45,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Comp
             }
         }
 
-        private string _description = "0";
+        private string _description = "";
         public string Description
         {
             get => _description;
@@ -82,11 +80,13 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Comp
 
         private Style _unselected;
         private Style _selected;
+        private Style _marked;
 
         private void SetStyles()
         {
-            _unselected = (Style)TryFindResource("Impact1");
-            _selected = (Style)TryFindResource("Impact2");
+            _unselected = TryFindResource("Impact1") as Style;
+            _selected = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact2") as Style;
             Selection = _unselected;
         }
 
@@ -96,38 +96,11 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Comp
             SetStyles();
         }
 
-        public LevelRow(int no, uint id, string name, string description) : this()
+        public void SetElement(string[] row)
         {
-            SetElement(no, id, name, description);
-        }
-
-        public void SetElement(int no, uint id, string name, string description)
-        {
-            No = no;
-            Id = id;
-            LevelName = name;
-            Description = description;
-        }
-
-        public static void AddElements(StackPanel table, List<string[]> rows)
-        {
-            ushort no = 0;
-            for (; no < rows.Count; no++)
-            {
-                string[] row = rows[no];
-                uint id = ToUInt32(row[0]);
-                string name = row[1];
-                string description = row[2];
-                AddElement(table, no + 1, id, name, description);
-            }
-            LevelRowAdditor.AddElement(table, no + 1);
-        }
-
-        public static void AddElement(StackPanel table,
-            int no, uint id, string name, string description)
-        {
-            LevelRow row = new LevelRow(no, id, name, description);
-            _ = table.Children.Add(row);
+            Id = ToUInt32(row[0]);
+            LevelName = row[1];
+            Description = row[2];
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -146,13 +119,28 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Comp
             No = no;
         }
 
-        private void Hours(object sender, TextCompositionEventArgs e)
+        public void SetTools(StackPanel table)
         {
-            CheckForHours(sender, e);
         }
-        private void PastingHours(object sender, DataObjectPastingEventArgs e)
+
+        public void EditConfirm()
         {
-            CheckForPastingHours(sender, e);
+            Edit.Level(Id, LevelName, Description);
+        }
+
+        public void MarkPrepare()
+        {
+            Selection = _marked;
+        }
+
+        public void MarkConfirm()
+        {
+            Mark.Discipline(Id);
+        }
+
+        public void UnMark()
+        {
+            Selection = _selected;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

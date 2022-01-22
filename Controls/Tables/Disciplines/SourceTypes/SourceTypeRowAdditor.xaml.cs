@@ -48,21 +48,8 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes
             InitializeComponent();
         }
 
-        public SourceTypeRowAdditor(int no) : this()
-        {
-            Index(no);
-        }
-
-        public static void AddElement(StackPanel table, int no = 1)
-        {
-            SourceTypeRowAdditor row = new SourceTypeRowAdditor(no);
-            _ = table.Children.Add(row);
-            row.SetTables(table);
-            row.OnPropertyChanged(nameof(CanBeEdited));
-        }
-
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }

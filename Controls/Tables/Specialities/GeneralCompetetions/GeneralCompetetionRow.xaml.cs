@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 {
     /// <summary>
     /// General competetons table row component
     /// </summary>
-    public partial class GeneralCompetetionRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class GeneralCompetetionRow : UserControl, INotifyPropertyChanged, IRedactable
     {
         private int _no = 1;
         public int No
@@ -25,8 +25,8 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             }
         }
 
-        private int _id = 1;
-        public int Id
+        private uint _id = 1;
+        public uint Id
         {
             get => _id;
             set
@@ -91,7 +91,7 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             }
         }
 
-        public int CompetetionNo => ToUInt16(GeneralNo);
+        public ushort CompetetionNo => ToUInt16(GeneralNo);
 
         private Style _selection;
         public Style Selection
@@ -106,11 +106,13 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 
         private Style _unselected;
         private Style _selected;
+        private Style _marked;
 
         private void SetStyles()
         {
-            _unselected = (Style)TryFindResource("Impact1");
-            _selected = (Style)TryFindResource("Impact2");
+            _unselected = TryFindResource("Impact1") as Style;
+            _selected = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact2") as Style;
             Selection = _unselected;
         }
 
@@ -120,38 +122,13 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             SetStyles();
         }
 
-        public void SetElement(int no, int id, string generalNo, string name, string skills, string knowledge)
+        public void SetElement(string[] row)
         {
-            No = no;
-            Id = id;
-            GeneralNo = generalNo;
-            GeneralName = name;
-            Skills = skills;
-            Knowledge = knowledge;
-        }
-
-        public static void AddElements(StackPanel table, List<string[]> rows)
-        {
-            ushort no = 0;
-            for (; no < rows.Count; no++)
-            {
-                string[] row = rows[no];
-                int id = ToInt32(row[0]);
-                string generalNo = row[1];
-                string name = row[2];
-                string knowledge = row[3];
-                string skills = row[4];
-                AddElement(table, no + 1, id, generalNo, name, skills, knowledge);
-            }
-            GeneralCompetetionRowAdditor.AddElement(table, no + 1);
-        }
-
-        public static void AddElement(StackPanel table, int no, int id,
-            string generalNo, string name, string skills, string knowledge)
-        {
-            GeneralCompetetionRow row = new GeneralCompetetionRow();
-            row.SetElement(no, id, generalNo, name, skills, knowledge);
-            _ = table.Children.Add(row);
+            Id = ToUInt32(row[0]);
+            GeneralNo = row[1];
+            Name = row[2];
+            Knowledge = row[3];
+            Skills = row[4];
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -165,13 +142,32 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             No = no;
         }
 
-        private void Hours(object sender, TextCompositionEventArgs e)
+        private MainPart _tables;
+        public void SetTools(StackPanel table)
         {
-            CheckForHours(sender, e);
+            _tables = GetMainPart(table);
         }
-        private void PastingHours(object sender, DataObjectPastingEventArgs e)
+
+        public void EditConfirm()
         {
-            CheckForPastingHours(sender, e);
+            uint specialityId = _tables.ViewModel.CurrentState.Id;
+            Edit.GeneralCompetetion(Id, specialityId,
+                CompetetionNo, GeneralName, Knowledge, Skills);
+        }
+
+        public void MarkPrepare()
+        {
+            Selection = _marked;
+        }
+
+        public void MarkConfirm()
+        {
+            Mark.GeneralCompetetion(Id);
+        }
+
+        public void UnMark()
+        {
+            Selection = _selected;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

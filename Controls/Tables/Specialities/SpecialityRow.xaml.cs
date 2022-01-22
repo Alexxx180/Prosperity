@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Specialities
 {
     /// <summary>
     /// Specialities table row component
     /// </summary>
-    public partial class SpecialityRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class SpecialityRow : UserControl, INotifyPropertyChanged, IRedactable
     {
         private int _no = 1;
         public int No
@@ -82,11 +82,13 @@ namespace Prosperity.Controls.Tables.Specialities
 
         private Style _unselected;
         private Style _selected;
+        private Style _marked;
 
         private void SetStyles()
         {
-            _unselected = (Style)TryFindResource("Impact1");
-            _selected = (Style)TryFindResource("Impact2");
+            _unselected = TryFindResource("Impact1") as Style;
+            _selected = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact2") as Style;
             Selection = _unselected;
         }
 
@@ -96,40 +98,11 @@ namespace Prosperity.Controls.Tables.Specialities
             SetStyles();
         }
 
-        public SpecialityRow(int no, uint id, uint code, string name) : this()
+        public void SetElement(string[] row)
         {
-            SetElement(no, id, code, name);
-        }
-
-        public void SetElement(int no, uint id, uint code, string name)
-        {
-            No = no;
-            Id = id;
-            Code = code;
-            SpecialityName = name;
-        }
-
-        public static void AddElements(StackPanel table, List<string[]> rows, uint selected)
-        {
-            ushort no = 0;
-            for (; no < rows.Count; no++)
-            {
-                string[] row = rows[no];
-                uint id = ToUInt32(row[0]);
-                uint code = ToUInt32(row[1]);
-                string name = row[2];
-                AddElement(table, no + 1, id, code, name, selected);
-            }
-            SpecialityRowAdditor.AddElement(table, no + 1);
-        }
-
-        public static void AddElement(StackPanel table, int no, uint id, uint code, string name, uint selected)
-        {
-            SpecialityRow row = new SpecialityRow(no, id, code, name);
-            if (id == selected)
-                row.Select();
-            _ = table.Children.Add(row);
-            row.SetTables(table);
+            Id = ToUInt32(row[0]);
+            Code = ToUInt32(row[1]);
+            SpecialityName = row[2];
         }
 
         public void Select()
@@ -161,7 +134,7 @@ namespace Prosperity.Controls.Tables.Specialities
         }
 
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }
@@ -181,6 +154,28 @@ namespace Prosperity.Controls.Tables.Specialities
                 default:
                     break;
             }
+        }
+
+        public void EditConfirm()
+        {
+            if (Code == null)
+                return;
+            Edit.Speciality(Id, Code.Value, SpecialityName);
+        }
+
+        public void MarkPrepare()
+        {
+            Selection = _marked;
+        }
+
+        public void MarkConfirm()
+        {
+            Mark.Speciality(Id);
+        }
+
+        public void UnMark()
+        {
+            Selection = _selected;
         }
 
         private void SpecialitiesTransition()

@@ -1,13 +1,17 @@
-﻿namespace Prosperity.Controls.Tables
+﻿using System.Windows.Controls;
+
+namespace Prosperity.Controls.Tables
 {
     public interface IRedactable : IAutoIndexing
     {
         public bool CanBeEdited { get; }
 
         public void SetElement(string[] row);
+        public void SetTools(StackPanel table);
 
         public void EditConfirm();
-        public uint MarkPrepare();
+        public void MarkPrepare();
+        public void MarkConfirm();
         public void UnMark();
     }
 }

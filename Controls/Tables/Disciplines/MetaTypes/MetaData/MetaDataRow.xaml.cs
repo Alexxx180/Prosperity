@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 {
     /// <summary>
     /// Metadata table row component
     /// </summary>
-    public partial class MetaDataRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class MetaDataRow : UserControl, INotifyPropertyChanged, IRedactable
     {
         private int _no = 1;
         public int No
@@ -82,11 +82,13 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 
         private Style _unselected;
         private Style _selected;
+        private Style _marked;
 
         private void SetStyles()
         {
-            _unselected = (Style)TryFindResource("Impact1");
-            _selected = (Style)TryFindResource("Impact2");
+            _unselected = TryFindResource("Impact1") as Style;
+            _selected = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact2") as Style;
             Selection = _unselected;
         }
 
@@ -96,21 +98,15 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
             SetStyles();
         }
 
-        public MetaDataRow(int no, uint id, uint type, string value) : this()
+        public void SetElement(string[] row)
         {
-            SetElement(no, id, type, value);
-        }
-
-        public void SetElement(int no, uint id, uint type, string value)
-        {
-            No = no;
-            Id = id;
-            MetaType = type;
-            MetaValue = value;
+            Id = ToUInt32(row[0]);
+            MetaType = ToUInt32(row[1]);
+            MetaValue = row[2];
         }
 
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }
@@ -127,27 +123,6 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
             e.Handled = true;
         }
 
-        public static void AddElements(StackPanel table, List<string[]> rows)
-        {
-            ushort no = 0;
-            for (; no < rows.Count; no++)
-            {
-                string[] row = rows[no];
-                uint id = ToUInt32(row[0]);
-                uint type = ToUInt32(row[1]);
-                string value = row[2];
-                AddElement(table, no + 1, id, type, value);
-            }
-            MetaDataRowAdditor.AddElement(table, no + 1);
-        }
-
-        public static void AddElement(StackPanel table, int no, uint id, uint type, string value)
-        {
-            MetaDataRow row = new MetaDataRow(no, id, type, value);
-            _ = table.Children.Add(row);
-            row.SetTables(table);
-        }
-
         private void Select(object sender, RoutedEventArgs e)
         {
             CanBeEdited = !CanBeEdited;
@@ -157,6 +132,28 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
         public void Index(int no)
         {
             No = no;
+        }
+
+        public void EditConfirm()
+        {
+            if (MetaType == null)
+                return;
+            Edit.Discipline(Id, MetaType.Value, MetaValue);
+        }
+
+        public void MarkPrepare()
+        {
+            Selection = _marked;
+        }
+
+        public void MarkConfirm()
+        {
+            Mark.Discipline(Id);
+        }
+
+        public void UnMark()
+        {
+            Selection = _selected;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

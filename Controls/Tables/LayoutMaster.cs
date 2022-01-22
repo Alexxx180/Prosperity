@@ -43,6 +43,7 @@ namespace Prosperity.Controls.Tables
             IRedactable row = Activator.CreateInstance(typeof(T)) as IRedactable;
             row.SetElement(record);
             _ = Records.Children.Add(row as UserControl);
+            row.SetTools(Records);
             return row;
         }
 

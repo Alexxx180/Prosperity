@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
+using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
 {
     /// <summary>
     /// Professional competetions table row component
     /// </summary>
-    public partial class ProfessionalCompetetionRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class ProfessionalCompetetionRow : UserControl, INotifyPropertyChanged, IRedactable
     {
         private int _no = 1;
         public int No
@@ -25,8 +25,8 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             }
         }
 
-        private int _id = 1;
-        public int Id
+        private uint _id = 1;
+        public uint Id
         {
             get => _id;
             set
@@ -113,8 +113,8 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             }
         }
 
-        public int CompetetionNo1 => ToUInt16(ProfessionalNo1);
-        public int CompetetionNo2 => ToUInt16(ProfessionalNo2);
+        public ushort CompetetionNo1 => ToUInt16(ProfessionalNo1);
+        public ushort CompetetionNo2 => ToUInt16(ProfessionalNo2);
 
         private Style _selection;
         public Style Selection
@@ -129,11 +129,13 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
 
         private Style _unselected;
         private Style _selected;
+        private Style _marked;
 
         private void SetStyles()
         {
-            _unselected = (Style)TryFindResource("Impact1");
-            _selected = (Style)TryFindResource("Impact2");
+            _unselected = TryFindResource("Impact1") as Style;
+            _selected = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact2") as Style;
             Selection = _unselected;
         }
 
@@ -143,48 +145,15 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             SetStyles();
         }
 
-        public void SetElement(int no, int id, string professionalNo1,
-            string professionalNo2, string name, string experience,
-            string skills, string knowledge)
+        public void SetElement(string[] row)
         {
-            No = no;
-            Id = id;
-            ProfessionalNo1 = professionalNo1;
-            ProfessionalNo2 = professionalNo2;
-            ProfessionalName = name;
-            Experience = experience;
-            Skills = skills;
-            Knowledge = knowledge;
-        }
-
-        public static void AddElements(StackPanel table, List<string[]> rows)
-        {
-            ushort no = 0;
-            for (; no < rows.Count; no++)
-            {
-                string[] row = rows[no];
-                int id = ToInt32(row[0]);
-                string professionalNo1 = row[1];
-                string professionalNo2 = row[2];
-                string name = row[3];
-                string knowledge = row[4];
-                string skills = row[5];
-                string experience = row[6];
-                AddElement(table, no + 1, id, professionalNo1,
-                    professionalNo2, name, experience, skills, knowledge);
-            }
-            ProfessionalCompetetionRowAdditor.AddElement(table, no + 1);
-        }
-
-        public static void AddElement(StackPanel table, int no,
-            int id, string professionalNo1, string professionalNo2,
-            string name, string experience, string skills,
-            string knowledge)
-        {
-            ProfessionalCompetetionRow row = new ProfessionalCompetetionRow();
-            row.SetElement(no, id, professionalNo1, professionalNo2,
-                name, experience, skills, knowledge);
-            _ = table.Children.Add(row);
+            Id = ToUInt32(row[0]);
+            ProfessionalNo1 = row[1];
+            ProfessionalNo2 = row[2];
+            ProfessionalName = row[3];
+            Experience = row[4];
+            Skills = row[5];
+            Knowledge = row[6];
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -198,13 +167,33 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             No = no;
         }
 
-        private void Hours(object sender, TextCompositionEventArgs e)
+        private MainPart _tables;
+        public void SetTools(StackPanel table)
         {
-            CheckForHours(sender, e);
+            _tables = GetMainPart(table);
         }
-        private void PastingHours(object sender, DataObjectPastingEventArgs e)
+
+        public void EditConfirm()
         {
-            CheckForPastingHours(sender, e);
+            uint specialityId = _tables.ViewModel.CurrentState.Id;
+            Edit.ProfessionalCompetetion(Id, specialityId,
+                CompetetionNo1, CompetetionNo2, ProfessionalName,
+                Knowledge, Skills, Experience);
+        }
+
+        public void MarkPrepare()
+        {
+            Selection = _marked;
+        }
+
+        public void MarkConfirm()
+        {
+            Mark.ProfessionalCompetetion(Id);
+        }
+
+        public void UnMark()
+        {
+            Selection = _selected;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

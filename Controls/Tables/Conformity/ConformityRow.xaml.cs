@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -99,48 +98,11 @@ namespace Prosperity.Controls.Tables.Conformity
             SetStyles();
         }
 
-        public ConformityRow(int no, uint id, uint disciplineNo, uint specialityNo) : this()
-        {
-            SetElement(no, id, disciplineNo, specialityNo);
-        }
-
         public void SetElement(string[] row)
         {
             Id = ToUInt32(row[0]);
             Discipline = ToUInt32(row[1]);
             Speciality = ToUInt32(row[2]);
-        }
-
-        public void SetElement(int no, uint id, uint disciplineNo, uint specialityNo)
-        {
-            No = no;
-            Id = id;
-            Discipline = disciplineNo;
-            Speciality = specialityNo;
-        }
-
-        public static void AddElements(StackPanel table, List<string[]> rows, uint selected)
-        {
-            ushort no = 0;
-            for (; no < rows.Count; no++)
-            {
-                string[] row = rows[no];
-                uint id = ToUInt32(row[0]);
-                uint disciplineNo = ToUInt32(row[1]);
-                uint specialityNo = ToUInt32(row[2]);
-                AddElement(table, no + 1, id, disciplineNo, specialityNo, selected);
-            }
-            ConformityRowAdditor.AddElement(table, no + 1);
-        }
-
-        public static void AddElement(StackPanel table, int no,
-            uint id, uint disciplineNo, uint specialityNo, uint selected)
-        {
-            ConformityRow row = new ConformityRow(no, id, disciplineNo, specialityNo);
-            if (id == selected)
-                row.Select();
-            _ = table.Children.Add(row);
-            row.SetTables(table);
         }
 
         public void Select()
@@ -155,7 +117,7 @@ namespace Prosperity.Controls.Tables.Conformity
         }
 
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }
@@ -196,10 +158,14 @@ namespace Prosperity.Controls.Tables.Conformity
             Edit.Conformity(Id, Discipline.Value, Speciality.Value);
         }
 
-        public uint MarkPrepare()
+        public void MarkPrepare()
         {
             Selection = _marked;
-            return Id;
+        }
+
+        public void MarkConfirm()
+        {
+            Mark.Conformity(Id);
         }
 
         public void UnMark()

@@ -59,21 +59,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Comp
             InitializeComponent();
         }
 
-        public LevelRowAdditor(int no) : this()
-        {
-            Index(no);
-        }
-
-        public static void AddElement(StackPanel table, int no = 1)
-        {
-            LevelRowAdditor row = new LevelRowAdditor(no);
-            _ = table.Children.Add(row);
-            row.SetTables(table);
-            row.OnPropertyChanged(nameof(CanBeEdited));
-        }
-
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }

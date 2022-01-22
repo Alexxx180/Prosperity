@@ -70,21 +70,8 @@ namespace Prosperity.Controls.Tables.Conformity
             InitializeComponent();
         }
 
-        public ConformityRowAdditor(int no) : this()
-        {
-            Index(no);
-        }
-
-        public static void AddElement(StackPanel table, int no = 1)
-        {
-            ConformityRowAdditor row = new ConformityRowAdditor(no);
-            _ = table.Children.Add(row);
-            row.SetTables(table);
-            row.OnPropertyChanged(nameof(CanBeEdited));
-        }
-
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }

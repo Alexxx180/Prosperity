@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -87,9 +86,9 @@ namespace Prosperity.Controls.Tables.Disciplines
 
         private void SetStyles()
         {
-            _unselected = (Style)TryFindResource("Impact1");
-            _selected = (Style)TryFindResource("Impact2");
-            _marked = (Style)TryFindResource("Impact2");
+            _unselected = TryFindResource("Impact1") as Style;
+            _selected = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact2") as Style;
             Selection = _unselected;
         }
 
@@ -99,11 +98,6 @@ namespace Prosperity.Controls.Tables.Disciplines
             SetStyles();
         }
 
-        public DisciplineRow(int no, uint id, uint code, string name) : this()
-        {
-            SetElement(no, id, code, name);
-        }
-
         public void SetElement(string[] row)
         {
             Id = ToUInt32(row[0]);
@@ -111,53 +105,16 @@ namespace Prosperity.Controls.Tables.Disciplines
             DisciplineName = row[2];
         }
 
-        public void SetElement(int no, uint id, uint code, string name)
-        {
-            No = no;
-            Id = id;
-            Code = code;
-            DisciplineName = name;
-        }
-
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }
 
-        public static void AddElements(StackPanel table, List<string[]> rows, uint selected)
-        {
-            ushort no = 0;
-            for (; no < rows.Count; no++)
-            {
-                string[] row = rows[no];
-                uint id = ToUInt32(row[0]);
-                uint code = ToUInt32(row[1]);
-                string name = row[2];
-                AddElement(table, no + 1, id, code, name, selected);
-            }
-            DisciplineRowAdditor.AddElement(table, no + 1);
-        }
-
-        public static void AddElement(StackPanel table, int no,
-            uint id, uint code, string name, uint selected)
-        {
-            DisciplineRow row = new DisciplineRow(no, id, code, name);
-            if (id == selected)
-                row.Select();
-            _ = table.Children.Add(row);
-            row.SetTables(table);
-        }
-
-        public void Select()
+        private void Select(object sender, RoutedEventArgs e)
         {
             CanBeEdited = !CanBeEdited;
             Selection = CanBeEdited ? _selected : _unselected;
-        }
-
-        private void Select(object sender, RoutedEventArgs e)
-        {
-            Select();
         }
 
         public void SetCode(uint id)
@@ -217,10 +174,14 @@ namespace Prosperity.Controls.Tables.Disciplines
             Edit.Discipline(Id, Code.Value, DisciplineName);
         }
 
-        public uint MarkPrepare()
+        public void MarkPrepare()
         {
             Selection = _marked;
-            return Id;
+        }
+
+        public void MarkConfirm()
+        {
+            Mark.Discipline(Id);
         }
 
         public void UnMark()

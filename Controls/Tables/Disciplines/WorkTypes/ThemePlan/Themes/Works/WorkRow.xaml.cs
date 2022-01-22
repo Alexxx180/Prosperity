@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works
 {
     /// <summary>
     /// Works table row component
     /// </summary>
-    public partial class WorkRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class WorkRow : UserControl, INotifyPropertyChanged, IRedactable
     {
         private int _no = 1;
         public int No
@@ -71,11 +71,13 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
 
         private Style _unselected;
         private Style _selected;
+        private Style _marked;
 
         private void SetStyles()
         {
-            _unselected = (Style)TryFindResource("Impact1");
-            _selected = (Style)TryFindResource("Impact2");
+            _unselected = TryFindResource("Impact1") as Style;
+            _selected = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact2") as Style;
             Selection = _unselected;
         }
 
@@ -85,36 +87,10 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             SetStyles();
         }
 
-        public WorkRow(int no, uint id, uint type) : this()
+        public void SetElement(string[] row)
         {
-            SetElement(no, id, type);
-        }
-
-        public void SetElement(int no, uint id, uint type)
-        {
-            No = no;
-            Id = id;
-            WorkType = type;
-        }
-
-        public static void AddElements(StackPanel table, List<string[]> rows)
-        {
-            ushort no = 0;
-            for (; no < rows.Count; no++)
-            {
-                string[] row = rows[no];
-                uint id = ToUInt32(row[0]);
-                uint type = ToUInt32(row[1]);
-                AddElement(table, no + 1, id, type);
-            }
-            WorkRowAdditor.AddElement(table, no + 1);
-        }
-
-        public static void AddElement(StackPanel table, int no, uint id, uint type)
-        {
-            WorkRow row = new WorkRow(no, id, type);
-            _ = table.Children.Add(row);
-            row.SetTables(table);
+            Id = ToUInt32(row[0]);
+            WorkType = ToUInt32(row[1]);
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -129,7 +105,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
         }
 
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }
@@ -149,6 +125,29 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
         private void GoToTasks(object sender, RoutedEventArgs e)
         {
             _tables.FillTasks(Id);
+        }
+
+        public void EditConfirm()
+        {
+            if (WorkType == null)
+                return;
+            uint themeId = _tables.ViewModel.CurrentState.Id;
+            Edit.Work(Id, themeId, WorkType.Value);
+        }
+
+        public void MarkPrepare()
+        {
+            Selection = _marked;
+        }
+
+        public void MarkConfirm()
+        {
+            Mark.Work(Id);
+        }
+
+        public void UnMark()
+        {
+            Selection = _selected;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

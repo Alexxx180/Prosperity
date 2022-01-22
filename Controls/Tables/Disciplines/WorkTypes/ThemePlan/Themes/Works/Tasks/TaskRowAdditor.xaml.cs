@@ -61,21 +61,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             InitializeComponent();
         }
 
-        public TaskRowAdditor(int no) : this()
-        {
-            Index(no);
-        }
-
-        public static void AddElement(StackPanel table, int no)
-        {
-            TaskRowAdditor row = new TaskRowAdditor(no);
-            _ = table.Children.Add(row);
-            row.SetTables(table);
-            row.OnPropertyChanged(nameof(CanBeEdited));
-        }
-
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }

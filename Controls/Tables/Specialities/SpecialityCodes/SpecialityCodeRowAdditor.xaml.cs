@@ -48,26 +48,13 @@ namespace Prosperity.Controls.Tables.Specialities.SpecialityCodes
             InitializeComponent();
         }
 
-        public SpecialityCodeRowAdditor(int no) : this()
-        {
-            Index(no);
-        }
-
-        public static void AddElement(StackPanel table, int no = 1)
-        {
-            SpecialityCodeRowAdditor row = new SpecialityCodeRowAdditor(no);
-            _ = table.Children.Add(row);
-            row.SetTables(table);
-            row.OnPropertyChanged(nameof(CanBeEdited));
-        }
-
         public void Index(int no)
         {
             No = no;
         }
 
         private MainPart _tables;
-        public void SetTables(StackPanel table)
+        public void SetTools(StackPanel table)
         {
             _tables = GetMainPart(table);
         }

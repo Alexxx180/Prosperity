@@ -1,17 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
+using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
 {
     /// <summary>
     /// Theme plan table row component
     /// </summary>
-    public partial class TopicRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class TopicRow : UserControl, INotifyPropertyChanged, IRedactable
     {
         private int _no = 1;
         public int No
@@ -35,7 +36,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
             }
         }
 
-        private string _topicNo = "1";
+        private string _topicNo = "";
         public string TopicNo
         {
             get => _topicNo;
@@ -58,7 +59,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
             }
         }
 
-        private string _hoursCount = "0";
+        private string _hoursCount = "";
         public string TopicHours
         {
             get => _hoursCount;
@@ -96,11 +97,13 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
 
         private Style _unselected;
         private Style _selected;
+        private Style _marked;
 
         private void SetStyles()
         {
-            _unselected = (Style)TryFindResource("Impact1");
-            _selected = (Style)TryFindResource("Impact2");
+            _unselected = TryFindResource("Impact1") as Style;
+            _selected = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact2") as Style;
             Selection = _unselected;
         }
 
@@ -110,37 +113,12 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
             SetStyles();
         }
 
-        public void SetElement(int no, uint id,
-            string topicNo, string name, string hours)
+        public void SetElement(string[] row)
         {
-            No = no;
-            Id = id;
-            TopicNo = topicNo;
-            TopicName = name;
-            TopicHours = hours;
-        }
-
-        public static void AddElements(StackPanel table, List<string[]> rows)
-        {
-            ushort no = 0;
-            for (; no < rows.Count; no++)
-            {
-                string[] row = rows[no];
-                uint id = ToUInt32(row[0]);
-                string topicNo = row[1];
-                string name = row[2];
-                string hours = row[3];
-                AddElement(table, no + 1, id, topicNo, name, hours);
-            }
-            TopicRowAdditor.AddElement(table, no + 1);
-        }
-
-        public static void AddElement(StackPanel table, int no,
-            uint id, string topicNo, string name, string hours)
-        {
-            TopicRow row = new TopicRow();
-            row.SetElement(no, id, topicNo, name, hours);
-            _ = table.Children.Add(row);
+            Id = ToUInt32(row[0]);
+            TopicNo = row[1];
+            TopicName = row[2];
+            TopicHours = row[3];
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -159,16 +137,36 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
             No = no;
         }
 
-        private MainPart _tables => GetMainPart();
-        private MainPart GetMainPart()
+        private MainPart _tables;
+        public void SetTools(StackPanel table)
         {
-            StackPanel mainStack = Parent as StackPanel;
-            return mainStack.Tag as MainPart;
+            _tables = GetMainPart(table);
         }
 
         private void GoToThemes(object sender, RoutedEventArgs e)
         {
             _tables.FillThemes(Id);
+        }
+
+        public void EditConfirm()
+        {
+            uint disciplineId = _tables.ViewModel.CurrentState.Id;
+            Edit.Topic(Id, disciplineId, TopicNumber, TopicName, HoursCount);
+        }
+
+        public void MarkPrepare()
+        {
+            Selection = _marked;
+        }
+
+        public void MarkConfirm()
+        {
+            Mark.Topic(Id);
+        }
+
+        public void UnMark()
+        {
+            Selection = _selected;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
