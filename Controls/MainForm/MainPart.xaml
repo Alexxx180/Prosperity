@@ -2,7 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:tables="clr-namespace:Prosperity.Controls.Tables"
              xmlns:conformity="clr-namespace:Prosperity.Controls.Tables.Conformity"
              xmlns:specialities="clr-namespace:Prosperity.Controls.Tables.Specialities"
              xmlns:specialityCodes="clr-namespace:Prosperity.Controls.Tables.Specialities.SpecialityCodes"
@@ -109,8 +110,18 @@
                 </Grid>
 
                 <StackPanel x:Name="CurrentView" Grid.Row="1" Tag="{x:Reference MainRedactor}">
-
+                    
                 </StackPanel>
+
+                <Border x:Name="TableViewControl" Grid.Row="1">
+                    <Border.DataContext>
+                        <tables:LayoutMaster/>
+                    </Border.DataContext>
+                    <ContentControl>
+                        <Binding x:Name="AllRecords" Path="Records"/>
+                    </ContentControl>
+                </Border>
+                
             </Grid>
         </ScrollViewer>
 
@@ -128,11 +139,14 @@
                     <TextBlock Text=" Записи: " Style="{StaticResource Impact}" Padding="2" />
                 </Viewbox>
                 <Viewbox>
-                    <TextBlock x:Name="CountRecords" Padding="2" Style="{StaticResource Impact}">
+                    <TextBlock x:Name="CountRecords" Padding="2" Style="{StaticResource Impact}" >
+                        <TextBlock.DataContext>
+                            <Binding ElementName="TableViewControl" Path="DataContext"/>
+                        </TextBlock.DataContext>
                         <TextBlock.Text>
-                            <Binding ElementName="CurrentView">
+                            <Binding>
                                 <Binding.Path>
-                                    Children.Count
+                                    Count
                                 </Binding.Path>
                                 <Binding.Converter>
                                     <converters:RowCountConverter/>
@@ -144,12 +158,18 @@
             </StackPanel>
 
             <Button Grid.Column="2" Style="{StaticResource InvisibleButton}" Click="EditRows">
+                <Button.IsEnabled>
+                    <Binding Path="CanBeAffected" />
+                </Button.IsEnabled>
                 <Viewbox>
                     <TextBlock Text="|..!|" />
                 </Viewbox>
             </Button>
 
             <Button Grid.Column="4" Style="{StaticResource InvisibleButton}" Click="MarkRows">
+                <Button.IsEnabled>
+                    <Binding Path="CanBeAffected" />
+                </Button.IsEnabled>
                 <Viewbox>
                     <TextBlock Text="X" />
                 </Viewbox>

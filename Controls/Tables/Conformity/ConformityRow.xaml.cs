@@ -13,7 +13,7 @@ namespace Prosperity.Controls.Tables.Conformity
     /// <summary>
     /// Conformity table row component
     /// </summary>
-    public partial class ConformityRow : UserControl, INotifyPropertyChanged, IAutoIndexing, IRedactable
+    public partial class ConformityRow : UserControl, INotifyPropertyChanged, IRedactable
     {
         private int _no = 1;
         public int No
@@ -102,6 +102,13 @@ namespace Prosperity.Controls.Tables.Conformity
         public ConformityRow(int no, uint id, uint disciplineNo, uint specialityNo) : this()
         {
             SetElement(no, id, disciplineNo, specialityNo);
+        }
+
+        public void SetElement(string[] row)
+        {
+            Id = ToUInt32(row[0]);
+            Discipline = ToUInt32(row[1]);
+            Speciality = ToUInt32(row[2]);
         }
 
         public void SetElement(int no, uint id, uint disciplineNo, uint specialityNo)

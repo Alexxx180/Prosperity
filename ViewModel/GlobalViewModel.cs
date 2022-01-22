@@ -1,9 +1,12 @@
 ﻿using System.Windows;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Model;
 using Prosperity.Model.DataBase;
+using Prosperity.Controls.Tables;
+using System.Windows.Controls;
 
 namespace Prosperity.ViewModel
 {
@@ -18,7 +21,7 @@ namespace Prosperity.ViewModel
             };
             CurrentState = _defaultState;
             Transitions = new Stack();
-            SelectedRows = 0;
+            SelectedTableCodes = new Dictionary<ushort, ulong>();
         }
 
         private static readonly TransitionBase _defaultState = new TransitionBase(null, "Пополнений стека:", 0);
@@ -49,51 +52,44 @@ namespace Prosperity.ViewModel
             }
         }
 
-        private int _selectedRows;
-        public int SelectedRows
+        public int SelectedRows => SelectedTableCodes.Count;
+
+        private Dictionary<ushort, ulong> _seletedTableCodes;
+        public Dictionary<ushort, ulong> SelectedTableCodes
         {
-            get => _selectedRows;
+            get => _seletedTableCodes;
             set
             {
-                _selectedRows = value;
+                _seletedTableCodes = value;
                 OnPropertyChanged();
             }
         }
 
-        public bool CanBeAffected => _selectedRows > 0;
 
-        public void Select(bool selected)
+        public bool CanBeAffected => SelectedRows > 0;
+
+        public void SelectRow(ushort key, ushort id)
         {
-            SelectedRows += selected ? 1 : -1;
+            SelectedTableCodes.Add(key, id);
+            OnPropertyChanged(nameof(SelectedRows));
+        }
+
+        public void DeSelectRow(ushort key)
+        {
+            SelectedTableCodes.Remove(key);
+            OnPropertyChanged(nameof(SelectedRows));
         }
 
         public void NullifySelection()
         {
-            SelectedRows = 0;
+            SelectedTableCodes.Clear();
+            OnPropertyChanged(nameof(SelectedRows));
         }
 
         public void CleanBuffer()
         {
             Transitions.Clear();
             TransitionStateChanged();
-        }
-
-        public Pair<TransitionBase, MarkBase> ViewTools;
-
-        public void ChangeMarkMethod(MarkBase.Action toolMethod,
-            TransitionBase.Transition refreshTransition, string name, uint id)
-        {
-            ViewTools.Value.ActionMethod = toolMethod;
-            ViewTools.Name.TransitionMethod = refreshTransition;
-            ViewTools.Name.Name = name;
-            ViewTools.Name.Id = id;
-        }
-
-        public void ChangeMarkMethod(MarkBase.Action toolMethod)
-        {
-            TransitionBase transition = GetTransition();
-            ChangeMarkMethod(toolMethod, transition.TransitionMethod,
-                transition.Name, transition.Id);
         }
 
         public void AddTransition(TransitionBase.Transition way, string name, uint id)
@@ -124,11 +120,77 @@ namespace Prosperity.ViewModel
             return transition;
         }
 
+        public void BackTransition()
+        {
+            _ = PopTransition();
+            GetTransition().MakeTransition();
+            if (!IsTopTransition)
+                _ = PopTransition();
+        }
+
         public void TransitionStateChanged()
         {
             if (!IsTopTransition)
                 CurrentState = GetTransition();
             OnPropertyChanged(nameof(BackOperations));
+        }
+
+        public Pair<TransitionBase, MarkBase> ViewTools;
+
+        public void ChangeMarkMethod(MarkBase.Action toolMethod,
+            TransitionBase.Transition refreshTransition, string name, uint id)
+        {
+            ViewTools.Value.ActionMethod = toolMethod;
+            ViewTools.Name.TransitionMethod = refreshTransition;
+            ViewTools.Name.Name = name;
+            ViewTools.Name.Id = id;
+        }
+
+        public void ChangeMarkMethod(MarkBase.Action toolMethod)
+        {
+            TransitionBase transition = GetTransition();
+            ChangeMarkMethod(toolMethod, transition.TransitionMethod,
+                transition.Name, transition.Id);
+        }
+
+        internal void EditRows(StackPanel view)
+        {
+
+        }
+
+        internal void MarkRows(StackPanel view)
+        {
+            List<uint> ids = new List<uint>();
+            for (ushort i = 0; i < view.Children.Count; i++)
+            {
+                IRedactable row = view.Children[i] as IRedactable;
+                if (row != null && row.CanBeEdited)
+                    ids.Add(row.MarkPrepare());
+            }
+            
+            if (RowsAffectedDialog("помечено"))
+            {
+                for (ushort i = 0; i < ids.Count; i++)
+                    ViewTools.Value.Do(ids[i]);
+                ViewTools.Name.MakeTransition();
+            }
+            else
+            {
+                for (ushort i = 0; i < view.Children.Count; i++)
+                {
+                    IRedactable row = view.Children[i] as IRedactable;
+                    if (row != null && row.CanBeEdited)
+                        row.UnMark();
+                }
+            }
+        }
+
+        internal bool RowsAffectedDialog(string operation)
+        {
+            string message = $"Будет {operation} записей: {SelectedRows}\nПродолжить?";
+            MessageBoxResult result = MessageBox.Show(message, "Подтверждение операции",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            return result == MessageBoxResult.Yes;
         }
 
         private static readonly Sql _connector = new MySQL();

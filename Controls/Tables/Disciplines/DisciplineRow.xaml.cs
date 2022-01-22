@@ -6,13 +6,14 @@ using System.Runtime.CompilerServices;
 using static System.Convert;
 using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
+using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines
 {
     /// <summary>
     /// Disciplines table row component
     /// </summary>
-    public partial class DisciplineRow : UserControl, INotifyPropertyChanged, IAutoIndexing
+    public partial class DisciplineRow : UserControl, INotifyPropertyChanged, IRedactable
     {
         private int _no = 1;
         public int No
@@ -82,11 +83,13 @@ namespace Prosperity.Controls.Tables.Disciplines
 
         private Style _unselected;
         private Style _selected;
+        private Style _marked;
 
         private void SetStyles()
         {
             _unselected = (Style)TryFindResource("Impact1");
             _selected = (Style)TryFindResource("Impact2");
+            _marked = (Style)TryFindResource("Impact2");
             Selection = _unselected;
         }
 
@@ -99,6 +102,13 @@ namespace Prosperity.Controls.Tables.Disciplines
         public DisciplineRow(int no, uint id, uint code, string name) : this()
         {
             SetElement(no, id, code, name);
+        }
+
+        public void SetElement(string[] row)
+        {
+            Id = ToUInt32(row[0]);
+            Code = ToUInt32(row[1]);
+            DisciplineName = row[2];
         }
 
         public void SetElement(int no, uint id, uint code, string name)
@@ -129,7 +139,8 @@ namespace Prosperity.Controls.Tables.Disciplines
             DisciplineRowAdditor.AddElement(table, no + 1);
         }
 
-        public static void AddElement(StackPanel table, int no, uint id, uint code, string name, uint selected)
+        public static void AddElement(StackPanel table, int no,
+            uint id, uint code, string name, uint selected)
         {
             DisciplineRow row = new DisciplineRow(no, id, code, name);
             if (id == selected)
@@ -197,6 +208,24 @@ namespace Prosperity.Controls.Tables.Disciplines
                 default:
                     break;
             }
+        }
+
+        public void EditConfirm()
+        {
+            if (Code == null)
+                return;
+            Edit.Discipline(Id, Code.Value, DisciplineName);
+        }
+
+        public uint MarkPrepare()
+        {
+            Selection = _marked;
+            return Id;
+        }
+
+        public void UnMark()
+        {
+            Selection = _selected;
         }
 
         private void DisciplinesTransition()

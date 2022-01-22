@@ -11,18 +11,6 @@ namespace Prosperity.Controls.Tables
 {
     public static class EditHelper
     {
-        //public static void AddElement<T>(StackPanel stack, int no = 1)
-        //{
-        //    UIElement component = (UIElement)Activator.CreateInstance(typeof(T), no);
-        //    _ = stack.Children.Add(component);
-        //}
-
-        //public static void AddElement<T>(StackPanel stack, params object[] args)
-        //{
-        //    UIElement component = (UIElement)Activator.CreateInstance(typeof(T), args);
-        //    _ = stack.Children.Add(component);
-        //}
-
         public static ushort ParseHours(string numberText)
         {
             return ushort.TryParse(numberText, out ushort result) ? result : ToUInt16(0);
