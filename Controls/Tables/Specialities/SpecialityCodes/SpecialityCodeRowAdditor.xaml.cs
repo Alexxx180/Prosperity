@@ -22,6 +22,17 @@ namespace Prosperity.Controls.Tables.Specialities.SpecialityCodes
             }
         }
 
+        private int _rowKey;
+        public int RowKey
+        {
+            get => _rowKey;
+            set
+            {
+                _rowKey = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _specialityCode = "";
         public string SpecialityCode
         {

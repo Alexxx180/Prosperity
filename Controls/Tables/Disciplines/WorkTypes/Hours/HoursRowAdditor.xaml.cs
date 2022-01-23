@@ -22,6 +22,17 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
             }
         }
 
+        private int _rowKey;
+        public int RowKey
+        {
+            get => _rowKey;
+            set
+            {
+                _rowKey = value;
+                OnPropertyChanged();
+            }
+        }
+
         private uint? _hoursType = null;
         public uint? HoursType
         {

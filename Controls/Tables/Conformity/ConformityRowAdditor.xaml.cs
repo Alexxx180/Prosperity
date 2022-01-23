@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Conformity
 {
@@ -19,6 +18,17 @@ namespace Prosperity.Controls.Tables.Conformity
             set
             {
                 _no = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _rowKey;
+        public int RowKey
+        {
+            get => _rowKey;
+            set
+            {
+                _rowKey = value;
                 OnPropertyChanged();
             }
         }
@@ -104,7 +114,7 @@ namespace Prosperity.Controls.Tables.Conformity
             if (Discipline == null || Speciality == null)
                 return;
             _tables.Tools.AddRow.Conformity(Discipline.Value, Speciality.Value);
-            _tables.FillConformity();
+            _tables.ViewModel.RefreshTransition();
         }
 
         public void Index(int no)

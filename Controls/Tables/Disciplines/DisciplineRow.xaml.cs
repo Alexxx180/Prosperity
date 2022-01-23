@@ -23,6 +23,17 @@ namespace Prosperity.Controls.Tables.Disciplines
             }
         }
 
+        private int _rowKey;
+        public int RowKey
+        {
+            get => _rowKey;
+            set
+            {
+                _rowKey = value;
+                OnPropertyChanged();
+            }
+        }
+
         private uint _id = 1;
         public uint Id
         {
@@ -137,27 +148,21 @@ namespace Prosperity.Controls.Tables.Disciplines
             switch (selector.SelectedIndex)
             {
                 case 0:
-                    DisciplinesTransition();
                     _tables.FillTopics(Id);
                     break;
                 case 1:
-                    DisciplinesTransition();
                     _tables.FillDisciplineGeneralCompetetions(Id);
                     break;
                 case 2:
-                    DisciplinesTransition();
                     _tables.FillDisciplineProfessionalCompetetions(Id);
                     break;
                 case 3:
-                    DisciplinesTransition();
                     _tables.FillSources(Id);
                     break;
                 case 4:
-                    DisciplinesTransition();
                     _tables.FillMetaData(Id);
                     break;
                 case 5:
-                    DisciplinesTransition();
                     _tables.FillHours(Id);
                     break;
                 default:
@@ -185,11 +190,6 @@ namespace Prosperity.Controls.Tables.Disciplines
         public void UnMark()
         {
             Selection = _selected;
-        }
-
-        private void DisciplinesTransition()
-        {
-            _tables.ViewModel.AddTransition(_tables.FillDisciplines, "Ранее смотрели: Дисциплина - ID", Id);
         }
 
         private void SecondaryTables_Select(object sender, SelectionChangedEventArgs e)

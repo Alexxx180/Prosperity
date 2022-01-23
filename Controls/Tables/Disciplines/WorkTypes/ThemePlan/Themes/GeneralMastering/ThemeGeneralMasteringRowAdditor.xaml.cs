@@ -23,6 +23,17 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Gene
             }
         }
 
+        private int _rowKey;
+        public int RowKey
+        {
+            get => _rowKey;
+            set
+            {
+                _rowKey = value;
+                OnPropertyChanged();
+            }
+        }
+
         private uint? _code = null;
         public uint? Code
         {

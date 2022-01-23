@@ -22,6 +22,17 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
             }
         }
 
+        private int _rowKey;
+        public int RowKey
+        {
+            get => _rowKey;
+            set
+            {
+                _rowKey = value;
+                OnPropertyChanged();
+            }
+        }
+
         private uint? _metaType = null;
         public uint? MetaType
         {

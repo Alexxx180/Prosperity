@@ -91,7 +91,7 @@ namespace Prosperity.Controls.Tables
             for (; i < records.Count; i++)
                 AddElement<T>(records[i]).Index(i + 1);
             rowAdditor.Index(i + 1);
-            _ = Records.Children.Add(rowAdditor as UserControl);
+            rowAdditor.RowKey = Records.Children.Add(rowAdditor as UserControl);
             OnPropertyChanged(nameof(Records));
             OnPropertyChanged(nameof(Count));
         }
@@ -100,7 +100,7 @@ namespace Prosperity.Controls.Tables
         {
             IRedactable row = Activator.CreateInstance(typeof(T)) as IRedactable;
             row.SetElement(record);
-            _ = Records.Children.Add(row as UserControl);
+            row.RowKey = Records.Children.Add(row as UserControl);
             row.SetTools(Records);
             return row;
         }
@@ -113,26 +113,27 @@ namespace Prosperity.Controls.Tables
 
         private string Before(string name) => "Ранее смотрели: " + name;
 
-        private void FillTables<T>(uint id, string name, TransitionBase.Transition transition,
-            UserControl header, List<string[]> rows, IAutoIndexing additor)
+        private void FillTables<T>(UserControl header,
+            List<string[]> rows, IAutoIndexing additor)
         {
-            ViewModel.ChangeMarkMethod(transition, name, id);
             ResetHeaders(header);
             AddElements<T>(rows, additor);
         }
 
-        private void FillPrimaryTables<T>(uint id, string name, TransitionBase.Transition transition,
-            UserControl header, List<string[]> rows, IAutoIndexing additor)
-        {
-            ViewModel.CleanBuffer();
-            FillTables<T>(id, name, transition, header, rows, additor);
-        }
-
-        private void FillSecondaryTables<T>(uint id, string name, TransitionBase.Transition transition,
-            UserControl header, List<string[]> rows, IAutoIndexing additor)
+        private void FillSecondaryTables<T>(uint id, string name,
+            TransitionBase.Transition transition, UserControl header,
+            List<string[]> rows, IAutoIndexing additor)
         {
             ViewModel.AddTransition(transition, name, id);
-            FillTables<T>(id, name, transition, header, rows, additor);
+            FillTables<T>(header, rows, additor);
+        }
+
+        private void FillPrimaryTables<T>(uint id, string name,
+            TransitionBase.Transition transition, UserControl header,
+            List<string[]> rows, IAutoIndexing additor)
+        {
+            ViewModel.CleanBuffer();
+            FillSecondaryTables<T>(id, name, transition, header, rows, additor);
         }
 
         public void FillConformity(uint id = 0)
@@ -144,7 +145,7 @@ namespace Prosperity.Controls.Tables
 
         public void FillSpecialities(uint id = 0)
         {
-            FillPrimaryTables<SpecialityRow>(id, Before("Специальность - ID"), FillConformity,
+            FillPrimaryTables<SpecialityRow>(id, Before("Специальность - ID"), FillSpecialities,
                 new SpecialityColumns(), Data.Specialities, new SpecialityRowAdditor());
         }
 

@@ -13,7 +13,6 @@ namespace Prosperity.ViewModel
     {
         public GlobalViewModel()
         {
-            ViewTools = _defaultState;
             CurrentState = _defaultState;
             Transitions = new Stack();
             SelectedRowIndexes = new Dictionary<ushort, ulong>();
@@ -33,7 +32,7 @@ namespace Prosperity.ViewModel
             }
         }
 
-        public bool IsTopTransition => IsTop(Transitions.Count, 0);
+        public bool IsTopTransition => IsTop(Transitions.Count, 1);
         public static bool IsTop(int original, int toCompare) => original <= toCompare;
         public Visibility BackOperations => IsTopTransition ? Visibility.Hidden : Visibility.Visible;
 
@@ -92,6 +91,7 @@ namespace Prosperity.ViewModel
             TransitionBase transition = new TransitionBase(way, name, id);
             Transitions.Push(transition);
             TransitionStateChanged();
+            NullifySelection();
         }
 
         public void RefreshTransition()
@@ -100,6 +100,7 @@ namespace Prosperity.ViewModel
                 return;
             TransitionBase transition = PopTransition();
             transition.MakeTransition();
+            NullifySelection();
         }
 
         public TransitionBase GetTransition()
@@ -125,18 +126,9 @@ namespace Prosperity.ViewModel
 
         public void TransitionStateChanged()
         {
-            if (!IsTopTransition)
+            if (!IsTop(Transitions.Count, 0))
                 CurrentState = GetTransition();
             OnPropertyChanged(nameof(BackOperations));
-        }
-
-        public TransitionBase ViewTools;
-
-        public void ChangeMarkMethod(TransitionBase.Transition refreshTransition, string name, uint id)
-        {
-            ViewTools.TransitionMethod = refreshTransition;
-            ViewTools.Name = name;
-            ViewTools.Id = id;
         }
 
         internal void EditRows(StackPanel view)
@@ -170,7 +162,6 @@ namespace Prosperity.ViewModel
                 if (row != null && row.CanBeEdited)
                     row.MarkConfirm();
             }
-            ViewTools.MakeTransition();
         }
 
         private void DenyMarks(StackPanel view)

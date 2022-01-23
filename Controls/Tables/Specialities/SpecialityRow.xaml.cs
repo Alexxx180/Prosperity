@@ -23,6 +23,17 @@ namespace Prosperity.Controls.Tables.Specialities
             }
         }
 
+        private int _rowKey;
+        public int RowKey
+        {
+            get => _rowKey;
+            set
+            {
+                _rowKey = value;
+                OnPropertyChanged();
+            }
+        }
+
         private uint _id = 1;
         public uint Id
         {
@@ -142,11 +153,9 @@ namespace Prosperity.Controls.Tables.Specialities
             switch (selector.SelectedIndex)
             {
                 case 0:
-                    SpecialitiesTransition();
                     _tables.FillGeneralCompetetions(Id);
                     break;
                 case 1:
-                    SpecialitiesTransition();
                     _tables.FillProfessionalCompetetions(Id);
                     break;
                 default:
@@ -174,12 +183,6 @@ namespace Prosperity.Controls.Tables.Specialities
         public void UnMark()
         {
             Selection = _selected;
-        }
-
-        private void SpecialitiesTransition()
-        {
-            _tables.ViewModel.AddTransition(_tables.FillSpecialities,
-                "Ранее смотрели: Специальность - ID", Id);
         }
 
         private void SecondaryTables_Select(object sender, SelectionChangedEventArgs e)

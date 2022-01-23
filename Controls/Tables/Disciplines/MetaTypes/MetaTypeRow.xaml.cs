@@ -23,6 +23,17 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes
             }
         }
 
+        private int _rowKey;
+        public int RowKey
+        {
+            get => _rowKey;
+            set
+            {
+                _rowKey = value;
+                OnPropertyChanged();
+            }
+        }
+
         private uint _id = 1;
         public uint Id
         {

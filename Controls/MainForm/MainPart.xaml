@@ -41,10 +41,10 @@
                 </Grid.ColumnDefinitions>
 
                 <Viewbox Grid.Column="1" HorizontalAlignment="Left" Grid.RowSpan="2">
-                    <TextBlock Text="{Binding Path=CurrentState.Name, Mode=OneWay, TargetNullValue='Верхний уровень'}" />
+                    <TextBlock Text="{Binding Path=CurrentState.Name, Mode=OneWay, TargetNullValue='Пополнений стека:'}" />
                 </Viewbox>
                 <Viewbox Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,17,0" Grid.RowSpan="2">
-                    <TextBlock Text="{Binding Path=CurrentState.Id, Mode=OneWay, TargetNullValue='ничего не выбрано'}" />
+                    <TextBlock Text="{Binding Path=CurrentState.Id, Mode=OneWay, TargetNullValue='0'}" />
                 </Viewbox>
             </Grid>
         </Grid>
@@ -61,32 +61,6 @@
                     <RowDefinition Height="0.1*" />
                     <RowDefinition Height="0.9*" />
                 </Grid.RowDefinitions>
-
-                <!--<conformity:ConformityColumns x:Name="ConformityHeader" Visibility="Collapsed" />
-                    <specialityCodes:SpecialityCodeColumns x:Name="SpecialityCodesHeader" Visibility="Collapsed" />
-                    <disciplineCodes:DisciplineCodeColumns x:Name="DisciplineCodesHeader" Visibility="Collapsed" />
-
-                    <specialities:SpecialityColumns x:Name="SpecialityHeader" Visibility="Collapsed" />
-                    <general:GeneralCompetetionColumns x:Name="GeneralCompetetionHeader" Visibility="Collapsed" />
-                    <professional:ProfessionalCompetetionColumns x:Name="ProfessionalCompetetionHeader" Visibility="Collapsed" />
-
-                    <sourceTypes:SourceTypeColumns x:Name="SourceTypesHeader" Visibility="Collapsed"/>
-                    <metaTypes:MetaTypeColumns x:Name="MetaTypesHeader" Visibility="Collapsed"/>
-                    <workTypes:WorkTypesColumns x:Name="WorkTypesHeader" Visibility="Collapsed"/>
-
-                    <disciplines:DisciplineColumns x:Name="DisciplineHeader" Visibility="Collapsed" />
-                    <generalMastering:DisciplineGeneralMasteringColumns x:Name="GeneralMasteringHeader" Visibility="Collapsed" />
-                    <professionalMastering:DisciplineProfessionalMasteringColumns x:Name="ProfessionalMasteringHeader" Visibility="Collapsed" />
-                    <sources:SourceColumns x:Name="SourceHeader" Visibility="Collapsed" />
-                    <metadata:MetaDataColumns x:Name="MetadataHeader" Visibility="Collapsed" />
-                    <hours:HoursColumns x:Name="HoursHeader" Visibility="Collapsed" />
-                    <plan:TopicColumns x:Name="ThemePlanHeader" Visibility="Collapsed" />
-                    <themes:ThemeColumns x:Name="ThemesHeader" Visibility="Collapsed" />
-                    <levels:LevelColumns x:Name="LevelsHeader" Visibility="Collapsed" />
-                    <generalSelection:ThemeGeneralMasteringColumns x:Name="GeneralSelectionHeader" Visibility="Collapsed" />
-                    <professionalSelection:ThemeProfessionalMasteringColumns x:Name="ProfessionalSelectionHeader" Visibility="Collapsed" />
-                    <works:WorkColumns x:Name="WorksHeader" Visibility="Collapsed" />
-                    <tasks:TaskColumns x:Name="TasksHeader" Visibility="Collapsed" />-->
 
                 <Border x:Name="CurrentHeaders" Style="{StaticResource ViewImpact}">
                     <ContentControl>
