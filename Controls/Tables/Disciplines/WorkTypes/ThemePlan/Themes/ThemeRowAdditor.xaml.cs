@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
 {
@@ -108,7 +107,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             if (ThemeLevel == null)
                 return;
             uint topicId = _tables.ViewModel.CurrentState.Id;
-            Add.Theme(topicId, ThemeLevel.Value, ThemeNumber, ThemeName, HoursCount);
+            _tables.Tools.AddRow.Theme(topicId, ThemeLevel.Value, ThemeNumber, ThemeName, HoursCount);
             _tables.ViewModel.RefreshTransition();
         }
 

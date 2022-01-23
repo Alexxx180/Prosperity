@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 {
@@ -137,7 +136,7 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
         {
             if (MetaType == null)
                 return;
-            Edit.Discipline(Id, MetaType.Value, MetaValue);
+            _tables.Tools.EditRow.Discipline(Id, MetaType.Value, MetaValue);
         }
 
         public void MarkPrepare()
@@ -147,7 +146,7 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 
         public void MarkConfirm()
         {
-            Mark.Discipline(Id);
+            _tables.Tools.MarkRow.Discipline(Id);
         }
 
         public void UnMark()

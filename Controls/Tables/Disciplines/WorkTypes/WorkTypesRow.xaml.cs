@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using static Prosperity.Model.DataBase.RedactorTools;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
 {
@@ -102,13 +102,15 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
             No = no;
         }
 
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
+            _tables = GetLayout(table);
         }
 
         public void EditConfirm()
         {
-            Edit.WorkType(Id, WorkType);
+            _tables.Tools.EditRow.WorkType(Id, WorkType);
         }
 
         public void MarkPrepare()
@@ -118,7 +120,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
 
         public void MarkConfirm()
         {
-            Mark.WorkType(Id);
+            _tables.Tools.MarkRow.WorkType(Id);
         }
 
         public void UnMark()

@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
 {
@@ -120,7 +119,7 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
             uint specialityId = _tables.ViewModel.CurrentState.Id;
-            Add.ProfessionalCompetetion(specialityId, CompetetionNo1,
+            _tables.Tools.AddRow.ProfessionalCompetetion(specialityId, CompetetionNo1,
                 CompetetionNo2, ProfessionalName, Knowledge, Skills, Experience);
             _tables.ViewModel.RefreshTransition();
         }

@@ -58,7 +58,6 @@ namespace Prosperity.Controls.Tables
             _connector = new MySQL();
             Tools = new RedactorTools(_connector);
             Data = new ProgramData(_connector);
-            FillDisciplines();
         }
 
         private UserControl _header;

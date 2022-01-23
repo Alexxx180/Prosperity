@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using static Prosperity.Model.DataBase.RedactorTools;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.CompetetionLevels
 {
@@ -119,13 +119,15 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Comp
             No = no;
         }
 
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
+            _tables = GetLayout(table);
         }
 
         public void EditConfirm()
         {
-            Edit.Level(Id, LevelName, Description);
+            _tables.Tools.EditRow.Level(Id, LevelName, Description);
         }
 
         public void MarkPrepare()
@@ -135,7 +137,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Comp
 
         public void MarkConfirm()
         {
-            Mark.Discipline(Id);
+            _tables.Tools.MarkRow.Discipline(Id);
         }
 
         public void UnMark()

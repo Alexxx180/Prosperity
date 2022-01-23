@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works
 {
@@ -70,7 +69,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             if (WorkType == null)
                 return;
             uint themeId = _tables.ViewModel.CurrentState.Id;
-            Add.Work(themeId, WorkType.Value);
+            _tables.Tools.AddRow.Work(themeId, WorkType.Value);
             _tables.ViewModel.RefreshTransition();
         }
 

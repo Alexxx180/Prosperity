@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
 {
@@ -60,7 +59,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
-            Add.WorkType(WorkType);
+            _tables.Tools.AddRow.WorkType(WorkType);
             _tables.ViewModel.RefreshTransition();
         }
 

@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 {
@@ -138,7 +137,7 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
             if (SourceType == null)
                 return;
             uint disciplineId = _tables.ViewModel.CurrentState.Id;
-            Edit.Source(Id, disciplineId, SourceType.Value, Source);
+            _tables.Tools.EditRow.Source(Id, disciplineId, SourceType.Value, Source);
         }
 
         public void MarkPrepare()
@@ -148,7 +147,7 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 
         public void MarkConfirm()
         {
-            Mark.Source(Id);
+            _tables.Tools.MarkRow.Source(Id);
         }
 
         public void UnMark()

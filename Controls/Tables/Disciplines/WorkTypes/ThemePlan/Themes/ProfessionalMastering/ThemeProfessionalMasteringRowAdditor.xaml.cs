@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ProfessionalMastering
 {
@@ -74,7 +73,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Prof
             if (Code == null)
                 return;
             uint themeId = _tables.ViewModel.CurrentState.Id;
-            Add.ProfessionalSelection(themeId, Code.Value);
+            _tables.Tools.AddRow.ProfessionalSelection(themeId, Code.Value);
             _tables.ViewModel.RefreshTransition();
         }
 

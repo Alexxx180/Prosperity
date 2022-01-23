@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralMastering
 {
@@ -131,7 +130,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Gene
             if (Code == null)
                 return;
             uint themeId = _tables.ViewModel.CurrentState.Id;
-            Edit.GeneralSelection(Id, themeId, Code.Value);
+            _tables.Tools.EditRow.GeneralSelection(Id, themeId, Code.Value);
         }
 
         public void MarkPrepare()
@@ -141,7 +140,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Gene
 
         public void MarkConfirm()
         {
-            Mark.GeneralSelection(Id);
+            _tables.Tools.MarkRow.GeneralSelection(Id);
         }
 
         public void UnMark()

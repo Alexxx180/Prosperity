@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.SourceTypes
 {
@@ -55,7 +54,7 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
-            Add.SourceType(SourceType);
+            _tables.Tools.AddRow.SourceType(SourceType);
             _tables.ViewModel.RefreshTransition();
         }
 

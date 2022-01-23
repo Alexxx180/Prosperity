@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works
 {
@@ -131,7 +130,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             if (WorkType == null)
                 return;
             uint themeId = _tables.ViewModel.CurrentState.Id;
-            Edit.Work(Id, themeId, WorkType.Value);
+            _tables.Tools.EditRow.Work(Id, themeId, WorkType.Value);
         }
 
         public void MarkPrepare()
@@ -141,7 +140,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
 
         public void MarkConfirm()
         {
-            Mark.Work(Id);
+            _tables.Tools.MarkRow.Work(Id);
         }
 
         public void UnMark()

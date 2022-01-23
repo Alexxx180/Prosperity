@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
 {
@@ -83,7 +82,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
             if (HoursType == null)
                 return;
             uint disciplineId = _tables.ViewModel.CurrentState.Id;
-            Add.TotalHour(disciplineId, HoursType.Value, Hours);
+            _tables.Tools.AddRow.TotalHour(disciplineId, HoursType.Value, Hours);
             _tables.ViewModel.RefreshTransition();
         }
 

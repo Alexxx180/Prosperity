@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using static Prosperity.Model.DataBase.RedactorTools;
+using static Prosperity.Controls.Tables.EditHelper;
 
 namespace Prosperity.Controls.Tables.Disciplines.MetaTypes
 {
@@ -97,8 +97,10 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
+            _tables = GetLayout(table);
         }
 
         public void Index(int no)
@@ -108,7 +110,7 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes
 
         public void EditConfirm()
         {
-            Edit.MetaType(Id, MetaType);
+            _tables.Tools.EditRow.MetaType(Id, MetaType);
         }
 
         public void MarkPrepare()
@@ -118,7 +120,7 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes
 
         public void MarkConfirm()
         {
-            Mark.MetaType(Id);
+            _tables.Tools.MarkRow.MetaType(Id);
         }
 
         public void UnMark()

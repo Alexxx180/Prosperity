@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Conformity
 {
@@ -154,7 +153,7 @@ namespace Prosperity.Controls.Tables.Conformity
         {
             if (Discipline == null || Speciality == null)
                 return;
-            Edit.Conformity(Id, Discipline.Value, Speciality.Value);
+            _tables.Tools.EditRow.Conformity(Id, Discipline.Value, Speciality.Value);
         }
 
         public void MarkPrepare()
@@ -164,7 +163,7 @@ namespace Prosperity.Controls.Tables.Conformity
 
         public void MarkConfirm()
         {
-            Mark.Conformity(Id);
+            _tables.Tools.MarkRow.Conformity(Id);
         }
 
         public void UnMark()

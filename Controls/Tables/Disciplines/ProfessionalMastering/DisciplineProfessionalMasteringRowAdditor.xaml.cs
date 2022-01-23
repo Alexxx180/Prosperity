@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.ProfessionalMastering
 {
@@ -80,7 +79,7 @@ namespace Prosperity.Controls.Tables.Disciplines.ProfessionalMastering
             if (Code == null)
                 return;
             uint disciplineId = _tables.ViewModel.CurrentState.Id;
-            Add.ProfessionalMastering(disciplineId, Code.Value);
+            _tables.Tools.AddRow.ProfessionalMastering(disciplineId, Code.Value);
             _tables.ViewModel.RefreshTransition();
         }
 

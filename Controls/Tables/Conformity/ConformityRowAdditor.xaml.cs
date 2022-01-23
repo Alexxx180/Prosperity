@@ -103,7 +103,7 @@ namespace Prosperity.Controls.Tables.Conformity
         {
             if (Discipline == null || Speciality == null)
                 return;
-            Add.Conformity(Discipline.Value, Speciality.Value);
+            _tables.Tools.AddRow.Conformity(Discipline.Value, Speciality.Value);
             _tables.FillConformity();
         }
 

@@ -4,9 +4,7 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.ProfessionalMastering
 {
@@ -132,7 +130,7 @@ namespace Prosperity.Controls.Tables.Disciplines.ProfessionalMastering
             if (Code == null)
                 return;
             uint disciplineId = _tables.ViewModel.CurrentState.Id;
-            Edit.ProfessionalMastering(Id, disciplineId, Code.Value);
+            _tables.Tools.EditRow.ProfessionalMastering(Id, disciplineId, Code.Value);
         }
 
         public void MarkPrepare()
@@ -142,7 +140,7 @@ namespace Prosperity.Controls.Tables.Disciplines.ProfessionalMastering
 
         public void MarkConfirm()
         {
-            Mark.ProfessionalMastering(Id);
+            _tables.Tools.MarkRow.ProfessionalMastering(Id);
         }
 
         public void UnMark()

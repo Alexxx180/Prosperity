@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 {
@@ -81,7 +80,7 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
             if (SourceType == null)
                 return;
             uint disciplineId = _tables.ViewModel.CurrentState.Id;
-            Add.Source(disciplineId, SourceType.Value, Source);
+            _tables.Tools.AddRow.Source(disciplineId, SourceType.Value, Source);
             _tables.ViewModel.RefreshTransition();
         }
 

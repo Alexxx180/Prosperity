@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Specialities.SpecialityCodes
 {
@@ -60,7 +59,7 @@ namespace Prosperity.Controls.Tables.Specialities.SpecialityCodes
 
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
-            Add.SpecialityCode(SpecialityCode);
+            _tables.Tools.AddRow.SpecialityCode(SpecialityCode);
             _tables.ViewModel.RefreshTransition();
         }
 

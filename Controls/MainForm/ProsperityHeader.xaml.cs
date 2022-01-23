@@ -18,6 +18,13 @@ namespace Prosperity.Controls.MainForm
             return rowView.ViewModel.TableView;
         }
 
+        // Set table view and table by default
+        public void SetTables(in int id)
+        {
+            SetTablePart();
+            TableSelector.SelectedIndex = id;
+        }
+
         public void SetTablePart()
         {
             Tables = GetTablePart();

@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Specialities
 {
@@ -80,7 +79,7 @@ namespace Prosperity.Controls.Tables.Specialities
         {
             if (Code == null)
                 return;
-            Add.Speciality(Code.Value, SpecialityName);
+            _tables.Tools.AddRow.Speciality(Code.Value, SpecialityName);
             _tables.FillSpecialities();
         }
 

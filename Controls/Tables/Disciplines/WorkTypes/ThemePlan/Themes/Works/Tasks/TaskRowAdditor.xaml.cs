@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks
 {
@@ -69,7 +68,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
         private void AddNewRow(object sender, RoutedEventArgs e)
         {
             ulong workId = _tables.ViewModel.CurrentState.Id;
-            Add.Task(workId, TaskName, HoursCount);
+            _tables.Tools.AddRow.Task(workId, TaskName, HoursCount);
             _tables.ViewModel.RefreshTransition();
         }
 

@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralMastering
 {
@@ -75,7 +74,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Gene
             if (Code == null)
                 return;
             uint themeId = _tables.ViewModel.CurrentState.Id;
-            Add.GeneralSelection(themeId, Code.Value);
+            _tables.Tools.AddRow.GeneralSelection(themeId, Code.Value);
             _tables.ViewModel.RefreshTransition();
         }
 

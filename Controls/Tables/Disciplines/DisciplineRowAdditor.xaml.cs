@@ -2,9 +2,7 @@
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Disciplines
 {
@@ -81,7 +79,7 @@ namespace Prosperity.Controls.Tables.Disciplines
         {
             if (Code == null)
                 return;
-            Add.Discipline(Code.Value, DisciplineName);
+            _tables.Tools.AddRow.Discipline(Code.Value, DisciplineName);
             _tables.FillDisciplines();
         }
 

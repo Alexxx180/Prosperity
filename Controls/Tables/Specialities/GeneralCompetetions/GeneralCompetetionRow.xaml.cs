@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
-using static Prosperity.Model.DataBase.RedactorTools;
 
 namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 {
@@ -150,7 +149,7 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
         public void EditConfirm()
         {
             uint specialityId = _tables.ViewModel.CurrentState.Id;
-            Edit.GeneralCompetetion(Id, specialityId,
+            _tables.Tools.EditRow.GeneralCompetetion(Id, specialityId,
                 CompetetionNo, GeneralName, Knowledge, Skills);
         }
 
@@ -161,7 +160,7 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 
         public void MarkConfirm()
         {
-            Mark.GeneralCompetetion(Id);
+            _tables.Tools.MarkRow.GeneralCompetetion(Id);
         }
 
         public void UnMark()
