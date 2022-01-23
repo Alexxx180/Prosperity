@@ -142,10 +142,24 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             ThemeLevel = ToUInt16(row[4]);
         }
 
-        private void Select(object sender, RoutedEventArgs e)
+        public void Select()
         {
             CanBeEdited = !CanBeEdited;
-            Selection = CanBeEdited ? _selected : _unselected;
+            if (CanBeEdited)
+            {
+                _tables.ViewModel.SelectRow(RowKey, Id);
+                Selection = _selected;
+            }
+            else
+            {
+                _tables.ViewModel.DeSelectRow(RowKey);
+                Selection = _unselected;
+            }
+        }
+
+        private void Select(object sender, RoutedEventArgs e)
+        {
+            Select();
         }
 
         public void Index(int no)
@@ -193,6 +207,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
         {
             ComboBox selector = sender as ComboBox;
             CheckSelection(selector);
+            e.Handled = true;
         }
 
         public void EditConfirm()

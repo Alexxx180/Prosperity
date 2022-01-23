@@ -45,7 +45,7 @@ namespace Prosperity.Controls.Tables.Disciplines.DisciplineCodes
         }
 
         public bool CanBeEdited => HaveSpace();
-        private StackPanel _table => Parent as StackPanel;
+        private StackPanel _table;
 
         private bool HaveSpace()
         {
@@ -60,7 +60,9 @@ namespace Prosperity.Controls.Tables.Disciplines.DisciplineCodes
         private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
+            _table = table;
             _tables = GetLayout(table);
+            OnPropertyChanged(nameof(CanBeEdited));
         }
 
         private void AddNewRow(object sender, RoutedEventArgs e)

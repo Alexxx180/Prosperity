@@ -26,12 +26,12 @@ namespace Prosperity.Controls.MainForm
 
         private void EditRows(object sender, RoutedEventArgs e)
         {
-
+            ViewModel.EditRows(ViewModel.TableView.Records);
         }
 
         private void MarkRows(object sender, RoutedEventArgs e)
         {
-            
+            ViewModel.MarkRows(ViewModel.TableView.Records);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

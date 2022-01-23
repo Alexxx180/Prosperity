@@ -56,7 +56,7 @@ namespace Prosperity.Controls.Tables.Specialities
         }
 
         public bool CanBeEdited => HaveSpace();
-        private StackPanel _table => Parent as StackPanel;
+        private StackPanel _table;
 
         private bool HaveSpace()
         {
@@ -71,7 +71,9 @@ namespace Prosperity.Controls.Tables.Specialities
         private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
+            _table = table;
             _tables = GetLayout(table);
+            OnPropertyChanged(nameof(CanBeEdited));
         }
 
         public void SetCode(uint id)

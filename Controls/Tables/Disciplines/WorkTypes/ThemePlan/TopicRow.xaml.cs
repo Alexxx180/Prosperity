@@ -130,10 +130,24 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
             TopicHours = row[3];
         }
 
-        private void Select(object sender, RoutedEventArgs e)
+        public void Select()
         {
             CanBeEdited = !CanBeEdited;
-            Selection = CanBeEdited ? _selected : _unselected;
+            if (CanBeEdited)
+            {
+                _tables.ViewModel.SelectRow(RowKey, Id);
+                Selection = _selected;
+            }
+            else
+            {
+                _tables.ViewModel.DeSelectRow(RowKey);
+                Selection = _unselected;
+            }
+        }
+
+        private void Select(object sender, RoutedEventArgs e)
+        {
+            Select();
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)
@@ -155,6 +169,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan
         private void GoToThemes(object sender, RoutedEventArgs e)
         {
             _tables.FillThemes(Id);
+            e.Handled = true;
         }
 
         public void EditConfirm()

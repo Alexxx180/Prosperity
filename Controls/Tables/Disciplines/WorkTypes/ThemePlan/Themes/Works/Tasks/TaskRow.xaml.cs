@@ -99,7 +99,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
         {
             _unselected = TryFindResource("Impact1") as Style;
             _selected = TryFindResource("Impact2") as Style;
-            _marked = TryFindResource("Impact2") as Style;
+            _marked = TryFindResource("Impact3") as Style;
             Selection = _unselected;
         }
 
@@ -116,10 +116,24 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             TaskHours = row[2];
         }
 
-        private void Select(object sender, RoutedEventArgs e)
+        public void Select()
         {
             CanBeEdited = !CanBeEdited;
-            Selection = CanBeEdited ? _selected : _unselected;
+            if (CanBeEdited)
+            {
+                _tables.ViewModel.SelectRow(RowKey, Id);
+                Selection = _selected;
+            }
+            else
+            {
+                _tables.ViewModel.DeSelectRow(RowKey);
+                Selection = _unselected;
+            }
+        }
+
+        private void Select(object sender, RoutedEventArgs e)
+        {
+            Select();
         }
 
         private void SelectCode(object sender, RoutedEventArgs e)

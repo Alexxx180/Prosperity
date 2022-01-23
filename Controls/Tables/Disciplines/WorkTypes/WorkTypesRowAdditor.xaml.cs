@@ -22,6 +22,17 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
             }
         }
 
+        private int _rowKey;
+        public int RowKey
+        {
+            get => _rowKey;
+            set
+            {
+                _rowKey = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _workType = "";
         public string WorkType
         {
@@ -34,7 +45,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
         }
 
         public bool CanBeEdited => HaveSpace();
-        private StackPanel _table => Parent as StackPanel;
+        private StackPanel _table;
 
         private bool HaveSpace()
         {
@@ -54,7 +65,9 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes
         private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
+            _table = table;
             _tables = GetLayout(table);
+            OnPropertyChanged(nameof(CanBeEdited));
         }
 
         private void AddNewRow(object sender, RoutedEventArgs e)

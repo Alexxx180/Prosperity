@@ -92,6 +92,7 @@ namespace Prosperity.Controls.Tables
                 AddElement<T>(records[i]).Index(i + 1);
             rowAdditor.Index(i + 1);
             rowAdditor.RowKey = Records.Children.Add(rowAdditor as UserControl);
+            rowAdditor.SetTools(Records);
             OnPropertyChanged(nameof(Records));
             OnPropertyChanged(nameof(Count));
         }
