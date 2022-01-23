@@ -100,10 +100,10 @@ namespace Prosperity.Controls.Tables.Disciplines.ProfessionalMastering
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void SetCode(uint id)
@@ -114,10 +114,11 @@ namespace Prosperity.Controls.Tables.Disciplines.ProfessionalMastering
         private void SelectCode(object sender, RoutedEventArgs e)
         {
             uint disciplineId = _tables.ViewModel.CurrentState.Id;
-            List<string[]> rows = _tables.ViewModel.Data.ConformityProfessionalCompetetions(disciplineId);
+            List<string[]> rows = _tables.Data.ConformityProfessionalCompetetions(disciplineId);
             if (rows.Count > 0)
                 SelectionFields(disciplineId, rows, "Профессиональные компетенции:",
-                    "Освоение профессиональной компетенции", _tables.FillProfessionalFromMastering, SetCode);
+                    "Освоение профессиональной компетенции",
+                    _tables.FillProfessionalFromMastering, SetCode);
             e.Handled = true;
         }
 

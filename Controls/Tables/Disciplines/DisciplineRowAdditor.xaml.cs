@@ -59,10 +59,10 @@ namespace Prosperity.Controls.Tables.Disciplines
             InitializeComponent();
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void SetCode(uint id)
@@ -72,7 +72,7 @@ namespace Prosperity.Controls.Tables.Disciplines
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            SelectionFields(0, _tables.ViewModel.Data.DisciplineCodes,
+            SelectionFields(0, _tables.Data.DisciplineCodes,
                 "Коды дисциплин:", "Дисциплина", _tables.FillDisciplineCodes, SetCode);
             e.Handled = true;
         }

@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -89,6 +88,7 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
             _unselected = TryFindResource("Impact1") as Style;
             _selected = TryFindResource("Impact2") as Style;
             _marked = TryFindResource("Impact2") as Style;
+            Selection = _unselected;
         }
 
         public SourceRow()
@@ -110,10 +110,10 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void SetCode(uint id)
@@ -123,8 +123,8 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            SelectionFields(Id, _tables.ViewModel.Data.SourceTypes,
-                "Типы источников:", "Источник", _tables.FillSourceTypes, SetCode);
+            SelectionFields(Id, _tables.Data.SourceTypes, "Типы источников:",
+                "Источник", _tables.FillSourceTypes, SetCode);
             e.Handled = true;
         }
 

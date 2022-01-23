@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -59,10 +58,10 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
             InitializeComponent();
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void SetCode(uint id)
@@ -72,8 +71,8 @@ namespace Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            SelectionFields(0, _tables.ViewModel.Data.SourceTypes,
-                "Типы источников:", "Источник", _tables.FillSourceTypes, SetCode);
+            SelectionFields(0, _tables.Data.SourceTypes, "Типы источников:",
+                "Источник", _tables.FillSourceTypes, SetCode);
             e.Handled = true;
         }
 

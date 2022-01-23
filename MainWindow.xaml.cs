@@ -10,6 +10,7 @@ namespace Prosperity
         public MainWindow()
         {
             InitializeComponent();
+            Header.SetTablePart();
         }
     }
 }

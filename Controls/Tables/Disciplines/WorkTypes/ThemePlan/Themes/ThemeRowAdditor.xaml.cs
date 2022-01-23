@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -86,10 +85,10 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
             InitializeComponent();
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void SetCode(uint id)
@@ -99,8 +98,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            SelectionFields(0, _tables.ViewModel.Data.Levels,
-                "Уровни компетенций:", "Тема", _tables.FillCompetetionLevels, SetCode);
+            SelectionFields(0, _tables.Data.Levels, "Уровни компетенций:",
+                "Тема", _tables.FillCompetetionLevels, SetCode);
             e.Handled = true;
         }
 

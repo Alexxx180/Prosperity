@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -49,10 +48,10 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Prof
             InitializeComponent();
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void SetCode(uint id)
@@ -63,7 +62,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Prof
         private void SelectCode(object sender, RoutedEventArgs e)
         {
             uint themeId = _tables.ViewModel.CurrentState.Id;
-            List<string[]> rows = _tables.ViewModel.Data.DisciplineProfessionalMasteringByTheme(themeId);
+            List<string[]> rows = _tables.Data.DisciplineProfessionalMasteringByTheme(themeId);
             if (rows.Count > 0)
                 SelectionFields(themeId, rows, "Профессиональные компетенции дисциплины:",
                     "Освоение профессиональной компетенции", _tables.FillDisciplineProfessionalFromMastering, SetCode);

@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -70,10 +69,10 @@ namespace Prosperity.Controls.Tables.Conformity
             InitializeComponent();
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         private void SetDisciplineId(uint id)
@@ -88,14 +87,14 @@ namespace Prosperity.Controls.Tables.Conformity
 
         private void SelectDiscipline(object sender, RoutedEventArgs e)
         {
-            SelectionFields(0, _tables.ViewModel.Data.Disciplines,
+            SelectionFields(0, _tables.Data.Disciplines,
                 "Дисциплины:", "Соответствие", _tables.FillDisciplines, SetDisciplineId);
             e.Handled = true;
         }
 
         private void SelectSpeciality(object sender, RoutedEventArgs e)
         {
-            SelectionFields(0, _tables.ViewModel.Data.Specialities,
+            SelectionFields(0, _tables.Data.Specialities,
                 "Специальности:", "Соответствие", _tables.FillSpecialities, SetSpecialityId);
             e.Handled = true;
         }

@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Controls;
 using static System.Convert;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Model.TransitionBase;
 
 namespace Prosperity.Controls.Tables
@@ -16,9 +15,9 @@ namespace Prosperity.Controls.Tables
             return ushort.TryParse(numberText, out ushort result) ? result : ToUInt16(0);
         }
 
-        public static MainPart GetMainPart(StackPanel tableView)
+        public static LayoutMaster GetLayout(StackPanel tableView)
         {
-            return tableView.Tag as MainPart;
+            return tableView.Tag as LayoutMaster;
         }
 
         public static void SelectionFields(

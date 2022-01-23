@@ -3,35 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:tables="clr-namespace:Prosperity.Controls.Tables"
-             xmlns:conformity="clr-namespace:Prosperity.Controls.Tables.Conformity"
-             xmlns:specialities="clr-namespace:Prosperity.Controls.Tables.Specialities"
-             xmlns:specialityCodes="clr-namespace:Prosperity.Controls.Tables.Specialities.SpecialityCodes"
-             xmlns:general="clr-namespace:Prosperity.Controls.Tables.Specialities.GeneralCompetetions"
-             xmlns:professional="clr-namespace:Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions"
-             xmlns:disciplines="clr-namespace:Prosperity.Controls.Tables.Disciplines"
-             xmlns:disciplineCodes="clr-namespace:Prosperity.Controls.Tables.Disciplines.DisciplineCodes"
-             xmlns:generalMastering="clr-namespace:Prosperity.Controls.Tables.Disciplines.GeneralMastering"
-             xmlns:professionalMastering="clr-namespace:Prosperity.Controls.Tables.Disciplines.ProfessionalMastering"
-             xmlns:sourceTypes="clr-namespace:Prosperity.Controls.Tables.Disciplines.SourceTypes"
-             xmlns:sources="clr-namespace:Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources"
-             xmlns:metaTypes="clr-namespace:Prosperity.Controls.Tables.Disciplines.MetaTypes"
-             xmlns:metadata="clr-namespace:Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData"
-             xmlns:workTypes="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes"
-             xmlns:hours="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours"
-             xmlns:plan="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan"
-             xmlns:themes="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes"
-             xmlns:levels="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.CompetetionLevels"
-             xmlns:generalSelection="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralMastering"
-             xmlns:professionalSelection="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ProfessionalMastering"
-             xmlns:works="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works"
-             xmlns:tasks="clr-namespace:Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks"
              xmlns:viewModel="clr-namespace:Prosperity.ViewModel"
              xmlns:converters="clr-namespace:Prosperity.Controls.Binds.Converters"
-             d:DataContext="{d:DesignInstance Type=viewModel:GlobalViewModel}"
-             mc:Ignorable="d" 
-             DataContext="viewModel" x:Name="MainRedactor"
+             mc:Ignorable="d" x:Name="MainRedactor"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewModel:GlobalViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.075*" />
@@ -76,13 +54,15 @@
                 Auto
             </ScrollViewer.VerticalScrollBarVisibility>
             <Grid>
+                <Grid.DataContext>
+                    <Binding Path="TableView" />
+                </Grid.DataContext>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.1*" />
                     <RowDefinition Height="0.9*" />
                 </Grid.RowDefinitions>
 
-                <Grid x:Name="CurrentHeaders" Style="{StaticResource ViewImpact}">
-                    <conformity:ConformityColumns x:Name="ConformityHeader" Visibility="Collapsed" />
+                <!--<conformity:ConformityColumns x:Name="ConformityHeader" Visibility="Collapsed" />
                     <specialityCodes:SpecialityCodeColumns x:Name="SpecialityCodesHeader" Visibility="Collapsed" />
                     <disciplineCodes:DisciplineCodeColumns x:Name="DisciplineCodesHeader" Visibility="Collapsed" />
 
@@ -106,22 +86,19 @@
                     <generalSelection:ThemeGeneralMasteringColumns x:Name="GeneralSelectionHeader" Visibility="Collapsed" />
                     <professionalSelection:ThemeProfessionalMasteringColumns x:Name="ProfessionalSelectionHeader" Visibility="Collapsed" />
                     <works:WorkColumns x:Name="WorksHeader" Visibility="Collapsed" />
-                    <tasks:TaskColumns x:Name="TasksHeader" Visibility="Collapsed" />
-                </Grid>
+                    <tasks:TaskColumns x:Name="TasksHeader" Visibility="Collapsed" />-->
 
-                <StackPanel x:Name="CurrentView" Grid.Row="1" Tag="{x:Reference MainRedactor}">
-                    
-                </StackPanel>
+                <Border x:Name="CurrentHeaders" Style="{StaticResource ViewImpact}">
+                    <ContentControl>
+                        <Binding x:Name="TableHeader" Path="Header"/>
+                    </ContentControl>
+                </Border>
 
                 <Border x:Name="TableViewControl" Grid.Row="1">
-                    <Border.DataContext>
-                        <tables:LayoutMaster/>
-                    </Border.DataContext>
                     <ContentControl>
                         <Binding x:Name="AllRecords" Path="Records"/>
                     </ContentControl>
                 </Border>
-                
             </Grid>
         </ScrollViewer>
 

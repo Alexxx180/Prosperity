@@ -113,10 +113,10 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void SetCode(uint id)
@@ -126,8 +126,8 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            SelectionFields(Id, _tables.ViewModel.Data.WorkTypes,
-                "Типы работ:", "Общие часы", _tables.FillWorkTypes, SetCode);
+            SelectionFields(Id, _tables.Data.WorkTypes, "Типы работ:",
+                "Общие часы", _tables.FillWorkTypes, SetCode);
             e.Handled = true;
         }
 

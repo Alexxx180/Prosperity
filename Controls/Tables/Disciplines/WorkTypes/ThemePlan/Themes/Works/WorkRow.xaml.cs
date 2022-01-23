@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -104,10 +103,10 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
             No = no;
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void SetCode(uint id)
@@ -117,7 +116,7 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            SelectionFields(Id, _tables.ViewModel.Data.WorkTypes,
+            SelectionFields(Id, _tables.Data.WorkTypes,
                 "Типы работ:", "Работа", _tables.FillWorkTypes, SetCode);
             e.Handled = true;
         }

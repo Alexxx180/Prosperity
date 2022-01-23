@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -105,10 +104,10 @@ namespace Prosperity.Controls.Tables.Disciplines
             DisciplineName = row[2];
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -124,8 +123,8 @@ namespace Prosperity.Controls.Tables.Disciplines
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            SelectionFields(Id, _tables.ViewModel.Data.DisciplineCodes,
-                "Коды дисциплин:", "Дисциплина", _tables.FillDisciplineCodes, SetCode);
+            SelectionFields(Id, _tables.Data.DisciplineCodes, "Коды дисциплин:",
+                "Дисциплина", _tables.FillDisciplineCodes, SetCode);
             e.Handled = true;
         }
 

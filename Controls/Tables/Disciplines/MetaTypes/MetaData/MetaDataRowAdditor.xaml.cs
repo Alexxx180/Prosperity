@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -59,10 +58,10 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
             InitializeComponent();
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void SetCode(uint id)
@@ -72,7 +71,7 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            SelectionFields(0, _tables.ViewModel.Data.MetaTypes,
+            SelectionFields(0, _tables.Data.MetaTypes,
                 "Типы метаданных:", "Метаданные", _tables.FillMetaTypes, SetCode);
             e.Handled = true;
         }

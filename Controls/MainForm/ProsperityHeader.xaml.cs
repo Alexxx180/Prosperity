@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using System.Windows.Controls;
+using Prosperity.Controls.Tables;
 
 namespace Prosperity.Controls.MainForm
 {
@@ -8,12 +9,18 @@ namespace Prosperity.Controls.MainForm
     /// </summary>
     public partial class ProsperityHeader : UserControl
     {
-        private MainPart _tables => GetMainPart();
-        private MainPart GetMainPart()
+        internal LayoutMaster Tables { get; set; }
+        private LayoutMaster GetTablePart()
         {
             Grid mainGrid = Parent as Grid;
             MainWindow window = mainGrid.Parent as MainWindow;
-            return window.RowView;
+            MainPart rowView = window.RowView;
+            return rowView.ViewModel.TableView;
+        }
+
+        public void SetTablePart()
+        {
+            Tables = GetTablePart();
         }
 
         public ProsperityHeader()
@@ -26,13 +33,13 @@ namespace Prosperity.Controls.MainForm
             switch (selector.SelectedIndex)
             {
                 case 0:
-                    _tables.FillDisciplines();
+                    Tables.FillDisciplines();
                     break;
                 case 1:
-                    _tables.FillSpecialities();
+                    Tables.FillSpecialities();
                     break;
                 case 2:
-                    _tables.FillConformity();
+                    Tables.FillConformity();
                     break;
                 default:
                     break;

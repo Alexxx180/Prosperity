@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Prosperity.Model;
-using Prosperity.Model.DataBase;
 using Prosperity.Controls.Tables;
 using System.Windows.Controls;
 
@@ -14,14 +13,11 @@ namespace Prosperity.ViewModel
     {
         public GlobalViewModel()
         {
-            ViewTools = new Pair<TransitionBase, MarkBase>
-            {
-                Name = _defaultState,
-                Value = new MarkBase()
-            };
+            ViewTools = _defaultState;
             CurrentState = _defaultState;
             Transitions = new Stack();
             SelectedRowIndexes = new Dictionary<ushort, ulong>();
+            TableView = new LayoutMaster(this);
         }
 
         private static readonly TransitionBase _defaultState = new TransitionBase(null, "Пополнений стека:", 0);
@@ -64,7 +60,6 @@ namespace Prosperity.ViewModel
                 OnPropertyChanged();
             }
         }
-
 
         public bool CanBeAffected => SelectedRows > 0;
 
@@ -135,22 +130,13 @@ namespace Prosperity.ViewModel
             OnPropertyChanged(nameof(BackOperations));
         }
 
-        public Pair<TransitionBase, MarkBase> ViewTools;
+        public TransitionBase ViewTools;
 
-        public void ChangeMarkMethod(MarkBase.Action toolMethod,
-            TransitionBase.Transition refreshTransition, string name, uint id)
+        public void ChangeMarkMethod(TransitionBase.Transition refreshTransition, string name, uint id)
         {
-            ViewTools.Value.ActionMethod = toolMethod;
-            ViewTools.Name.TransitionMethod = refreshTransition;
-            ViewTools.Name.Name = name;
-            ViewTools.Name.Id = id;
-        }
-
-        public void ChangeMarkMethod(MarkBase.Action toolMethod)
-        {
-            TransitionBase transition = GetTransition();
-            ChangeMarkMethod(toolMethod, transition.TransitionMethod,
-                transition.Name, transition.Id);
+            ViewTools.TransitionMethod = refreshTransition;
+            ViewTools.Name = name;
+            ViewTools.Id = id;
         }
 
         internal void EditRows(StackPanel view)
@@ -184,7 +170,7 @@ namespace Prosperity.ViewModel
                 if (row != null && row.CanBeEdited)
                     row.MarkConfirm();
             }
-            ViewTools.Name.MakeTransition();
+            ViewTools.MakeTransition();
         }
 
         private void DenyMarks(StackPanel view)
@@ -215,9 +201,16 @@ namespace Prosperity.ViewModel
             return result == MessageBoxResult.Yes;
         }
 
-        private static readonly Sql _connector = new MySQL();
-        public ProgramData Data = new ProgramData(_connector);
-        public RedactorTools Tools = new RedactorTools(_connector);
+        private LayoutMaster _tableView;
+        public LayoutMaster TableView
+        {
+            get => _tableView;
+            set
+            {
+                _tableView = value;
+                OnPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

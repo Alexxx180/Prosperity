@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -123,8 +122,8 @@ namespace Prosperity.Controls.Tables.Specialities
 
         private void SelectCode(object sender, RoutedEventArgs e)
         {
-            SelectionFields(Id, _tables.ViewModel.Data.SpecialityCodes,
-                "Коды специальностей:", "Специальность", _tables.FillSpecialityCodes, SetCode);
+            SelectionFields(Id, _tables.Data.SpecialityCodes, "Коды специальностей:",
+                "Специальность", _tables.FillSpecialityCodes, SetCode);
             e.Handled = true;
         }
 
@@ -133,10 +132,10 @@ namespace Prosperity.Controls.Tables.Specialities
             No = no;
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         private void CheckSelection(ComboBox selector)
@@ -180,7 +179,8 @@ namespace Prosperity.Controls.Tables.Specialities
 
         private void SpecialitiesTransition()
         {
-            _tables.ViewModel.AddTransition(_tables.FillSpecialities, "Ранее смотрели: Специальность - ID", Id);
+            _tables.ViewModel.AddTransition(_tables.FillSpecialities,
+                "Ранее смотрели: Специальность - ID", Id);
         }
 
         private void SecondaryTables_Select(object sender, SelectionChangedEventArgs e)

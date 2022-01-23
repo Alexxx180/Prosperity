@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -126,7 +125,7 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
         {
             Id = ToUInt32(row[0]);
             GeneralNo = row[1];
-            Name = row[2];
+            GeneralName = row[2];
             Knowledge = row[3];
             Skills = row[4];
         }
@@ -142,10 +141,10 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
             No = no;
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void EditConfirm()

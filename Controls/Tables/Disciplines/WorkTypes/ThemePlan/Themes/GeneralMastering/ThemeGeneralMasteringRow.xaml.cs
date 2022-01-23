@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
-using Prosperity.Controls.MainForm;
 using static Prosperity.Controls.Tables.EditHelper;
 using static Prosperity.Model.DataBase.RedactorTools;
 
@@ -100,10 +99,10 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Gene
             Selection = CanBeEdited ? _selected : _unselected;
         }
 
-        private MainPart _tables;
+        private LayoutMaster _tables;
         public void SetTools(StackPanel table)
         {
-            _tables = GetMainPart(table);
+            _tables = GetLayout(table);
         }
 
         public void SetCode(uint id)
@@ -114,10 +113,11 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Gene
         private void SelectCode(object sender, RoutedEventArgs e)
         {
             uint themeId = _tables.ViewModel.CurrentState.Id;
-            List<string[]> rows = _tables.ViewModel.Data.DisciplineGeneralMasteringByTheme(themeId);
+            List<string[]> rows = _tables.Data.DisciplineGeneralMasteringByTheme(themeId);
             if (rows.Count > 0)
-                SelectionFields(themeId, rows, "Общие компетенции дисциплины:",
-                    "Освоение общей компетенции", _tables.FillDisciplineGeneralFromMastering, SetCode);
+                SelectionFields(themeId, rows,
+                    "Общие компетенции дисциплины:", "Освоение общей компетенции",
+                    _tables.FillDisciplineGeneralFromMastering, SetCode);
             e.Handled = true;
         }
 
