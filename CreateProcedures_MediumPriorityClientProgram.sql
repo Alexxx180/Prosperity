@@ -139,7 +139,7 @@ END;
 
 CREATE PROCEDURE get_conformity_professional_competetions_unmarked(discipline_id INT UNSIGNED)
 BEGIN
-	SELECT `ID`, `No1`, `No2`, `Name`, `Knowledge`, `Skills`
+	SELECT `ID`, `No1`, `No2`, `Name`, `Knowledge`, `Skills`, `Experience`
 	FROM Professional_competetions
 	WHERE `Speciality` = (
 		SELECT `Speciality`
@@ -194,69 +194,36 @@ BEGIN
 	WHERE `ToDrop` = 0;
 END;
 
+delimiter \;
+
 CREATE PROCEDURE get_discipline_general_mastering_unmarked(discipline_id INT UNSIGNED)
 BEGIN
-	SELECT
-	General_competetions.`ID`,
-	General_competetions.`No`,
-	General_competetions.`Name`,
-	General_competetions.`Knowledge`,
-	General_competetions.`Skills`
+	SELECT `ID`, `Mastering`
 	FROM General_mastering
-	LEFT JOIN
-	General_competetions
-	ON General_competetions.`ID` = General_mastering.`Mastering`
 	WHERE `Discipline` = discipline_id
-	AND General_mastering.`ToDrop` = 0;
+	AND `ToDrop` = 0;
 END;
 
 CREATE PROCEDURE get_discipline_professional_mastering_unmarked(discipline_id INT UNSIGNED)
 BEGIN
-	SELECT
-	Professional_competetions.`ID`,
-	Professional_competetions.`No1`,
-	Professional_competetions.`No2`,
-	Professional_competetions.`Name`,
-	Professional_competetions.`Knowledge`,
-	Professional_competetions.`Skills`,
-	Professional_competetions.`Experience`
+	SELECT `ID`, `Mastering`
 	FROM Professional_mastering
-	LEFT JOIN
-	Professional_competetions
-	ON Professional_competetions.`ID` = Professional_mastering.`Mastering`
 	WHERE `Discipline` = discipline_id
-	AND Professional_mastering.`ToDrop` = 0;
+	AND `ToDrop` = 0;
 END;
 
 CREATE PROCEDURE get_theme_general_mastering_selection_unmarked(theme_id INT UNSIGNED)
 BEGIN
-	SELECT
-	General_competetions.`ID`,
-	General_competetions.`No`
+	SELECT `ID`, `Mastering`
 	FROM General_selection
-	LEFT JOIN
-	General_mastering
-	ON General_mastering.`ID` = General_selection.`Mastering`
-	LEFT JOIN
-	General_competetions
-	ON General_competetions.`ID` = General_mastering.`Mastering`
 	WHERE `Theme` = theme_id 
-	AND General_selection.`ToDrop` = 0;
+	AND `ToDrop` = 0;
 END;
 
 CREATE PROCEDURE get_theme_professional_mastering_selection_unmarked(theme_id INT UNSIGNED)
 BEGIN
-	SELECT
-	Professional_competetions.`ID`,
-	Professional_competetions.`No1`,
-	Professional_competetions.`No2`
+	SELECT `ID`, `Mastering`
 	FROM Professional_selection
-	LEFT JOIN
-	Professional_mastering
-	ON Professional_mastering.`ID` = Professional_selection.`Mastering`
-	LEFT JOIN
-	Professional_competetions
-	ON Professional_competetions.`ID` = Professional_mastering.`Mastering`
 	WHERE `Theme` = theme_id
-	AND Professional_selection.`ToDrop` = 0;
+	AND `ToDrop` = 0;
 END;

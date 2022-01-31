@@ -80,7 +80,6 @@ BEGIN
 	`WorkType` = work_type_id;
 END;
 
-
 -- table: themes <- theme_plan
 
 -- delimiter \;
@@ -137,13 +136,165 @@ BEGIN
 	CALL meta_data_auto_set(6, '');
 END;
 
--- delimiter \;
 
-CREATE TRIGGER delete_disciplines
-BEFORE DELETE ON disciplines FOR EACH ROW
+
+-- linked tables delete rows
+
+delimiter \;
+
+CREATE TRIGGER delete_work_linked
+BEFORE DELETE ON works FOR EACH ROW
 BEGIN
-	CALL drop_hour(
-		OLD.`ID`
-	);
+	DELETE FROM Tasks
+	WHERE `Work` = OLD.`ID`;
 END;
 
+CREATE TRIGGER delete_theme_linked
+BEFORE DELETE ON themes FOR EACH ROW
+BEGIN
+	DELETE FROM Tasks
+	WHERE `Work` IN (
+		SELECT `ID` FROM Works
+		WHERE `Theme` = OLD.ID
+	);
+
+	DELETE FROM Works
+	WHERE `Theme` = OLD.`ID`;
+	
+	DELETE FROM General_selection
+	WHERE `Theme` = OLD.`ID`;
+	
+	DELETE FROM Professional_selection
+	WHERE `Theme` = OLD.`ID`;
+END;
+
+CREATE TRIGGER delete_topic_linked
+BEFORE DELETE ON theme_plan FOR EACH ROW
+BEGIN
+	DELETE FROM Tasks
+	WHERE `Work` IN (
+		SELECT `ID` FROM Works
+		WHERE `Theme` IN (
+			SELECT `ID` FROM Themes
+			WHERE `Topic` = OLD.ID
+		)
+	);
+
+	DELETE FROM Works
+	WHERE `Theme` IN (
+		SELECT `ID` FROM Themes
+		WHERE `Topic` = OLD.ID
+	);
+	
+	DELETE FROM General_selection
+	WHERE `Theme` IN (
+		SELECT `ID` FROM Themes
+		WHERE `Topic` = OLD.ID
+	);
+	
+	DELETE FROM Professional_selection
+	WHERE `Theme` IN (
+		SELECT `ID` FROM Themes
+		WHERE `Topic` = OLD.ID
+	);
+	
+	DELETE FROM Themes
+	WHERE `Topic` = OLD.ID;
+END;
+
+delimiter \;
+
+CREATE TRIGGER delete_discipline_linked
+BEFORE DELETE ON disciplines FOR EACH ROW
+BEGIN
+	DELETE FROM Conformity
+	WHERE `Discipline` = OLD.ID;
+
+	DELETE FROM Tasks
+	WHERE `Work` IN (
+		SELECT `ID` FROM Works
+		WHERE `Theme` IN (
+			SELECT `ID` FROM Themes
+			WHERE `Topic` IN (
+				SELECT `ID` FROM Theme_plan
+				WHERE `Discipline` = OLD.ID
+			)
+		)
+	);
+
+	DELETE FROM Works
+	WHERE `Theme` IN (
+		SELECT `ID` FROM Themes
+		WHERE `Topic` IN (
+			SELECT `ID` FROM Theme_plan
+			WHERE `Discipline` = OLD.ID
+		)
+	);
+	
+	DELETE FROM General_selection
+	WHERE `Theme` IN (
+		SELECT `ID` FROM Themes
+		WHERE `Topic` IN (
+			SELECT `ID` FROM Theme_plan
+			WHERE `Discipline` = OLD.ID
+		)
+	);
+	
+	DELETE FROM Professional_selection
+	WHERE `Theme` IN (
+		SELECT `ID` FROM Themes
+		WHERE `Topic` IN (
+			SELECT `ID` FROM Theme_plan
+			WHERE `Discipline` = OLD.ID
+		)
+	);
+	
+	DELETE FROM Themes
+	WHERE `Topic` IN (
+		SELECT `ID` FROM Theme_plan
+		WHERE `Discipline` = OLD.ID
+	);
+	
+	DELETE FROM Theme_plan
+	WHERE `Discipline` = OLD.ID;
+	
+	DELETE FROM Hours
+	WHERE `Discipline` = OLD.ID;
+	
+	DELETE FROM Meta_data
+	WHERE `Discipline` = OLD.ID;
+	
+	DELETE FROM Sources
+	WHERE `Discipline` = OLD.ID;
+	
+	DELETE FROM General_mastering
+	WHERE `Discipline` = OLD.ID;
+	
+	DELETE FROM Professional_mastering
+	WHERE `Discipline` = OLD.ID;
+END;
+
+CREATE TRIGGER delete_speciality_linked
+BEFORE DELETE ON specialities FOR EACH ROW
+BEGIN
+	DELETE FROM Conformity
+	WHERE `Speciality` = OLD.ID;
+
+	DELETE FROM General_mastering
+	WHERE `Mastering` IN (
+		SELECT `ID` FROM General_competetions
+		WHERE `Speciality` = OLD.ID
+	);
+	
+	DELETE FROM Professional_mastering
+	WHERE `Mastering` IN (
+		SELECT `ID` FROM Professional_competetions
+		WHERE `Speciality` = OLD.ID
+	);
+
+	DELETE FROM General_competetions
+	WHERE `Speciality` = OLD.ID;
+	
+	DELETE FROM Professional_competetions
+	WHERE `Speciality` = OLD.ID;
+END;

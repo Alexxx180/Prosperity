@@ -498,7 +498,7 @@ END;
 -- delimiter \;
 
 CREATE PROCEDURE add_source(
-	discipline INT UNSIGNED,
+	discipline_id INT UNSIGNED,
 	type_id INT UNSIGNED,
 	source_name VARCHAR(1000)
 )
