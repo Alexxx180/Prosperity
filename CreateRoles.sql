@@ -4,45 +4,45 @@ GRANT ALL ON prosperity.* TO 'developer';
 
 -- viewer
 
-GRANT EXECUTE ON PROCEDURE prosperity.get_professional_competetion(comp_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_professional_competetion
 TO 'viewer';
 GRANT EXECUTE ON PROCEDURE prosperity.get_specialities_full
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_general(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_general
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_professional(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_professional
 TO 'viewer';
 GRANT EXECUTE ON PROCEDURE prosperity.get_disciplines_full
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_disciplines(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_disciplines
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_total_hours(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_total_hours
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_plan_by_discipline(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_plan_by_discipline
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_themes_by_section(section_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_themes_by_section
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_work_by_theme(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_work_by_theme
 TO 'viewer';
 GRANT EXECUTE ON PROCEDURE prosperity.get_work_types
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_task_by_work(work_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_task_by_work
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_meta_data(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_meta_data
 TO 'viewer';
 GRANT EXECUTE ON PROCEDURE prosperity.get_meta_types
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_sources(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_sources
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_source_type(type_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_source_type
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_mastering(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_mastering
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_mastering(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_mastering
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_general_mastering_selection(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_general_mastering_selection
 TO 'viewer';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_professional_mastering_selection(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_professional_mastering_selection
 TO 'viewer';
 GRANT EXECUTE ON PROCEDURE prosperity.get_all_levels
 TO 'viewer';
@@ -57,192 +57,192 @@ GRANT EXECUTE ON PROCEDURE prosperity.get_specialities_unmarked
 TO 'redactor';
 GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_codes_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_general_unmarked(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_general_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_professional_unmarked(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_professional_unmarked
 TO 'redactor';
 GRANT EXECUTE ON PROCEDURE prosperity.get_disciplines_unmarked
 TO 'redactor';
 GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_codes_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_total_hours_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_total_hours_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_plan_by_discipline_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_plan_by_discipline_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_themes_by_section_unmarked(section_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_themes_by_section_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_work_by_theme_unmarked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_work_by_theme_unmarked
 TO 'redactor';
 GRANT EXECUTE ON PROCEDURE prosperity.get_work_types_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_task_by_work_unmarked(work_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_task_by_work_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_meta_data_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_meta_data_unmarked
 TO 'redactor';
 GRANT EXECUTE ON PROCEDURE prosperity.get_meta_types_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_sources_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_sources_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_source_type_unmarked(type_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_source_types_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_mastering_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_mastering_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_mastering_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_mastering_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_general_mastering_selection_unmarked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_general_mastering_selection_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_professional_mastering_selection_unmarked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_professional_mastering_selection_unmarked
 TO 'redactor';
 GRANT EXECUTE ON PROCEDURE prosperity.get_all_levels_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_general_competetions_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_general_competetions_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_professional_competetions_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_professional_competetions_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_by_theme_unmarked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_by_theme_unmarked
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_by_theme_unmarked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_by_theme_unmarked
 TO 'redactor';
 
 -- add
 
-GRANT EXECUTE ON PROCEDURE prosperity.add_conformity(conformity_discipline, conformity_speciality)
+GRANT EXECUTE ON PROCEDURE prosperity.add_conformity
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_discipline(discipline_code, discipline_name)
+GRANT EXECUTE ON PROCEDURE prosperity.add_discipline
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_discipline_code(discipline_code)
+GRANT EXECUTE ON PROCEDURE prosperity.add_discipline_code
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_general_competetion(comp_speciality, comp_no, comp_name, comp_knowledge, comp_skills)
+GRANT EXECUTE ON PROCEDURE prosperity.add_general_competetion
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_general_mastering(mastering_discipline, general_id)
+GRANT EXECUTE ON PROCEDURE prosperity.add_general_mastering
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_general_selection(selection_theme, mastering_selection)
+GRANT EXECUTE ON PROCEDURE prosperity.add_general_selection
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_hour(discipline_id, work_type_id, hours_count)
+GRANT EXECUTE ON PROCEDURE prosperity.add_hour
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_level(level_name, level_description)
+GRANT EXECUTE ON PROCEDURE prosperity.add_level
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_meta_data(data_discipline, data_type_id, data_name)
+GRANT EXECUTE ON PROCEDURE prosperity.add_meta_data
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_meta_type(type_name)
+GRANT EXECUTE ON PROCEDURE prosperity.add_meta_type
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_professional_competetion(comp_speciality, comp_no1, comp_no2, comp_name, comp_knowledge, comp_skills, comp_experience)
+GRANT EXECUTE ON PROCEDURE prosperity.add_professional_competetion
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_professional_mastering(mastering_discipline, professional_id)
+GRANT EXECUTE ON PROCEDURE prosperity.add_professional_mastering
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_professional_selection(selection_theme, mastering_selection)
+GRANT EXECUTE ON PROCEDURE prosperity.add_professional_selection
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_section(section_discipline, section_no, section_name, section_hours)
+GRANT EXECUTE ON PROCEDURE prosperity.add_section
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_source(discipline_id, type_id, source_name)
+GRANT EXECUTE ON PROCEDURE prosperity.add_source
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_source_type(type_name)
+GRANT EXECUTE ON PROCEDURE prosperity.add_source_type
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_speciality(speciality_code, speciality_name)
+GRANT EXECUTE ON PROCEDURE prosperity.add_speciality
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_speciality_code(speciality_code)
+GRANT EXECUTE ON PROCEDURE prosperity.add_speciality_code
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_task(task_work_id, task_name, task_hours)
+GRANT EXECUTE ON PROCEDURE prosperity.add_task
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_theme(theme_topic, theme_mastering_level, theme_no, theme_name, theme_hours)
+GRANT EXECUTE ON PROCEDURE prosperity.add_theme
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_work(work_theme, work_type)
+GRANT EXECUTE ON PROCEDURE prosperity.add_work
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.add_work_type(type_name)
+GRANT EXECUTE ON PROCEDURE prosperity.add_work_type
 TO 'redactor';
 
 -- edit
 
-GRANT EXECUTE ON PROCEDURE prosperity.set_conformity(conformity_id, conformity_discipline, conformity_speciality)
+GRANT EXECUTE ON PROCEDURE prosperity.set_conformity
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_discipline(discipline_id, discipline_code, discipline_name)
+GRANT EXECUTE ON PROCEDURE prosperity.set_discipline
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_discipline_code(code_id, discipline_code)
+GRANT EXECUTE ON PROCEDURE prosperity.set_discipline_code
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_general_competetion(comp_id, comp_speciality, comp_no, comp_name, comp_knowledge, comp_skills)
+GRANT EXECUTE ON PROCEDURE prosperity.set_general_competetion
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_general_mastering(mastering_id, mastering_discipline, general_id)
+GRANT EXECUTE ON PROCEDURE prosperity.set_general_mastering
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_general_selection(selection_id, selection_theme, mastering_selection)
+GRANT EXECUTE ON PROCEDURE prosperity.set_general_selection
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_hour(hour_id, discipline_id, work_type_id, hours_count)
+GRANT EXECUTE ON PROCEDURE prosperity.set_hour
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_level(level_id, level_name, level_description)
+GRANT EXECUTE ON PROCEDURE prosperity.set_level
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_meta_data(data_id, data_discipline, data_type_id, data_name)
+GRANT EXECUTE ON PROCEDURE prosperity.set_meta_data
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_meta_type(type_id, type_name)
+GRANT EXECUTE ON PROCEDURE prosperity.set_meta_type
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_professional_competetion(comp_id, comp_speciality, comp_no1, comp_no2, comp_name, comp_knowledge, comp_skills, comp_experience)
+GRANT EXECUTE ON PROCEDURE prosperity.set_professional_competetion
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_professional_mastering(mastering_id, mastering_discipline, professional_id)
+GRANT EXECUTE ON PROCEDURE prosperity.set_professional_mastering
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_professional_selection(selection_id, selection_theme, mastering_selection)
+GRANT EXECUTE ON PROCEDURE prosperity.set_professional_selection
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_section(section_id, section_discipline, section_no, section_name, section_hours)
+GRANT EXECUTE ON PROCEDURE prosperity.set_section
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_source(source_id, discipline_id, type_id, source_name)
+GRANT EXECUTE ON PROCEDURE prosperity.set_source
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_source_type(type_id, type_name)
+GRANT EXECUTE ON PROCEDURE prosperity.set_source_type
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_speciality(speciality_id, speciality_code, speciality_name)
+GRANT EXECUTE ON PROCEDURE prosperity.set_speciality
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_speciality_code(code_id, speciality_code)
+GRANT EXECUTE ON PROCEDURE prosperity.set_speciality_code
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_task(task_id, task_work_id, task_name, task_hours)
+GRANT EXECUTE ON PROCEDURE prosperity.set_task
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_theme(theme_id, theme_topic, theme_mastering_level, theme_no, theme_name, theme_hours)
+GRANT EXECUTE ON PROCEDURE prosperity.set_theme
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_work(work_id, work_theme, work_type)
+GRANT EXECUTE ON PROCEDURE prosperity.set_work
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.set_work_type(type_id, type_name)
+GRANT EXECUTE ON PROCEDURE prosperity.set_work_type
 TO 'redactor';
 
 -- mark
 
-GRANT EXECUTE ON PROCEDURE prosperity.mark_conformity(conformity_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_conformity
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_discipline(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_discipline
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_discipline_code(code_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_discipline_code
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_general_competetion(comp_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_general_competetion
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_general_mastering(mastering_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_general_mastering
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_general_selection(selection_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_general_selection
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_hour(hour_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_hour
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_level(level_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_level
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_meta_data(data_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_meta_data
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_meta_type(type_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_meta_type
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_professional_competetion(comp_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_professional_competetion
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_professional_mastering(mastering_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_professional_mastering
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_professional_selection(selection_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_professional_selection
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_section(section_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_section
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_source(source_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_source
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_source_type(type_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_source_type
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_speciality(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_speciality
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_speciality_code(code_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_speciality_code
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_task(task_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_task
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_theme(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_theme
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_work(work_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_work
 TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.mark_work_type(type_id)
+GRANT EXECUTE ON PROCEDURE prosperity.mark_work_type
 TO 'redactor';
 
 -- administrator
@@ -256,51 +256,51 @@ GRANT EXECUTE ON PROCEDURE prosperity.get_specialities_unmarked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_codes_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_general_unmarked(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_general_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_professional_unmarked(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_professional_unmarked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_disciplines_unmarked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_codes_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_total_hours_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_total_hours_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_plan_by_discipline_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_plan_by_discipline_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_themes_by_section_unmarked(section_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_themes_by_section_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_work_by_theme_unmarked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_work_by_theme_unmarked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_work_types_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_task_by_work_unmarked(work_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_task_by_work_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_meta_data_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_meta_data_unmarked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_meta_types_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_sources_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_sources_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_source_type_unmarked(type_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_source_types_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_mastering_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_mastering_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_mastering_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_mastering_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_general_mastering_selection_unmarked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_general_mastering_selection_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_professional_mastering_selection_unmarked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_professional_mastering_selection_unmarked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_all_levels_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_general_competetions_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_general_competetions_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_professional_competetions_unmarked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_professional_competetions_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_by_theme_unmarked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_by_theme_unmarked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_by_theme_unmarked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_by_theme_unmarked
 TO 'administrator';
 
 -- marked
@@ -311,263 +311,353 @@ GRANT EXECUTE ON PROCEDURE prosperity.get_specialities_marked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_codes_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_general_marked(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_general_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_professional_marked(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_professional_marked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_disciplines_marked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_codes_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_total_hours_marked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_total_hours_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_plan_by_discipline_marked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_plan_by_discipline_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_themes_by_section_marked(section_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_themes_by_section_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_work_by_theme_marked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_work_by_theme_marked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_work_types_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_task_by_work_marked(work_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_task_by_work_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_meta_data_marked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_meta_data_marked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_meta_types_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_sources_marked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_sources_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_source_type_marked(type_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_source_types_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_mastering_marked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_mastering_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_mastering_marked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_mastering_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_general_mastering_selection_marked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_general_mastering_selection_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_theme_professional_mastering_selection_marked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_theme_professional_mastering_selection_marked
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.get_all_levels_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_general_competetions_marked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_general_competetions_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_professional_competetions_marked(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_conformity_professional_competetions_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_by_theme_marked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_general_by_theme_marked
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_by_theme_marked(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_professional_by_theme_marked
 TO 'administrator';
 
 -- analyze
 
-GRANT EXECUTE ON PROCEDURE prosperity.analyze_discipline(discipline_id)
+GRANT EXECUTE ON PROCEDURE prosperity.analyze_discipline
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.analyze_speciality(speciality_id)
+GRANT EXECUTE ON PROCEDURE prosperity.analyze_speciality
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.analyze_theme(theme_id)
+GRANT EXECUTE ON PROCEDURE prosperity.analyze_theme
 TO 'administrator';
-GRANT EXECUTE ON PROCEDURE prosperity.analyze_topic(topic_id)
+GRANT EXECUTE ON PROCEDURE prosperity.analyze_topic
 TO 'administrator';
 
 -- unmark
 
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_conformity(conformity_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_discipline(discipline_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_discipline_code(code_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_general_competetion(comp_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_general_mastering(mastering_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_general_selection(selection_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_hour(hour_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_level(level_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_meta_data(data_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_meta_type(type_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_professional_competetion(comp_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_professional_mastering(mastering_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_professional_selection(selection_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_section(section_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_source(source_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_source_type(type_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_speciality(speciality_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_speciality_code(code_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_task(task_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_theme(theme_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_work(work_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.unmark_work_type(type_id)
-TO 'redactor';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_conformity
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_discipline
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_discipline_code
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_general_competetion
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_general_mastering
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_general_selection
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_hour
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_level
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_meta_data
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_meta_type
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_professional_competetion
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_professional_mastering
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_professional_selection
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_section
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_source
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_source_type
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_speciality
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_speciality_code
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_task
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_theme
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_work
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.unmark_work_type
+TO 'administrator';
 
 -- drop
 
-GRANT EXECUTE ON PROCEDURE prosperity.drop_conformity(conformity_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_discipline(discipline_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_discipline_code(code_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_general_competetion(comp_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_general_mastering(mastering_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_general_selection(selection_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_hour(hour_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_level(level_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_meta_data(data_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_meta_type(type_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_professional_competetion(comp_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_professional_mastering(mastering_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_professional_selection(selection_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_section(section_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_source(source_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_source_type(type_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_speciality(speciality_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_speciality_code(code_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_task(task_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_theme(theme_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_work(work_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.drop_work_type(type_id)
-TO 'redactor';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_conformity
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_discipline
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_discipline_code
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_general_competetion
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_general_mastering
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_general_selection
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_hour
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_level
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_meta_data
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_meta_type
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_professional_competetion
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_professional_mastering
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_professional_selection
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_section
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_source
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_source_type
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_speciality
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_speciality_code
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_task
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_theme
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_work
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_work_type
+TO 'administrator';
 
 -- unmark all
 
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_conformities
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_disciplines
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_discipline_codes
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_general_competetions
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_general_mastering
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_general_selection
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_hours
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_levels
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_meta_data
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_meta_types
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_professional_competetions
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_professional_mastering
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_professional_selection
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_sections
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_sources
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_source_types
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_specialities
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_speciality_codes
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_tasks
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_themes
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_works
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.unmark_all_work_types
-TO 'redactor';
+TO 'administrator';
 
 -- used record-types count
 
-GRANT EXECUTE ON PROCEDURE prosperity.get_work_type_linked(type_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_level_linked(level_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_source_type_linked(type_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_meta_type_linked(type_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_code_linked(code_id)
-TO 'redactor';
-GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_code_linked(code_id)
-TO 'redactor';
+GRANT EXECUTE ON PROCEDURE prosperity.get_work_type_linked
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.get_level_linked
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.get_source_type_linked
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.get_meta_type_linked
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.get_discipline_code_linked
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.get_speciality_code_linked
+TO 'administrator';
 
 -- drop all
 
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_conformities
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_disciplines
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_discipline_code
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_general_competetions
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_general_mastering
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_general_selection
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_hours
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_levels
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_meta_data
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_meta_type
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_professional_competetions
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_professional_mastering
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_professional_selection
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_theme_plan
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_sources
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_source_types
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_specialities
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_speciality_code
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_tasks
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_themes
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_works
-TO 'redactor';
+TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.drop_all_work_types
-TO 'redactor';
+TO 'administrator';
+
+-- increase column size
+
+GRANT EXECUTE ON PROCEDURE prosperity.increase_disciplines_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_discipline_codes_code
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_general_competetions_knowledge
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_general_competetions_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_general_competetions_skills
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_levels_description
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_levels_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_meta_data_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_meta_types_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_professional_competetions_experience
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_professional_competetions_knowledge
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_professional_competetions_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_professional_competetions_skills
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_sources_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_source_types_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_specialities_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_speciality_codes_code
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_tasks_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_themes_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_theme_plan_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.increase_work_types_name
+TO 'administrator';
+
+-- check column sizes
+
+GRANT EXECUTE ON PROCEDURE prosperity.check_disciplines_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_discipline_codes_code
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_general_competetions_knowledge
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_general_competetions_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_general_competetions_skills
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_levels_description
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_levels_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_meta_data_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_meta_types_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_professional_competetions_experience
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_professional_competetions_knowledge
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_professional_competetions_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_professional_competetions_skills
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_sources_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_source_types_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_specialities_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_speciality_codes_code
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_tasks_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_themes_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_theme_plan_name
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_work_types_name
+TO 'administrator';
