@@ -14,10 +14,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Prosperity.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.27" />
     <PackageReference Include="Serilog" Version="2.10.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Images\Icons\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Prosperity.ico" />
   </ItemGroup>
 
 </Project>

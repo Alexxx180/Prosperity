@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:main="clr-namespace:Prosperity.Controls.FieldsForm"
         mc:Ignorable="d"
-        Title="Просмотр записи" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Просмотр записи" Height="450" Width="800" WindowStartupLocation="CenterScreen" Icon="/Prosperity.ico">
     <Grid Style="{StaticResource CaptionImpact1}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.025*"/>

@@ -6,7 +6,7 @@
         xmlns:converters="clr-namespace:Prosperity.Controls.Binds.Converters"
         mc:Ignorable="d"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="Вход" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+        Title="Вход" Height="400" Width="600" WindowStartupLocation="CenterScreen" Icon="/Prosperity.ico">
     <Grid Style="{StaticResource CaptionImpact1}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>

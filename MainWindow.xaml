@@ -6,7 +6,7 @@
         xmlns:main="clr-namespace:Prosperity.Controls.MainForm"
         mc:Ignorable="d"
         xmlns:viewModel="clr-namespace:Prosperity.ViewModel" WindowStartupLocation="Manual"
-        Title="Редактирование" Height="1080" Width="1920" WindowState="Maximized">
+        Title="Редактирование" Height="1080" Width="1920" WindowState="Maximized" Icon="/Prosperity.ico">
     <Window.DataContext>
         <viewModel:GlobalViewModel x:Name="ViewModel"/>
     </Window.DataContext>
