@@ -1,9 +1,11 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Convert;
 using static Prosperity.Controls.Tables.EditHelper;
+using System.Windows.Input;
 
 namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks
 {
@@ -97,9 +99,9 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
 
         private void SetStyles()
         {
-            _unselected = TryFindResource("Impact1") as Style;
-            _selected = TryFindResource("Impact2") as Style;
-            _marked = TryFindResource("Impact3") as Style;
+            _unselected = TryFindResource("UnSelected") as Style;
+            _selected = TryFindResource("Selected") as Style;
+            _marked = TryFindResource("Marked") as Style;
             Selection = _unselected;
         }
 
@@ -171,6 +173,26 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Work
         public void UnMark()
         {
             Selection = _selected;
+        }
+
+        private void FastSelect(object sender, MouseEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftShift))
+                Select();
+        }
+
+        private void CallFieldsForm(object sender, MouseButtonEventArgs e)
+        {
+            RecordFields fields = new RecordFields(
+                new Dictionary<string, string> {
+                    { "Название", TaskName }
+                }
+            );
+            if (fields.ShowDialog().Value)
+            {
+                Dictionary<string, string> result = fields.FieldsView.Fields;
+                TaskName = result["Название"];
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -8,8 +8,8 @@
              d:DesignHeight="35" d:DesignWidth="800">
     <Grid Height="35">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.335*" />
-            <ColumnDefinition Width="0.665*" />
+            <ColumnDefinition Width="0.425*" />
+            <ColumnDefinition Width="0.575*" />
         </Grid.ColumnDefinitions>
 
         <Button Style="{StaticResource ImpactButton}" Click="AddNewRow">

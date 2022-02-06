@@ -85,7 +85,7 @@
     <Style x:Key="MarkedRow">
         <Setter Property="Control.Background" Value="#FFFF6600"/>
         <Setter Property="Control.Foreground" Value="#FF000000"/>
-        <Setter Property="Control.BorderBrush" Value="#FFAABB00"/>
+        <Setter Property="Control.BorderBrush" Value="#FFFF6600"/>
         <Setter Property="Control.BorderThickness" Value="2"/>
         <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
         <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>

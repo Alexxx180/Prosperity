@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
-             d:DesignHeight="100" d:DesignWidth="800">
-    <Grid Height="100">
+             d:DesignHeight="35" d:DesignWidth="800">
+    <Grid Height="35">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*" />
             <ColumnDefinition Width="0.1*" />
@@ -26,7 +26,7 @@
             </Viewbox>
         </Button>
 
-        <TextBox Grid.Column="1" Style="{StaticResource HoursBox}" Height="35" MaxHeight="35">
+        <TextBox Grid.Column="1" Style="{StaticResource HoursBox}">
             <TextBox.VerticalScrollBarVisibility>
                 Auto
             </TextBox.VerticalScrollBarVisibility>
@@ -40,7 +40,7 @@
                 20
             </TextBox.FontSize>
         </TextBox>
-        <TextBox Grid.Column="2"  Style="{StaticResource HoursBox}" Height="35" MaxHeight="35">
+        <TextBox Grid.Column="2"  Style="{StaticResource HoursBox}">
             <TextBox.VerticalScrollBarVisibility>
                 Auto
             </TextBox.VerticalScrollBarVisibility>
@@ -55,7 +55,7 @@
             </TextBox.FontSize>
         </TextBox>
 
-        <TextBox Grid.Column="3" Style="{StaticResource NameBox250}" TextWrapping="Wrap" Height="100" MaxHeight="100">
+        <TextBox Grid.Column="3" Style="{StaticResource NameBox250}">
             <TextBox.VerticalScrollBarVisibility>
                 Auto
             </TextBox.VerticalScrollBarVisibility>
@@ -70,7 +70,7 @@
             </TextBox.FontSize>
         </TextBox>
 
-        <TextBox Grid.Column="4" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="100" MaxHeight="100">
+        <TextBox Grid.Column="4" Style="{StaticResource NameBox1000}">
             <TextBox.VerticalScrollBarVisibility>
                 Auto
             </TextBox.VerticalScrollBarVisibility>
@@ -84,7 +84,7 @@
                 20
             </TextBox.FontSize>
         </TextBox>
-        <TextBox Grid.Column="5" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="100" MaxHeight="100">
+        <TextBox Grid.Column="5" Style="{StaticResource NameBox1000}">
             <TextBox.VerticalScrollBarVisibility>
                 Auto
             </TextBox.VerticalScrollBarVisibility>
@@ -98,7 +98,7 @@
                 20
             </TextBox.FontSize>
         </TextBox>
-        <TextBox Grid.Column="6" Style="{StaticResource NameBox1000}" TextWrapping="Wrap" Height="100" MaxHeight="100">
+        <TextBox Grid.Column="6" Style="{StaticResource NameBox1000}">
             <TextBox.VerticalScrollBarVisibility>
                 Auto
             </TextBox.VerticalScrollBarVisibility>

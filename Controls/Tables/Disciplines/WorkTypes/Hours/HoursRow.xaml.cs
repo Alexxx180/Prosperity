@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -97,9 +98,9 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
 
         private void SetStyles()
         {
-            _unselected = TryFindResource("Impact1") as Style;
-            _selected = TryFindResource("Impact2") as Style;
-            _marked = TryFindResource("Impact2") as Style;
+            _unselected = TryFindResource("UnSelected") as Style;
+            _selected = TryFindResource("Selected") as Style;
+            _marked = TryFindResource("Marked") as Style;
             Selection = _unselected;
         }
 
@@ -116,10 +117,24 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
             HoursCount = row[2];
         }
 
-        private void Select(object sender, RoutedEventArgs e)
+        public void Select()
         {
             CanBeEdited = !CanBeEdited;
-            Selection = CanBeEdited ? _selected : _unselected;
+            if (CanBeEdited)
+            {
+                _tables.ViewModel.SelectRow(RowKey, Id);
+                Selection = _selected;
+            }
+            else
+            {
+                _tables.ViewModel.DeSelectRow(RowKey);
+                Selection = _unselected;
+            }
+        }
+
+        private void Select(object sender, RoutedEventArgs e)
+        {
+            Select();
         }
 
         private LayoutMaster _tables;
@@ -166,6 +181,12 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours
         public void UnMark()
         {
             Selection = _selected;
+        }
+
+        private void FastSelect(object sender, MouseEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftShift))
+                Select();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

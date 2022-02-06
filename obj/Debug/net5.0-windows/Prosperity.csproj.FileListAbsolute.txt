@@ -211,3 +211,9 @@ D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosp
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\RecordSelection.g.cs
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\RecordForm\MainPart.baml
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\RecordSelection.baml
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\FieldsForm\MainPart.baml
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\FieldsForm\TextSection.baml
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\FieldsForm\MainPart.g.cs
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\FieldsForm\TextSection.g.cs
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\RecordFields.g.cs
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\RecordFields.baml

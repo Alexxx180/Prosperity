@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Prosperity.Controls.FieldsForm.MainPart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DesignHeight="200" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.6*"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="Sections">
+            
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid Grid.Column="1">
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                <TextBox x:Name="TextView" TextWrapping="Wrap" FontSize="28">
+                    <TextBox.Text>
+                        <Binding Path="FullText" Mode="TwoWay" UpdateSourceTrigger="LostFocus" />
+                    </TextBox.Text>
+                </TextBox>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

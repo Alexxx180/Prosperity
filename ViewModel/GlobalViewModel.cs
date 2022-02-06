@@ -103,8 +103,6 @@ namespace Prosperity.ViewModel
 
         public void RefreshTransition()
         {
-            if (IsTopTransition)
-                return;
             TransitionBase transition = PopTransition();
             transition.MakeTransition();
             NullifySelection();

@@ -8,9 +8,9 @@
              d:DesignHeight="35" d:DesignWidth="800">
     <Grid Height="35">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1275*" />
             <ColumnDefinition Width="0.15*" />
-            <ColumnDefinition Width="0.15*" />
-            <ColumnDefinition Width="0.55*" />
+            <ColumnDefinition Width="0.5725*" />
             <ColumnDefinition Width="0.15*" />
         </Grid.ColumnDefinitions>
 

@@ -7,20 +7,26 @@
              d:DesignHeight="35" d:DesignWidth="800">
     <Grid Height="35">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="0.85*"/>
+            <ColumnDefinition Width="0.15*"/>
         </Grid.ColumnDefinitions>
 
-        <Viewbox>
-            <TextBlock Text="№" />
-        </Viewbox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Viewbox>
+                <TextBlock Text="№" />
+            </Viewbox>
+
+            <Viewbox Grid.Column="1">
+                <TextBlock Text="Тип работы" />
+            </Viewbox>
+        </Grid>
 
         <Viewbox Grid.Column="1">
-            <TextBlock Text="Тип работы" />
-        </Viewbox>
-
-        <Viewbox Grid.Column="2">
             <TextBlock Text="Далее" />
         </Viewbox>
     </Grid>

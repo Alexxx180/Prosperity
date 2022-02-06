@@ -4,12 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}" MouseEnter="FastSelect"
              d:DesignHeight="35" d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style x:Key="Impact1" BasedOn="{StaticResource ImpactButton3}" TargetType="Button" />
-        <Style x:Key="Impact2" BasedOn="{StaticResource ImpactButton4}" TargetType="Button" />
-    </UserControl.Resources>
     <Button Height="35" HorizontalContentAlignment="Stretch" Click="Select">
         <Button.Style>
             <Binding Path="Selection" />

@@ -1,0 +1,50 @@
+﻿<Window x:Class="Prosperity.RecordFields"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:main="clr-namespace:Prosperity.Controls.FieldsForm"
+        mc:Ignorable="d"
+        Title="Просмотр записи" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Style="{StaticResource CaptionImpact1}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.025*"/>
+            <ColumnDefinition Width="0.95*"/>
+            <ColumnDefinition Width="0.025*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.05*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.05*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource ImpactButton2}" Click="Apply">
+                <Viewbox>
+                    <TextBlock Text="ОК" />
+                </Viewbox>
+            </Button>
+
+            <Button Grid.Column="2" Style="{StaticResource ImpactButton2}" Click="Cancel">
+                <Viewbox>
+                    <TextBlock Text="Отмена" />
+                </Viewbox>
+            </Button>
+        </Grid>
+
+        <main:MainPart x:Name="FieldsView" Grid.Column="1" Grid.Row="1" />
+    </Grid>
+</Window>

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Input;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -119,9 +121,9 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
 
         private void SetStyles()
         {
-            _unselected = TryFindResource("Impact1") as Style;
-            _selected = TryFindResource("Impact2") as Style;
-            _marked = TryFindResource("Impact2") as Style;
+            _unselected = TryFindResource("UnSelected") as Style;
+            _selected = TryFindResource("Selected") as Style;
+            _marked = TryFindResource("Marked") as Style;
             Selection = _unselected;
         }
 
@@ -191,6 +193,30 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
         public void UnMark()
         {
             Selection = _selected;
+        }
+
+        private void FastSelect(object sender, MouseEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftShift))
+                Select();
+        }
+
+        private void CallFieldsForm(object sender, MouseButtonEventArgs e)
+        {
+            RecordFields fields = new RecordFields(
+                new Dictionary<string, string> {
+                    { "Название", GeneralName },
+                    { "Умения", Skills },
+                    { "Знания", Knowledge },
+                }
+            );
+            if (fields.ShowDialog().Value)
+            {
+                Dictionary<string, string> result = fields.FieldsView.Fields;
+                GeneralName = result["Название"];
+                Skills = result["Умения"];
+                Knowledge = result["Знания"];
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
