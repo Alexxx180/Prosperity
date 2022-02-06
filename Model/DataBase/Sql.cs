@@ -9,6 +9,8 @@ namespace Prosperity.Model.DataBase
     /// </summary>
     public abstract class Sql : IDataViewer, IDataRedactor
     {
+        public static bool IsConnected = false;
+
         public static void ConnectionMessage(string loadProblem, string exception)
         {
             string noLoad = "Не удалось обработать: ";

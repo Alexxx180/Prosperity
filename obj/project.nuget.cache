@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QvjXRcQ86mfNCUtdGzK3+2ha9GyHQCck83PRC9VcXoDs4XvsQWpFg8Yf6Yii1aWsZ9bqr0d+K7ESVMEwHddgVg==",
+  "dgSpecHash": "98FYD4VN3hpW9cuLymdpuxJL1lPTqEpxEMlQ+DzhGMde4hINmFC3KgFNykNrBtjFcrZM/qISXnnoXxUWO/05eQ==",
   "success": true,
   "projectFilePath": "D:\\Aleksandr\\Windows-7\\misc\\Надгробные плиты\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,8 @@
     "C:\\Users\\Администратор\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Администратор\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Администратор\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
+    "C:\\Users\\Администратор\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\Администратор\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Администратор\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\Администратор\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",

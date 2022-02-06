@@ -217,3 +217,7 @@ D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosp
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\FieldsForm\TextSection.g.cs
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\RecordFields.g.cs
 D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\RecordFields.baml
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\Serilog.dll
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\Serilog.Sinks.File.dll
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\EntryWindow.g.cs
+D:\Aleksandr\Windows-7\misc\Надгробные плиты\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\EntryWindow.baml

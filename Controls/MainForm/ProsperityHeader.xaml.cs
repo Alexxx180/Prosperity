@@ -1,52 +1,56 @@
 ﻿using System.Windows.Input;
 using System.Windows.Controls;
-using Prosperity.Controls.Tables;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
+using Prosperity.Model.DataBase;
+using Prosperity.ViewModel;
 
 namespace Prosperity.Controls.MainForm
 {
     /// <summary>
     /// Part responsible for primary tables selection
     /// </summary>
-    public partial class ProsperityHeader : UserControl
+    public partial class ProsperityHeader : UserControl, INotifyPropertyChanged
     {
-        internal LayoutMaster Tables { get; set; }
-        private LayoutMaster GetTablePart()
+        private GlobalViewModel _viewModel;
+        internal GlobalViewModel ViewModel
         {
-            Grid mainGrid = Parent as Grid;
-            MainWindow window = mainGrid.Parent as MainWindow;
-            MainPart rowView = window.RowView;
-            return rowView.ViewModel.TableView;
+            get => _viewModel;
+            set
+            {
+                _viewModel = value;
+                SetTables(0);
+                OnPropertyChanged();
+            }
         }
 
-        // Set table view and table by default
+        // Set table by default
         public void SetTables(in int id)
         {
-            SetTablePart();
-            TableSelector.SelectedIndex = id;
-        }
-
-        public void SetTablePart()
-        {
-            Tables = GetTablePart();
+            if (Sql.IsConnected)
+                TableSelector.SelectedIndex = id;
         }
 
         public ProsperityHeader()
         {
-            InitializeComponent();
+            if (Sql.IsConnected)
+                InitializeComponent();
         }
 
         private void CheckSelection(ComboBox selector)
         {
+            if (ViewModel.TableView == null)
+                return;
             switch (selector.SelectedIndex)
             {
                 case 0:
-                    Tables.FillDisciplines();
+                    ViewModel.TableView.FillDisciplines();
                     break;
                 case 1:
-                    Tables.FillSpecialities();
+                    ViewModel.TableView.FillSpecialities();
                     break;
                 case 2:
-                    Tables.FillConformity();
+                    ViewModel.TableView.FillConformity();
                     break;
                 default:
                     break;
@@ -63,6 +67,13 @@ namespace Prosperity.Controls.MainForm
         {
             ComboBox selector = sender as ComboBox;
             CheckSelection(selector);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

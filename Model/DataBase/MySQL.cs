@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using System.Reflection;
 using MySql.Data.MySqlClient;
+using Serilog;
 
 namespace Prosperity.Model.DataBase
 {
@@ -12,51 +11,69 @@ namespace Prosperity.Model.DataBase
     /// </summary>
     public class MySQL : Sql
     {
-        private const string PublishSource =
-            @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = ";
-        private const string PublishLocation =
-            @"\Resources\Database\DesertRageGame.mdf; Integrated Security = True";
+        private static string ConnectionString;
+
+        private static string _dataBaseName;
+        private static string _hostName;
+
         public MySQL()
         {
-            Con = ParentServerConnection();
+            Con = NewConnection(ConnectionString);
         }
-        
+
+        internal static void SetConfig(string dataBase, string host)
+        {
+            _dataBaseName = dataBase;
+            _hostName = host;
+        }
+
+        public static bool TestConnection(string login, string password)
+        {
+            IsConnected = true;
+            Log.Debug("Connecting to DB...");
+            MySqlConnection test = EnterConnection(login, password);
+            try
+            {
+                test.Open();
+            }
+            catch (MySqlException dbException)
+            {
+                Log.Warning("Tried to connect to DB, no sucess: " + dbException.Message);
+                IsConnected = false;
+            }
+            catch (InvalidOperationException operationException)
+            {
+                Log.Warning("Tried to connect to DB, no sucess: " + operationException.Message);
+                IsConnected = false;
+            }
+            catch (Exception exception)
+            {
+                Log.Warning("Tried to connect to DB, no sucess: " + exception.Message);
+                IsConnected = false;
+            }
+            finally
+            {
+                test.Close();
+            }
+            return IsConnected;
+        }
+
         public static MySqlConnection NewConnection(string path)
         {
             return new MySqlConnection(path);
         }
 
-        // Experimental publish
-        public static MySqlConnection PublishExperimentalConnection()
-        {
-            return NewConnection(PublishSource +
-                Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
-                + PublishLocation);
-        }
-
         // Server connection
-        public static MySqlConnection ParentServerConnection()
+        private static MySqlConnection EnterConnection(
+            string login, string password)
         {
-            string source = "SERVER=127.0.0.1;";
-            string catalog = "DATABASE=prosperity;";
-            string user = "UID=root;";
-            string pass = "PASSWORD=;";
-            return NewConnection(source + catalog + user + pass);
-        }
-
-        // Local connection
-        public static MySqlConnection LocalConnection()
-        {
-            return NewConnection(PublishSource +
-                Directory.GetParent(Environment.CurrentDirectory)
-                .Parent.Parent.FullName + PublishLocation);
-        }
-
-        // Local connection publish
-        public static MySqlConnection PublishLocalConnection()
-        {
-            return NewConnection(PublishSource +
-                Environment.CurrentDirectory + PublishLocation);
+            string source = "SERVER=" + _hostName + ";";
+            string catalog = "DATABASE=" + _dataBaseName + ";";
+            string user = "UID=" + login + ";";
+            string pass = "PASSWORD=" + password + ";";
+            ConnectionString = source + catalog + user + pass;
+            System.Diagnostics.Trace.WriteLine(ConnectionString);
+            return NewConnection(ConnectionString);
         }
 
         public override void Procedure(in string name)
@@ -206,8 +223,8 @@ namespace Prosperity.Model.DataBase
         {
             Dictionary<string, MySqlDbType> types = new Dictionary<string, MySqlDbType>()
             {
-                { "Boolean", MySqlDbType.Bit }, { "UInt16", MySqlDbType.UInt16 }, //SqlDbType.SmallInt
-                { "Byte", MySqlDbType.UByte }, { "String", MySqlDbType.VarChar }, //MySqlDbType.TinyInt
+                { "Boolean", MySqlDbType.Bit }, { "UInt16", MySqlDbType.UInt16 },
+                { "Byte", MySqlDbType.UByte }, { "String", MySqlDbType.VarChar },
                 { "UInt32", MySqlDbType.UInt32 }, { "UInt64", MySqlDbType.UInt64 }
             };
             Cmd.Parameters.Add(ParamName, types[newParam.GetType().Name]).Value = newParam;
@@ -221,6 +238,7 @@ namespace Prosperity.Model.DataBase
         private static void MySqlMessage(MySqlException exception, string problem)
         {
             string fullMessage = $"Error: {exception.ErrorCode}\n{exception.HelpLink}\n{exception.Message}";
+            Log.Error("Operation was interrupted: " + exception.Message);
             ConnectionMessage(problem, fullMessage);
         }
 

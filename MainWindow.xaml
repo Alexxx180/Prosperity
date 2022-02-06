@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:main="clr-namespace:Prosperity.Controls.MainForm"
         mc:Ignorable="d"
-        Title="Редактирование" Height="1080" Width="1920" WindowStartupLocation="Manual" WindowState="Maximized">
+        xmlns:viewModel="clr-namespace:Prosperity.ViewModel" WindowStartupLocation="Manual"
+        Title="Редактирование" Height="1080" Width="1920" WindowState="Maximized">
+    <Window.DataContext>
+        <viewModel:GlobalViewModel x:Name="ViewModel"/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
@@ -20,7 +24,7 @@
             <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
 
-        <main:ProsperityHeader x:Name="Header" Grid.ColumnSpan="3" />
-        <main:MainPart x:Name="RowView" Grid.Row="2" Grid.Column="1" />
+        <main:ProsperityHeader x:Name="Header" ViewModel="{x:Reference ViewModel}" Grid.ColumnSpan="3" />
+        <main:MainPart x:Name="RowView" ViewModel="{x:Reference ViewModel}" Grid.Row="2" Grid.Column="1" />
     </Grid>
 </Window>
