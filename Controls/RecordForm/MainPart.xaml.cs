@@ -90,7 +90,7 @@ namespace Prosperity.Controls.RecordForm
         private static Pair<uint, string> ConvertRow(string[] row)
         {
             uint id = ToUInt32(row[0]);
-            string data = string.Join(';', row);
+            string data = string.Join(';', row)[(row[0].Length + 1)..];
             return new Pair<uint, string>(id, data);
         }
 
