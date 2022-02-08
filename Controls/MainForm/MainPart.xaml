@@ -50,7 +50,7 @@
             <ScrollViewer.VerticalScrollBarVisibility>
                 Auto
             </ScrollViewer.VerticalScrollBarVisibility>
-            <Grid>
+            <Grid Style="{StaticResource CaptionImpact2}">
                 <Grid.DataContext>
                     <Binding Path="TableView" />
                 </Grid.DataContext>
@@ -59,7 +59,7 @@
                     <RowDefinition Height="0.9*" />
                 </Grid.RowDefinitions>
 
-                <Border x:Name="CurrentHeaders" Style="{StaticResource ViewImpact}">
+                <Border x:Name="CurrentHeaders" Style="{StaticResource CaptionImpact1}">
                     <ContentControl>
                         <Binding x:Name="TableHeader" Path="Header"/>
                     </ContentControl>
@@ -73,7 +73,7 @@
             </Grid>
         </ScrollViewer>
 
-        <Grid Grid.Row="2" Background="#FFC8BFD7">
+        <Grid Grid.Row="2" Style="{StaticResource CaptionImpact1}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="0.4*"/>

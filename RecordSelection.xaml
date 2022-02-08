@@ -6,7 +6,7 @@
         xmlns:main="clr-namespace:Prosperity.Controls.RecordForm"
         mc:Ignorable="d"
         Title="Выбор записи" Height="450" Width="800" Icon="/Prosperity.ico">
-    <Grid>
+    <Grid Style="{StaticResource CaptionImpact1}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.025*"/>
             <ColumnDefinition Width="0.95*"/>
@@ -20,6 +20,5 @@
         </Grid.RowDefinitions>
 
         <main:MainPart x:Name="ListTableView" Grid.Column="1" Grid.Row="1" />
-        <!--Grid.Column="1" Grid.Row="1"-->
     </Grid>
 </Window>

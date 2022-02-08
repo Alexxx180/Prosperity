@@ -10,7 +10,7 @@
     <Window.DataContext>
         <viewModel:GlobalViewModel x:Name="ViewModel"/>
     </Window.DataContext>
-    <Grid>
+    <Grid Style="{StaticResource CaptionImpact2}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="0.9*"/>
