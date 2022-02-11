@@ -661,3 +661,14 @@ GRANT EXECUTE ON PROCEDURE prosperity.check_theme_plan_name
 TO 'administrator';
 GRANT EXECUTE ON PROCEDURE prosperity.check_work_types_name
 TO 'administrator';
+
+-- administrating: redacotors management
+
+GRANT EXECUTE ON PROCEDURE prosperity.get_redactors
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.check_redactor
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.add_redactor
+TO 'administrator';
+GRANT EXECUTE ON PROCEDURE prosperity.drop_redactor
+TO 'administrator';
