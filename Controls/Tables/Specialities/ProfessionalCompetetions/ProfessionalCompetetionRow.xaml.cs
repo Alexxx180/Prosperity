@@ -204,6 +204,7 @@ namespace Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions
             _tables.Tools.EditRow.ProfessionalCompetetion(Id, specialityId,
                 CompetetionNo1, CompetetionNo2, ProfessionalName,
                 Knowledge, Skills, Experience);
+            
         }
 
         public void MarkPrepare()

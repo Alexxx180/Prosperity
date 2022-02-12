@@ -176,6 +176,11 @@ namespace Prosperity.Controls.Tables.Specialities.GeneralCompetetions
         public void EditConfirm()
         {
             uint specialityId = _tables.ViewModel.CurrentState.Id;
+            System.Diagnostics.Trace.WriteLine("OK");
+
+            System.Diagnostics.Trace.WriteLine(CompetetionNo
+                + GeneralName + Knowledge + Skills);
+
             _tables.Tools.EditRow.GeneralCompetetion(Id, specialityId,
                 CompetetionNo, GeneralName, Knowledge, Skills);
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Serilog;
 
 namespace Prosperity.Model.DataBase
 {
@@ -8,9 +9,23 @@ namespace Prosperity.Model.DataBase
     /// </summary>
     public static class Converters
     {
-        public static void Connect(Sql connector)
+        private static void NoArgument(string argumentName)
         {
-            _dataBase = connector;
+            ArgumentNullException exception = new ArgumentNullException(argumentName);
+            string problem = "Unable to convert data into inner format. Argument is invalid. ";
+            string cause = "This may be caused by schema changes in DB or with developer actions";
+            Log.Error(problem + cause + ": " + exception.Message);
+            Sql.ConnectionMessage("преобразование данных", exception.Message);
+        }
+
+        public static void AddRange<T>(this ICollection<T> target, IEnumerable<T> source)
+        {
+            if (target == null)
+                NoArgument(nameof(target));
+            if (source == null)
+                NoArgument(nameof(source));
+            foreach (T element in source)
+                target.Add(element);
         }
 
         public static TOutput[] ConvertAll<TInput, TOutput>(TInput[] array, Func<TInput, TOutput> converter)
@@ -29,66 +44,7 @@ namespace Prosperity.Model.DataBase
             return result;
         }
 
-        private static string ElementToString(object value) => value.ToString();
-        private static string[] ElementsToString(object[] values) => ConvertAll(values, ElementToString);
-
-        // Overall tables: 22
-
-        public static List<string[]> Conformity => ConvertAll(_dataBase.ConformityList(), ElementsToString);
-
-
-        public static List<string[]> Specialities => ConvertAll(_dataBase.SpecialitiesList(), ElementsToString);
-
-        public static List<string[]> SpecialityCodes => ConvertAll(_dataBase.SpecialityCodes(), ElementsToString);
-
-        public static List<string[]> GeneralCompetetions(uint specialityId) => ConvertAll(_dataBase.GeneralCompetetions(specialityId), ElementsToString);
-
-        public static List<string[]> ProfessionalCompetetions(uint specialityId) => ConvertAll(_dataBase.ProfessionalCompetetions(specialityId), ElementsToString);
-
-
-        public static List<string[]> Disciplines => ConvertAll(_dataBase.DisciplinesList(), ElementsToString);
-
-        public static List<string[]> DisciplineCodes => ConvertAll(_dataBase.DisciplineCodes(), ElementsToString);
-
-        public static List<string[]> TotalHours(uint disciplineId) => ConvertAll(_dataBase.TotalHours(disciplineId), ElementsToString);
-
-        public static List<string[]> ThemePlan(uint disciplineId) => ConvertAll(_dataBase.ThemePlan(disciplineId), ElementsToString);
-
-        public static List<string[]> Themes(uint topicId) => ConvertAll(_dataBase.Themes(topicId), ElementsToString);
-
-        public static List<string[]> Works(uint themeId) => ConvertAll(_dataBase.Works(themeId), ElementsToString);
-
-        public static List<string[]> WorkTypes => ConvertAll(_dataBase.WorkTypes(), ElementsToString);
-
-        public static List<string[]> Tasks(ulong workId) => ConvertAll(_dataBase.Tasks(workId), ElementsToString);
-
-        public static List<string[]> MetaData(uint disciplineId) => ConvertAll(_dataBase.MetaData(disciplineId), ElementsToString);
-
-        public static List<string[]> MetaTypes => ConvertAll(_dataBase.MetaTypes(), ElementsToString);
-
-        public static List<string[]> Sources(uint disciplineId) => ConvertAll(_dataBase.Sources(disciplineId), ElementsToString);
-
-        public static List<string[]> SourceTypes => ConvertAll(_dataBase.SourceTypes(), ElementsToString);
-
-        public static List<string[]> DisciplineGeneralMastering(uint disciplineId) => ConvertAll(_dataBase.DisciplineGeneralMastering(disciplineId), ElementsToString);
-
-        public static List<string[]> DisciplineProfessionalMastering(uint disciplineId) => ConvertAll(_dataBase.DisciplineProfessionalMastering(disciplineId), ElementsToString);
-
-        public static List<string[]> ThemeGeneralMastering(uint themeId) => ConvertAll(_dataBase.ThemeGeneralMastering(themeId), ElementsToString);
-
-        public static List<string[]> ThemeProfessionalMastering(uint themeId) => ConvertAll(_dataBase.ThemeProfessionalMastering(themeId), ElementsToString);
-
-        public static List<string[]> Levels => ConvertAll(_dataBase.Levels(), ElementsToString);
-
-
-        public static List<string[]> ConformityGeneralCompetetions(uint disciplineId) => ConvertAll(_dataBase.ConformityGeneralCompetetions(disciplineId), ElementsToString);
-
-        public static List<string[]> ConformityProfessionalCompetetions(uint disciplineId) => ConvertAll(_dataBase.ConformityProfessionalCompetetions(disciplineId), ElementsToString);
-
-        public static List<string[]> DisciplineGeneralMasteringByTheme(uint themeId) => ConvertAll(_dataBase.DisciplineGeneralMasteringByTheme(themeId), ElementsToString);
-
-        public static List<string[]> DisciplineProfessionalMasteringByTheme(uint themeId) => ConvertAll(_dataBase.DisciplineProfessionalMasteringByTheme(themeId), ElementsToString);
-
-        private static IDataViewer _dataBase;
+        public static string ElementToString(object value) => value.ToString();
+        public static string[] ElementsToString(object[] values) => ConvertAll(values, ElementToString);
     }
 }

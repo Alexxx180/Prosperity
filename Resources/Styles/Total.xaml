@@ -60,11 +60,10 @@
         <Setter Property="Control.Margin" Value="0"/>
     </Style>
 
-    <!--FFFFBB00  #FF555555-->
     <Style x:Key="IdleRow">
-        <Setter Property="Control.Background" Value="#FF7B7B7B"/>
-        <Setter Property="Control.Foreground" Value="#FF000000"/>
-        <Setter Property="Control.BorderBrush" Value="#FF7B7B7B"/>
+        <Setter Property="Control.Background" Value="#FFFFBB00"/>
+        <Setter Property="Control.Foreground" Value="#FF555555"/>
+        <Setter Property="Control.BorderBrush" Value="#FFFFBB00"/>
         <Setter Property="Control.BorderThickness" Value="2"/>
         <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
         <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
@@ -72,11 +71,10 @@
         <Setter Property="Control.Margin" Value="0"/>
     </Style>
 
-    <!--FFAABB00-->
     <Style x:Key="SelectedRow">
-        <Setter Property="Control.Background" Value="#FFEBEBEB"/>
+        <Setter Property="Control.Background" Value="#FFAABB00"/>
         <Setter Property="Control.Foreground" Value="#FF000000"/>
-        <Setter Property="Control.BorderBrush" Value="#FFEBEBEB"/>
+        <Setter Property="Control.BorderBrush" Value="#FFAABB00"/>
         <Setter Property="Control.BorderThickness" Value="2"/>
         <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
         <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>

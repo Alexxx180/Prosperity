@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using Serilog;
 
 namespace Prosperity.Model.DataBase
@@ -27,10 +27,15 @@ namespace Prosperity.Model.DataBase
             _hostName = host;
         }
 
+        private static void ConnectionFault(string message)
+        {
+            Log.Warning("Tried to connect to DB, no sucess: " + message);
+            IsConnected = false;
+        }
+
         public static bool TestConnection(string login, string password)
         {
             IsConnected = true;
-            Log.Debug("Connecting to DB...");
             MySqlConnection test = EnterConnection(login, password);
             try
             {
@@ -38,18 +43,15 @@ namespace Prosperity.Model.DataBase
             }
             catch (MySqlException dbException)
             {
-                Log.Warning("Tried to connect to DB, no sucess: " + dbException.Message);
-                IsConnected = false;
+                ConnectionFault(dbException.Message);
             }
             catch (InvalidOperationException operationException)
             {
-                Log.Warning("Tried to connect to DB, no sucess: " + operationException.Message);
-                IsConnected = false;
+                ConnectionFault(operationException.Message);
             }
             catch (Exception exception)
             {
-                Log.Warning("Tried to connect to DB, no sucess: " + exception.Message);
-                IsConnected = false;
+                ConnectionFault(exception.Message);
             }
             finally
             {
@@ -67,12 +69,12 @@ namespace Prosperity.Model.DataBase
         private static MySqlConnection EnterConnection(
             string login, string password)
         {
+            Log.Debug("Connecting to DB...");
             string source = "SERVER=" + _hostName + ";";
             string catalog = "DATABASE=" + _dataBaseName + ";";
             string user = "UID=" + login + ";";
             string pass = "PASSWORD=" + password + ";";
             ConnectionString = source + catalog + user + pass;
-            System.Diagnostics.Trace.WriteLine(ConnectionString);
             return NewConnection(ConnectionString);
         }
 
@@ -109,6 +111,34 @@ namespace Prosperity.Model.DataBase
             }
         }
 
+        public override object ReadScalar()
+        {
+            Log.Debug("Reading aggregate value from DB table...");
+            object field = null;
+            try
+            {
+                Cmd.Connection.Open();
+                field = Cmd.ExecuteScalar();
+            }
+            catch (MySqlException dbException)
+            {
+                MySqlMessage(dbException, "агрегатное значение из источника");
+            }
+            catch (InvalidOperationException operationException)
+            {
+                NetMessage(operationException, "неподдерживаемая операция");
+            }
+            catch (Exception exception)
+            {
+                NetMessage(exception, "программный сбой");
+            }
+            finally
+            {
+                Cmd.Connection.Close();
+            }
+            return field;
+        }
+
         public override List<object[]> ReadData()
         {
             List<object[]> table = new List<object[]>();
@@ -130,79 +160,6 @@ namespace Prosperity.Model.DataBase
             catch (MySqlException dbException)
             {
                 MySqlMessage(dbException, "полные данные из источника");
-            }
-            catch (InvalidOperationException operationException)
-            {
-                NetMessage(operationException, "неподдерживаемая операция");
-            }
-            catch (Exception exception)
-            {
-                NetMessage(exception, "программный сбой");
-            }
-            finally
-            {
-                Cmd.Connection.Close();
-            }
-            return table;
-        }
-
-        public override List<object> ReadData(in int column)
-        {
-            List<object> table = new List<object>();
-            try
-            {
-                Cmd.Connection.Open();
-                using (DataReader = Cmd.ExecuteReader())
-                {
-                    if (DataReader.HasRows)
-                        while (DataReader.Read())
-                        {
-                            object cell = DataReader.GetValue(column);
-                            table.Add(cell);
-                        }
-                }
-            }
-            catch (MySqlException dbException)
-            {
-                MySqlMessage(dbException, "выборочные данные из источника");
-            }
-            catch (InvalidOperationException operationException)
-            {
-                NetMessage(operationException, "неподдерживаемая операция");
-            }
-            catch (Exception exception)
-            {
-                NetMessage(exception, "программный сбой");
-            }
-            finally
-            {
-                Cmd.Connection.Close();
-            }
-            return table;
-        }
-
-        public override List<object[]> ReadData(in byte StartValue, in byte EndValue)
-        {
-            List<object[]> table = new List<object[]>();
-            try
-            {
-                Cmd.Connection.Open();
-                using (DataReader = Cmd.ExecuteReader())
-                {
-                    int count = EndValue - StartValue;
-                    if (DataReader.HasRows)
-                        while (DataReader.Read())
-                        {
-                            object[] row = new object[count];
-                            for (int i = 0, j = StartValue; j < EndValue; i++, j++)
-                                row[i] = DataReader.GetValue(j);
-                            table.Add(row);
-                        }
-                }
-            }
-            catch(MySqlException dbException)
-            {
-                MySqlMessage(dbException, "выборочные данные из источника");
             }
             catch (InvalidOperationException operationException)
             {

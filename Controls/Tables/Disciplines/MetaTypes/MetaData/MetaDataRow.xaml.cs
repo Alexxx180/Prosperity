@@ -163,7 +163,8 @@ namespace Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData
         {
             if (MetaType == null)
                 return;
-            _tables.Tools.EditRow.Discipline(Id, MetaType.Value, MetaValue);
+            uint disciplineId = _tables.ViewModel.CurrentState.Id;
+            _tables.Tools.EditRow.MetaData(Id, disciplineId, MetaType.Value, MetaValue);
         }
 
         public void MarkPrepare()

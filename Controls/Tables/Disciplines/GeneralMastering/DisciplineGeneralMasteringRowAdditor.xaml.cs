@@ -77,7 +77,7 @@ namespace Prosperity.Controls.Tables.Disciplines.GeneralMastering
             List<string[]> rows = _tables.Data.ConformityGeneralCompetetions(disciplineId);
             if (rows.Count > 0)
                 SelectionFields(disciplineId, rows, "Общие компетенции:",
-                    "Освоение общей компетенции", _tables.FillGeneralFromMastering, SetCode);
+                    "Освоение общей компетенции", null, SetCode);
             e.Handled = true;
         }
 

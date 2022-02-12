@@ -138,11 +138,11 @@ namespace Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Gene
         private void SelectCode(object sender, RoutedEventArgs e)
         {
             uint themeId = _tables.ViewModel.CurrentState.Id;
-            List<string[]> rows = _tables.Data.DisciplineGeneralMasteringByTheme(themeId);
-            if (rows.Count > 0)
-                SelectionFields(themeId, rows,
-                    "Общие компетенции дисциплины:", "Освоение общей компетенции",
-                    _tables.FillDisciplineGeneralFromMastering, SetCode);
+            uint disciplineId = ToUInt32(_tables.Data.DisciplineByTheme(themeId));
+            List<string[]> rows = _tables.Data.DisciplineGeneralMastering(disciplineId);
+            SelectionFields(disciplineId, rows,
+                "Общие компетенции дисциплины:", "Освоение общей компетенции",
+                _tables.FillDisciplineGeneralCompetetions, SetCode);
             e.Handled = true;
         }
 

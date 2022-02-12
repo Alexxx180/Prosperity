@@ -112,8 +112,6 @@ namespace Prosperity.Controls.Tables
             Header = currentHeader;
         }
 
-        private string Before(string name) => "Ранее смотрели: " + name;
-
         private void FillTables<T>(UserControl header,
             List<string[]> rows, IAutoIndexing additor)
         {
@@ -139,14 +137,14 @@ namespace Prosperity.Controls.Tables
 
         public void FillConformity(uint id = 0)
         {
-            FillPrimaryTables<ConformityRow>(id, Before("Соответствие - ID"), FillConformity,
+            FillPrimaryTables<ConformityRow>(id, "Соответствия. Ранее смотрели: ", FillConformity,
                 new ConformityColumns(), Data.Conformity, new ConformityRowAdditor());
         }
 
 
         public void FillSpecialities(uint id = 0)
         {
-            FillPrimaryTables<SpecialityRow>(id, Before("Специальность - ID"), FillSpecialities,
+            FillPrimaryTables<SpecialityRow>(id, "Специальности. Ранее смотрели: ", FillSpecialities,
                 new SpecialityColumns(), Data.Specialities, new SpecialityRowAdditor());
         }
 
@@ -162,14 +160,15 @@ namespace Prosperity.Controls.Tables
         public void FillGeneralCompetetions(uint id)
         {
             FillGeneral(Data.GeneralCompetetions(id),
-                id, "Специальность - ID", FillGeneralCompetetions);
+                id, "Общие компетенции. Специальность: ", FillGeneralCompetetions);
         }
 
-        public void FillGeneralFromMastering(uint id)
-        {
-            FillGeneral(Data.ConformityGeneralCompetetions(id),
-                id, "Дисциплина - ID", FillGeneralFromMastering);
-        }
+        // To be deleted | need DB schema review
+        //public void FillGeneralFromMastering(uint id)
+        //{
+        //    FillGeneral(Data.ConformityGeneralCompetetions(id),
+        //        id, "Общие компетенции. Дисциплина: ", FillGeneralFromMastering);
+        //}
 
 
         public void FillProfessional(List<string[]> records, uint id,
@@ -183,19 +182,20 @@ namespace Prosperity.Controls.Tables
         public void FillProfessionalCompetetions(uint id)
         {
             FillProfessional(Data.ProfessionalCompetetions(id),
-                id, "Специальность - ID", FillProfessionalCompetetions);
+                id, "Профессиональные компетенции. Специальность: ", FillProfessionalCompetetions);
         }
 
-        public void FillProfessionalFromMastering(uint id)
-        {
-            FillProfessional(Data.ConformityProfessionalCompetetions(id),
-                id, "Дисциплина - ID", FillProfessionalFromMastering);
-        }
+        // To be deleted | need DB schema review
+        //public void FillProfessionalFromMastering(uint id)
+        //{
+        //    FillProfessional(Data.ConformityProfessionalCompetetions(id),
+        //        id, "Профессиональные компетенции. Дисциплина: ", FillProfessionalFromMastering);
+        //}
 
 
         public void FillDisciplines(uint id = 0)
         {
-            FillPrimaryTables<DisciplineRow>(id, Before("Дисциплина - ID"), FillDisciplines,
+            FillPrimaryTables<DisciplineRow>(id, "Дисциплины. Ранее смотрели: ", FillDisciplines,
                 new DisciplineColumns(), Data.Disciplines, new DisciplineRowAdditor());
         }
 
@@ -211,14 +211,14 @@ namespace Prosperity.Controls.Tables
         public void FillDisciplineGeneralCompetetions(uint id)
         {
             FillDisciplineGeneral(Data.DisciplineGeneralMastering(id),
-                id, "Дисциплина - ID", FillDisciplineGeneralCompetetions);
+                id, "Освоение ОК. Дисциплина: ", FillDisciplineGeneralCompetetions);
         }
 
-        public void FillDisciplineGeneralFromMastering(uint id)
-        {
-            FillDisciplineGeneral(Data.DisciplineGeneralMasteringByTheme(id),
-                id, "Дисциплина - ID", FillDisciplineGeneralFromMastering);
-        }
+        //public void FillDisciplineGeneralFromMastering(uint id)
+        //{
+        //    FillDisciplineGeneral(Data.DisciplineGeneralMasteringByTheme(id),
+        //        id, "Освоение ОК. Тема: ", FillDisciplineGeneralFromMastering);
+        //}
 
 
         public void FillDisciplineProfessional(List<string[]> records, uint id,
@@ -232,110 +232,110 @@ namespace Prosperity.Controls.Tables
         public void FillDisciplineProfessionalCompetetions(uint id)
         {
             FillDisciplineProfessional(Data.DisciplineProfessionalMastering(id),
-                id, "Дисциплина - ID", FillDisciplineProfessionalCompetetions);
+                id, "Освоение ПК. Дисциплина: ", FillDisciplineProfessionalCompetetions);
         }
 
-        public void FillDisciplineProfessionalFromMastering(uint id)
-        {
-            FillDisciplineProfessional(Data.DisciplineProfessionalMasteringByTheme(id),
-                id, "Дисциплина - ID", FillDisciplineProfessionalFromMastering);
-        }
+        //public void FillDisciplineProfessionalFromMastering(uint id)
+        //{
+        //    FillDisciplineProfessional(Data.DisciplineProfessionalMasteringByTheme(id),
+        //        id, "Освоение ПК. Тема: ", FillDisciplineProfessionalFromMastering);
+        //}
 
 
         public void FillSources(uint id)
         {
-            FillSecondaryTables<SourceRow>(id, "Дисциплина - ID", FillSources,
+            FillSecondaryTables<SourceRow>(id, "Источники. Дисциплина: ", FillSources,
                 new SourceColumns(), Data.Sources(id), new SourceRowAdditor());
         }
 
         public void FillMetaData(uint id)
         {
-            FillSecondaryTables<MetaDataRow>(id, "Дисциплина - ID", FillMetaData,
+            FillSecondaryTables<MetaDataRow>(id, "Метаданные. Дисциплина: ", FillMetaData,
                 new MetaDataColumns(), Data.MetaData(id), new MetaDataRowAdditor());
         }
 
         public void FillHours(uint id)
         {
-            FillSecondaryTables<HoursRow>(id, "Дисциплина - ID", FillHours,
+            FillSecondaryTables<HoursRow>(id, "Общие часы. Дисциплина: ", FillHours,
                 new HoursColumns(), Data.TotalHours(id), new HoursRowAdditor());
         }
 
         public void FillTopics(uint id)
         {
-            FillSecondaryTables<TopicRow>(id, "Дисциплина - ID", FillTopics,
+            FillSecondaryTables<TopicRow>(id, "Разделы. Дисциплина: ", FillTopics,
                 new TopicColumns(), Data.ThemePlan(id), new TopicRowAdditor());
         }
 
         public void FillThemes(uint id)
         {
-            FillSecondaryTables<ThemeRow>(id, "Раздел - ID", FillThemes,
+            FillSecondaryTables<ThemeRow>(id, "Темы. Раздел: ", FillThemes,
                 new ThemeColumns(), Data.Themes(id), new ThemeRowAdditor());
         }
 
         public void FillThemeGeneralCompetetions(uint id)
         {
-            FillSecondaryTables<ThemeGeneralMasteringRow>(id, "Тема - ID",
+            FillSecondaryTables<ThemeGeneralMasteringRow>(id, "Общие компетенции. Тема: ",
                 FillThemeGeneralCompetetions, new ThemeGeneralMasteringColumns(),
                 Data.ThemeGeneralMastering(id), new ThemeGeneralMasteringRowAdditor());
         }
 
         public void FillThemeProfessionalCompetetions(uint id)
         {
-            FillSecondaryTables<ThemeProfessionalMasteringRow>(id, "Тема - ID",
+            FillSecondaryTables<ThemeProfessionalMasteringRow>(id, "Профессиональные компетенции. Тема: ",
                 FillThemeProfessionalCompetetions, new ThemeProfessionalMasteringColumns(),
                 Data.ThemeProfessionalMastering(id), new ThemeProfessionalMasteringRowAdditor());
         }
 
         public void FillWorks(uint id)
         {
-            FillSecondaryTables<WorkRow>(id, "Тема - ID", FillWorks,
+            FillSecondaryTables<WorkRow>(id, "Работы. Тема: ", FillWorks,
                 new WorkColumns(), Data.Works(id), new WorkRowAdditor());
         }
 
         public void FillTasks(uint id)
         {
-            FillSecondaryTables<TaskRow>(id, "Работа - ID", FillTasks,
+            FillSecondaryTables<TaskRow>(id, "Задачи. Работа: ", FillTasks,
                 new TaskColumns(), Data.Tasks(id), new TaskRowAdditor());
         }
 
 
         public void FillSpecialityCodes(uint id)
         {
-            ViewModel.AddTransition(FillSpecialities, Before("Специальность - ID"), id);
-            FillSecondaryTables<SpecialityCodeRow>(id, Before("Специальность - ID"),
+            ViewModel.AddTransition(FillSpecialities, "Специальности. Ранее смотрели: ", id);
+            FillSecondaryTables<SpecialityCodeRow>(id, "Коды специальностей. Переход от: ",
                 FillSpecialityCodes, new SpecialityCodeColumns(), Data.SpecialityCodes,
                 new SpecialityCodeRowAdditor());
         }
 
         public void FillDisciplineCodes(uint id)
         {
-            ViewModel.AddTransition(FillDisciplines, "Ранее смотрели: Дисциплина - ID", id);
-            FillSecondaryTables<DisciplineCodeRow>(id, Before("Дисциплина - ID"),
+            ViewModel.AddTransition(FillDisciplines, "Дисциплины. Ранее смотрели: ", id);
+            FillSecondaryTables<DisciplineCodeRow>(id, "Коды дисциплин. Переход от: ",
                 FillDisciplineCodes, new DisciplineCodeColumns(), Data.DisciplineCodes,
                 new DisciplineCodeRowAdditor());
         }
 
         public void FillWorkTypes(uint id)
         {
-            FillSecondaryTables<WorkTypesRow>(id, Before("Работа | Час - ID"), FillWorkTypes,
-                new WorkTypesColumns(), Data.WorkTypes, new WorkTypesRowAdditor());
+            FillSecondaryTables<WorkTypesRow>(id, "Типы работ. Переход с Работа | Час: ",
+                FillWorkTypes, new WorkTypesColumns(), Data.WorkTypes, new WorkTypesRowAdditor());
         }
 
         public void FillMetaTypes(uint id)
         {
-            FillSecondaryTables<MetaTypeRow>(id, Before("Метаданные - ID"), FillMetaTypes,
+            FillSecondaryTables<MetaTypeRow>(id, "Типы метаданных. Переход от: ", FillMetaTypes,
                 new MetaTypeColumns(), Data.MetaTypes, new MetaTypeRowAdditor());
         }
 
         public void FillSourceTypes(uint id)
         {
-            FillSecondaryTables<SourceTypeRow>(id, Before("Источник - ID"), FillSourceTypes,
+            FillSecondaryTables<SourceTypeRow>(id, "Типы источников. Переход от: ", FillSourceTypes,
                 new SourceTypeColumns(), Data.SourceTypes, new SourceTypeRowAdditor());
         }
 
         public void FillCompetetionLevels(uint id)
         {
-            FillSecondaryTables<LevelRow>(id, Before("Тема - ID"), FillCompetetionLevels,
+            FillSecondaryTables<LevelRow>(id, "Уровни компетенций. Переход от: ", FillCompetetionLevels,
                 new LevelColumns(), Data.Levels, new LevelRowAdditor());
         }
 

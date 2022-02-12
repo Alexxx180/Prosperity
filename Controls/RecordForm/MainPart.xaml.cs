@@ -73,8 +73,8 @@ namespace Prosperity.Controls.RecordForm
 
         public void SetHeader(string records, string main)
         {
-            RecordsName.Text = " " + records;
-            MainTableName.Text = main + " ";
+            RecordsName.Text = records;
+            MainTableName.Text = main;
         }
 
         public void FillRows(List<string[]> rows)

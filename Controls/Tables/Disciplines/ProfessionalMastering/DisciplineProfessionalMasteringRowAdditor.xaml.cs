@@ -82,8 +82,7 @@ namespace Prosperity.Controls.Tables.Disciplines.ProfessionalMastering
             List<string[]> rows = _tables.Data.ConformityProfessionalCompetetions(disciplineId);
             if (rows.Count > 0)
                 SelectionFields(disciplineId, rows, "Профессиональные компетенции:",
-                    "Освоение профессиональной компетенции",
-                    _tables.FillProfessionalFromMastering, SetCode);
+                    "Освоение профессиональной компетенции", null, SetCode);
             e.Handled = true;
         }
 

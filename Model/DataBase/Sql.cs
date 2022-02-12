@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Collections.Generic;
+using Serilog;
 
 namespace Prosperity.Model.DataBase
 {
@@ -9,7 +10,7 @@ namespace Prosperity.Model.DataBase
     /// </summary>
     public abstract class Sql : IDataViewer, IDataRedactor
     {
-        public static bool IsConnected = false;
+        internal static bool IsConnected { get; private protected set; }
 
         public static void ConnectionMessage(string loadProblem, string exception)
         {
@@ -26,6 +27,7 @@ namespace Prosperity.Model.DataBase
         public static void NetMessage(Exception exception, string problem)
         {
             string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
+            Log.Error("Operation is invalid or unstated: " + exception.Message);
             ConnectionMessage(problem, fullMessage);
         }
 
@@ -63,13 +65,20 @@ namespace Prosperity.Model.DataBase
             ClearParameters();
         }
 
+        public abstract object ReadScalar();
+
         public abstract List<object[]> ReadData();
 
-        public abstract List<object> ReadData(in int column);
-
-        public abstract List<object[]> ReadData(in byte StartValue, in byte EndValue);
-
         public abstract void ClearParameters();
+
+        public object GetRecord(string name, string paramName, object value)
+        {
+            Procedure(name);
+            PassParameter(paramName, value);
+            object field = ReadScalar();
+            ClearParameters();
+            return field;
+        }
 
         public List<object[]> GetRecords(string name)
         {
@@ -222,18 +231,23 @@ namespace Prosperity.Model.DataBase
             return GetRecords("get_conformity_professional_competetions_unmarked", "discipline_id", value);
         }
 
-        public List<object[]> DisciplineGeneralMasteringByTheme(uint value)
-        {
-            return GetRecords("get_discipline_general_by_theme_unmarked", "theme_id", value);
-        }
+        //public List<object[]> DisciplineGeneralMasteringByTheme(uint value)
+        //{
+        //    return GetRecords("get_discipline_general_by_theme_unmarked", "theme_id", value);
+        //}
 
-        public List<object[]> DisciplineProfessionalMasteringByTheme(uint value)
+        //public List<object[]> DisciplineProfessionalMasteringByTheme(uint value)
+        //{
+        //    return GetRecords("get_discipline_professional_by_theme_unmarked", "theme_id", value);
+        //}
+
+        public object DisciplineByTheme(uint value)
         {
-            return GetRecords("get_discipline_professional_by_theme_unmarked", "theme_id", value);
+            return GetRecord("get_discipline_by_theme", "theme_id", value);
         }
 
         // Data editing methods
-        
+
         public void AddConformity(Dictionary<string, object> parameters)
         {
             ExecuteProcedure("add_conformity", parameters);

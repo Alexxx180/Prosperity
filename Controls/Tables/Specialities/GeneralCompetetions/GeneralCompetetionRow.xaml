@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="0.225*" />
             </Grid.ColumnDefinitions>
 
-            <Viewbox IsHitTestVisible="False" Height="35">
+            <Viewbox IsHitTestVisible="False">
                 <TextBlock Text="{Binding Path=No}" />
             </Viewbox>
 

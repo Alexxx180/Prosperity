@@ -43,6 +43,8 @@ namespace Prosperity.Controls.Tables
             {
                 if (selection.EditsNeeded)
                 {
+                    if (transition == null)
+                        return;
                     transition(mainId);
                 }
                 else
