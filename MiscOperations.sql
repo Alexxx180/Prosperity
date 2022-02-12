@@ -1,1 +1,0 @@
--- pure canvas to write queries
