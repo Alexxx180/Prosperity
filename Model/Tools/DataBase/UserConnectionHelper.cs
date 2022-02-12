@@ -18,7 +18,7 @@ namespace Prosperity.Model.Tools.DataBase
             string name = _appDirectory + LoginFile;
             if (File.Exists(name))
             {
-                Pair<string, string> initials = ReadFromTextFile(name);
+                Pair<string, string> initials = ReadTopPair(name);
                 connectionSuccessful = MySQL.TestConnection(initials.Name, initials.Value);
             }
             return connectionSuccessful;
@@ -54,58 +54,48 @@ namespace Prosperity.Model.Tools.DataBase
             string pathFile = _appDirectory + PathFile;
             if (!File.Exists(pathFile))
                 return;
-            string fileName = PathFromFile(pathFile);
+            string fileName = ReadTop(pathFile);
             if (!File.Exists(fileName))
                 return;
-            Pair<string, string> config = ReadFromTextFile(fileName);
+            Pair<string, string> config = ReadTopPair(fileName);
             MySQL.SetConfig(config.Name, config.Value);
         }
 
-        private static string PathFromFile(string name)
+        private static string ReadTop(string name)
         {
-            string path = "";
-            List<string> lines = new List<string>();
-            try
-            {
-                using (StreamReader reader = new StreamReader(name))
-                {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
-                        lines.Add(line);
-                }
-                if (lines.Count >= 1)
-                    path = lines[0];
-            }
-            catch (IOException exception)
-            {
-                Log.Error("Wrong configuration path: " + exception.Message);
-            }
-            return path;
+            List<string> lines = ReadFromTextFile(name, 1);
+            return lines.Count >= 1 ? lines[0] : "";
         }
 
-        private static Pair<string, string> ReadFromTextFile(string name)
+        private static Pair<string, string> ReadTopPair(string name)
         {
-            Pair<string, string> initials = new Pair<string, string>();
+            List<string> lines = ReadFromTextFile(name, 2);
+            Pair<string, string> initials = lines.Count >= 2 ?
+                new Pair<string, string>(lines[0], lines[1]) :
+                new Pair<string, string>();
+            return initials;
+        }
+
+        private static List<string> ReadFromTextFile(string name, int maxCount)
+        {
             List<string> lines = new List<string>();
             try
             {
                 using (StreamReader reader = new StreamReader(name))
                 {
                     string line;
-                    while ((line = reader.ReadLine()) != null)
+                    for (int no = 0; (line = reader.ReadLine()) is
+                        not null && no < maxCount; no++)
+                    {
                         lines.Add(line);
-                }
-                if (lines.Count >= 2)
-                {
-                    initials.Name = lines[0];
-                    initials.Value = lines[1];
+                    }
                 }
             }
             catch (IOException exception)
             {
                 Log.Error("Unable to read user data from file: " + exception.Message);
             }
-            return initials;
+            return lines;
         }
 
         private static void WriteConfigPath(string path)

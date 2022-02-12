@@ -162,15 +162,8 @@ namespace Prosperity.Controls.Tables
         public void FillGeneralCompetetions(uint id)
         {
             FillGeneral(Data.GeneralCompetetions(id),
-                id, "Общие компетенции. Специальность: ", FillGeneralCompetetions);
+                id, "ОК. Специальность: ", FillGeneralCompetetions);
         }
-
-        // To be deleted | need DB schema review
-        //public void FillGeneralFromMastering(uint id)
-        //{
-        //    FillGeneral(Data.ConformityGeneralCompetetions(id),
-        //        id, "Общие компетенции. Дисциплина: ", FillGeneralFromMastering);
-        //}
 
 
         public void FillProfessional(List<string[]> records, uint id,
@@ -184,15 +177,8 @@ namespace Prosperity.Controls.Tables
         public void FillProfessionalCompetetions(uint id)
         {
             FillProfessional(Data.ProfessionalCompetetions(id),
-                id, "Профессиональные компетенции. Специальность: ", FillProfessionalCompetetions);
+                id, "ПК. Специальность: ", FillProfessionalCompetetions);
         }
-
-        // To be deleted | need DB schema review
-        //public void FillProfessionalFromMastering(uint id)
-        //{
-        //    FillProfessional(Data.ConformityProfessionalCompetetions(id),
-        //        id, "Профессиональные компетенции. Дисциплина: ", FillProfessionalFromMastering);
-        //}
 
 
         public void FillDisciplines(uint id = 0)
@@ -216,12 +202,6 @@ namespace Prosperity.Controls.Tables
                 id, "Освоение ОК. Дисциплина: ", FillDisciplineGeneralCompetetions);
         }
 
-        //public void FillDisciplineGeneralFromMastering(uint id)
-        //{
-        //    FillDisciplineGeneral(Data.DisciplineGeneralMasteringByTheme(id),
-        //        id, "Освоение ОК. Тема: ", FillDisciplineGeneralFromMastering);
-        //}
-
 
         public void FillDisciplineProfessional(List<string[]> records, uint id,
             string name, TransitionBase.Transition transition)
@@ -236,12 +216,6 @@ namespace Prosperity.Controls.Tables
             FillDisciplineProfessional(Data.DisciplineProfessionalMastering(id),
                 id, "Освоение ПК. Дисциплина: ", FillDisciplineProfessionalCompetetions);
         }
-
-        //public void FillDisciplineProfessionalFromMastering(uint id)
-        //{
-        //    FillDisciplineProfessional(Data.DisciplineProfessionalMasteringByTheme(id),
-        //        id, "Освоение ПК. Тема: ", FillDisciplineProfessionalFromMastering);
-        //}
 
 
         public void FillSources(uint id)

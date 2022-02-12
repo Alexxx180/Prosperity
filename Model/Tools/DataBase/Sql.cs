@@ -579,7 +579,7 @@ namespace Prosperity.Model.Tools.DataBase
             ExecuteProcedure("mark_level", "level_id", value);
         }
 
-        // Features
+        // Misc features
         public void SendReport(Dictionary<string, object> parameters)
         {
             ExecuteProcedure("send_report", parameters);
