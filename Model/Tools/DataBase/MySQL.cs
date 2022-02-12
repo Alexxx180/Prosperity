@@ -4,7 +4,7 @@ using System.Data;
 using MySqlConnector;
 using Serilog;
 
-namespace Prosperity.Model.DataBase
+namespace Prosperity.Model.Tools.DataBase
 {
     /// <summary>
     /// Connection to database via MySQL
@@ -70,9 +70,10 @@ namespace Prosperity.Model.DataBase
             string login, string password)
         {
             Log.Debug("Connecting to DB...");
+            UserName = login;
             string source = "SERVER=" + _hostName + ";";
             string catalog = "DATABASE=" + _dataBaseName + ";";
-            string user = "UID=" + login + ";";
+            string user = "UID=" + UserName + ";";
             string pass = "PASSWORD=" + password + ";";
             ConnectionString = source + catalog + user + pass;
             return NewConnection(ConnectionString);

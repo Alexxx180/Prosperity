@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Prosperity.Model.DataBase
+namespace Prosperity.Model.Tools
 {
     public interface IDataViewer
     {
@@ -52,11 +52,6 @@ namespace Prosperity.Model.DataBase
         public List<object[]> ConformityGeneralCompetetions(uint value);
 
         public List<object[]> ConformityProfessionalCompetetions(uint value);
-
-        //Deprecated
-        //public List<object[]> DisciplineGeneralMasteringByTheme(uint value);
-
-        //public List<object[]> DisciplineProfessionalMasteringByTheme(uint value);
 
         public object DisciplineByTheme(uint value);
     }

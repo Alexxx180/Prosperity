@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using Prosperity.ViewModel;
-using Prosperity.Model.DataBase;
+using Prosperity.Model.Tools.DataBase;
 
 namespace Prosperity.Controls.MainForm
 {

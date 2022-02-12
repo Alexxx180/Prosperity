@@ -13,8 +13,6 @@
             <RowDefinition Height="0.075*" />
         </Grid.RowDefinitions>
 
-        
-
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*" />
@@ -78,7 +76,7 @@
                 </Viewbox>
             </Button>
 
-            <Button Grid.Column="2" Style="{StaticResource ImpactButton2}" Click="SelectOne">
+            <Button Grid.Column="2" Style="{StaticResource ImpactButton2}" Click="SelectOne" IsDefault="True">
                 <Viewbox>
                     <TextBlock Text="[v] Выбрать" />
                 </Viewbox>

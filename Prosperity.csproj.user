@@ -217,6 +217,9 @@
     <Compile Update="RecordSelection.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ReportWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\MainForm\MainPart.xaml">
@@ -430,6 +433,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RecordSelection.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ReportWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Styles\Total.xaml">

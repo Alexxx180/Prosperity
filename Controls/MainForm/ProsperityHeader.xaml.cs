@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
-using Prosperity.Model.DataBase;
+using Prosperity.Model.Tools.DataBase;
 using Prosperity.ViewModel;
 
 namespace Prosperity.Controls.MainForm

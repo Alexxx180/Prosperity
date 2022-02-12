@@ -1,5 +1,6 @@
 ﻿using System.Windows;
-using static Prosperity.Model.DataBase.UserConnectionHelper;
+using System.ComponentModel;
+using static Prosperity.Model.Tools.DataBase.UserConnectionHelper;
 
 namespace Prosperity
 {
@@ -23,6 +24,15 @@ namespace Prosperity
         private void ActivateAdmin()
         {
             InitializeComponent();
+        }
+
+        private void SessionEnded(object sender, CancelEventArgs e)
+        {
+            ReportWindow report = new ReportWindow();
+            if (report.ShowDialog().Value)
+            {
+                RowView.ViewModel.TableView.Tools.Do.SendReport(report.Message);
+            }
         }
     }
 }

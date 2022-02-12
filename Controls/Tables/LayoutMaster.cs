@@ -27,7 +27,9 @@ using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works;
 using Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks;
 using Prosperity.Model;
 using Prosperity.ViewModel;
-using Prosperity.Model.DataBase;
+using Prosperity.Model.Tools.DataBase;
+using Prosperity.Model.Tools.DataBase.Edit;
+using Prosperity.Model.Tools.DataBase.View;
 
 namespace Prosperity.Controls.Tables
 {

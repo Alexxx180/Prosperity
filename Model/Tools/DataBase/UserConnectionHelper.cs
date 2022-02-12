@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.Win32;
 using Serilog;
 
-namespace Prosperity.Model.DataBase
+namespace Prosperity.Model.Tools.DataBase
 {
     internal static class UserConnectionHelper
     {
         private static string _appDirectory => Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private const string LoginFile = "/Resources/Data/Login.txt";
+        private const string PathFile = "/Resources/Data/Path.txt";
 
         internal static bool FileConnection()
         {
             bool connectionSuccessful = false;
-            string name = _appDirectory + "/Resources/Login.txt";
+            string name = _appDirectory + LoginFile;
             if (File.Exists(name))
             {
                 Pair<string, string> initials = ReadFromTextFile(name);
@@ -32,14 +35,52 @@ namespace Prosperity.Model.DataBase
                     entry = new EntryWindow();
             }
             if (entry.MemberMe)
-                WriteToTextFile(entry.Login, entry.Pass);
+                WriteLogin(entry.Login, entry.Pass);
             return connectionSuccessful;
+        }
+
+        internal static void ResetConfiguration()
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog().Value)
+            {
+                WriteConfigPath(fileDialog.FileName);
+            }
+            SetConfiguration();
         }
 
         internal static void SetConfiguration()
         {
-            Pair<string, string> config = ReadFromTextFile(_appDirectory + "/Config.txt");
+            string pathFile = _appDirectory + PathFile;
+            if (!File.Exists(pathFile))
+                return;
+            string fileName = PathFromFile(pathFile);
+            if (!File.Exists(fileName))
+                return;
+            Pair<string, string> config = ReadFromTextFile(fileName);
             MySQL.SetConfig(config.Name, config.Value);
+        }
+
+        private static string PathFromFile(string name)
+        {
+            string path = "";
+            List<string> lines = new List<string>();
+            try
+            {
+                using (StreamReader reader = new StreamReader(name))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                        lines.Add(line);
+                }
+                if (lines.Count >= 1)
+                    path = lines[0];
+            }
+            catch (IOException exception)
+            {
+                Log.Error("Wrong configuration path: " + exception.Message);
+            }
+            return path;
         }
 
         private static Pair<string, string> ReadFromTextFile(string name)
@@ -67,12 +108,21 @@ namespace Prosperity.Model.DataBase
             return initials;
         }
 
-        private static void WriteToTextFile(string name, string pass)
+        private static void WriteConfigPath(string path)
+        {
+            WriteToTextFile(_appDirectory + PathFile, new List<string> { path });
+        }
+
+        private static void WriteLogin(string name, string pass)
+        {
+            WriteToTextFile(_appDirectory + LoginFile, new List<string> { name, pass });
+        }
+
+        private static void WriteToTextFile(string fullPath, List<string> lines)
         {
             try
             {
-                File.WriteAllLines(_appDirectory + "/Resources/Login.txt",
-                    new List<string> { name, pass });
+                File.WriteAllLines(fullPath, lines);
             }
             catch (IOException exception)
             {

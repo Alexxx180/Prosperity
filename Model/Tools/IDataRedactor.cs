@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Prosperity.Model.DataBase
+namespace Prosperity.Model.Tools
 {
     public interface IDataRedactor
     {
@@ -137,5 +137,8 @@ namespace Prosperity.Model.DataBase
         public void MarkProfessionalSelection(ulong value);
 
         public void MarkLevel(ulong value);
+
+
+        public void SendReport(Dictionary<string, object> parameters);
     }
 }

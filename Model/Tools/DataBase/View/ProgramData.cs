@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using static Prosperity.Model.DataBase.Converters;
+using static Prosperity.Model.Tools.DataBase.View.Converters;
 
-namespace Prosperity.Model.DataBase
+namespace Prosperity.Model.Tools.DataBase.View
 {
     /// <summary>
     /// Educational programs data from database
@@ -103,16 +103,6 @@ namespace Prosperity.Model.DataBase
         {
             return ConvertAll(_dataBase.ConformityProfessionalCompetetions(disciplineId), ElementsToString);
         }
-
-        //public List<string[]> DisciplineGeneralMasteringByTheme(uint themeId)
-        //{
-        //    return ConvertAll(_dataBase.DisciplineGeneralMasteringByTheme(themeId), ElementsToString);
-        //}
-
-        //public List<string[]> DisciplineProfessionalMasteringByTheme(uint themeId)
-        //{
-        //    return ConvertAll(_dataBase.DisciplineProfessionalMasteringByTheme(themeId), ElementsToString);
-        //}
 
         public string DisciplineByTheme(uint themeId)
         {

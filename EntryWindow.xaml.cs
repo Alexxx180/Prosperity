@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using static Prosperity.Model.Tools.DataBase.UserConnectionHelper;
 
 namespace Prosperity
 {
@@ -56,6 +57,11 @@ namespace Prosperity
             if (Login.Length <= 0)
                 return;
             DialogResult = true;
+        }
+
+        private void ConfigSet(object sender, RoutedEventArgs e)
+        {
+            ResetConfiguration();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

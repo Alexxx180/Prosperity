@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using Serilog;
-using static Prosperity.Model.DataBase.UserConnectionHelper;
+using static Prosperity.Model.Tools.DataBase.UserConnectionHelper;
 
 namespace Prosperity
 {

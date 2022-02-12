@@ -94,7 +94,6 @@ namespace Prosperity.Controls.RecordForm
             return new Pair<uint, string>(id, data);
         }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {

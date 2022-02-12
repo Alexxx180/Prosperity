@@ -3,7 +3,7 @@ using System.Windows;
 using System.Collections.Generic;
 using Serilog;
 
-namespace Prosperity.Model.DataBase
+namespace Prosperity.Model.Tools.DataBase
 {
     /// <summary>
     /// Class containing necessary methods to work with database
@@ -11,6 +11,7 @@ namespace Prosperity.Model.DataBase
     public abstract class Sql : IDataViewer, IDataRedactor
     {
         internal static bool IsConnected { get; private protected set; }
+        internal static string UserName { get; private protected set; }
 
         public static void ConnectionMessage(string loadProblem, string exception)
         {
@@ -36,7 +37,9 @@ namespace Prosperity.Model.DataBase
         public void PassParameters(Dictionary<string, object> parameters)
         {
             foreach (KeyValuePair<string, object> entry in parameters)
-                PassParameter(entry.Key, entry.Value);                
+            {
+                PassParameter(entry.Key, entry.Value);
+            }
         }
 
         public abstract void OnlyExecute();
@@ -230,16 +233,6 @@ namespace Prosperity.Model.DataBase
         {
             return GetRecords("get_conformity_professional_competetions_unmarked", "discipline_id", value);
         }
-
-        //public List<object[]> DisciplineGeneralMasteringByTheme(uint value)
-        //{
-        //    return GetRecords("get_discipline_general_by_theme_unmarked", "theme_id", value);
-        //}
-
-        //public List<object[]> DisciplineProfessionalMasteringByTheme(uint value)
-        //{
-        //    return GetRecords("get_discipline_professional_by_theme_unmarked", "theme_id", value);
-        //}
 
         public object DisciplineByTheme(uint value)
         {
@@ -584,6 +577,12 @@ namespace Prosperity.Model.DataBase
         public void MarkLevel(ulong value)
         {
             ExecuteProcedure("mark_level", "level_id", value);
+        }
+
+        // Features
+        public void SendReport(Dictionary<string, object> parameters)
+        {
+            ExecuteProcedure("send_report", parameters);
         }
     }
 }
