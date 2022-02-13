@@ -1,4 +1,4 @@
-## How to create new db instance
+## How to create tables processing modules
 
 Order:
 1. [Add](https://github.com/Alexxx180/Prosperity/blob/sql/DML/Objects/Routines/Procedures/TablesModules/Add.sql)
