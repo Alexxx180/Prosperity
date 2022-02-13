@@ -1,4 +1,4 @@
-## How to create new db instance
+## How to modify table columns
 
 Order:
 1. [Sizes](https://github.com/Alexxx180/Prosperity/tree/sql/DDL/Alter/Modify/Sizes)
