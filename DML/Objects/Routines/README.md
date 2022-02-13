@@ -1,4 +1,4 @@
-## How to create new db instance
+## How to create routines
 
 Order:
 1. [Functions](https://github.com/Alexxx180/Prosperity/tree/sql/DML/Objects/Routines/Functions)
