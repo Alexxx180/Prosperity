@@ -1,4 +1,4 @@
-## How to create new db instance
+## How to set data tools
 
 Order:
 1. [Routines](https://github.com/Alexxx180/Prosperity/tree/sql/DML/Objects/Routines)
