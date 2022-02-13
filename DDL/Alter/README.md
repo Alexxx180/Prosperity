@@ -1,4 +1,4 @@
-## How to create new db instance
+## How to configure instance
 
 Order:
 1. [Modify](https://github.com/Alexxx180/Prosperity/tree/sql/DDL/Alter/Modify)
