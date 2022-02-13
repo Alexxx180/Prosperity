@@ -1,4 +1,4 @@
-## How to create new db instance
+## How to fill instance with data and set data tools
 
 Order:
 1. [Create database objects](https://github.com/Alexxx180/Prosperity/tree/sql/DML/Objects)
