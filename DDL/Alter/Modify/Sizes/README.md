@@ -1,4 +1,4 @@
-## How to create new db instance
+## How to change columns size
 
 Order:
 1. [Change signed integer to unsigned](https://github.com/Alexxx180/Prosperity/blob/sql/DDL/Alter/Modify/Sizes/MediumInt.sql)
