@@ -2,8 +2,8 @@
 
 CALL seek_for_column_type('mediumint');
 
--- MySQL doesn't have means to optimize that, so we use
--- only one column per query
+-- MySQL doesn't have means to optimize that, 
+-- so we use only one column per query
 
 ALTER TABLE
 Tasks
@@ -145,15 +145,6 @@ work_types
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
-
-
-
-
-
-
-
-
-
 
 ALTER TABLE
 conformity
@@ -328,7 +319,6 @@ tasks
 MODIFY
 `Hours`
 SMALLINT UNSIGNED NOT NULL;
-
 
 ALTER TABLE
 Meta_data
