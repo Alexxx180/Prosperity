@@ -1,4 +1,4 @@
-## How to create new db instance
+## How to set default tables data
 
 Order:
 1. [Specialities based data](https://github.com/Alexxx180/Prosperity/blob/sql/DML/DefaultData/Specialities.sql)
