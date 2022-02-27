@@ -150,13 +150,19 @@ BEGIN
 	WHERE `Discipline` = discipline_id;
 END;
 
+delimiter \;
+
 CREATE PROCEDURE get_discipline_sources(discipline_id INT UNSIGNED)
 BEGIN
-	SELECT `ID`, `Name`, `Type`
+	SELECT Sources.`ID`, Sources.`Name`, Source_types.`Name` AS `Type`
 	FROM Sources
+	LEFT JOIN
+	Source_types
+	ON
+	Sources.`Type` = Source_types.`ID`
 	WHERE `Discipline` = discipline_id
 	ORDER BY
-	`Type`;
+	Sources.`Type`;
 END;
 
 CREATE PROCEDURE get_conformity_general_competetions(discipline_id INT UNSIGNED)
