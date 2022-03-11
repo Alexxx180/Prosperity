@@ -1,0 +1,1 @@
+GRANT ALL ON prosperity.* TO 'developer';
