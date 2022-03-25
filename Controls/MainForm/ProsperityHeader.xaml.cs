@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
-using Prosperity.Model.Tools.DataBase;
 using Prosperity.ViewModel;
 using System.Windows;
 
@@ -23,19 +22,12 @@ namespace Prosperity.Controls.MainForm
             set => SetValue(ViewModelProperty, value);
         }
 
-        // Set table by default
-        public void SetTables(in int id)
-        {
-            //if (Sql.IsConnected)
-                TableSelector.SelectedIndex = id;
-        }
-
         public ProsperityHeader()
         {
-            //if (Sql.IsConnected)
-                InitializeComponent();
+            InitializeComponent();
         }
 
+        #region TablesSelection Members
         private void CheckSelection(ComboBox selector)
         {
             if (ViewModel.TableView == null)
@@ -66,6 +58,17 @@ namespace Prosperity.Controls.MainForm
         {
             ComboBox selector = sender as ComboBox;
             CheckSelection(selector);
+        }
+        #endregion
+
+        private void Import(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Export(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -407,3 +407,5 @@ D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\
 D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\ref\Prosperity.dll
 D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Prosperity.pdb
 D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Prosperity.genruntimeconfig.cache
+D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\Resources\Configuration\Runtime\Config.json
+D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\Resources\Configuration\Runtime\Data.json

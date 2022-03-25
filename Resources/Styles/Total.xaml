@@ -31,7 +31,7 @@
         <Setter Property="Control.Background" Value="#00000000"/>
         <Setter Property="Control.Foreground" Value="#FF333333"/>
         <Setter Property="Control.BorderBrush" Value="#FF333333"/>
-        <Setter Property="Control.BorderThickness" Value="2"/>
+        <Setter Property="Control.BorderThickness" Value="1"/>
         <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
         <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
@@ -42,7 +42,7 @@
         <Setter Property="Control.Background" Value="#FFEBEBEB"/>
         <Setter Property="Control.Foreground" Value="#FF141414"/>
         <Setter Property="Control.BorderBrush" Value="#FF7B7B7B"/>
-        <Setter Property="Control.BorderThickness" Value="2"/>
+        <Setter Property="Control.BorderThickness" Value="1"/>
         <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
         <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
@@ -53,7 +53,7 @@
         <Setter Property="Control.Background" Value="#FF141414"/>
         <Setter Property="Control.Foreground" Value="#FFEBEBEB"/>
         <Setter Property="Control.BorderBrush" Value="#FF7B7B7B"/>
-        <Setter Property="Control.BorderThickness" Value="2"/>
+        <Setter Property="Control.BorderThickness" Value="1"/>
         <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
         <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
@@ -64,7 +64,7 @@
         <Setter Property="Control.Background" Value="#FFFFBB00"/>
         <Setter Property="Control.Foreground" Value="#FF555555"/>
         <Setter Property="Control.BorderBrush" Value="#FFFFBB00"/>
-        <Setter Property="Control.BorderThickness" Value="2"/>
+        <Setter Property="Control.BorderThickness" Value="1"/>
         <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
         <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
@@ -75,7 +75,7 @@
         <Setter Property="Control.Background" Value="#FFAABB00"/>
         <Setter Property="Control.Foreground" Value="#FF000000"/>
         <Setter Property="Control.BorderBrush" Value="#FFAABB00"/>
-        <Setter Property="Control.BorderThickness" Value="2"/>
+        <Setter Property="Control.BorderThickness" Value="1"/>
         <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
         <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
@@ -86,7 +86,7 @@
         <Setter Property="Control.Background" Value="#FFFF6600"/>
         <Setter Property="Control.Foreground" Value="#FF000000"/>
         <Setter Property="Control.BorderBrush" Value="#FFFF6600"/>
-        <Setter Property="Control.BorderThickness" Value="2"/>
+        <Setter Property="Control.BorderThickness" Value="1"/>
         <Setter Property="Control.FontFamily" Value="Franklin Gothic Demi"/>
         <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Control.VerticalAlignment" Value="Stretch"/>
