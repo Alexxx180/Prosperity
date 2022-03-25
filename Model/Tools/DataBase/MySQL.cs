@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using MySqlConnector;
 using Serilog;
+using ControlMaterials;
+using static ControlMaterials.Tools.Security.Encryption;
+using static Prosperity.Writers.Processors;
 
 namespace Prosperity.Model.Tools.DataBase
 {
@@ -11,17 +14,98 @@ namespace Prosperity.Model.Tools.DataBase
     /// </summary>
     public class MySQL : Sql
     {
-        private static string ConnectionString;
-
         private static string _dataBaseName;
         private static string _hostName;
 
         public MySQL()
         {
-            Con = NewConnection(ConnectionString);
+            ResetConfiguration();
         }
 
-        internal static void SetConfig(string dataBase, string host)
+        #region Configuration Members
+        private void ResetConfiguration()
+        {
+            Pair<string, string> config = LoadRuntime<string>("Config.json");
+            SetConfiguration(config.Name, config.Value);
+        }
+
+        internal void NewConfiguration(string host, string dbName)
+        {
+            SaveRuntime("Config.json",
+                new Pair<string, string>
+                (host, dbName));
+            ResetConfiguration();
+        }
+
+        private void LoginMemory(string login, string pass)
+        {
+            SaveRuntime("Data.json",
+                new Pair<string, byte[]>
+                (login, ProtectData(pass)));
+        }
+        #endregion
+
+        #region Connection Members
+        private bool FileConnection()
+        {
+            Pair<string, byte[]>
+                initials = LoadRuntime<byte[]>("Data.json");
+
+            bool connectionSuccessful =
+                !(initials is null ||
+                (initials.Name is null) ||
+                (initials.Value is null))
+                && TestConnection(
+                    initials.Name,
+                    UnprotectData(initials.Value)
+                );
+
+            return connectionSuccessful;
+        }
+
+        internal override bool Connect()
+        {
+            if (FileConnection())
+                return true;
+
+            bool userAgreement, connectionSuccessful = false;
+            EntryWindow entry;
+
+            do
+            {
+                entry = new EntryWindow();
+                userAgreement = entry.ShowDialog().Value;
+
+                if (entry.NewConfig)
+                {
+                    NewConfiguration(entry.Login, entry.Pass);
+                    entry = new EntryWindow();
+                    continue;
+                }
+
+                if (!userAgreement)
+                {
+                    IndependentMode = true;
+                    break;
+                }
+
+                connectionSuccessful =
+                    TestConnection
+                    (entry.Login, entry.Pass);
+            }
+            while (!connectionSuccessful);
+
+            if (entry.MemberMe)
+            {
+                LoginMemory(entry.Login, entry.Pass);
+            }
+
+            return connectionSuccessful;
+        }
+        #endregion
+
+        internal override void SetConfiguration
+            (in string dataBase, in string host)
         {
             _dataBaseName = dataBase;
             _hostName = host;
@@ -30,34 +114,34 @@ namespace Prosperity.Model.Tools.DataBase
         private static void ConnectionFault(string message)
         {
             Log.Warning("Tried to connect to DB, no sucess: " + message);
-            IsConnected = false;
         }
 
-        public static bool TestConnection(string login, string password)
+        public override bool TestConnection
+            (in string login, in string password)
         {
-            IsConnected = true;
             MySqlConnection test = EnterConnection(login, password);
             try
             {
                 test.Open();
+                _connection = test;
             }
             catch (MySqlException dbException)
             {
-                ConnectionFault(dbException.Message);
+                ConnectionFault(dbException.HelpLink);
             }
             catch (InvalidOperationException operationException)
             {
-                ConnectionFault(operationException.Message);
+                ConnectionFault(operationException.HelpLink);
             }
             catch (Exception exception)
             {
-                ConnectionFault(exception.Message);
+                ConnectionFault(exception.HelpLink);
             }
             finally
             {
                 test.Close();
             }
-            return IsConnected;
+            return !(_connection is null);
         }
 
         public static MySqlConnection NewConnection(string path)
@@ -69,24 +153,22 @@ namespace Prosperity.Model.Tools.DataBase
         private static MySqlConnection EnterConnection(
             string login, string password)
         {
-            Log.Debug("Connecting to DB...");
-            UserName = login;
             string source = "SERVER=" + _hostName + ";";
             string catalog = "DATABASE=" + _dataBaseName + ";";
-            string user = "UID=" + UserName + ";";
+            string user = "UID=" + login + ";";
             string pass = "PASSWORD=" + password + ";";
-            ConnectionString = source + catalog + user + pass;
-            return NewConnection(ConnectionString);
+            return NewConnection(source + catalog + user + pass);
         }
 
         public override void Procedure(in string name)
         {
-            Cmd = new MySqlCommand(name, Con)
+            Cmd = new MySqlCommand(name, _connection)
             {
                 CommandType = CommandType.StoredProcedure
             };
         }
 
+        #region ProcessData Members
         public override void OnlyExecute()
         {
             try
@@ -176,6 +258,7 @@ namespace Prosperity.Model.Tools.DataBase
             }
             return table;
         }
+        #endregion
 
         public override void PassParameter(in string ParamName, in object newParam)
         {
@@ -202,6 +285,6 @@ namespace Prosperity.Model.Tools.DataBase
 
         public MySqlCommand Cmd { get; set; }
         public MySqlDataReader DataReader { get; set; }
-        public MySqlConnection Con { get; set; }
+        private MySqlConnection _connection { get; set; }
     }
 }

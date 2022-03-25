@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using Serilog;
-using static Prosperity.Model.Tools.DataBase.UserConnectionHelper;
 
 namespace Prosperity
 {
@@ -17,7 +16,6 @@ namespace Prosperity
 
             Log.Information("Application started");
             Log.Debug("Collecting configuration info...");
-            SetConfiguration();
         }
     }
 }

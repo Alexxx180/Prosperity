@@ -6,10 +6,17 @@
         xmlns:main="clr-namespace:Prosperity.Controls.MainForm"
         mc:Ignorable="d"
         xmlns:viewModel="clr-namespace:Prosperity.ViewModel" WindowStartupLocation="Manual"
-        Title="Редактирование" Height="1080" Width="1920" WindowState="Maximized" Icon="/Prosperity.ico" Closing="SessionEnded">
-    <Window.DataContext>
+        Icon="/Prosperity.ico"
+        Title="Редактирование"
+        WindowState="Maximized"
+        Height="1080" Width="1920" 
+        Closing="SessionEnded"
+        x:Name="Main"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <!--<Window.DataContext>
         <viewModel:GlobalViewModel x:Name="ViewModel"/>
-    </Window.DataContext>
+    </Window.DataContext>-->
+    
     <Grid Style="{StaticResource CaptionImpact2}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
@@ -24,7 +31,8 @@
             <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
 
-        <main:ProsperityHeader x:Name="Header" ViewModel="{x:Reference ViewModel}" Grid.ColumnSpan="3" />
-        <main:MainPart x:Name="RowView" ViewModel="{x:Reference ViewModel}" Grid.Row="2" Grid.Column="1" />
+        <!--{x:Reference ViewModel}-->
+        <main:ProsperityHeader x:Name="Header" ViewModel="{Binding ElementName=Main, Path=DataContext.TotalViewModel}" Grid.ColumnSpan="3" />
+        <main:MainPart x:Name="RowView" ViewModel="{Binding ElementName=Main, Path=DataContext.TotalViewModel}" Grid.Row="2" Grid.Column="1" />
     </Grid>
 </Window>

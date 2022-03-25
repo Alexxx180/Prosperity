@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using Prosperity.Model.Tools.DataBase;
 using Prosperity.ViewModel;
+using System.Windows;
 
 namespace Prosperity.Controls.MainForm
 {
@@ -12,28 +13,26 @@ namespace Prosperity.Controls.MainForm
     /// </summary>
     public partial class ProsperityHeader : UserControl, INotifyPropertyChanged
     {
-        private GlobalViewModel _viewModel;
+        public static readonly DependencyProperty
+            ViewModelProperty = DependencyProperty.Register(nameof(ViewModel),
+                typeof(GlobalViewModel), typeof(ProsperityHeader));
+
         internal GlobalViewModel ViewModel
         {
-            get => _viewModel;
-            set
-            {
-                _viewModel = value;
-                SetTables(0);
-                OnPropertyChanged();
-            }
+            get => GetValue(ViewModelProperty) as GlobalViewModel;
+            set => SetValue(ViewModelProperty, value);
         }
 
         // Set table by default
         public void SetTables(in int id)
         {
-            if (Sql.IsConnected)
+            //if (Sql.IsConnected)
                 TableSelector.SelectedIndex = id;
         }
 
         public ProsperityHeader()
         {
-            if (Sql.IsConnected)
+            //if (Sql.IsConnected)
                 InitializeComponent();
         }
 

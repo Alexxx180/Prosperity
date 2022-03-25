@@ -10,9 +10,18 @@ namespace Prosperity.Model.Tools.DataBase
     /// </summary>
     public abstract class Sql : IDataViewer, IDataRedactor
     {
-        internal static bool IsConnected { get; private protected set; }
+        //internal static bool IsConnected { get; private protected set; }
         internal static string UserName { get; private protected set; }
 
+        public bool IndependentMode { get; set; }
+
+        internal abstract void SetConfiguration(in string dbName, in string host);
+
+        public abstract bool TestConnection(in string login, in string pass);
+
+        internal abstract bool Connect();
+
+        #region BaseMessage Members
         public static void ConnectionMessage(string loadProblem, string exception)
         {
             string noLoad = "Не удалось обработать: ";
@@ -31,6 +40,7 @@ namespace Prosperity.Model.Tools.DataBase
             Log.Error("Operation is invalid or unstated: " + exception.Message);
             ConnectionMessage(problem, fullMessage);
         }
+        #endregion
 
         public abstract void PassParameter(in string ParamName, in object newParam);
 
@@ -109,8 +119,7 @@ namespace Prosperity.Model.Tools.DataBase
             return records;
         }
 
-        // Data view methods
-
+        #region Data view methods
         public List<object[]> ConformityList()
         {
             return GetRecords("get_conformity_full_unmarked");
@@ -238,9 +247,10 @@ namespace Prosperity.Model.Tools.DataBase
         {
             return GetRecord("get_discipline_by_theme", "theme_id", value);
         }
+        #endregion
 
-        // Data editing methods
 
+        #region Data adding methods
         public void AddConformity(Dictionary<string, object> parameters)
         {
             ExecuteProcedure("add_conformity", parameters);
@@ -352,8 +362,9 @@ namespace Prosperity.Model.Tools.DataBase
         {
             ExecuteProcedure("add_level", parameters);
         }
+        #endregion
 
-
+        #region Data updating methods
         public void SetConformity(Dictionary<string, object> parameters)
         {
             ExecuteProcedure("set_conformity", parameters);
@@ -465,8 +476,9 @@ namespace Prosperity.Model.Tools.DataBase
         {
             ExecuteProcedure("set_level", parameters);
         }
+        #endregion
 
-
+        #region Data marking methods
         public void MarkConformity(ulong value)
         {
             ExecuteProcedure("mark_conformity", "conformity_id", value);
@@ -578,11 +590,13 @@ namespace Prosperity.Model.Tools.DataBase
         {
             ExecuteProcedure("mark_level", "level_id", value);
         }
+        #endregion
 
-        // Misc features
+        #region Features
         public void SendReport(Dictionary<string, object> parameters)
         {
             ExecuteProcedure("send_report", parameters);
         }
+        #endregion
     }
 }

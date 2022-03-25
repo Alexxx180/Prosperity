@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Controls;
-using Prosperity.Model;
+using ControlMaterials;
 using static System.Convert;
 
 namespace Prosperity.Controls.RecordForm

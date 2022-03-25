@@ -62,6 +62,11 @@ namespace Prosperity.Controls.Tables
             Data = new ProgramData(_connector);
         }
 
+        public bool Connect()
+        {
+            return _connector.Connect();
+        }
+
         private UserControl _header;
         public UserControl Header
         {
@@ -91,10 +96,14 @@ namespace Prosperity.Controls.Tables
             Records.Children.Clear();
             ushort i = 0;
             for (; i < records.Count; i++)
+            {
                 AddElement<T>(records[i]).Index(i + 1);
+            }
+                
             rowAdditor.Index(i + 1);
             rowAdditor.RowKey = Records.Children.Add(rowAdditor as UserControl);
             rowAdditor.SetTools(Records);
+
             OnPropertyChanged(nameof(Records));
             OnPropertyChanged(nameof(Count));
         }

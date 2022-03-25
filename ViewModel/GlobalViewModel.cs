@@ -19,6 +19,11 @@ namespace Prosperity.ViewModel
             TableView = new LayoutMaster(this);
         }
 
+        public bool Connect()
+        {
+            return TableView.Connect();
+        }
+
         private static readonly TransitionBase _defaultState = new TransitionBase(null, "Пополнений стека:", 0);
 
         private TransitionBase _currentState;

@@ -29,6 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="ControlMaterials">
+      <HintPath>..\ControlMaterials\bin\Debug\net5.0\ControlMaterials.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Prosperity.ico" />
   </ItemGroup>
 
