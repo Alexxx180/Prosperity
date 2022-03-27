@@ -4,7 +4,10 @@ using System.Text.Json;
 using System.Windows;
 using Microsoft.Win32;
 using ControlMaterials;
+using ControlMaterials.Documents;
 using Serilog;
+using Prosperity.ViewModel;
+using Prosperity.Writers.Import;
 
 namespace Prosperity.Writers
 {
@@ -173,6 +176,33 @@ namespace Prosperity.Writers
             (string name, Pair<string, T> data)
         {
             ProcessJsonAny(RuntimeDirectory + name, data);
+        }
+        #endregion
+
+        #region Import Members
+        internal static void ImportData(GlobalViewModel viewModel)
+        {
+            string import = "Файл импорта (*.json) | *.json";
+            OpenFileDialog dialog = CallManager(import, "");
+            if (!(dialog.ShowDialog().Value && File.Exists(dialog.FileName)))
+                return;
+
+            string file = dialog.FileName;
+            IDocument document = ReadJson<IDocument>(file);
+            switch (document.DocumentType)
+            {
+                case Document.DISIPLINE_PROGRAM:
+                    ImportDisciplineProgram(file, viewModel);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private static void ImportDisciplineProgram(string path, GlobalViewModel viewModel)
+        {
+            DisciplineProgram program = ReadJson<DisciplineProgram>(path);
+            DisciplineProgramSender.SendProgram(program, viewModel.TableView);
         }
         #endregion
     }

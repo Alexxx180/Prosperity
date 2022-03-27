@@ -10,8 +10,8 @@ namespace Prosperity.Model.Tools.DataBase
     /// </summary>
     public abstract class Sql : IDataViewer, IDataRedactor
     {
-        //internal static bool IsConnected { get; private protected set; }
-        internal static string UserName { get; private protected set; }
+        #region Configuration Members
+        public string UserName { get; set; }
 
         public bool IndependentMode { get; set; }
 
@@ -20,28 +20,11 @@ namespace Prosperity.Model.Tools.DataBase
         public abstract bool TestConnection(in string login, in string pass);
 
         internal abstract bool Connect();
-
-        #region BaseMessage Members
-        public static void ConnectionMessage(string loadProblem, string exception)
-        {
-            string noLoad = "Не удалось обработать: ";
-            string message = "\nОшибка подключения. Вы не можете продолжать работу.\n";
-            string advice = "Свяжитесь с администратором насчет установления причины проблемы.\nПолное сообщение:\n";
-
-            string caption = "Ошибка";
-            string fullMessage = noLoad + loadProblem + message + advice + exception;
-            _ = MessageBox.Show(fullMessage, caption, MessageBoxButton.OK, MessageBoxImage.Error);
-            Application.Current.Shutdown();
-        }
-
-        public static void NetMessage(Exception exception, string problem)
-        {
-            string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
-            Log.Error("Operation is invalid or unstated: " + exception.Message);
-            ConnectionMessage(problem, fullMessage);
-        }
         #endregion
 
+        public abstract void Procedure(in string name);
+
+        #region WorkWithParameters Members
         public abstract void PassParameter(in string ParamName, in object newParam);
 
         public void PassParameters(Dictionary<string, object> parameters)
@@ -52,9 +35,11 @@ namespace Prosperity.Model.Tools.DataBase
             }
         }
 
-        public abstract void OnlyExecute();
+        public abstract void ClearParameters();
+        #endregion
 
-        public abstract void Procedure(in string name);
+        #region ProcedureExecuteOnly Members
+        public abstract void OnlyExecute();
 
         public void ExecuteProcedure(string name)
         {
@@ -77,12 +62,19 @@ namespace Prosperity.Model.Tools.DataBase
             OnlyExecute();
             ClearParameters();
         }
+        #endregion
 
+        #region ReadRecords Members
         public abstract object ReadScalar();
 
         public abstract List<object[]> ReadData();
 
-        public abstract void ClearParameters();
+        public object GetRecord(string name)
+        {
+            Procedure(name);
+            object field = ReadScalar();
+            return field;
+        }
 
         public object GetRecord(string name, string paramName, object value)
         {
@@ -118,6 +110,8 @@ namespace Prosperity.Model.Tools.DataBase
             ClearParameters();
             return records;
         }
+        #endregion
+
 
         #region Data view methods
         public List<object[]> ConformityList()
@@ -592,10 +586,38 @@ namespace Prosperity.Model.Tools.DataBase
         }
         #endregion
 
+
         #region Features
         public void SendReport(Dictionary<string, object> parameters)
         {
             ExecuteProcedure("send_report", parameters);
+        }
+
+        public ulong GetLastImportId()
+        {
+            return Convert.ToUInt64(GetRecord("get_last_import_id"));
+        }
+        #endregion
+
+
+        #region BaseMessage Members
+        public static void ConnectionMessage(string loadProblem, string exception)
+        {
+            string noLoad = "Не удалось обработать: ";
+            string message = "\nОшибка подключения. Вы не можете продолжать работу.\n";
+            string advice = "Свяжитесь с администратором насчет установления причины проблемы.\nПолное сообщение:\n";
+
+            string caption = "Ошибка";
+            string fullMessage = noLoad + loadProblem + message + advice + exception;
+            _ = MessageBox.Show(fullMessage, caption, MessageBoxButton.OK, MessageBoxImage.Error);
+            Application.Current.Shutdown();
+        }
+
+        public static void NetMessage(Exception exception, string problem)
+        {
+            string fullMessage = $"{exception.HelpLink}\n{exception.Message}";
+            Log.Error("Operation is invalid or unstated: " + exception.Message);
+            ConnectionMessage(problem, fullMessage);
         }
         #endregion
     }

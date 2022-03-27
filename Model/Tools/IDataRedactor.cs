@@ -4,6 +4,9 @@ namespace Prosperity.Model.Tools
 {
     public interface IDataRedactor
     {
+        public string UserName { get; set; }
+
+        #region Add Members
         public void AddConformity(Dictionary<string, object> parameters);
 
         public void AddSpeciality(Dictionary<string, object> parameters);
@@ -47,8 +50,9 @@ namespace Prosperity.Model.Tools
         public void AddProfessionalSelection(Dictionary<string, object> parameters);
 
         public void AddLevel(Dictionary<string, object> parameters);
+        #endregion
 
-
+        #region Set Members
         public void SetConformity(Dictionary<string, object> parameters);
 
         public void SetSpeciality(Dictionary<string, object> parameters);
@@ -92,8 +96,9 @@ namespace Prosperity.Model.Tools
         public void SetProfessionalSelection(Dictionary<string, object> parameters);
 
         public void SetLevel(Dictionary<string, object> parameters);
+        #endregion
 
-
+        #region Mark Members
         public void MarkConformity(ulong value);
 
         public void MarkSpeciality(ulong value);
@@ -137,8 +142,10 @@ namespace Prosperity.Model.Tools
         public void MarkProfessionalSelection(ulong value);
 
         public void MarkLevel(ulong value);
-
+        #endregion
 
         public void SendReport(Dictionary<string, object> parameters);
+
+        public ulong GetLastImportId();
     }
 }

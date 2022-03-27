@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <Folder Include="Resources\Images\Icons\" />
+    <Folder Include="Writers\Export\" />
   </ItemGroup>
 
   <ItemGroup>

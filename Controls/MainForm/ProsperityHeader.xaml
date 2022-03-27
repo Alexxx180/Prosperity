@@ -29,7 +29,7 @@
 
         <Viewbox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left">
             <Menu Grid.Row="1" Grid.Column="3" Style="{StaticResource CaptionImpact1}">
-                <MenuItem Style="{StaticResource CaptionImpact1}">
+                <MenuItem Style="{StaticResource CaptionImpact1}" IsEnabled="False">
                     <MenuItem.Header>
                         Опции
                     </MenuItem.Header>

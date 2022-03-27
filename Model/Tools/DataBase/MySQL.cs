@@ -124,6 +124,7 @@ namespace Prosperity.Model.Tools.DataBase
             {
                 test.Open();
                 _connection = test;
+                UserName = login;
             }
             catch (MySqlException dbException)
             {
