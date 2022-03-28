@@ -1,6 +1,6 @@
 -- This can be handful to change integer-based fields manually
 
-CALL seek_for_column_type('mediumint');
+-- CALL seek_for_column_type('mediumint');
 
 -- MySQL doesn't have means to optimize that, 
 -- so we use only one column per query
@@ -20,7 +20,7 @@ BIGINT
 UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-tasks
+Tasks
 MODIFY
 `Work`
 BIGINT UNSIGNED NOT NULL;
@@ -39,283 +39,283 @@ ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-conformity
+Conformity
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-discipline_codes
+Discipline_codes
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-disciplines
+Disciplines
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-general_competetions
+General_competetions
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-general_mastering
+General_mastering
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-general_selection
+General_selection
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-hours
+Hours
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-levels
+Levels
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-professional_competetions
+Professional_competetions
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-professional_mastering
+Professional_mastering
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-professional_selection
+Professional_selection
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-source_types
+Source_types
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-sources
+Sources
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-specialities
+Specialities
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-speciality_codes
+Speciality_codes
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-theme_plan
+Theme_plan
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-themes
+Themes
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-work_types
+Work_types
 MODIFY
 ID
 INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE
-conformity
+Conformity
 MODIFY
 `Discipline`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-conformity
+Conformity
 MODIFY
 `Speciality`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-disciplines
+Disciplines
 MODIFY
 `Code`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-general_competetions
+General_competetions
 MODIFY
 `Speciality`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-general_mastering
+General_mastering
 MODIFY
 `Discipline`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-general_mastering
+General_mastering
 MODIFY
 `Mastering`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-general_selection
+General_selection
 MODIFY
 `Mastering`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-general_selection
+General_selection
 MODIFY
 `Theme`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-hours
+Hours
 MODIFY
 `Discipline`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-hours
+Hours
 MODIFY
 `WorkType`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-professional_competetions
+Professional_competetions
 MODIFY
 `Speciality`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-professional_mastering
+Professional_mastering
 MODIFY
 `Discipline`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-professional_mastering
+Professional_mastering
 MODIFY
 `Mastering`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-professional_selection
+Professional_selection
 MODIFY
 `Mastering`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-professional_selection
+Professional_selection
 MODIFY
 `Theme`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-sources
+Sources
 MODIFY
 `Discipline`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-sources
+Sources
 MODIFY
 `Type`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-specialities
+Specialities
 MODIFY
 `Code`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-theme_plan
+Theme_plan
 MODIFY
 `Discipline`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-theme_plan
+Theme_plan
 MODIFY
 `Hours`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-theme_plan
+Theme_plan
 MODIFY
 `No`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-themes
+Themes
 MODIFY
 `Hours`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-themes
+Themes
 MODIFY
 `Level`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-themes
+Themes
 MODIFY
 `No`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-themes
+Themes
 MODIFY
 `Topic`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-works
+Works
 MODIFY
 `Theme`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-works
+Works
 MODIFY
 `Type`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-hours
+Hours
 MODIFY
 `Count`
 INT UNSIGNED NOT NULL;
 
 ALTER TABLE
-tasks
+Tasks
 MODIFY
 `Hours`
 SMALLINT UNSIGNED NOT NULL;
