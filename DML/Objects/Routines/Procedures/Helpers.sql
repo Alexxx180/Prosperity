@@ -1,6 +1,6 @@
--- Custom procedures
+DELIMITER $$
 
--- delimiter \;
+-- Custom procedures
 
 CREATE PROCEDURE seek_for_column_type(type_name VARCHAR(15))
 BEGIN
@@ -14,12 +14,12 @@ BEGIN
 		TABLE_SCHEMA = 'prosperity'
 	   AND
 		data_type = type_name;
-END;
+END$$
 
 CREATE PROCEDURE get_log(var_name VARCHAR(50), var_value INT) 
 BEGIN
 	SELECT concat(var_name, var_value);
-END;
+END$$
 
 CREATE PROCEDURE hours_auto_set(discipline_id INT UNSIGNED, hours_count SMALLINT UNSIGNED)
 BEGIN
@@ -38,7 +38,7 @@ BEGIN
   UNTIL done END REPEAT;
 
   CLOSE id_cursor;
-END;
+END$$
 
 CREATE PROCEDURE meta_data_auto_set(discipline_id INT UNSIGNED, data_name VARCHAR(1000))
 BEGIN
@@ -57,4 +57,4 @@ BEGIN
   UNTIL done END REPEAT;
 
   CLOSE id_cursor;
-END;
+END$$
