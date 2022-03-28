@@ -13,121 +13,121 @@ ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-conformity
+Conformity
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-discipline_codes
+Discipline_codes
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-disciplines
+Disciplines
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-general_competetions
+General_competetions
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-general_mastering
+General_mastering
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-general_selection
+General_selection
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-hours
+Hours
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-levels
+Levels
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-professional_competetions
+Professional_competetions
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-professional_mastering
+Professional_mastering
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-professional_selection
+Professional_selection
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-source_types
+Source_types
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-sources
+Sources
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-specialities
+Specialities
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-speciality_codes
+Speciality_codes
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-theme_plan
+Theme_plan
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-themes
+Themes
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-work_types
+Work_types
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-works
+Works
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
 
 ALTER TABLE
-tasks
+Tasks
 ADD
 ToDrop
 BOOL NOT NULL DEFAULT FALSE;
