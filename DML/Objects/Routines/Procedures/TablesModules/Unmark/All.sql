@@ -1,4 +1,4 @@
-delimiter \;
+DELIMITER $$
 
 -- Tables with no relation
 -- to other smaller tables
@@ -7,64 +7,64 @@ delimiter \;
 
 CREATE PROCEDURE unmark_all_levels()
 BEGIN
-	UPDATE levels
+	UPDATE Levels
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: hours
 
 CREATE PROCEDURE unmark_all_hours()
 BEGIN
-	UPDATE hours
+	UPDATE Hours
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: discipline_codes
 
 CREATE PROCEDURE unmark_all_discipline_codes()
 BEGIN
-	UPDATE discipline_codes
+	UPDATE Discipline_codes
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: speciality_codes
 
 CREATE PROCEDURE unmark_all_speciality_codes()
 BEGIN
-	UPDATE speciality_codes
+	UPDATE Speciality_codes
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: work_types
 
 CREATE PROCEDURE unmark_all_work_types()
 BEGIN
-	UPDATE work_types
+	UPDATE Work_types
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: source_types
 
 CREATE PROCEDURE unmark_all_source_types()
 BEGIN
-	UPDATE source_types
+	UPDATE Source_types
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: meta types
 
 CREATE PROCEDURE unmark_all_meta_types()
 BEGIN
-	UPDATE meta_types
+	UPDATE Meta_types
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- Tables with relations
 -- to other smaller tables
@@ -73,133 +73,133 @@ END;
 
 CREATE PROCEDURE unmark_all_sources()
 BEGIN
-	UPDATE sources
+	UPDATE Sources
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: conformity
 
 CREATE PROCEDURE unmark_all_conformities()
 BEGIN
-	UPDATE conformity
+	UPDATE Conformity
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: specialities
 
 CREATE PROCEDURE unmark_all_specialities()
 BEGIN
-	UPDATE specialities
+	UPDATE Specialities
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: general_competetions
 
 CREATE PROCEDURE unmark_all_general_competetions()
 BEGIN
-	UPDATE general_competetions
+	UPDATE General_competetions
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: professional_competetions
 
 CREATE PROCEDURE unmark_all_professional_competetions()
 BEGIN
-	UPDATE professional_competetions
+	UPDATE Professional_competetions
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: general_mastering
 
 CREATE PROCEDURE unmark_all_general_mastering()
 BEGIN
-	UPDATE general_mastering
+	UPDATE General_mastering
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: professional_mastering
 
 CREATE PROCEDURE unmark_all_professional_mastering()
 BEGIN
-	UPDATE professional_mastering
+	UPDATE Professional_mastering
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: general_selection
 
 CREATE PROCEDURE unmark_all_general_selection()
 BEGIN
-	UPDATE general_selection
+	UPDATE General_selection
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: professional_selection
 
 CREATE PROCEDURE unmark_all_professional_selection()
 BEGIN
-	UPDATE professional_selection
+	UPDATE Professional_selection
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: disciplines
 
 CREATE PROCEDURE unmark_all_disciplines()
 BEGIN
-	UPDATE disciplines
+	UPDATE Disciplines
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: theme_plan
 
 CREATE PROCEDURE unmark_all_sections()
 BEGIN
-	UPDATE theme_plan
+	UPDATE Theme_plan
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: themes
 
 CREATE PROCEDURE unmark_all_themes()
 BEGIN
-	UPDATE themes
+	UPDATE Themes
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: works
 
 CREATE PROCEDURE unmark_all_works()
 BEGIN
-	UPDATE works
+	UPDATE Works
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: tasks
 
 CREATE PROCEDURE unmark_all_tasks()
 BEGIN
-	UPDATE tasks
+	UPDATE Tasks
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
 
 -- table: meta data
 
 CREATE PROCEDURE unmark_all_meta_data()
 BEGIN
-	UPDATE meta_data
+	UPDATE Meta_data
 	SET
 	`ToDrop` = FALSE;
-END;
+END$$
