@@ -1,4 +1,4 @@
-delimiter \;
+DELIMITER $$
 
 -- Data analyzer feature procedures
 
@@ -33,7 +33,7 @@ BEGIN
 		WHERE `Theme` = theme_id
 	)
 	AND `ToDrop` = 1;
-END;
+END$$
 
 
 CREATE PROCEDURE analyze_topic(topic_id INT UNSIGNED)
@@ -90,7 +90,7 @@ BEGIN
 		)
 	)
 	AND `ToDrop` = 1;
-END;
+END$$
 
 CREATE PROCEDURE analyze_discipline(discipline_id INT UNSIGNED)
 BEGIN
@@ -210,7 +210,7 @@ BEGIN
 		)
 	)
 	AND `ToDrop` = 1;
-END;
+END$$
 
 
 CREATE PROCEDURE analyze_speciality(speciality_id INT UNSIGNED)
@@ -226,4 +226,4 @@ BEGIN
 	FROM Professional_competetions
 	WHERE `Speciality` = speciality_id
 	AND `ToDrop` = 1;
-END;
+END$$
