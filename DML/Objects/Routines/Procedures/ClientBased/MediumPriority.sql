@@ -1,27 +1,27 @@
 -- Custom procedures
 
-delimiter \;
+DELIMITER $$
 
 CREATE PROCEDURE get_conformity_full_unmarked()
 BEGIN
 	SELECT `ID`, `Discipline`, `Speciality`
 	FROM conformity
 	WHERE `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_specialities_unmarked()
 BEGIN
 	SELECT `ID`, `Code`, `Name` 
 	FROM Specialities
 	WHERE `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_speciality_codes_unmarked()
 BEGIN
 	SELECT `ID`, `Code`
 	FROM Speciality_codes
 	WHERE `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_speciality_general_unmarked(speciality_id INT UNSIGNED)
 BEGIN
@@ -29,7 +29,7 @@ BEGIN
 	FROM General_competetions
 	WHERE `Speciality` = speciality_id
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_speciality_professional_unmarked(speciality_id INT UNSIGNED)
 BEGIN
@@ -37,21 +37,21 @@ BEGIN
 	FROM Professional_competetions
 	WHERE `Speciality` = speciality_id
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_disciplines_unmarked()
 BEGIN
 	SELECT `ID`, `Code`, `Name` 
 	FROM Disciplines
 	WHERE `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_codes_unmarked()
 BEGIN
 	SELECT `ID`, `Code`
 	FROM Discipline_codes
 	WHERE `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_total_hours_unmarked(discipline_id INT UNSIGNED)
 BEGIN
@@ -59,7 +59,7 @@ BEGIN
 	FROM Hours
 	WHERE `Discipline` = discipline_id
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_theme_plan_by_discipline_unmarked(discipline_id INT UNSIGNED)
 BEGIN
@@ -67,7 +67,7 @@ BEGIN
 	FROM Theme_plan
 	WHERE `Discipline` = discipline_id
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_themes_by_section_unmarked(section_id INT UNSIGNED)
 BEGIN
@@ -75,7 +75,7 @@ BEGIN
 	FROM Themes
 	WHERE `Topic` = section_id
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_work_by_theme_unmarked(theme_id INT UNSIGNED)
 BEGIN
@@ -83,20 +83,7 @@ BEGIN
 	FROM Works
 	WHERE `Theme` = theme_id
 	AND `ToDrop` = 0;
-END;
-
-CREATE PROCEDURE get_work_by_theme_unmarked(theme_id INT UNSIGNED)
-BEGIN
-	SELECT Works.`ID`, Work_types.`Name`
-	FROM Works
-	LEFT JOIN
-	Work_types
-	ON Work_types.`ID` = Works.`Type`
-	WHERE `Theme` = theme_id
-	AND `ToDrop` = 0;
-END;
-
-
+END$$
 
 CREATE PROCEDURE get_task_by_work_unmarked(work_id INT UNSIGNED)
 BEGIN
@@ -104,7 +91,7 @@ BEGIN
 	FROM Tasks
 	WHERE `Work` = work_id
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_meta_data_unmarked(discipline_id INT UNSIGNED)
 BEGIN
@@ -112,7 +99,7 @@ BEGIN
 	FROM Meta_data
 	WHERE `Discipline` = discipline_id
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_sources_unmarked(discipline_id INT UNSIGNED)
 BEGIN
@@ -122,7 +109,7 @@ BEGIN
 	AND `ToDrop` = 0
 	ORDER BY
 	`Type`;
-END;
+END$$
 
 CREATE PROCEDURE get_conformity_general_competetions_unmarked(discipline_id INT UNSIGNED)
 BEGIN
@@ -133,7 +120,7 @@ BEGIN
 		FROM Conformity
 		WHERE `Discipline` = discipline_id
 	) AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_conformity_professional_competetions_unmarked(discipline_id INT UNSIGNED)
 BEGIN
@@ -144,7 +131,7 @@ BEGIN
 		FROM Conformity
 		WHERE `Discipline` = discipline_id
 	) AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_by_theme(theme_id INT UNSIGNED)
 BEGIN
@@ -153,35 +140,35 @@ BEGIN
 	SELECT `Discipline`
 	FROM Theme_Plan
 	WHERE `ID` = topic_id;
-END;
+END$$
 
 CREATE PROCEDURE get_meta_types_unmarked()
 BEGIN
 	SELECT `ID`, `Name`
 	FROM Meta_types
 	WHERE `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_work_types_unmarked()
 BEGIN
 	SELECT `ID`, `Name`
 	FROM Work_types
 	WHERE `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_source_types_unmarked()
 BEGIN
 	SELECT `ID`, `Name`
 	FROM Source_types
 	WHERE `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_all_levels_unmarked()
 BEGIN
 	SELECT `ID`, `Name`, `Description`
 	FROM Levels
 	WHERE `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_general_mastering_unmarked(discipline_id INT UNSIGNED)
 BEGIN
@@ -189,7 +176,7 @@ BEGIN
 	FROM General_mastering
 	WHERE `Discipline` = discipline_id
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_professional_mastering_unmarked(discipline_id INT UNSIGNED)
 BEGIN
@@ -197,7 +184,7 @@ BEGIN
 	FROM Professional_mastering
 	WHERE `Discipline` = discipline_id
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_theme_general_mastering_selection_unmarked(theme_id INT UNSIGNED)
 BEGIN
@@ -205,7 +192,7 @@ BEGIN
 	FROM General_selection
 	WHERE `Theme` = theme_id 
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE get_theme_professional_mastering_selection_unmarked(theme_id INT UNSIGNED)
 BEGIN
@@ -213,11 +200,11 @@ BEGIN
 	FROM Professional_selection
 	WHERE `Theme` = theme_id
 	AND `ToDrop` = 0;
-END;
+END$$
 
 CREATE PROCEDURE send_report(redactor_name CHAR(32), commentary VARCHAR(5000))
 BEGIN
 	UPDATE Redactors
 	SET `Comment` = commentary
 	WHERE `User` = redactor_name;
-END;
+END$$
