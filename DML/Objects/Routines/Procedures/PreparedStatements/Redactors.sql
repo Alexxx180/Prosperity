@@ -1,16 +1,16 @@
-delimiter \;
+DELIMITER $$
 
 CREATE PROCEDURE get_redactors()
 BEGIN
 	SELECT * FROM Redactors;
-END;
+END$$
 
 CREATE PROCEDURE check_redactor(IN redactor_login CHAR(32))
 BEGIN
 	SELECT COUNT(`User`) 
 	FROM Redactors 
 	WHERE `User` = redactor_login;
-END;
+END$$
 
 CREATE PROCEDURE add_redactor(
 	IN redactor_login CHAR(32),
@@ -42,7 +42,7 @@ BEGIN
 		redactor_host,
 		CHARACTER_LENGTH(redactor_pass)
 	);
-END;
+END$$
 
 CREATE PROCEDURE drop_redactor(
 	IN redactor_login CHAR(32),
@@ -56,4 +56,4 @@ BEGIN
 
 	DELETE FROM Redactors
 	WHERE `User` = redactor_login;
-END;
+END$$
