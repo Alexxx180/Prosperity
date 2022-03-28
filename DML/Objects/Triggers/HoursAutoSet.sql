@@ -1,10 +1,10 @@
-delimiter \;
+DELIMITER $$
 
 -- Custom triggers
 -- hours auto-set
 
 CREATE TRIGGER insert_tasks
-AFTER INSERT ON tasks FOR EACH ROW
+AFTER INSERT ON Tasks FOR EACH ROW
 BEGIN
 	DECLARE theme_id, discipline_id, work_type_id, theme_hours, dp_hours INT;
 	SET theme_id = (SELECT get_theme_by_task_id(NEW.`ID`));
@@ -23,10 +23,10 @@ BEGIN
 	`Discipline` = discipline_id
 	AND
 	`WorkType` = work_type_id;
-END;
+END$$
 
 CREATE TRIGGER update_tasks
-AFTER UPDATE ON tasks FOR EACH ROW
+AFTER UPDATE ON Tasks FOR EACH ROW
 BEGIN
 	DECLARE theme_id, discipline_id, work_type_id, theme_hours, dp_hours INT;
 	SET theme_id = (SELECT get_theme_by_task_id(NEW.`ID`));
@@ -45,10 +45,10 @@ BEGIN
 	`Discipline` = discipline_id
 	AND
 	`WorkType` = work_type_id;
-END;
+END$$
 
 CREATE TRIGGER delete_tasks
-AFTER DELETE ON tasks FOR EACH ROW
+AFTER DELETE ON Tasks FOR EACH ROW
 BEGIN
 	DECLARE theme_id, discipline_id, work_type_id, theme_hours, dp_hours INT;
 	SET theme_id = (SELECT get_theme_by_task_id(OLD.`ID`));
@@ -67,7 +67,7 @@ BEGIN
 	`Discipline` = discipline_id
 	AND
 	`WorkType` = work_type_id;
-END;
+END$$
 
 -- table: themes <- theme_plan
 
@@ -81,7 +81,7 @@ BEGIN
 	UPDATE Theme_plan
 	SET `Hours` = IFNULL(hours_cnt, 0)
 	WHERE `ID` = topic_id;
-END;
+END$$
 
 CREATE TRIGGER update_themes
 AFTER UPDATE ON Themes FOR EACH ROW
@@ -93,7 +93,7 @@ BEGIN
 	UPDATE Theme_plan
 	SET `Hours` = IFNULL(hours_cnt, 0)
 	WHERE `ID` = topic_id;
-END;
+END$$
 
 CREATE TRIGGER delete_themes
 AFTER DELETE ON Themes FOR EACH ROW
@@ -105,13 +105,13 @@ BEGIN
 	UPDATE Theme_plan
 	SET `Hours` = IFNULL(hours_cnt, 0)
 	WHERE `ID` = topic_id;
-END;
+END$$
 
 -- table: disciplines
 
 CREATE TRIGGER insert_disciplines
-AFTER INSERT ON disciplines FOR EACH ROW
+AFTER INSERT ON Disciplines FOR EACH ROW
 BEGIN
 	CALL hours_auto_set(NEW.`ID`, 0);
 	CALL meta_data_auto_set(6, '');
-END;
+END$$
