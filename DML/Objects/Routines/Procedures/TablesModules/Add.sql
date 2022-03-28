@@ -1,4 +1,4 @@
-delimiter \;
+DELIMITER $$
 
 -- Tables with no relation
 -- to other smaller tables
@@ -10,9 +10,9 @@ CREATE PROCEDURE add_level(
 	level_description VARCHAR(500)
 	)
 BEGIN
-	INSERT INTO levels(`Name`, `Description`)
+	INSERT INTO Levels(`Name`, `Description`)
 	VALUES (level_name, level_description);
-END;
+END$$
 
 -- table: hours
 
@@ -22,49 +22,49 @@ CREATE PROCEDURE add_hour(
 	hours_count INT UNSIGNED
 	)
 BEGIN
-	INSERT INTO hours(`Discipline`, `WorkType`,`Count`)
+	INSERT INTO Hours(`Discipline`, `WorkType`,`Count`)
 	VALUES (discipline_id, work_type_id, hours_count);
-END;
+END$$
 
 -- table: discipline_codes
 
 CREATE PROCEDURE add_discipline_code(discipline_code VARCHAR(50))
 BEGIN
-	INSERT INTO discipline_codes(`Code`)
+	INSERT INTO Discipline_codes(`Code`)
 	VALUES (discipline_code);
-END;
+END$$
 
 -- table: speciality_codes
 
 CREATE PROCEDURE add_speciality_code(speciality_code VARCHAR(50))
 BEGIN
-	INSERT INTO speciality_codes(`Code`)
+	INSERT INTO Speciality_codes(`Code`)
 	VALUES (speciality_code);
-END;
+END$$
 
 -- table: work_types
 
 CREATE PROCEDURE add_work_type(type_name VARCHAR(50))
 BEGIN
-	INSERT INTO work_types(`Name`)
+	INSERT INTO Work_types(`Name`)
 	VALUES (type_name);
-END;
+END$$
 
 -- table: source_types
 
 CREATE PROCEDURE add_source_type(type_name VARCHAR(500))
 BEGIN
-	INSERT INTO source_types(`Name`)
+	INSERT INTO Source_types(`Name`)
 	VALUES (type_name);
-END;
+END$$
 
 -- table: meta types
 
 CREATE PROCEDURE add_meta_type(type_name VARCHAR(250))
 BEGIN
-	INSERT INTO meta_types(`Name`)
+	INSERT INTO Meta_types(`Name`)
 	VALUES (type_name);
-END;
+END$$
 
 -- Tables with relations
 -- to other smaller tables
@@ -77,7 +77,7 @@ CREATE PROCEDURE add_source(
 	source_name VARCHAR(1000)
 )
 BEGIN
-	INSERT INTO sources(
+	INSERT INTO Sources(
 		`Discipline`,
 		`Type`,
 		`Name`
@@ -87,7 +87,7 @@ BEGIN
 		type_id,
 		source_name
 	);
-END;
+END$$
 
 -- table: conformity
 
@@ -96,7 +96,7 @@ CREATE PROCEDURE add_conformity(
 	conformity_speciality INT UNSIGNED
 	)
 BEGIN
-	INSERT INTO conformity(
+	INSERT INTO Conformity(
 	`Discipline`,
 	`Speciality`
 	)
@@ -104,7 +104,7 @@ BEGIN
 	conformity_discipline,
 	conformity_speciality
 	);
-END;
+END$$
 
 -- table: specialities
 
@@ -113,7 +113,7 @@ CREATE PROCEDURE add_speciality(
 	speciality_name VARCHAR(250)
 	)
 BEGIN
-	INSERT INTO specialities(
+	INSERT INTO Specialities(
 	`Code`,
 	`Name`
 	)
@@ -121,7 +121,7 @@ BEGIN
 	speciality_code,
 	speciality_name
 	);
-END;
+END$$
 
 -- table: general_competetions
 
@@ -133,7 +133,7 @@ CREATE PROCEDURE add_general_competetion(
 	comp_skills VARCHAR(1000)
 	)
 BEGIN
-	INSERT INTO general_competetions(
+	INSERT INTO General_competetions(
 	`Speciality`,
 	`No`,
 	`Name`,
@@ -147,7 +147,7 @@ BEGIN
 	comp_knowledge,
 	comp_skills
 	);
-END;
+END$$
 
 -- table: professional_competetions
 
@@ -161,7 +161,7 @@ CREATE PROCEDURE add_professional_competetion(
 	comp_experience VARCHAR(1000)
 	)
 BEGIN
-	INSERT INTO professional_competetions(
+	INSERT INTO Professional_competetions(
 	`Speciality`,
 	`No1`,
 	`No2`,
@@ -179,7 +179,7 @@ BEGIN
 	comp_skills,
 	comp_experience 
 	);
-END;
+END$$
 
 -- table: general_mastering
 
@@ -188,7 +188,7 @@ CREATE PROCEDURE add_general_mastering(
 	general_id INT UNSIGNED
 	)
 BEGIN
-	INSERT INTO general_mastering(
+	INSERT INTO General_mastering(
 	`Discipline`,
 	`Mastering`
 	)
@@ -196,7 +196,7 @@ BEGIN
 	mastering_discipline,
 	general_id
 	);
-END;
+END$$
 
 -- table: professional_mastering
 
@@ -205,7 +205,7 @@ CREATE PROCEDURE add_professional_mastering(
 	professional_id INT UNSIGNED
 	)
 BEGIN
-	INSERT INTO professional_mastering(
+	INSERT INTO Professional_mastering(
 	`Discipline`,
 	`Mastering`
 	)
@@ -213,7 +213,7 @@ BEGIN
 	mastering_discipline,
 	professional_id
 	);
-END;
+END$$
 
 -- table: general_selection
 
@@ -222,7 +222,7 @@ CREATE PROCEDURE add_general_selection(
 	mastering_selection INT UNSIGNED
 	)
 BEGIN
-	INSERT INTO general_selection(
+	INSERT INTO General_selection(
 	`Theme`,
 	`Mastering`
 	)
@@ -230,7 +230,7 @@ BEGIN
 	selection_theme,
 	mastering_selection
 	);
-END;
+END$$
 
 -- table: professional_selection
 
@@ -239,7 +239,7 @@ CREATE PROCEDURE add_professional_selection(
 	mastering_selection INT UNSIGNED
 	)
 BEGIN
-	INSERT INTO professional_selection(
+	INSERT INTO Professional_selection(
 	`Theme`,
 	`Mastering`
 	)
@@ -247,7 +247,7 @@ BEGIN
 	selection_theme,
 	mastering_selection
 	);
-END;
+END$$
 
 -- table: disciplines
 
@@ -256,7 +256,7 @@ CREATE PROCEDURE add_discipline(
 	discipline_name VARCHAR(250)
 	)
 BEGIN
-	INSERT INTO disciplines(
+	INSERT INTO Disciplines(
 	`Code`,
 	`Name`
 	)
@@ -264,7 +264,7 @@ BEGIN
 	discipline_code,
 	discipline_name
 	);
-END;
+END$$
 
 -- table: theme_plan
 
@@ -275,7 +275,7 @@ CREATE PROCEDURE add_section(
 	section_hours INT UNSIGNED
 	)
 BEGIN
-	INSERT INTO theme_plan(
+	INSERT INTO Theme_plan(
 	`Discipline`,
 	`No`,
 	`Name`,
@@ -287,7 +287,7 @@ BEGIN
 	section_name,
 	section_hours
 	);
-END;
+END$$
 
 -- table: themes
 
@@ -299,7 +299,7 @@ CREATE PROCEDURE add_theme(
 	theme_hours INT UNSIGNED
 	)
 BEGIN
-	INSERT INTO themes(
+	INSERT INTO Themes(
 	`Topic`,
 	`Level`,
 	`No`,
@@ -313,7 +313,7 @@ BEGIN
 	theme_name,
 	theme_hours
 	);
-END;
+END$$
 
 -- table: works
 
@@ -322,7 +322,7 @@ CREATE PROCEDURE add_work(
 	work_type INT UNSIGNED
 	)
 BEGIN
-	INSERT INTO works(
+	INSERT INTO Works(
 	`Theme`,
 	`Type`
 	)
@@ -330,7 +330,7 @@ BEGIN
 	work_theme,
 	work_type
 	);
-END;
+END$$
 
 -- table: tasks
 
@@ -340,7 +340,7 @@ CREATE PROCEDURE add_task(
 	task_hours SMALLINT UNSIGNED
 	)
 BEGIN
-	INSERT INTO tasks(
+	INSERT INTO Tasks(
 	`Work`,
 	`Name`,
 	`Hours`
@@ -350,7 +350,7 @@ BEGIN
 	task_name,
 	task_hours
 	);
-END;
+END$$
 
 -- table: meta data
 
@@ -370,4 +370,4 @@ BEGIN
 	data_type_id,
 	data_name
 	);
-END;
+END$$
