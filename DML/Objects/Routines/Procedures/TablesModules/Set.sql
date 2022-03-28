@@ -1,4 +1,4 @@
-delimiter \;
+DELIMITER $$
 
 -- Tables with no relation
 -- to other smaller tables
@@ -11,12 +11,12 @@ CREATE PROCEDURE set_level(
 	level_description VARCHAR(500)
 	)
 BEGIN
-	UPDATE levels
+	UPDATE Levels
 	SET
 	`Name` = level_name,
 	`Description` = level_description
 	WHERE `ID` = level_id;
-END;
+END$$
 
 -- table: hours
 
@@ -27,13 +27,13 @@ CREATE PROCEDURE set_hour(
 		hours_count INT UNSIGNED
 		)
 BEGIN
-	UPDATE hours
+	UPDATE Hours
 	SET
 	`Discipline` = discipline_id,
 	`WorkType` = work_type_id,
 	`Count` = hours_count
 	WHERE `ID` = hour_id;
-END;
+END$$
 
 -- table: discipline_codes
 
@@ -42,10 +42,10 @@ CREATE PROCEDURE set_discipline_code(
 		discipline_code VARCHAR(50)
 		)
 BEGIN
-	UPDATE discipline_codes
+	UPDATE Discipline_codes
 	SET `Code` = discipline_code
 	WHERE `ID` = code_id;
-END;
+END$$
 
 -- table: speciality_codes
 
@@ -54,10 +54,10 @@ CREATE PROCEDURE set_speciality_code(
 		speciality_code VARCHAR(50)
 		)
 BEGIN
-	UPDATE speciality_codes
+	UPDATE Speciality_codes
 	SET `Code` = speciality_code
 	WHERE `ID` = code_id;
-END;
+END$$
 
 -- table: work_types
 
@@ -66,10 +66,10 @@ CREATE PROCEDURE set_work_type(
 		type_name VARCHAR(50)
 		)
 BEGIN
-	UPDATE work_types
+	UPDATE Work_types
 	SET `Name` = type_name
 	WHERE `ID` = type_id;
-END;
+END$$
 
 -- table: source_types
 
@@ -81,7 +81,7 @@ BEGIN
 	UPDATE source_types
 	SET `Name` = type_name
 	WHERE `ID` = type_id;
-END;
+END$$
 
 -- table: meta types
 
@@ -90,10 +90,10 @@ CREATE PROCEDURE set_meta_type(
 		type_name VARCHAR(250)
 		)
 BEGIN
-	UPDATE meta_types
+	UPDATE Meta_types
 	SET `Name` = type_name
 	WHERE `ID` = type_id;
-END;
+END$$
 
 -- Tables with relations
 -- to other smaller tables
@@ -107,13 +107,13 @@ CREATE PROCEDURE set_source(
 		source_name VARCHAR(1000)
 		)
 BEGIN
-	UPDATE sources
+	UPDATE Sources
 	SET 
 	`Discipline` = discipline_id,
 	`Type` = type_id,
 	`Name` = source_name
 	WHERE `ID` = source_id;
-END;
+END$$
 
 -- table: conformity
 
@@ -123,12 +123,12 @@ CREATE PROCEDURE set_conformity(
 	conformity_speciality INT UNSIGNED
 	)
 BEGIN
-	UPDATE conformity
+	UPDATE Conformity
 	SET
 	`Discipline` = conformity_discipline,
 	`Speciality` = conformity_speciality
 	WHERE `ID` = conformity_id;
-END;
+END$$
 
 -- table: specialities
 
@@ -138,12 +138,12 @@ CREATE PROCEDURE set_speciality(
 	speciality_name VARCHAR(250)
 	)
 BEGIN
-	UPDATE specialities
+	UPDATE Specialities
 	SET
 	`Code` = speciality_code,
 	`Name` = speciality_name
 	WHERE `ID` = speciality_id;
-END;
+END$$
 
 -- table: general_competetions
 
@@ -156,7 +156,7 @@ CREATE PROCEDURE set_general_competetion(
 	comp_skills VARCHAR(1000)
 	)
 BEGIN
-	UPDATE general_competetions
+	UPDATE General_competetions
 	SET
 	`Speciality` = comp_speciality,
 	`No` = comp_no,
@@ -164,7 +164,7 @@ BEGIN
 	`Knowledge` = comp_knowledge,
 	`Skills` = comp_skills
 	WHERE `ID` = comp_id;
-END;
+END$$
 
 -- table: professional_competetions
 
@@ -179,7 +179,7 @@ CREATE PROCEDURE set_professional_competetion(
 	comp_experience VARCHAR(1000)
 	)
 BEGIN
-	UPDATE professional_competetions
+	UPDATE Professional_competetions
 	SET
 	`Speciality` = comp_speciality,
 	`No1` = comp_no1,
@@ -189,7 +189,7 @@ BEGIN
 	`Skills` = comp_skills,
 	`Experience` = comp_experience
 	WHERE `ID` = comp_id;
-END;
+END$$
 
 -- table: general_mastering
 
@@ -199,12 +199,12 @@ CREATE PROCEDURE set_general_mastering(
 	general_id INT UNSIGNED
 	)
 BEGIN
-	UPDATE general_mastering
+	UPDATE General_mastering
 	SET
 	`Discipline` = mastering_discipline,
 	`Mastering` = general_id
 	WHERE `ID` = mastering_id;
-END;
+END$$
 
 -- table: professional_mastering
 
@@ -214,12 +214,12 @@ CREATE PROCEDURE set_professional_mastering(
 	professional_id INT UNSIGNED
 	)
 BEGIN
-	UPDATE professional_mastering
+	UPDATE Professional_mastering
 	SET
 	`Discipline` = mastering_discipline,
 	`Mastering` = professional_id
 	WHERE `ID` = mastering_id;
-END;
+END$$
 
 -- table: general_selection
 
@@ -229,12 +229,12 @@ CREATE PROCEDURE set_general_selection(
 	mastering_selection INT UNSIGNED
 	)
 BEGIN
-	UPDATE general_selection
+	UPDATE General_selection
 	SET
 	`Theme` = selection_theme,
 	`Mastering` = mastering_selection
 	WHERE `ID` = selection_id;
-END;
+END$$
 
 -- table: professional_selection
 
@@ -244,12 +244,12 @@ CREATE PROCEDURE set_professional_selection(
 	mastering_selection INT UNSIGNED
 	)
 BEGIN
-	UPDATE professional_selection
+	UPDATE Professional_selection
 	SET
 	`Theme` = selection_theme,
 	`Mastering` = mastering_selection
 	WHERE `ID` = selection_id;
-END;
+END$$
 
 -- table: disciplines
 
@@ -259,12 +259,12 @@ CREATE PROCEDURE set_discipline(
 	discipline_name VARCHAR(250)
 	)
 BEGIN
-	UPDATE disciplines
+	UPDATE Disciplines
 	SET
 	`Code` = discipline_code,
 	`Name` = discipline_name
 	WHERE `ID` = discipline_id;
-END;
+END$$
 
 -- table: theme_plan
 
@@ -276,14 +276,14 @@ CREATE PROCEDURE set_section(
 	section_hours INT UNSIGNED
 	)
 BEGIN
-	UPDATE theme_plan
+	UPDATE Theme_plan
 	SET
 	`Discipline` = section_discipline,
 	`No` = section_no,
 	`Name` = section_name,
 	`Hours` = section_hours
 	WHERE `ID` = section_id;
-END;
+END$$
 
 -- table: themes
 
@@ -296,7 +296,7 @@ CREATE PROCEDURE set_theme(
 	theme_hours INT UNSIGNED
 	)
 BEGIN
-	UPDATE themes
+	UPDATE Themes
 	SET
 	`Topic` = theme_topic,
 	`Level` = theme_mastering_level,
@@ -304,7 +304,7 @@ BEGIN
 	`Name` = theme_name,
 	`Hours` = theme_hours
 	WHERE `ID` = theme_id;
-END;
+END$$
 
 -- table: works
 
@@ -314,12 +314,12 @@ CREATE PROCEDURE set_work(
 	work_type INT UNSIGNED
 	)
 BEGIN
-	UPDATE works
+	UPDATE Works
 	SET
 	`Theme` = work_theme,
 	`Type` = work_type
 	WHERE `ID` = work_id;
-END;
+END$$
 
 -- table: tasks
 
@@ -330,13 +330,13 @@ CREATE PROCEDURE set_task(
 	task_hours SMALLINT UNSIGNED
 	)
 BEGIN
-	UPDATE tasks
+	UPDATE Tasks
 	SET
 	`Work` = task_work_id,
 	`Name` = task_name,
 	`Hours` = task_hours
 	WHERE `ID` = task_id;
-END;
+END$$
 
 -- table: meta data
 
@@ -353,4 +353,4 @@ BEGIN
 	`Type` = data_type_id,
 	`Name` = data_name
 	WHERE `ID` = data_id;
-END;
+END$$
