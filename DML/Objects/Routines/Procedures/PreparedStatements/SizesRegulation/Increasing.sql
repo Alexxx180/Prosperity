@@ -1,4 +1,4 @@
-delimiter \;
+DELIMITER $$
 
 -- Increase column size
 -- Varchar
@@ -14,7 +14,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_disciplines_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -23,7 +23,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_meta_data_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -32,7 +32,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_meta_types_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -41,7 +41,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_levels_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -50,7 +50,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_levels_description(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -59,7 +59,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_specialities_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -68,7 +68,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_general_competetions_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -77,7 +77,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_general_competetions_skills(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -86,7 +86,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_general_competetions_knowledge(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -95,7 +95,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_professional_competetions_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -104,7 +104,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_professional_competetions_experience(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -113,7 +113,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_professional_competetions_skills(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -122,7 +122,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_professional_competetions_knowledge(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -131,7 +131,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_speciality_codes_code(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -140,7 +140,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_discipline_codes_code(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -149,7 +149,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_source_types_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -158,7 +158,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_work_types_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -167,7 +167,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_theme_plan_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -176,7 +176,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_themes_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -185,7 +185,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_tasks_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -194,7 +194,7 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
 
 CREATE PROCEDURE increase_sources_name(IN column_size SMALLINT UNSIGNED)
 BEGIN
@@ -203,4 +203,4 @@ BEGIN
     PREPARE stmt FROM @s;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
-END;
+END$$
