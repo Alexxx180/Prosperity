@@ -1,24 +1,24 @@
 -- Custom procedures
 
-delimiter \;
+DELIMITER $$
 
 CREATE PROCEDURE get_conformity_full()
 BEGIN
 	SELECT `ID`, `Discipline`, `Speciality`
-	FROM conformity;
-END;
+	FROM Conformity;
+END$$
 
 CREATE PROCEDURE get_specialities()
 BEGIN
 	SELECT `ID`, `Code`, `Name` 
 	FROM Specialities;
-END;
+END$$
 
 CREATE PROCEDURE get_speciality_codes()
 BEGIN
 	SELECT `ID`, `Code`
 	FROM Speciality_codes;
-END;
+END$$
 
 CREATE PROCEDURE get_specialities_full()
 BEGIN
@@ -27,21 +27,21 @@ BEGIN
 	LEFT JOIN
 	Speciality_codes
 	ON Specialities.`Code` = Speciality_codes.`ID`;
-END;
+END$$
 
 CREATE PROCEDURE get_speciality_general(speciality_id INT UNSIGNED)
 BEGIN
 	SELECT `ID`, `No`, `Name`, `Knowledge`, `Skills`
 	FROM General_competetions
 	WHERE `Speciality` = speciality_id; -- speciality_id
-END;
+END$$
 
 CREATE PROCEDURE get_speciality_professional(speciality_id INT UNSIGNED)
 BEGIN
 	SELECT `ID`, `No1`, `No2`, `Name`, `Knowledge`, `Skills`, `Experience`
 	FROM Professional_competetions
 	WHERE `Speciality` = speciality_id;
-END;
+END$$
 
 CREATE PROCEDURE get_speciality_disciplines(speciality_id INT UNSIGNED)
 BEGIN
@@ -55,19 +55,19 @@ BEGIN
 		FROM Conformity
 		WHERE `Speciality` = speciality_id
 	);
-END;
+END$$
 
 CREATE PROCEDURE get_disciplines()
 BEGIN
 	SELECT `ID`, `Code`, `Name` 
 	FROM Disciplines;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_codes()
 BEGIN
 	SELECT `ID`, `Code`
 	FROM Discipline_codes;
-END;
+END$$
 
 CREATE PROCEDURE get_disciplines_full()
 BEGIN
@@ -76,14 +76,14 @@ BEGIN
 	LEFT JOIN
 	Discipline_codes
 	ON Disciplines.`Code` = Discipline_codes.`ID`;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_total_hours_original(discipline_id INT UNSIGNED)
 BEGIN
 	SELECT `ID`, `WorkType`, `Count`
 	FROM Hours
 	WHERE `Discipline` = discipline_id; -- discipline_id
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_total_hours(discipline_id INT UNSIGNED)
 BEGIN
@@ -93,28 +93,28 @@ BEGIN
 	Work_types
 	ON Work_types.`ID` = Hours.`WorkType`
 	WHERE `Discipline` = discipline_id; -- discipline_id
-END;
+END$$
 
 CREATE PROCEDURE get_theme_plan_by_discipline(discipline_id INT UNSIGNED)
 BEGIN
 	SELECT `ID`, `No`, `Name`, `Hours`
 	FROM Theme_plan
 	WHERE `Discipline` = discipline_id;
-END;
+END$$
 
 CREATE PROCEDURE get_themes_by_section(section_id INT UNSIGNED)
 BEGIN
 	SELECT `ID`, `No`, `Name`, `Hours`, `Level`
 	FROM Themes
 	WHERE `Topic` = section_id;
-END;
+END$$
 
 CREATE PROCEDURE get_work_by_theme_original(theme_id INT UNSIGNED)
 BEGIN
 	SELECT `ID`, `Type`
 	FROM Works
 	WHERE `Theme` = theme_id;
-END;
+END$$
 
 CREATE PROCEDURE get_work_by_theme(theme_id INT UNSIGNED)
 BEGIN
@@ -124,21 +124,21 @@ BEGIN
 	Work_types
 	ON Work_types.`ID` = Works.`Type`
 	WHERE `Theme` = theme_id;
-END;
+END$$
 
 CREATE PROCEDURE get_task_by_work(work_id INT UNSIGNED)
 BEGIN
 	SELECT `ID`, `Name`, `Hours`
 	FROM Tasks
 	WHERE `Work` = work_id;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_meta_data_original(discipline_id INT UNSIGNED)
 BEGIN
 	SELECT `ID`, `Type`, `Name`
 	FROM Meta_data
 	WHERE `Discipline` = discipline_id;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_meta_data(discipline_id INT UNSIGNED)
 BEGIN
@@ -148,9 +148,7 @@ BEGIN
 	Meta_types
 	ON Meta_types.`ID` = Meta_data.`Type`
 	WHERE `Discipline` = discipline_id;
-END;
-
-delimiter \;
+END$$
 
 CREATE PROCEDURE get_discipline_sources(discipline_id INT UNSIGNED)
 BEGIN
@@ -163,7 +161,7 @@ BEGIN
 	WHERE `Discipline` = discipline_id
 	ORDER BY
 	Sources.`Type`;
-END;
+END$$
 
 CREATE PROCEDURE get_conformity_general_competetions(discipline_id INT UNSIGNED)
 BEGIN
@@ -174,7 +172,7 @@ BEGIN
 		FROM Conformity
 		WHERE `Discipline` = discipline_id
 	);
-END;
+END$$
 
 CREATE PROCEDURE get_conformity_professional_competetions(discipline_id INT UNSIGNED)
 BEGIN
@@ -185,49 +183,49 @@ BEGIN
 		FROM Conformity
 		WHERE `Discipline` = discipline_id
 	);
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_general_by_theme(theme_id INT UNSIGNED)
 BEGIN
 	SELECT `ID`, `Mastering`
 	FROM General_mastering
 	WHERE `Discipline` = (
-		SELECT get_discipline_by_theme_id(theme_id) -- theme_id
-	); -- discipline_id
-END;
+		SELECT get_discipline_by_theme_id(theme_id)
+	);
+END$$
 
 CREATE PROCEDURE get_discipline_professional_by_theme(theme_id INT UNSIGNED)
 BEGIN
 	SELECT `ID`, `Mastering`
 	FROM Professional_mastering
 	WHERE `Discipline` = (
-		SELECT get_discipline_by_theme_id(theme_id) -- theme_id
+		SELECT get_discipline_by_theme_id(theme_id)
 	); -- discipline_id
-END;
+END$$
 
 CREATE PROCEDURE get_meta_types()
 BEGIN
 	SELECT `ID`, `Name`
 	FROM Meta_types;
-END;
+END$$
 
 CREATE PROCEDURE get_work_types()
 BEGIN
 	SELECT `ID`, `Name`
 	FROM Work_types;
-END;
+END$$
 
 CREATE PROCEDURE get_source_types()
 BEGIN
 	SELECT `ID`, `Name`
 	FROM Source_types;
-END;
+END$$
 
 CREATE PROCEDURE get_all_levels()
 BEGIN
 	SELECT `ID`, `Name`, `Description`
 	FROM Levels;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_general_mastering(discipline_id INT UNSIGNED)
 BEGIN
@@ -242,7 +240,7 @@ BEGIN
 	General_competetions
 	ON General_competetions.`ID` = General_mastering.`Mastering`
 	WHERE `Discipline` = discipline_id;
-END;
+END$$
 
 CREATE PROCEDURE get_discipline_professional_mastering(discipline_id INT UNSIGNED)
 BEGIN
@@ -259,7 +257,7 @@ BEGIN
 	Professional_competetions
 	ON Professional_competetions.`ID` = Professional_mastering.`Mastering`
 	WHERE `Discipline` = discipline_id;
-END;
+END$$
 
 CREATE PROCEDURE get_theme_general_mastering_selection(theme_id INT UNSIGNED)
 BEGIN
@@ -274,7 +272,7 @@ BEGIN
 	General_competetions
 	ON General_competetions.`ID` = General_mastering.`Mastering`
 	WHERE `Theme` = theme_id;
-END;
+END$$
 
 CREATE PROCEDURE get_theme_professional_mastering_selection(theme_id INT UNSIGNED)
 BEGIN
@@ -290,4 +288,4 @@ BEGIN
 	Professional_competetions
 	ON Professional_competetions.`ID` = Professional_mastering.`Mastering`
 	WHERE `Theme` = theme_id;
-END;
+END$$
