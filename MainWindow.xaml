@@ -13,10 +13,6 @@
         Closing="SessionEnded"
         x:Name="Main"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <!--<Window.DataContext>
-        <viewModel:GlobalViewModel x:Name="ViewModel"/>
-    </Window.DataContext>-->
-    
     <Grid Style="{StaticResource CaptionImpact2}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>

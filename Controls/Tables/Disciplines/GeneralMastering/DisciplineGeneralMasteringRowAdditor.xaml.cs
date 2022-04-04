@@ -34,7 +34,7 @@ namespace Prosperity.Controls.Tables.Disciplines.GeneralMastering
             }
         }
 
-        private uint? _code = null;
+        private uint? _code;
         public uint? Code
         {
             get => _code;

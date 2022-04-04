@@ -46,7 +46,7 @@ namespace Prosperity {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.6.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.15.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
@@ -64,7 +64,7 @@ namespace Prosperity {
             
             #line default
             #line hidden
-            System.Uri resourceLocater = new System.Uri("/Prosperity;V1.0.0.0;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Prosperity;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -78,7 +78,7 @@ namespace Prosperity {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.6.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.15.0")]
         public static void Main() {
             Prosperity.App app = new Prosperity.App();
             app.InitializeComponent();

@@ -1,0 +1,760 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Prosperity.Writers.Import.DisciplineProgramSender" Collapsed="true">
+    <Position X="17.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Writers\Import\DisciplineProgramSender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Writers.Import.Importer" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAAAAAAABAAEAQAAAAAAEAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Writers\Import\Importer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Writers.Processors" Collapsed="true">
+    <Position X="14.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAIAgAUAAAAAACQAbgACQAAAACAAAAAAEAAAACAA=</HashCode>
+      <FileName>Writers\Processors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Controls.Binds.Converters.ProcentualHeightConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Binds\Converters\ProcentualHeightConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Binds.Converters.RowCountConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Binds\Converters\RowCountConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.FieldsForm.MainPart" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAACIACAAAAAgAAAAAAAAAAABAAAgAE=</HashCode>
+      <FileName>Controls\FieldsForm\MainPart.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.FieldsForm.TextSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIIAAAAAAgQAAAAAAACCAAAAAAEA=</HashCode>
+      <FileName>Controls\FieldsForm\TextSection.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.MainForm.MainPart" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAIAAgAIAAABAAAkAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\MainForm\MainPart.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.MainForm.ProsperityHeader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgMAAABAAAkAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\MainForm\ProsperityHeader.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.RecordForm.MainPart" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEDAIAAAJAgAgAAAQAgCEAAAAAAQAAA=</HashCode>
+      <FileName>Controls\RecordForm\MainPart.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Conformity.ConformityColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Conformity\ConformityColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Conformity.ConformityRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQECEAQAIAJAAoQAoAhAACgAgKAAQEEAAAEASACCQUA=</HashCode>
+      <FileName>Controls\Tables\Conformity\ConformityRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Conformity.ConformityRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQECEAAAAAJAAgAAoIhAAAAAgKAAQEAAAAEAAACiAQA=</HashCode>
+      <FileName>Controls\Tables\Conformity\ConformityRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.DisciplineCodes.DisciplineCodeColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\DisciplineCodes\DisciplineCodeColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.DisciplineCodes.DisciplineCodeRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABIAoQAoABAAigAgKAAQAEAAgEASACAQEA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\DisciplineCodes\DisciplineCodeRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.DisciplineCodes.DisciplineCodeRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABIAgAAoIAAAAAAgKAAAAAAAgEAAACgAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\DisciplineCodes\DisciplineCodeRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.GeneralMastering.DisciplineGeneralMasteringColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\GeneralMastering\DisciplineGeneralMasteringColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.GeneralMastering.DisciplineGeneralMasteringRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABAAoQAoABgACgAgKAAQAMAAAEASACgQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\GeneralMastering\DisciplineGeneralMasteringRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.GeneralMastering.DisciplineGeneralMasteringRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABAAgAAoIAgAAAAgKAAAAIAAAEAAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\GeneralMastering\DisciplineGeneralMasteringRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData.MetaDataColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\MetaTypes\MetaData\MetaDataColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData.MetaDataRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABAAoQAoFBAAigQgKAAQAMgAAEASACAQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\MetaTypes\MetaData\MetaDataRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaData.MetaDataRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABAAgAAoNAAAAAQgKAAAAIgAAEAAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\MetaTypes\MetaData\MetaDataRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaTypeColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\MetaTypes\MetaTypeColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaTypeRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABAAoQAoEBAAigQgKAAQAEAAAEASACAQEA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\MetaTypes\MetaTypeRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.MetaTypes.MetaTypeRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABAAgAAoMAAAAAQgKAAAAAAAAEAAACgAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\MetaTypes\MetaTypeRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.ProfessionalMastering.DisciplineProfessionalMasteringColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\ProfessionalMastering\DisciplineProfessionalMasteringColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.ProfessionalMastering.DisciplineProfessionalMasteringRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABAAoQAoABgACgAgKAAQAMAAAEASACgQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\ProfessionalMastering\DisciplineProfessionalMasteringRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.ProfessionalMastering.DisciplineProfessionalMasteringRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABAAgAAoIAgAAAAgKAAAAIAAAEAAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\ProfessionalMastering\DisciplineProfessionalMasteringRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources.SourceColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\SourceTypes\Sources\SourceColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources.SourceRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIkBAAoQAoABAIigAgKAAQAMAAAEASACAQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\SourceTypes\Sources\SourceRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.SourceTypes.Sources.SourceRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAkBAAgAAoIAAIAAAgKAAAAIAAAEACACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\SourceTypes\Sources\SourceRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.SourceTypes.SourceTypeColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\SourceTypes\SourceTypeColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.SourceTypes.SourceTypeRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABAAoQAoABAIigAgKAAQAEAAAEASACAQEA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\SourceTypes\SourceTypeRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.SourceTypes.SourceTypeRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABAAgAAoIAAIAAAgKAAAAAAAAEACACgAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\SourceTypes\SourceTypeRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours.HoursColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\Hours\HoursColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours.HoursRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAUAIABQAoQAsABAACgEiKAAQAMAAAEASACAQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\Hours\HoursRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.Hours.HoursRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAEAAABQAgAAsIAAAAAEiKAAAAIAAAEAAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\Hours\HoursRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.CompetetionLevels.LevelColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\CompetetionLevels\LevelColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.CompetetionLevels.LevelRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACMAQAIABgAoQEoABAAigAgKAAQAMAAEEASACAQEA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\CompetetionLevels\LevelRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.CompetetionLevels.LevelRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAMAAAAABgAgAEoIAAAAAAgKAAAAAAAEEAAACgAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\CompetetionLevels\LevelRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralMastering.ThemeGeneralMasteringColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralMastering.ThemeGeneralMasteringRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABAAoQAoABgACgAgKAAQAMAAAEASACgQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.GeneralMastering.ThemeGeneralMasteringRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABAAgAAoIAgAAAAgKAAAAIAAAEAAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\GeneralMastering\ThemeGeneralMasteringRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ProfessionalMastering.ThemeProfessionalMasteringColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ProfessionalMastering.ThemeProfessionalMasteringRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABAAoQAoABgACgAgKAAQAMAAAEASACgQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ProfessionalMastering.ThemeProfessionalMasteringRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABAAgAAoIAgAAAAgKAAAAIAAAEAAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ProfessionalMastering\ThemeProfessionalMasteringRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks.TaskColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\Tasks\TaskColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks.TaskRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAUAIABAAoQApABAAigEgKAAQAMAIAEASACAQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\Tasks\TaskRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.Tasks.TaskRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAEAAABAAgAApIAAAAAEgKAAAAAAIAEAAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\Tasks\TaskRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.WorkColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\WorkColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.WorkRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABAAoQAoABAACgAgaAAQAMAgAEASACAQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\WorkRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.Works.WorkRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABAAgQAoIAAAAAAgaAAAAIAAAEAAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\Works\WorkRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ThemeColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ThemeRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAWAIABgIoQAsABgAigEgKACQAOAAAEBSACAQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.Themes.ThemeRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAGAAABgAgAAoIBgAAAEgKACAAKAAAEBAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\Themes\ThemeRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.TopicColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\TopicColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.TopicRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAUAIABAAoRAoABAAjgEgKBAQAMAAAMASACASUA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\TopicRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.ThemePlan.TopicRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAEAAABAAgBAoIAAABAEgKAAAAAAAAMAAACgCQA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\ThemePlan\TopicRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.WorkTypesColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\WorkTypesColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.WorkTypesRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABAAoQAoABAAigAgaAAQAEAAAEASASAQEA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\WorkTypesRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.WorkTypes.WorkTypesRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABAAgAAoIAAAAAAgaAAAAAAAAEAAASgAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\WorkTypes\WorkTypesRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.DisciplineColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Disciplines\DisciplineColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.DisciplineRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACMAQAIABAIoQAsABgAigAgKAAQAMAAAEASACgQEg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\DisciplineRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Disciplines.DisciplineRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAMAAAAABAAoAAoIAgAAAAgKAAAAIAAAEAAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Disciplines\DisciplineRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.GeneralCompetetions.GeneralCompetetionColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.GeneralCompetetions.GeneralCompetetionRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQACMAwAIgBAAoQApABAEigCgKAAQAEAAAEASACAQEA=</HashCode>
+      <FileName>Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.GeneralCompetetions.GeneralCompetetionRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAMAgAAgBAAgAApIAAEAACgKAAAAAAAAEAAACgAAA=</HashCode>
+      <FileName>Controls\Tables\Specialities\GeneralCompetetions\GeneralCompetetionRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions.ProfessionalCompetetionColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Specialities\ProfessionalCompetetions\ProfessionalCompetetionColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions.ProfessionalCompetetionRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQACMAwAIABAEoQCpABAAqgAgKAAQEEAAAGQSACAwEA=</HashCode>
+      <FileName>Controls\Tables\Specialities\ProfessionalCompetetions\ProfessionalCompetetionRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.ProfessionalCompetetions.ProfessionalCompetetionRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAMAgAAABAEgACpIAAAIAAgKAAAEAAAAGQAACgwAA=</HashCode>
+      <FileName>Controls\Tables\Specialities\ProfessionalCompetetions\ProfessionalCompetetionRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.SpecialityCodes.SpecialityCodeColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Specialities\SpecialityCodes\SpecialityCodeColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.SpecialityCodes.SpecialityCodeRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAQAIABAAoQAoABAACgAgKCAQAEAAAEASACAQGA=</HashCode>
+      <FileName>Controls\Tables\Specialities\SpecialityCodes\SpecialityCodeRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.SpecialityCodes.SpecialityCodeRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAABAAgAAoIAAAAAAgKCAAAAAAAEAAACgACA=</HashCode>
+      <FileName>Controls\Tables\Specialities\SpecialityCodes\SpecialityCodeRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.SpecialityColumns" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\Specialities\SpecialityColumns.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.SpecialityRow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACMAQAIABAIoQAsABgAigAgKAAQAMgAAEASACgQEg=</HashCode>
+      <FileName>Controls\Tables\Specialities\SpecialityRow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.Specialities.SpecialityRowAdditor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAMAAAAABAAgAAoIAgAAAAgKAAAAIgAAEAAACgAAg=</HashCode>
+      <FileName>Controls\Tables\Specialities\SpecialityRowAdditor.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.EditEvents" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\EditEvents.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.EditHelper" Collapsed="true">
+    <Position X="24.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAECAAAIAAAAAgAEAAAAAAAIAAAAAAQAQAA=</HashCode>
+      <FileName>Controls\Tables\EditHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Controls.Tables.LayoutMaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAgAAAgCAIQRIGgQJAoCEYYSkAAIABBAZCUACAJEBAA=</HashCode>
+      <FileName>Controls\Tables\LayoutMaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.Edit.Add" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAqAAAQAAwIEAAAQAEAAAAAAAQAAAEABAkABCCACBCA=</HashCode>
+      <FileName>Model\Tools\DataBase\Edit\Add.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.Edit.DataTool" Collapsed="true">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wIAAAAgAAAAEAAAAAQAEIAAAIwAAAAAIAIACCAAABAA=</HashCode>
+      <FileName>Model\Tools\DataBase\Edit\DataTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.Edit.Edit" Collapsed="true">
+    <Position X="3.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAqAAAQAAwIEAAAQAEAAAAAAAQAAAEABAkABCCACBCA=</HashCode>
+      <FileName>Model\Tools\DataBase\Edit\Edit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.Edit.Extensions" Collapsed="true">
+    <Position X="26.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAEAAA=</HashCode>
+      <FileName>Model\Tools\DataBase\Edit\Extensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.Edit.Mark" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAqAAAQAAwIEAAAQAEAAAAAAAQAAAEABAkABCCACBCA=</HashCode>
+      <FileName>Model\Tools\DataBase\Edit\Mark.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.Edit.Misc" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Tools\DataBase\Edit\Misc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.Edit.RedactorTools" Collapsed="true">
+    <Position X="24.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAACAAAAABAEAAAAAAAAAA=</HashCode>
+      <FileName>Model\Tools\DataBase\Edit\RedactorTools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.Edit.Tool" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Tools\DataBase\Edit\Tool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.View.Converters" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAIAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Tools\DataBase\View\Converters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.View.ProgramData" Collapsed="true">
+    <Position X="21.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DQCBQAAAAQAACACQQEAAAAAAAQAQAEQBEgAIUCAEACA=</HashCode>
+      <FileName>Model\Tools\DataBase\View\ProgramData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.MySQL" Collapsed="true">
+    <Position X="1.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAwBALAABAAAwAAhICIBAAiAAAAAAAAAYBAAABEA=</HashCode>
+      <FileName>Model\Tools\DataBase\MySQL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.Model.Tools.DataBase.Sql" Collapsed="true">
+    <Position X="1.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>TAqJZelCD8AJDHGwmEX0DIAAM5I4kEXJExCtV+BEACA=</HashCode>
+      <FileName>Model\Tools\DataBase\Sql.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Prosperity.Model.TransitionBase" Collapsed="true">
+    <Position X="24.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Model\TransitionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Prosperity.ViewModel.GlobalViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAIAAlAICQAhLAEgAACBQIgAgQA6AAAADQ=</HashCode>
+      <FileName>ViewModel\GlobalViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Prosperity.Controls.Tables.IAutoIndexing" Collapsed="true">
+    <Position X="4.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAgAAAAAAAACAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controls\Tables\IAutoIndexing.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Prosperity.Controls.Tables.IRedactable" Collapsed="true">
+    <Position X="4.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAIAAgAAAAAAAAIAAQAAAAAAACAAAAAA=</HashCode>
+      <FileName>Controls\Tables\IRedactable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Prosperity.Model.Tools.IDataRedactor" Collapsed="true">
+    <Position X="10.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAqJBekAB8AIBHEAiAWwBAAAEpIokAXAARClE+BEAAA=</HashCode>
+      <FileName>Model\Tools\IDataRedactor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Prosperity.Model.Tools.IDataViewer" Collapsed="true">
+    <Position X="12.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DACBQAAAAAAACACQAEAAAAAAIQAQAEAJEgAIUCAEACA=</HashCode>
+      <FileName>Model\Tools\IDataViewer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI Semibold" Size="8.25" />
+</ClassDiagram>
