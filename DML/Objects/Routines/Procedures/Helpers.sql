@@ -25,7 +25,7 @@ CREATE PROCEDURE hours_auto_set(discipline_id INT UNSIGNED, hours_count SMALLINT
 BEGIN
   DECLARE done INT DEFAULT 0;
   DECLARE hour_id INT UNSIGNED;
-  DECLARE id_cursor CURSOR FOR SELECT id FROM work_types;
+  DECLARE id_cursor CURSOR FOR SELECT id FROM Work_types;
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
 
   OPEN id_cursor;
@@ -44,7 +44,7 @@ CREATE PROCEDURE meta_data_auto_set(discipline_id INT UNSIGNED, data_name VARCHA
 BEGIN
   DECLARE done INT DEFAULT 0;
   DECLARE data_type_id INT UNSIGNED;
-  DECLARE id_cursor CURSOR FOR SELECT id FROM meta_types;
+  DECLARE id_cursor CURSOR FOR SELECT id FROM Meta_types;
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
 
   OPEN id_cursor;
