@@ -5,7 +5,7 @@ DELIMITER $$
 CREATE PROCEDURE get_conformity_full_unmarked()
 BEGIN
 	SELECT `ID`, `Discipline`, `Speciality`
-	FROM conformity
+	FROM Conformity
 	WHERE `ToDrop` = 0;
 END$$
 
