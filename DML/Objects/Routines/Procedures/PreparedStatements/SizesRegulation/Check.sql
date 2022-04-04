@@ -4,7 +4,7 @@ CREATE PROCEDURE check_column_size(IN name_of_table VARCHAR(50), IN name_of_colu
 BEGIN
 	SELECT CHARACTER_MAXIMUM_LENGTH
 	FROM information_schema.columns
-	WHERE table_schema = 'prosperity'
+	WHERE table_schema = 'Prosperity'
 	AND table_name = name_of_table
 	AND column_name = name_of_column;
 END$$
