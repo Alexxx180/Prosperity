@@ -138,7 +138,7 @@ BEGIN
 	DECLARE topic_id, discipline_id INT UNSIGNED;
 	SET topic_id = (SELECT get_topic_by_theme_id(theme_id));
 	SELECT `Discipline`
-	FROM Theme_Plan
+	FROM Theme_plan
 	WHERE `ID` = topic_id;
 END$$
 
