@@ -232,7 +232,6 @@ D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\
 D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
 D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\ControlMaterials.dll
 D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\bin\Debug\net5.0-windows\ControlMaterials.pdb
 D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Prosperity.csproj.AssemblyReference.cache
 D:\Aleksandr\misc\Tombstones\PL-Projects\C#\Prosperity\obj\Debug\net5.0-windows\Controls\FieldsForm\MainPart.baml

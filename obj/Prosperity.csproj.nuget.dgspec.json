@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\student\\Desktop\\Prosperity\\Prosperity.csproj": {}
+    "D:\\Aleksandr\\misc\\Tombstones\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj": {}
   },
   "projects": {
-    "C:\\Users\\student\\Desktop\\Prosperity\\Prosperity.csproj": {
+    "D:\\Aleksandr\\misc\\Tombstones\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\student\\Desktop\\Prosperity\\Prosperity.csproj",
+        "projectUniqueName": "D:\\Aleksandr\\misc\\Tombstones\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj",
         "projectName": "Prosperity",
-        "projectPath": "C:\\Users\\student\\Desktop\\Prosperity\\Prosperity.csproj",
-        "packagesPath": "C:\\Users\\student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\student\\Desktop\\Prosperity\\obj\\",
+        "projectPath": "D:\\Aleksandr\\misc\\Tombstones\\PL-Projects\\C#\\Prosperity\\Prosperity.csproj",
+        "packagesPath": "C:\\Users\\Администратор\\.nuget\\packages\\",
+        "outputPath": "D:\\Aleksandr\\misc\\Tombstones\\PL-Projects\\C#\\Prosperity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Администратор\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,7 +75,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
         }
       }
     }

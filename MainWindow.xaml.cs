@@ -23,10 +23,11 @@ namespace Prosperity
 
         public MainWindow()
         {
-            TotalViewModel = new GlobalViewModel();
+            GlobalViewModel test = new GlobalViewModel();
 
-            if (TotalViewModel.Connect())
+            if (test.Connect())
             {
+                TotalViewModel = test;
                 ActivateAdmin();
             }
             else
