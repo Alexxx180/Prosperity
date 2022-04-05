@@ -31,7 +31,7 @@
 
   <ItemGroup>
     <Reference Include="ControlMaterials">
-      <HintPath>..\ControlMaterials\bin\Debug\net5.0\ControlMaterials.dll</HintPath>
+      <HintPath>bin\Debug\net5.0-windows\ControlMaterials.dll</HintPath>
     </Reference>
   </ItemGroup>
 
