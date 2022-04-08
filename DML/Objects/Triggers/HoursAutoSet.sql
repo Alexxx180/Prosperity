@@ -113,5 +113,5 @@ CREATE TRIGGER insert_disciplines
 AFTER INSERT ON Disciplines FOR EACH ROW
 BEGIN
 	CALL hours_auto_set(NEW.`ID`, 0);
-	CALL meta_data_auto_set(6, '');
+	CALL meta_data_auto_set(NEW.`ID`, '');
 END$$
